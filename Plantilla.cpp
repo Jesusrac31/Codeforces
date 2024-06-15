@@ -43,7 +43,7 @@ void Imprime(vi vect) {
   for (int i = 0; i < vect.size(); i++) {
     cout << vect[i] << " ";
   }
-  cout << endl;
+  cout << "\n";
 }
 
 void Imprime_set(set<int> s) {

@@ -1,0 +1,2 @@
+(g++ -o [nombre] archivo.cpp) -and (time ./[nombre] <input.in> output.out)
+(g++ -o [nombre] archivo.cpp) -and (time ./[nombre])

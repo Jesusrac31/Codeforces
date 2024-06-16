@@ -158,6 +158,19 @@ vi lee(int n) {
 
 int solve() {
   // Code aquí
+  int n;
+  cin >> n;
+  vi v;
+  v=lee(n);
+  if (v[0] == v[v.size()-1]){
+    cout << "NO\n";
+  } else {
+    cout << "YES\nRB";
+    for(int i = 2; i<v.size(); i++){
+        cout << "R";
+    }
+    cout << "\n";
+  }
   return 0;
 }
 

@@ -146,9 +146,9 @@ bool isNumeric(string const &str) {
   return !str.empty() && it == str.end();
 }
 
-vi lee(int n) {
+vll lee(int n) {
   int el;
-  vi vect;
+  vll vect;
   for (int i = 0; i < n; i++) {
     cin >> el;
     vect.PB(el);
@@ -158,6 +158,21 @@ vi lee(int n) {
 
 int solve() {
   // Code aquí
+  int n;
+  lli sol=0;
+  vll v;
+  cin >> n;
+  v=lee(n);
+  lli grupo=0;
+  for (int i = n-1; i>=0; i--){
+    grupo+=v[i];
+    if (grupo>0){
+        sol+=grupo;
+        grupo=0;
+    }
+  }
+  sol+=abs(grupo);
+  cout << sol << endl;
   return 0;
 }
 

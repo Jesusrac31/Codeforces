@@ -1,2 +1,9 @@
-(g++ -o [nombre] archivo.cpp) -and (time ./[nombre] <input.in> output.out)
-(g++ -o [nombre] archivo.cpp) -and (time ./[nombre])
+Powershell:
+
+Opción 1:
+g++ -o main.exe "archivo.cpp"
+Measure-Command{.\main.exe > output.out}
+
+Opción 2:
+g++ -o main.exe "CF Global R 26 9-jun-24\C1. Magnitude (Easy Version).cpp"
+Measure-Command{Get-Content input.in | .\main.exe > output.out}

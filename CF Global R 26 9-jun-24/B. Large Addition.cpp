@@ -158,6 +158,19 @@ vi lee(int n) {
 
 int solve() {
   // Code aquí
+  string s;
+  cin >> s;
+  if (s[0] == '1' && s[s.size()-1] != '9'){
+    for (int i = 1; i<s.size()-1; i++){
+        if (s[i] == '0'){
+            cout << "NO\n";
+            return 0;
+        }
+    }
+    cout << "YES\n";
+  } else {
+    cout << "NO\n";
+  }
   return 0;
 }
 

@@ -1,9 +1,17 @@
 Powershell:
 
 Opción 1:
-g++ -o main.exe "archivo.cpp"
+g++ -o main.exe "CF Global R 26 9-jun-24\C2. Magnitude (Hard Version).cpp"
 Measure-Command{.\main.exe > output.out}
 
 Opción 2:
 g++ -o main.exe "CF Global R 26 9-jun-24\C2. Magnitude (Hard Version).cpp"
 Measure-Command{Get-Content input.in | .\main.exe > output.out}
+
+Opción 3:
+Measure-Command{.\main.exe > output.out}
+Measure-Command{Get-Content input.in | .\main.exe > output.txt}
+
+Opción 4:
+g++ -o main.exe "CF Global R 26 9-jun-24\C2. Magnitude (Hard Version).cpp"
+Measure-Command{Get-Content input.in | .\main.exe > output.txt}

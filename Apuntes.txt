@@ -5,5 +5,5 @@ g++ -o main.exe "archivo.cpp"
 Measure-Command{.\main.exe > output.out}
 
 Opción 2:
-g++ -o main.exe "CF Global R 26 9-jun-24\C1. Magnitude (Easy Version).cpp"
+g++ -o main.exe "CF Global R 26 9-jun-24\C2. Magnitude (Hard Version).cpp"
 Measure-Command{Get-Content input.in | .\main.exe > output.out}

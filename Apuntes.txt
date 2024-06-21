@@ -13,5 +13,5 @@ Measure-Command{.\main.exe > output.out}
 Measure-Command{Get-Content input.in | .\main.exe > output.txt}
 
 Opción 4:
-g++ -o main.exe "CF Global R 26 9-jun-24\C2. Magnitude (Hard Version).cpp"
+g++ -o main.exe "CF R 953 (Div. 2) 16-jun-24\B. New Bakery.cpp"
 Measure-Command{Get-Content input.in | .\main.exe > output.txt}

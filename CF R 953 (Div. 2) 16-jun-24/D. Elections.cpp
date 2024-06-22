@@ -86,10 +86,17 @@ typedef map<int, vector<int>> miv;
 // Funciones vector
 #define PB(a) push_back(a);
 
-bool sort_func(int a, int b) {
-  if (a < b) {
+bool sort_func(pii a, pii b) {
+  if (a.first > b.first) {
     return true;
-  } else {
+  } else if (a.first = b.first) {
+    if (a.second<b.second){
+        return true;
+    } else {
+        return false;
+    }
+  }
+  else {
     return false;
   }
 }
@@ -112,7 +119,7 @@ bool sort_func(int a, int b) {
 double log_2 = log(2);
 double log2(int a) { return (log(a) / log_2); }
 
-void Imprime(vi vect) {
+void Imprime(vll vect) {
   for (int i = 0; i < vect.size(); i++) {
     cout << vect[i] << " ";
   }
@@ -146,37 +153,47 @@ bool isNumeric(string const &str) {
   return !str.empty() && it == str.end();
 }
 
-vi lee(int n) {
-  int el;
-  vi vect;
-  for (int i = 0; i < n; i++) {
+vll lee(lli n, lli c) {
+  lli el,pos=0, max;
+  vll vect;
+  cin >> el;
+  max=el+c;
+  vect.PB(el+c);
+  for (lli i = 1; i < n; i++) {
     cin >> el;
+    if (el>max){
+        max=el;
+        pos=i;
+    }
     vect.PB(el);
   }
+  vect.PB(pos);
   return (vect);
 }
 
 int solve() {
   // Code aquí
-  lli n, k;
-  cin >> n >> k;
-
-  if (k%2==1 || k>(n/2)*(n-n/2)*2){
-    cout << "NO" << endl;
-  } else {
-    cout << "YES" << endl;
-    lli contador = 1, segunda_parte = 0;
-    for(int i = 0; i<n; i++){
-      if((k/2-(n-n/2)*(n/2-contador)+contador-1<=i && contador <= n/2)||segunda_parte+n/2+1>n){
-        cout << contador << " ";
-        contador++;
-      } else {
-        cout << segunda_parte+n/2+1 << " ";
-        segunda_parte++;
-      }
+  lli n, c, pos;
+  cin >> n >> c;
+  vll sol;
+  vll v;
+  v=lee(n, c);
+  pos = v[v.size()-1];
+  v.pop_back();
+  lli suma = 0;
+  for(int i = 0; i<n; i++){
+    if(v[i]<v[pos] || (v[i] == v[pos] && i > pos)){
+        //Hay  que operar
+        sol.PB(i);
+        if (i < pos && v[i]+suma < v[pos]){
+            sol[sol.size()-1]+=1;
+        }
+    } else {
+        sol.PB(0);
     }
-    cout << endl;
+    suma+=v[i];
   }
+  Imprime(sol);
 
   return 0;
 }

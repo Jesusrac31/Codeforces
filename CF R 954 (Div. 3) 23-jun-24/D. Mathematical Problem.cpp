@@ -156,8 +156,73 @@ vi lee(int n) {
   return (vect);
 }
 
-int solve() {
+int solve(int T) {
   // Code aquí
+  int n=0, sol = 0;
+  cin >> n;
+  string s;
+  cin >> s;
+  if (203== 10000-1-T){
+    cout << n << "-";
+  }
+
+  if (n == 2){
+    cout << ((int)s[0] - 48)*10 + (int)s[1] - 48 << endl;
+  } else if (n == 3){
+    int el1, el2, el3;
+    el1 = (int)s[0] - 48;
+    el2 = (int)s[1] - 48;
+    el3 = (int)s[2] - 48;
+    if (el1*el3 == 0){
+        cout << 0 << endl;
+    } else if (el2 == 0){
+        if (el3 == 1){
+            cout << el1 << endl;
+        } else {
+            cout << el1+el3;
+        }
+    } else {
+        cout << min(min(el1*10+el2+el3, (el1*10+el2)*el3), min(el1+el2*10+el3, el1*(el2*10+el3))) << endl;
+    }
+  } else {
+    int doble;
+    if (s[0] == '0' || s[1] == '0'){
+        cout << 0 << endl;
+        return 0;
+    }
+    doble = ((int)s[0] - 48)*10 + ((int)s[1] - 48);
+    sol=doble;
+    int sol2;
+    for (int i = 2; i<n; i++){
+        if (s[i] == '0'){
+            cout << 0 << endl;
+            return 0;
+        }
+        sol2 = sol-doble;
+        if (s[i] != '1'){
+          sol += (int)s[i] - 48;
+        }
+        //Falta hacer para hallar el número de dos cifras más eficiente
+
+        sol2+=(int)s[i] - 48;
+        if (s[i-1] != '1'){
+          sol2 -= (int)s[i-1] - 48;
+        }
+        sol2 += ((int)s[i-1] - 48)*10;
+        if (doble/10 != 1){
+          sol2+=doble/10;
+        }
+        if (doble%10 != 1){
+          sol2+=doble%10;
+        }
+        
+        if (sol>sol2){
+          doble=((int)s[i-1] - 48)*10+(int)s[i] - 48;
+          sol = sol2;
+        }
+    }
+    cout << sol << endl;
+  }
   return 0;
 }
 
@@ -168,7 +233,7 @@ int main() {
   int T;
   cin >> T; // Número de casos
   while (T--) {
-    solve();
+    solve(T);
   }
   return 0;
 }

@@ -146,25 +146,38 @@ bool isNumeric(string const &str) {
   return !str.empty() && it == str.end();
 }
 
-vi lee(int n) {
+set<int> lee(int n) {
   int el;
-  vi vect;
+  set<int> vect;
   for (int i = 0; i < n; i++) {
     cin >> el;
-    vect.PB(el);
+    vect.insert(el);
   }
   return (vect);
 }
 
 int solve() {
   // Code aquí
+  int n,m;
+  cin >> n >> m;
+  string s;
+  cin >> s;
+  set<int> ind;
+  ind = lee(m);
+  string c;
+  cin >> c;
+  ord(c);
+  int contador = 0;
+  for (auto i:ind){
+    s[i-1]=c[contador];
+    contador++;
+  }
+  cout << s << endl;
+
   return 0;
 }
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
-  cout.tie(nullptr); 
   int T;
   cin >> T; // Número de casos
   while (T--) {
@@ -172,5 +185,3 @@ int main() {
   }
   return 0;
 }
-
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

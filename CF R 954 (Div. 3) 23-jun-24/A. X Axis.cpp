@@ -158,13 +158,13 @@ vi lee(int n) {
 
 int solve() {
   // Code aquí
+  int a,b,c;
+  cin >> a >> b >> c;
+  cout << (abs(a-b)+abs(b-c)+abs(c-a))/2 << endl;
   return 0;
 }
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
-  cout.tie(nullptr); 
   int T;
   cin >> T; // Número de casos
   while (T--) {
@@ -172,5 +172,3 @@ int main() {
   }
   return 0;
 }
-
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

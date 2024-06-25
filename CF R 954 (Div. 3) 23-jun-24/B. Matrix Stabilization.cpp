@@ -112,11 +112,13 @@ bool sort_func(int a, int b) {
 double log_2 = log(2);
 double log2(int a) { return (log(a) / log_2); }
 
-void Imprime(vi vect) {
+void Imprime(vector<vi> vect) {
   for (int i = 0; i < vect.size(); i++) {
-    cout << vect[i] << " ";
+    for (int j = 0; j < vect[i].size(); j++) {
+        cout << vect[i][j] << " ";
+    }
+    cout << endl;
   }
-  cout << "\n";
 }
 
 void Imprime_set(set<int> s) {
@@ -146,25 +148,73 @@ bool isNumeric(string const &str) {
   return !str.empty() && it == str.end();
 }
 
-vi lee(int n) {
+vector<vi> lee(int n, int m) {
   int el;
   vi vect;
+  vector<vi> matriz;
   for (int i = 0; i < n; i++) {
-    cin >> el;
-    vect.PB(el);
+    for (int i = 0; i < m; i++) {
+        cin >> el;
+        vect.PB(el);
+    }
+    matriz.PB(vect);
+    vect.clear();
   }
-  return (vect);
+  return(matriz);
 }
+
 
 int solve() {
   // Code aquí
+  int n, m;
+  cin >> n >> m;
+  vector<vi> matriz;
+  matriz = lee(n,m);
+  for (int i = 0; i<n*m; i++){
+    int maxi = 0;
+    bool cambia = false;
+    if (i/m!= 0){ // Mira arriba
+        if (matriz[i/m][i%m] > matriz[i/m-1][i%m]){
+            maxi = max(maxi,matriz[i/m-1][i%m]);
+            cambia = true;
+        } else {
+            continue;
+        }
+    }
+    if (i/m!= n-1){ // Mira abajo
+        if (matriz[i/m][i%m] > matriz[i/m+1][i%m]){
+            maxi = max(maxi,matriz[i/m+1][i%m]);
+            cambia = true;
+        } else {
+            continue;
+        }
+    }
+    if (i%m!= 0){ // Mira izquierda
+        if (matriz[i/m][i%m] > matriz[i/m][i%m-1]){
+            maxi = max(maxi,matriz[i/m][i%m-1]);
+            cambia = true;
+        } else {
+            continue;
+        }
+    }
+    if (i%m!= m-1){ // Mira derecha
+        if (matriz[i/m][i%m] > matriz[i/m][i%m+1]){
+            maxi = max(maxi,matriz[i/m][i%m+1]);
+            cambia = true;
+        } else {
+            continue;
+        }
+    }
+    if (cambia){
+        matriz[i/m][i%m] = maxi;
+    }
+  }
+  Imprime(matriz);
+
   return 0;
 }
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
-  cout.tie(nullptr); 
   int T;
   cin >> T; // Número de casos
   while (T--) {
@@ -172,5 +222,3 @@ int main() {
   }
   return 0;
 }
-
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

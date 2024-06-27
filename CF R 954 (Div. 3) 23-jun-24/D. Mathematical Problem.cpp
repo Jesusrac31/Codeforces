@@ -162,27 +162,20 @@ int solve(int T) {
   cin >> n;
   string s;
   cin >> s;
-  if (203== 10000-1-T){
-    cout << n << "-";
-  }
 
   if (n == 2){
-    cout << ((int)s[0] - 48)*10 + (int)s[1] - 48 << endl;
+    cout << ((int)s[0] - 48)*10 + ((int)s[1] - 48) << endl;
   } else if (n == 3){
     int el1, el2, el3;
     el1 = (int)s[0] - 48;
     el2 = (int)s[1] - 48;
     el3 = (int)s[2] - 48;
     if (el1*el3 == 0){
-        cout << 0 << endl;
+      cout << 0 << endl;
     } else if (el2 == 0){
-        if (el3 == 1){
-            cout << el1 << endl;
-        } else {
-            cout << el1+el3;
-        }
+      cout << min(el1*el3,el1+el3) << endl;
     } else {
-        cout << min(min(el1*10+el2+el3, (el1*10+el2)*el3), min(el1+el2*10+el3, el1*(el2*10+el3))) << endl;
+      cout << min(min(el1*10+el2+el3, (el1*10+el2)*el3), min(el1+el2*10+el3, el1*(el2*10+el3))) << endl;
     }
   } else {
     int doble;
@@ -202,8 +195,6 @@ int solve(int T) {
         if (s[i] != '1'){
           sol += (int)s[i] - 48;
         }
-        //Falta hacer para hallar el número de dos cifras más eficiente
-
         sol2+=(int)s[i] - 48;
         if (s[i-1] != '1'){
           sol2 -= (int)s[i-1] - 48;
@@ -237,5 +228,3 @@ int main() {
   }
   return 0;
 }
-
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

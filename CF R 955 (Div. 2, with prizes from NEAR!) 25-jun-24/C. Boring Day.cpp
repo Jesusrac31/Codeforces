@@ -167,6 +167,24 @@ vi lee(int n) {
 
 int solve() {
   // Code aquí
+  int n, l, r, suma = 0, sol = 0;
+  cin >> n >> l >> r;
+  vi v;
+  v=lee(n);
+  int i = 0;
+  for (int j = 0; j<n; j++){
+    suma+=v[j];
+    while (suma > r){
+        suma-=v[i];
+        i++;
+    }
+    if (suma >= l && suma <= r){
+        suma = 0;
+        i=j+1;
+        sol++;
+    }
+  }
+  cout << sol << endl;
   return 0;
 }
 
@@ -181,5 +199,3 @@ int main() {
   }
   return 0;
 }
-
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

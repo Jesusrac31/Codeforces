@@ -167,6 +167,27 @@ vi lee(int n) {
 
 int solve() {
   // Code aquí
+  int x, y, k;
+  cin >> x >> y >> k;
+  while(k){
+    //cout << x << " - ";
+    
+    k-=y-x%y;
+    if (k<0){
+        x+=k+y-x%y;
+        k=0;
+    } else {
+        x=(x+y-x%y)/y;   
+    }
+    while(x%y==0){
+        x=x/y;
+    }
+    if (x==1){
+        x=1+k%(y-1);
+        k=0;
+    }
+  }
+  cout << x << endl;
   return 0;
 }
 
@@ -181,5 +202,3 @@ int main() {
   }
   return 0;
 }
-
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

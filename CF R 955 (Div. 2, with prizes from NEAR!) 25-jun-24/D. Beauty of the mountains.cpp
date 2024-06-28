@@ -165,8 +165,112 @@ vi lee(int n) {
   return (vect);
 }
 
+vector<vi> lee2d(int n, int m) {
+  int el;
+  vector<vi> vect;
+  for (int i = 0; i < n; i++) {
+    vect.PB({});
+    for (int j = 0; j < m; j++) {
+        cin >> el;
+        vect[i].PB(el);
+    }
+  }
+  return (vect);
+}
+
 int solve() {
   // Code aquí
+  int n, m, k;
+  cin >> n >> m >> k;
+  vector<vi> heights;
+  heights = lee2d(n,m);
+  vector<string> nieve;
+  //Lectura de si la montaña está nevada
+  string el;
+  for (int i = 0; i<n; i++){
+    cin >> el;
+    nieve.PB(el);
+  }
+  int recuento=0;
+  for(int i = 0; i<n; i++){
+    for (int j = 0; j<m; j++){
+        if (nieve[i][j] == '0'){
+            recuento+=heights[i][j];
+        } else {
+            recuento-=heights[i][j];
+        }
+    }
+  }
+
+  int parametros = -1;
+  int suma;
+  for (int i = 0; i<n-k+1; i++){
+    suma = 0;
+    for (int l = 0; l<k; l++){
+        for (int o = 0; o<k; o++){
+            if (nieve[i+l][o] == '0'){
+                suma++;
+            } else {
+                suma--;
+            }
+        }
+    }
+    suma = abs(suma);
+    if (suma != 0){
+        if (parametros == -1){
+            parametros = suma;
+        }
+        if (max(parametros,suma)%min(parametros,suma) != 0 && parametros%2 == 1){
+            parametros = 1;
+            break;
+        } else if (parametros%2==0){
+            if (parametros-suma != 0){
+                parametros = min(min(suma, parametros),abs(parametros-suma));
+            }
+        }else {
+            parametros = min(parametros,suma);
+        }
+    }
+    for (int j = 1; j<m-k+1; j++){
+        for (int l = 0; l<k; l++){
+            if (nieve[i+l][j-1] == '0'){
+                suma--;
+            } else {
+                suma++;
+            }
+            if (nieve[i+l][j+k-1] == '0'){
+                suma++;
+            } else {
+                suma--;
+            }
+        }
+        suma = abs(suma);
+        if (suma != 0){
+            if (parametros == -1){
+                parametros = suma;
+            }
+            if (max(parametros,suma)%min(parametros,suma) != 0 && parametros%2 == 1){
+                parametros = 1;
+                break;
+            } else if (parametros%2==0){
+                if (parametros-suma != 0){
+                    parametros = min(abs(parametros-suma), parametros);
+                    parametros = min(parametros, suma);
+                }
+            }else {
+                parametros = min(parametros,suma);
+            }
+        }
+    }
+  }
+  if (recuento%parametros == 0 && parametros != -1){
+    cout << "YES" << endl;
+  } else if (recuento == 0) {
+    cout << "YES" << endl;
+  } else {
+    cout << "NO" << endl;
+  }
+
   return 0;
 }
 

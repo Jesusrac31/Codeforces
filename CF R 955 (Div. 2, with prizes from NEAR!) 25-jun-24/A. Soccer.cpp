@@ -167,6 +167,15 @@ vi lee(int n) {
 
 int solve() {
   // Code aquí
+  int x1, y1;
+  cin >> x1 >> y1;
+  int x2, y2;
+  cin >> x2 >> y2;
+  if (x1 < y1 ^ x2 < y2 ){
+    cout << "NO" << endl;
+  } else {
+    cout << "YES" << endl;
+  }
   return 0;
 }
 
@@ -182,4 +191,3 @@ int main() {
   return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

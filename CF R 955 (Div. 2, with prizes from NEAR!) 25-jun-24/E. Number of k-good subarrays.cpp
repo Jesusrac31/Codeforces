@@ -165,105 +165,31 @@ vi lee(int n) {
   return (vect);
 }
 
-vector<vi> lee2d(int n, int m) {
-  int el;
-  vector<vi> vect;
-  for (int i = 0; i < n; i++) {
-    vect.PB({});
-    for (int j = 0; j < m; j++) {
-        cin >> el;
-        vect[i].PB(el);
-    }
-  }
-  return (vect);
-}
+//vll factoriales = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800, 39916800, 479001600, 6227020800, 87178291200, 1307674368000, 20922789888000, 355687428096000, 6402373705728000, 121645100408832000, 2432902008176640000, -4249290049419214848, -1250660718674968576, 8128291617894825984, -7835185981329244160, 7034535277573963776, -1569523520172457984, -5483646897237262336, -5968160532966932480, -7055958792655077376, -8764578968847253504, 4999213071378415616, -6045878379276664832, 3400198294675128320, 4926277576697053184, 6399018521010896896, 9003737871877668864, 1096907932701818880, 4789013295250014208, 2304077777655037952, -70609262346240000, -2894979756195840000, 7538058755741581312, -7904866829883932672, 2673996885588443136, -8797348664486920192, 1150331055211806720, -1274672626173739008, -5844053835210817536, 8789267254022766592, -3258495067890909184, -162551799050403840, -8452693550620999680, -5270900413883744256, -7927461244078915584, 6711489344688881664, 6908521828386340864, 6404118670120845312, 2504001392817995776, 162129586585337856};
 
 int solve() {
   // Code aquí
-  int n, m, k;
-  cin >> n >> m >> k;
-  vector<vi> heights;
-  heights = lee2d(n,m);
-  vector<string> nieve;
-  //Lectura de si la montaña está nevada
-  string el;
-  for (int i = 0; i<n; i++){
-    cin >> el;
-    nieve.PB(el);
+  lli n, k, sol = 0;
+  cin >> n >> k;
+  lli borde;
+  n--;
+  while(borde != 0 && k != -1){
+    if (n == 1){
+      borde = 0;
+    } else {
+      borde = (lli)log2(n);
+    }
+    lli contador = 1;
+    sol += contador;
+    for (int i = 0; i<min(k,borde); i++){
+      contador*=(borde-i)/(i+1);
+      sol+=contador;
+    }
+    n-=pow(2,borde+1);
+    k--;
   }
-  /*if (t == 10000-5335 && n != 2){
-    cout << n << "-" << m << "-" << k << "-->";
-    for (int i = 2; i<heights.size(); i++){
-      for(int j = 0; j<heights[i].size(); j++){
-        cout << heights[i][j] <<"-";
-      }
-      cout << "//";
-    }
-    for (int i = 0; i<nieve.size(); i++){
-      cout << nieve[i];
-      cout << "//";
-    }
-  }*/
-  lli recuento=0;
-  for(int i = 0; i<n; i++){
-    for (int j = 0; j<m; j++){
-        if (nieve[i][j] == '0'){
-            recuento+=heights[i][j];
-        } else {
-            recuento-=heights[i][j];
-        }
-    }
-  }
-
-  int parametros = -1;
-  int suma;
-  for (int i = 0; i<n-k+1; i++){
-    suma = 0;
-    for (int l = 0; l<k; l++){
-        for (int o = 0; o<k; o++){
-            if (nieve[i+l][o] == '0'){
-                suma++;
-            } else {
-                suma--;
-            }
-        }
-    }
-    if (suma != 0){
-        if (parametros == -1){
-            parametros = abs(suma);
-        }
-        parametros = maximo_comun_divisor(parametros, abs(suma));
-    }
-    for (int j = 1; j<m-k+1; j++){
-        for (int l = 0; l<k; l++){
-            if (nieve[i+l][j-1] == '0'){
-                suma--;
-            } else {
-                suma++;
-            }
-            if (nieve[i+l][j+k-1] == '0'){
-                suma++;
-            } else {
-                suma--;
-            }
-        }
-        if (suma != 0){
-            if (parametros == -1){
-                parametros = abs(suma);
-            }
-            parametros = maximo_comun_divisor(parametros, abs(suma));
-        }
-    }
-  }
-  //cout << parametros << endl;
-  if (recuento%parametros == 0 && parametros != -1){
-    cout << "YES" << endl;
-  } else if (recuento == 0) {
-    cout << "YES" << endl;
-  } else {
-    cout << "NO" << endl;
-  }
-
+  
+  cout << sol << endl;
   return 0;
 }
 
@@ -278,3 +204,5 @@ int main() {
   }
   return 0;
 }
+
+//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

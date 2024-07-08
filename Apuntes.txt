@@ -5,7 +5,7 @@ g++ -o main.exe "CF Global R 26 9-jun-24\C2. Magnitude (Hard Version).cpp"
 Measure-Command{.\main.exe > output.out}
 
 Opción 2:
-g++ -o main.exe "CF R 955 (Div. 2, with prizes from NEAR!) 25-jun-24\E. Number of k-good subarrays.cpp"
+g++ -o main.exe "CF R 956 (Div. 2) and ByteRace 2024 7-jul-24\C. Have Your Cake and Eat It Too.cpp"
 Measure-Command{Get-Content input.in | .\main.exe > output.out}
 
 Opción 3:

@@ -86,8 +86,8 @@ typedef map<int, vector<int>> miv;
 // Funciones vector
 #define PB(a) push_back(a);
 
-bool sort_func(int a, int b) {
-  if (a < b) {
+bool sort_func(pii a, pii b) {
+  if (a.first < b.first) {
     return true;
   } else {
     return false;
@@ -155,24 +155,79 @@ bool isNumeric(string const &str) {
   return !str.empty() && it == str.end();
 }
 
-vi lee(int n) {
+vector<pii> lee(int n) {
   int el;
-  vi vect;
+  pii obj;
+  vector<pii> vect;
   for (int i = 0; i < n; i++) {
     cin >> el;
-    vect.PB(el);
+    obj.first=el;
+    obj.second=i;
+    vect.PB(obj);
   }
   return (vect);
 }
 
 int solve() {
   // Code aquí
-  int n;
+  int n, changes=0;
   cin >> n;
+  vector<pii> a, b, a_c, b_c;
+  a = lee(n);
+  b = lee(n);
+  copia(a,a_c);
+  copia(b,b_c);
+  ord(a);
+  ord(b);
   for (int i = 0; i<n; i++){
-    cout << i+1 << " ";
+    if (a[i].first != b[i].first){
+        cout << "NO" << endl;
+        return 1;
+    }
+    a_c[a[i].second].second = i;
+    b_c[b[i].second].second = i;
   }
-  cout << endl;
+  for (int i = 0; i<n; i++){
+    if (a[i].first!=a_c[i].first){
+        changes++;
+        // a_c[a[i].second].second --> indice del elemento que se va a colocar
+        // a_c[i].second --> indice del elemento por el que se intercambiará
+        pii save;
+        save = a_c[a[i].second];
+        a_c[a[i].second] = a_c[i]; 
+        a_c[i] = save;
+        a[a_c[a[i].second].second].second = a[i].second;
+        a[i].second = i;
+    }
+  }
+  if (changes%2 == 1){
+    pii save;
+    save = b_c[1];
+    b_c[1]=b_c[0];
+    b_c[0]=save;
+    b[b_c[0].second].second=0;
+    b[b_c[1].second].second=1;
+  }
+  //cout << b_c[0].first << " " << b_c[1].first << endl;
+  changes = 0;
+  for (int i = 0; i<n; i++){
+    if (b[i].first!=b_c[i].first){
+        //cout << i << " ";
+        changes++;
+        pii save;
+        save = b_c[b[i].second];
+        b_c[b[i].second] = b_c[i]; 
+        b_c[i] = save;
+        b[b_c[b[i].second].second].second = b[i].second;
+        b[i].second = i;
+    }
+  }
+  if (changes%2 == 0){
+    cout << "YES" << endl;
+  } else {
+    cout << "NO" << endl;
+  }
+
   return 0;
 }
 

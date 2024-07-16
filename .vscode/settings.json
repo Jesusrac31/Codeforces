@@ -16,6 +16,8 @@
         "cmath": "cpp",
         "vector": "cpp",
         "queue": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "xiosbase": "cpp",
+        "xtree": "cpp"
     }
 }

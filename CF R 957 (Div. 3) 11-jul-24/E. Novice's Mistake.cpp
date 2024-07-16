@@ -169,13 +169,20 @@ int solve() {
   // Code aquí
   string n_s;
   cin >> n_s;
+  if (n_s == "1"){
+    cout << 9999 << endl;
+    for (int i = 1; i<10000; i++){
+        cout << i+1 << " " << i << endl;
+    }
+    return 0;
+  }
   int b, f=n_s.size(), r=0, x=1, n = stoi(n_s);
   vi sol;
   r*=10;
   r+= (int)n_s[(x-1)%f] - 48;
   b=(r*f-n*x)/(n-f);
   while (b<=10000){
-    if ((r*f-n*x)%(n-f) == 0 && b>0){
+    if ((r*f-n*x)%(n-f) == 0 && b>0 && (b+x)%f == 0){
         sol.PB((b+x)/f);
         sol.PB(b);
     }
@@ -204,5 +211,3 @@ int main() {
   }
   return 0;
 }
-
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

@@ -112,11 +112,11 @@ bool sort_func(int a, int b) {
 double log_2 = log(2);
 double log2(int a) { return (log(a) / log_2); }
 
-void Imprime(vi vect) {
+void Imprime(vll vect) {
   for (int i = 0; i < vect.size(); i++) {
-    cout << vect[i] << " ";
+    cout << vect[i] << "-";
   }
-  cout << "\n";
+  cout << "-";
 }
 
 void Imprime2d(vector<vi> vect) {
@@ -128,7 +128,7 @@ void Imprime2d(vector<vi> vect) {
   }
 }
 
-void Imprime_set(set<int> s) {
+void Imprime_set(set<lli> s) {
   copy(s.begin(), s.end(), ostream_iterator<int>(cout, " "));
   cout << endl;
 }
@@ -155,9 +155,9 @@ bool isNumeric(string const &str) {
   return !str.empty() && it == str.end();
 }
 
-vi lee(int n) {
-  int el;
-  vi vect;
+vll lee(int n) {
+  lli el;
+  vll vect;
   for (int i = 0; i < n; i++) {
     cin >> el;
     vect.PB(el);
@@ -167,24 +167,48 @@ vi lee(int n) {
 
 int solve() {
   // Code aquí
-  int n, m, k;
-  cin >> n >> m >> k;
-  if (k>m){
-    for (int i = n; i>m; i--){
-        cout << i << " ";
-    }
-    for (int i = 1; i<=m; i++){
-        cout << i << " ";
-    }
-  } else {
-    for (int i = n; i>= k; i--){
-        cout << i << " ";
-    }
-    for (int i = 1; i<k; i++){
-        cout << i << " ";
+  lli n, x, sol = 1;
+  cin >> n >> x;
+  vll v, d;
+  v=lee(n);
+  /*if (T==   1000-31){
+    Imprime(v);
+    cout << "-" << n << "-" << x;
+  }*/
+  for (int i = 0; i<n; i++){
+    if (x%v[i]==0 && v[i] != 1){
+        d.PB(v[i]);
     }
   }
-  cout << endl;
+  unordered_set<lli> numeros;
+  vll extra;
+  for(int i = 0; i<d.size(); i++){
+    bool rompe = false;
+    auto it = numeros.begin();
+    int l = numeros.size();
+    for (int j = 0; j<l; j++){
+        //cout << *it << " - " << d[i] << endl;
+        if ((*it)*d[i] < x){
+            extra.PB((*it)*d[i]);
+        } else if ((*it)*d[i] == x){
+            sol++;
+            rompe = true;
+            break;
+        }
+        ++it;
+    }
+    for (auto j=extra.begin(); j!=extra.end(); ++j){
+        numeros.insert(*j);
+    }
+    extra.clear();
+    if (rompe){
+        numeros.clear();
+    }
+    numeros.insert(d[i]);
+    //Imprime_set(numeros);
+  }
+  //cout << "sol: ";
+  cout << sol << endl;
   return 0;
 }
 

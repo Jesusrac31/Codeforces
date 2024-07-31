@@ -112,7 +112,7 @@ bool sort_func(int a, int b) {
 double log_2 = log(2);
 double log2(int a) { return (log(a) / log_2); }
 
-void Imprime(vll vect) {
+void Imprime(vi vect) {
   for (int i = 0; i < vect.size(); i++) {
     cout << vect[i] << " ";
   }
@@ -165,54 +165,16 @@ vi lee(int n) {
   return (vect);
 }
 
-bool debugging = false;
-
 int solve() {
   // Code aquí
-  string s;
-  cin >> s;
-  map<lli, vll> v;
-  v[0] = {0, 0};
-  lli indice = 0;
-  lli minimo = 0;
-  lli maximo = 0;
-  for (lli i = 0; i<s.size(); i++){
-    if (s[i] == '0'){
-        indice--;
-    } else {
-        indice++;
-    }
-    if (indice-minimo==v.size()){
-        if (debugging){
-            cout << "NEW_UP --> " << indice << endl;
-        }
-        v[indice] = {i+1, i+1};
-        maximo = indice;
-    } else if (indice < minimo){
-        if (debugging){
-            cout << "NEW_DOWN --> " << indice << endl;
-        }
-        v[indice] = {i+1, i+1};
-        minimo = indice;
-    } else {
-        v[indice].PB(i+1);
-        v[indice][0]+=i+1;
-    }
+  int n, maximo=0;
+  cin >> n;
+  vi v;
+  v = lee(n);
+  for (int i = n-1; i>=0; i-=2){
+    maximo = max(maximo, v[i]);
   }
-  lli sol = 0;
-  for (lli i = minimo; i<maximo+1; i++){
-    if (debugging){
-        cout << i << " --> ";
-        Imprime(v[i]);
-    }
-    for (int j = 1; j<v[i].size(); j++){
-        v[i][0]-=v[i][j];
-        sol+=(((v[i][j]+1)%1000000007)*(((((s.size()%1000000007+1)%1000000007)*((v[i].size()%1000000007-(lli)j-1)%1000000007))%1000000007-(v[i][0]%1000000007))%1000000007))%1000000007;
-        sol = sol%1000000007;
-    }
-  }
-  cout << sol << endl;
-
+  cout << maximo << endl;
   return 0;
 }
 

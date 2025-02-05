@@ -19,6 +19,14 @@
         "stack": "cpp",
         "xiosbase": "cpp",
         "xtree": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "atomic": "cpp",
+        "ccomplex": "cpp",
+        "array": "cpp",
+        "deque": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "initializer_list": "cpp",
+        "regex": "cpp"
     }
 }

@@ -12,7 +12,7 @@ typedef map<int, vector<int>> miv;
 // Funciones vector
 #define PB(a) push_back(a);
 
-bool sort_func(int a, int b) {
+bool sort_func(lli a, lli b) {
   if (a < b) {
     return true;
   } else {
@@ -81,9 +81,9 @@ bool isNumeric(string const &str) {
   return !str.empty() && it == str.end();
 }
 
-vi lee(int n) {
-  int el;
-  vi vect;
+vll lee(lli n) {
+  lli el;
+  vll vect;
   for (int i = 0; i < n; i++) {
     cin >> el;
     vect.PB(el);
@@ -93,6 +93,34 @@ vi lee(int n) {
 
 int solve() {
   // Code aquí
+  lli n, l, r;
+  cin >> n >> l >> r;
+
+  vll a;
+  a = lee(n);
+
+  vll al, ar;
+  for (int i = 0; i<n; i++){
+    if (i<=r-1){
+        al.PB(a[i]);
+    }
+    if (i>=l-1){
+        ar.PB(a[i]);
+    }
+  }
+  ord(al);
+  ord(ar);
+  lli sum_1 = 0, sum_2 = 0;
+  for (int i = 0; i<r-l+1; i++){
+    if (i<al.size()){
+        sum_1+=al[i];
+    }
+    if (i<ar.size()){
+        sum_2+=ar[i];
+    }
+  }
+  cout << min(sum_1, sum_2) << endl;
+
   return 0;
 }
 
@@ -107,5 +135,3 @@ int main() {
   }
   return 0;
 }
-
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

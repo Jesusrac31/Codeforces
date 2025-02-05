@@ -93,6 +93,13 @@ vi lee(int n) {
 
 int solve() {
   // Code aquí
+  int l, r;
+  cin >> l >> r;
+  if (l != 1 || r != 1){
+    cout << r-l << endl;
+  } else {
+    cout << 1 << endl;
+  }
   return 0;
 }
 
@@ -107,5 +114,3 @@ int main() {
   }
   return 0;
 }
-
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

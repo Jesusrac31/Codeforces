@@ -93,6 +93,52 @@ vi lee(int n) {
 
 int solve() {
   // Code aquí
+  int n;
+  cin >> n;
+  vector<vi> grafo (n, vi {});
+  vi conected (n, 0);
+  int groups = 1;
+
+  int l, r;
+  for (int i = 0; i<n-1; i++){
+    cin >> l >> r;
+    grafo[l-1].PB(r-1);
+    grafo[r-1].PB(l-1);
+    conected[l-1]++;
+    conected[r-1]++;
+  }
+  vi index = {0};
+  for (int i = 1; i<conected.size(); i++){
+    if (conected[index[0]] == conected[i]){
+        index.PB(i);
+    }
+    if (conected[index[0]] < conected[i]){
+        index = {i};
+    }
+  }
+  if (index.size()>2){
+    cout << 2*conected[index[0]]-1 << endl;
+    return 0;
+  }
+
+
+  groups += conected[index[0]]-1;
+  conected[index[0]] = -1;
+  for (int i = 0; i<grafo[index[0]].size(); i++){
+    conected[grafo[index[0]][i]]--;
+  }
+  index = {0};
+  for (int i = 1; i<conected.size(); i++){
+    if (conected[index[0]] < conected[i]){
+        index = {i};
+    }
+    if (conected[index[0]] == conected[i]){
+        index.PB(i);
+    }
+  }
+  groups += conected[index[0]]-1;
+  cout << groups << endl;
+
   return 0;
 }
 
@@ -107,5 +153,3 @@ int main() {
   }
   return 0;
 }
-
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

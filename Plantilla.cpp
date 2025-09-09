@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #ifdef DEBUG
 #define _GLIBCXX_DEBUG
 #endif
@@ -13,6 +14,9 @@
 #else
 #define debug(...) 228
 #endif
+=======
+#include<bits/stdc++.h>
+>>>>>>> c016a08664e5f53efb835a1ffcfe84d23ae591b8
 
 using namespace std;
 

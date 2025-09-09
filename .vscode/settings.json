@@ -19,25 +19,6 @@
         "stack": "cpp",
         "xiosbase": "cpp",
         "xtree": "cpp",
-        "utility": "cpp",
-        "complex": "cpp",
-        "xhash": "cpp",
-        "xutility": "cpp",
-        "deque": "cpp",
-        "forward_list": "cpp",
-        "list": "cpp",
-        "iosfwd": "cpp",
-        "iterator": "cpp",
-        "ios": "cpp",
-        "array": "cpp",
-        "algorithm": "cpp",
-        "format": "cpp",
-        "xlocale": "cpp",
-        "initializer_list": "cpp",
-        "ranges": "cpp",
-        "regex": "cpp",
-        "span": "cpp",
-        "set": "cpp",
-        "map": "cpp"
+        "utility": "cpp"
     }
 }

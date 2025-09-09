@@ -1,24 +1,14 @@
-#ifdef DEBUG
-#define _GLIBCXX_DEBUG
-#endif
-
 #include<bits/stdc++.h>
 #include<unordered_set>
 #pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
 
-#ifdef DEBUG
-#include "lib/debug.h"
-#else
-#define debug(...) 228
-#endif
-
 using namespace std;
 
 typedef vector<int> vi;
-typedef vector<long long> vll;
-typedef long long lli;
+typedef vector<long long int> vll;
+typedef long long int lli;
 typedef pair<int, int> pii;
 typedef map<string, int> msi;
 typedef map<int, vector<int>> miv;
@@ -38,10 +28,6 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
     Mint& operator+=(const Mint &o) { v += o.v; if (v >= MOD) v -= MOD; return *this; }
     Mint& operator-=(const Mint &o) { v -= o.v; if (v < 0) v += MOD; return *this; }
     Mint& operator*=(const Mint &o) { v = int(1LL * v * o.v % MOD); return *this; }
-    bool operator<(const Mint& o) const {return v < o.v;}
-    bool operator>(const Mint& o) const {return v > o.v;}
-    bool operator==(const Mint& o) const {return v == o.v;}
-    bool operator!=(const Mint& o) const {return v != o.v;}
     Mint pow(long long p) const {
         Mint a = *this, res = 1;
         while (p > 0) {
@@ -57,14 +43,6 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
         return os;
     }
 };
-istream& operator>>(std::istream& input, Mint& m) {
-    input >> m.v;
-    return input;
-}
-template<typename T> std::ostream& operator<<(std::ostream& os, const Mint& m) {
-    os << m.v << " ";
-    return os;
-}
 
 // Funciones vector
 #define PB(a) push_back(a);
@@ -87,7 +65,7 @@ bool sort_func(int a, int b) {
     ;                                                                                                                                                        \
     copy(v1.begin(), v1.end(), back_inserter(v2));
 
-// Funciones pair
+// Funciones map
 #define F first;
 #define S second;
 
@@ -139,12 +117,129 @@ void lee(int n, vi& vect) {
 
 #define INF INT_MAX
 
+struct Edge{
+    int id;
+    int u1;
+    int u2;
+    int c;
+};
+
+struct Vertex {
+    int id;
+    int color;
+    // Las sumas solo será con respecto a sus hijos
+    lli suma_tot=0;
+    unordered_map<int, lli> suma={}; //Cuanto es el peso de este nodo según el color
+    int padre=-1;
+    int edgParent = -1;
+public:
+    void addEdge(int& c, Vertex& v){
+        suma_tot+=c;
+        suma[v.color]+=c;
+    }
+    void setParent(Edge& e, Vertex& v){
+        padre = v.id;
+        edgParent = e.id;
+        suma[v.color] -= e.c;
+        suma_tot -= e.c;
+    }
+    lli getSuma(){
+        if (suma.find(color) == suma.end()){
+            return suma_tot;
+        }
+        return suma_tot-suma[color];
+    }
+    lli actHijo(Edge& e, Vertex& v, int& ColorAnt){
+        suma[ColorAnt] -= e.c;
+        if (suma.find(v.color) == suma.end()){
+            suma[v.color] = 0;
+        }
+        suma[v.color] += e.c;
+        
+        return getSuma();
+    }
+};
+
+struct Tree{
+    int n;
+    vector<Vertex> nodos;
+    vector<Edge> edges;
+    vector<vi> conexiones; // Aparecen las id de las aristas
+    int Padre = 0;    
+    lli sumaAct = 0;
+public:
+    void readNodos(int& len){
+        n = len;
+        nodos.reserve(n); // Evita realocaciones
+        int el;
+        rep(i, n){
+            cin >> el;
+            nodos.emplace_back(Vertex({i, el}));
+        }
+    }
+    void readEdges(){
+        int u1, u2, c;
+        conexiones.resize(n);
+        edges.reserve(n - 1);
+        for (int i = 0; i < n - 1; ++i) {
+            cin >> u1 >> u2 >> c;
+            edges.push_back({i, u1-1, u2-1, c});
+            conexiones[u1-1].push_back(i);
+            conexiones[u2-1].push_back(i);
+            nodos[u1-1].addEdge(c, nodos[u2-1]);
+            nodos[u2-1].addEdge(c, nodos[u1-1]);
+        }
+    }
+
+    void setParents(){
+        queue<pii> q;
+        q.push({Padre, -1});
+        while (!q.empty()) {
+            int cur = q.front().first;
+            int parent = q.front().second;
+            q.pop();
+            for (int eid : conexiones[cur]) {
+                Edge &e = edges[eid];
+                int next = (e.u1 == cur ? e.u2 : e.u1);
+                if (next == parent) continue;
+                nodos[next].setParent(e, nodos[cur]);
+                q.push({next, cur});
+            }
+        }
+        for (auto& i : nodos) sumaAct += i.getSuma();
+    }
+    
+    void changeNode(int node, int& to){
+        int colorAnt = nodos[node].color;
+        sumaAct-=nodos[node].getSuma();
+        nodos[node].color = to;
+        sumaAct+=nodos[node].getSuma();
+        if (node != Padre){
+            Edge ins = edges[nodos[node].edgParent];
+            lli sumaAnt = nodos[nodos[node].padre].getSuma();
+            sumaAct+=nodos[nodos[node].padre].actHijo(ins, nodos[node], colorAnt)-sumaAnt;
+        }
+    }
+};
+
 int solve() {
     // Code aquí
+    int n, q;
+    cin >> n >> q;
+    Tree arbol;
+    arbol.readNodos(n);
+    arbol.readEdges();
+    arbol.setParents();
+    int v, x;
+    while(q--){
+        cin >> v >> x;
+        arbol.changeNode(v-1, x);
+        cout << arbol.sumaAct << endl;
+    }
     return 0;
 }
 
-signed main() {
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr); 
@@ -155,5 +250,3 @@ signed main() {
     }
     return 0;
 }
-
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

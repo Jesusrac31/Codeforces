@@ -3,7 +3,6 @@
 #endif
 
 #include<bits/stdc++.h>
-#include<unordered_set>
 #pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
@@ -17,8 +16,8 @@
 using namespace std;
 
 typedef vector<int> vi;
-typedef vector<long long> vll;
-typedef long long lli;
+typedef vector<long long int> vll;
+typedef long long int lli;
 typedef pair<int, int> pii;
 typedef map<string, int> msi;
 typedef map<int, vector<int>> miv;
@@ -38,10 +37,6 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
     Mint& operator+=(const Mint &o) { v += o.v; if (v >= MOD) v -= MOD; return *this; }
     Mint& operator-=(const Mint &o) { v -= o.v; if (v < 0) v += MOD; return *this; }
     Mint& operator*=(const Mint &o) { v = int(1LL * v * o.v % MOD); return *this; }
-    bool operator<(const Mint& o) const {return v < o.v;}
-    bool operator>(const Mint& o) const {return v > o.v;}
-    bool operator==(const Mint& o) const {return v == o.v;}
-    bool operator!=(const Mint& o) const {return v != o.v;}
     Mint pow(long long p) const {
         Mint a = *this, res = 1;
         while (p > 0) {
@@ -57,14 +52,6 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
         return os;
     }
 };
-istream& operator>>(std::istream& input, Mint& m) {
-    input >> m.v;
-    return input;
-}
-template<typename T> std::ostream& operator<<(std::ostream& os, const Mint& m) {
-    os << m.v << " ";
-    return os;
-}
 
 // Funciones vector
 #define PB(a) push_back(a);
@@ -87,7 +74,7 @@ bool sort_func(int a, int b) {
     ;                                                                                                                                                        \
     copy(v1.begin(), v1.end(), back_inserter(v2));
 
-// Funciones pair
+// Funciones map
 #define F first;
 #define S second;
 
@@ -138,22 +125,62 @@ void lee(int n, vi& vect) {
 }
 
 #define INF INT_MAX
+int counter = 0;
 
 int solve() {
     // Code aquí
+    int n;
+    cin >> n;
+    vi p(n), s(n);
+    lee(n, p);
+    lee(n, s);
+    bool posible = true;
+    if (counter == 100000000){
+        for (int i = 0; i<n; i++){
+            cout << p[i] << "-";
+        }
+        cout << "|";
+        for (int i = 0; i<n; i++){
+            cout << s[i] << "-";
+        }
+        cout << endl;
+    }
+    for (int i = 1; i<n; i++){
+        if (p[i-1]%p[i] != 0){
+            posible = false;
+            break;
+        }
+        if (s[i]%s[i-1] != 0){
+            posible = false;
+            break;
+        }
+    }
+    if (p.back() != s[0]){
+        posible=false;
+    }
+    for(int i = 0; i<n-1; i++){
+        if (maximo_comun_divisor(p[i], s[i+1]) != s[0]){
+            posible=false;
+            break;
+        }
+    }
+
+
+
+    cout << (posible ? "YES" : "NO") << '\n';
+
     return 0;
 }
 
-signed main() {
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr); 
     int T;
     cin >> T; // Número de casos
     while (T--) {
+        counter++;
         solve();
     }
     return 0;
 }
-
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

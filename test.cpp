@@ -17,8 +17,8 @@
 using namespace std;
 
 typedef vector<int> vi;
-typedef vector<long long> vll;
-typedef long long lli;
+typedef vector<long long int> vll;
+typedef long long int lli;
 typedef pair<int, int> pii;
 typedef map<string, int> msi;
 typedef map<int, vector<int>> miv;
@@ -57,8 +57,8 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
         return os;
     }
 };
-istream& operator>>(std::istream& input, Mint& m) {
-    input >> m.v;
+istream& operator>>(std::istream& input, Mint& p) {
+    input >> p.v;
     return input;
 }
 template<typename T> std::ostream& operator<<(std::ostream& os, const Mint& m) {
@@ -87,10 +87,6 @@ bool sort_func(int a, int b) {
     ;                                                                                                                                                        \
     copy(v1.begin(), v1.end(), back_inserter(v2));
 
-// Funciones pair
-#define F first;
-#define S second;
-
 // Logaritmo de 2
 double log_2 = log(2);
 double log2(int a) { return (log(a) / log_2); }
@@ -101,7 +97,7 @@ template<typename T> std::ostream& operator<<(std::ostream& os, const std::vecto
     for(const auto& elem : vec) {
         os << elem << " ";
     }
-    os << "]";
+    os << "]" << endl;
     return os;
 }
 
@@ -137,23 +133,66 @@ void lee(int n, vi& vect) {
   return ;
 }
 
+int relu(int a){
+    if (a<0){
+        return 0;
+    }
+    return a;
+}
+
 #define INF INT_MAX
 
+vi primos = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
+
 int solve() {
-    // Code aquí
+    // Input
+    int n;
+    cin >> n;
+    vi a(n);
+    int suma = 0;
+    rep(i, n) {
+        cin >> a[i];
+        suma+=a[i];
+    }
+
+    //suma = 100;
+    unordered_map<int, int> m;
+    vector<unordered_map<int, int>> facts(suma+1);
+    for (int i = 2; i<=suma; i++){
+        int num = i;
+        for (auto j:primos){
+            while (num%j == 0){
+                m[j]++;
+                num/=j;
+            }
+            if (num == 1){
+                break;
+            }
+        }
+        for (auto j:m){
+            facts[i][j.first] = j.second;
+        }
+    }
+
+    for (auto i:a){
+        for (auto j:facts[i]){
+            m[j.first]-=j.second;
+        }
+    }
+    for (auto i:m){
+        cout << "{" << i.first << "-> " << i.second << "}, ";
+    }
+    cout << endl;
+
+
     return 0;
 }
 
-signed main() {
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr); 
-    int T;
-    cin >> T; // Número de casos
-    while (T--) {
-        solve();
-    }
+    solve();
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

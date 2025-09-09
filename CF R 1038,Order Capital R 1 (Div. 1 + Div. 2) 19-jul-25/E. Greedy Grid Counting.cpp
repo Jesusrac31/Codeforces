@@ -17,8 +17,8 @@
 using namespace std;
 
 typedef vector<int> vi;
-typedef vector<long long> vll;
-typedef long long lli;
+typedef vector<long long int> vll;
+typedef long long int lli;
 typedef pair<int, int> pii;
 typedef map<string, int> msi;
 typedef map<int, vector<int>> miv;
@@ -57,8 +57,8 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
         return os;
     }
 };
-istream& operator>>(std::istream& input, Mint& m) {
-    input >> m.v;
+istream& operator>>(std::istream& input, Mint& p) {
+    input >> p.v;
     return input;
 }
 template<typename T> std::ostream& operator<<(std::ostream& os, const Mint& m) {
@@ -87,10 +87,6 @@ bool sort_func(int a, int b) {
     ;                                                                                                                                                        \
     copy(v1.begin(), v1.end(), back_inserter(v2));
 
-// Funciones pair
-#define F first;
-#define S second;
-
 // Logaritmo de 2
 double log_2 = log(2);
 double log2(int a) { return (log(a) / log_2); }
@@ -101,7 +97,7 @@ template<typename T> std::ostream& operator<<(std::ostream& os, const std::vecto
     for(const auto& elem : vec) {
         os << elem << " ";
     }
-    os << "]";
+    os << "]" << endl;
     return os;
 }
 
@@ -137,14 +133,84 @@ void lee(int n, vi& vect) {
   return ;
 }
 
+int relu(int a){
+    if (a<0){
+        return 0;
+    }
+    return a;
+}
+
 #define INF INT_MAX
+#define up first
+#define down second
 
 int solve() {
-    // Code aquí
+    // Input
+    int n, k;
+    cin >> n >> k;
+    vector<pii> a(n);
+    rep(i, n) cin >> a[i].up;
+    rep(i, n) cin >> a[i].down;
+    vector<unordered_map<int, Mint>> c(n-1);
+    for (int i = 0; i<n-1; i++){
+        if (a[i+1].up == -1 && a[i].down == -1){
+            for (int j1 = 1; j1<=k; j1++){
+                for (int j2 = 1; j2<=k; j2++){
+                    c[i][j1-j2]+=1;
+                }
+            }
+        } else if (a[i+1].up != -1 && a[i].down == -1){
+            for (int j1 = 1; j1<=k; j1++){
+                c[i][a[i+1].up-j1]+=1;
+            }
+        } else if (a[i+1].up == -1 && a[i].down != -1){
+            for (int j1 = 1; j1<=k; j1++){
+                c[i][j1-a[i].down]+=1;
+            }
+        } else {
+            c[i][a[i+1].up-a[i].down]+=1;
+        }
+    }
+    
+    vector<unordered_map<int, Mint>> dp(n);
+    dp[0][0] = 1;
+    bool first = true;
+    for (int i = 1; i<n; i++){
+        for (auto it:c[i-1]){
+            if (it.first >= 0){
+                for (auto j:dp[i-1]){
+                    if (j.first+it.first <= 0){
+                        dp[i][j.first+it.first+first] += j.second*it.second;
+                    } else {
+                        if (j.first > 0 || first){
+                            dp[i][1] += j.second*it.second;
+                        }
+                    }
+                }
+            } else {
+                for (auto j:dp[i-1]){
+                    dp[i][it.first] += j.second*it.second;
+                }
+            }
+        }
+        first = false;
+    }
+
+    Mint sol = 0;
+    for (auto i:dp.back()){
+        sol += i.second;
+    }
+    if (a.back().down == -1){
+        sol *= k;
+    }
+    if (a[0].up == -1){
+        sol *= k;
+    }
+    cout << sol << endl;
     return 0;
 }
 
-signed main() {
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr); 
@@ -156,4 +222,3 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

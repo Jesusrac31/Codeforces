@@ -3,7 +3,6 @@
 #endif
 
 #include<bits/stdc++.h>
-#include<unordered_set>
 #pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
@@ -17,8 +16,8 @@
 using namespace std;
 
 typedef vector<int> vi;
-typedef vector<long long> vll;
-typedef long long lli;
+typedef vector<long long int> vll;
+typedef long long int lli;
 typedef pair<int, int> pii;
 typedef map<string, int> msi;
 typedef map<int, vector<int>> miv;
@@ -38,10 +37,6 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
     Mint& operator+=(const Mint &o) { v += o.v; if (v >= MOD) v -= MOD; return *this; }
     Mint& operator-=(const Mint &o) { v -= o.v; if (v < 0) v += MOD; return *this; }
     Mint& operator*=(const Mint &o) { v = int(1LL * v * o.v % MOD); return *this; }
-    bool operator<(const Mint& o) const {return v < o.v;}
-    bool operator>(const Mint& o) const {return v > o.v;}
-    bool operator==(const Mint& o) const {return v == o.v;}
-    bool operator!=(const Mint& o) const {return v != o.v;}
     Mint pow(long long p) const {
         Mint a = *this, res = 1;
         while (p > 0) {
@@ -57,14 +52,6 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
         return os;
     }
 };
-istream& operator>>(std::istream& input, Mint& m) {
-    input >> m.v;
-    return input;
-}
-template<typename T> std::ostream& operator<<(std::ostream& os, const Mint& m) {
-    os << m.v << " ";
-    return os;
-}
 
 // Funciones vector
 #define PB(a) push_back(a);
@@ -87,7 +74,7 @@ bool sort_func(int a, int b) {
     ;                                                                                                                                                        \
     copy(v1.begin(), v1.end(), back_inserter(v2));
 
-// Funciones pair
+// Funciones map
 #define F first;
 #define S second;
 
@@ -141,10 +128,46 @@ void lee(int n, vi& vect) {
 
 int solve() {
     // Code aquí
+    int n;
+    cin >> n;
+    vector<pii> x(n), y(n);
+    for (int i = 0; i<n; i++){
+        cin >> x[i].first >> y[i].first;
+        x[i].second = i;
+        y[i].second = i;
+    }
+    sort(x.begin(), x.end());
+    sort(y.begin(), y.end());
+    /*int barX = x[n/2].first;
+    int barY = y[n/2].first;*/
+    
+    vector<pii> group(n, {0, 0});
+    for (int i = n/2; i<n; i++){
+        group[x[i].second].first = 1;
+    }
+    for (int i = n/2; i<n; i++){
+        group[y[i].second].second = 1;
+    }
+    vector<queue<int>> q(4);
+
+    for (int i = 0; i<n; i++){
+        q[group[i].first*2+group[i].second].push(i);
+        if (q[0].size() && q[3].size()){
+            cout << q[0].front()+1 << " " << q[3].front()+1 << endl;
+            q[0].pop();
+            q[3].pop();
+        }
+        if (q[1].size() && q[2].size()){
+            cout << q[1].front()+1 << " " << q[2].front()+1 << endl;
+            q[1].pop();
+            q[2].pop();
+        }
+    }
+    
     return 0;
 }
 
-signed main() {
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr); 
@@ -155,5 +178,3 @@ signed main() {
     }
     return 0;
 }
-
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

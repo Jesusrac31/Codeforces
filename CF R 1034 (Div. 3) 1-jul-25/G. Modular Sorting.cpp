@@ -3,7 +3,6 @@
 #endif
 
 #include<bits/stdc++.h>
-#include<unordered_set>
 #pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
@@ -17,8 +16,8 @@
 using namespace std;
 
 typedef vector<int> vi;
-typedef vector<long long> vll;
-typedef long long lli;
+typedef vector<long long int> vll;
+typedef long long int lli;
 typedef pair<int, int> pii;
 typedef map<string, int> msi;
 typedef map<int, vector<int>> miv;
@@ -38,10 +37,6 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
     Mint& operator+=(const Mint &o) { v += o.v; if (v >= MOD) v -= MOD; return *this; }
     Mint& operator-=(const Mint &o) { v -= o.v; if (v < 0) v += MOD; return *this; }
     Mint& operator*=(const Mint &o) { v = int(1LL * v * o.v % MOD); return *this; }
-    bool operator<(const Mint& o) const {return v < o.v;}
-    bool operator>(const Mint& o) const {return v > o.v;}
-    bool operator==(const Mint& o) const {return v == o.v;}
-    bool operator!=(const Mint& o) const {return v != o.v;}
     Mint pow(long long p) const {
         Mint a = *this, res = 1;
         while (p > 0) {
@@ -57,20 +52,12 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
         return os;
     }
 };
-istream& operator>>(std::istream& input, Mint& m) {
-    input >> m.v;
-    return input;
-}
-template<typename T> std::ostream& operator<<(std::ostream& os, const Mint& m) {
-    os << m.v << " ";
-    return os;
-}
 
 // Funciones vector
 #define PB(a) push_back(a);
 
 bool sort_func(int a, int b) {
-    if (a < b) {
+    if (a > b) {
         return true;
     } else {
         return false;
@@ -87,7 +74,7 @@ bool sort_func(int a, int b) {
     ;                                                                                                                                                        \
     copy(v1.begin(), v1.end(), back_inserter(v2));
 
-// Funciones pair
+// Funciones map
 #define F first;
 #define S second;
 
@@ -101,7 +88,11 @@ template<typename T> std::ostream& operator<<(std::ostream& os, const std::vecto
     for(const auto& elem : vec) {
         os << elem << " ";
     }
-    os << "]";
+    os << "]" << endl;
+    return os;
+}
+template<typename T> std::ostream& operator<<(std::ostream& os, const std::pair<T, T>& par) {
+    os << "{ " << par.first << ", " << par.second << " }";
     return os;
 }
 
@@ -138,13 +129,100 @@ void lee(int n, vi& vect) {
 }
 
 #define INF INT_MAX
+//#define MAXM 500001
+#define MAXM 20
+
+/*int counting = 0;
+
+vi primos = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541, 547, 557, 563, 569, 571, 577, 587, 593, 599, 601, 607, 613, 617, 619, 631, 641, 643, 647, 653, 659, 661, 673, 677, 683, 691, 701};
+
+void getFactorsOpt(int m, vi& factores){
+    factores.emplace_back(1);
+    factores.emplace_back(m);
+    for (int i = 0; primos[i] < m; i++){
+        for (int j = 1; m%primos[i]==0; j++){
+            factores.emplace_back(primos[i]*j);
+            m/=primos[i];
+        }
+    }
+    ord(factores);
+}*/
+
+void getFactors(int m, vi& factores){
+    for (int i = 1; i <= sqrt(m); ++i) {
+        if (m % i == 0) {
+            factores.emplace_back(i);
+            if (i != m / i) { // Evitar duplicados si es un cuadrado perfecto
+                factores.emplace_back(m / i);
+            }
+        }
+    }
+    ord(factores);
+}
 
 int solve() {
     // Code aquí
+    int n, m, q;
+    cin >> n >> m >> q;
+    vi a(n);
+    lee(n, a);
+
+    vi factores;
+    getFactors(m, factores);
+    
+    unordered_map<int, vector<int>> sols;
+    unordered_map<int, int> turns;
+    for (auto i:factores){
+        int suma1 = 0, modulo1 = i;
+        int ant1=0;
+        turns[modulo1] = 0;
+        sols[modulo1] = {0};
+        for (int j = 0; j<n; j++){
+            if ((a[j]%modulo1)+suma1 < ant1){
+                suma1+=modulo1;
+                turns[modulo1]++;
+            }
+            ant1 = (a[j]%modulo1)+suma1;
+            sols[modulo1].emplace_back(a[j]%modulo1);
+        }
+        sols[modulo1].emplace_back(modulo1);
+    }
+
+    // Queries
+    while (q--){
+        int op, i, x, k;
+        cin >> op;
+        if (op == 1) {
+            cin >> i >> x;
+            for (auto it:factores){
+                if (sols[it][i-1] > sols[it][i] && sols[it][i-1] <= (x%it)){
+                    turns[it]--;
+                } else if (sols[it][i-1] <= sols[it][i] && sols[it][i-1] > (x%it)){
+                    turns[it]++;
+                }
+                if (sols[it][i+1] >= sols[it][i] && sols[it][i+1] < (x%it)){
+                    turns[it]++;
+                } else if (sols[it][i+1] < sols[it][i] && sols[it][i+1] >= (x%it)){
+                    turns[it]--;
+                }
+                sols[it][i] = (x%it);
+            }
+        } else {
+            cin >> k;
+            int it = maximo_comun_divisor(m, k);
+            if (turns[it] < m/it){
+                cout << "YES" << endl;
+            } else {
+                cout << "NO" << endl;
+            }
+        }
+    }
+
+
     return 0;
 }
 
-signed main() {
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr); 
@@ -155,5 +233,3 @@ signed main() {
     }
     return 0;
 }
-
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

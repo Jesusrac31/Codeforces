@@ -3,7 +3,6 @@
 #endif
 
 #include<bits/stdc++.h>
-#include<unordered_set>
 #pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
@@ -17,8 +16,8 @@
 using namespace std;
 
 typedef vector<int> vi;
-typedef vector<long long> vll;
-typedef long long lli;
+typedef vector<long long int> vll;
+typedef long long int lli;
 typedef pair<int, int> pii;
 typedef map<string, int> msi;
 typedef map<int, vector<int>> miv;
@@ -38,10 +37,6 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
     Mint& operator+=(const Mint &o) { v += o.v; if (v >= MOD) v -= MOD; return *this; }
     Mint& operator-=(const Mint &o) { v -= o.v; if (v < 0) v += MOD; return *this; }
     Mint& operator*=(const Mint &o) { v = int(1LL * v * o.v % MOD); return *this; }
-    bool operator<(const Mint& o) const {return v < o.v;}
-    bool operator>(const Mint& o) const {return v > o.v;}
-    bool operator==(const Mint& o) const {return v == o.v;}
-    bool operator!=(const Mint& o) const {return v != o.v;}
     Mint pow(long long p) const {
         Mint a = *this, res = 1;
         while (p > 0) {
@@ -57,14 +52,6 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
         return os;
     }
 };
-istream& operator>>(std::istream& input, Mint& m) {
-    input >> m.v;
-    return input;
-}
-template<typename T> std::ostream& operator<<(std::ostream& os, const Mint& m) {
-    os << m.v << " ";
-    return os;
-}
 
 // Funciones vector
 #define PB(a) push_back(a);
@@ -87,7 +74,7 @@ bool sort_func(int a, int b) {
     ;                                                                                                                                                        \
     copy(v1.begin(), v1.end(), back_inserter(v2));
 
-// Funciones pair
+// Funciones map
 #define F first;
 #define S second;
 
@@ -139,12 +126,61 @@ void lee(int n, vi& vect) {
 
 #define INF INT_MAX
 
+int dijkstra(vector<vi>& grafo, int n, int nodo, int fin){
+    
+    int sol = INF;
+    vector<bool> bloqueados(n, false);
+    priority_queue<pair<int, int>, vector<pair<lli, lli>>, greater<pair<lli, lli>>> q;
+    q.push({0, nodo}); // tiempo total, nodo
+    
+    while(q.size()){
+        int t = q.top().first, v = q.top().second;
+        if (v == fin){
+            sol = t;
+            break;
+        }
+        if (!bloqueados[v]){
+            bloqueados[v] = true;
+            for (int i = 0; i<grafo[v].size(); i++){
+                if (!bloqueados[grafo[v][i]]){
+                    int tamano = grafo[v].size();
+                    q.push({t+((i-(t%tamano)+tamano)%tamano)+1, grafo[v][i]});
+                }
+            }
+        }
+        q.pop();
+    }
+    return sol;
+}
+
 int solve() {
     // Code aquí
+    int n, m;
+    cin >> n >> m;
+    vector<vi> grafo(n+1);
+    int u, v;
+    for (int i = 0; i<m; i++){
+        cin >> u >> v;
+        grafo[u].emplace_back(v);
+        grafo[v].emplace_back(u);
+    }
+    int tMax = dijkstra(grafo, n+1, 1, n);
+    vector<vi> dp(n+1, vi(tMax+1, tMax+1));
+    dp[1][0] = 0;
+
+    for (int j = 0; j<tMax; j++){
+        for (int i = 1; i<=n; i++){
+            dp[i][j+1] = min(dp[i][j]+1, dp[i][j+1]);
+            dp[grafo[i][j%grafo[i].size()]][j+1] = min(dp[i][j], dp[grafo[i][j%grafo[i].size()]][j+1]);
+        }
+    }
+
+    cout << tMax << " " << dp[n][tMax] << endl;
+    
     return 0;
 }
 
-signed main() {
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr); 
@@ -155,5 +191,3 @@ signed main() {
     }
     return 0;
 }
-
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

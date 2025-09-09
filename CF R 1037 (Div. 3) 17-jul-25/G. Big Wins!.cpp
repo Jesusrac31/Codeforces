@@ -3,7 +3,6 @@
 #endif
 
 #include<bits/stdc++.h>
-#include<unordered_set>
 #pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
@@ -17,8 +16,8 @@
 using namespace std;
 
 typedef vector<int> vi;
-typedef vector<long long> vll;
-typedef long long lli;
+typedef vector<long long int> vll;
+typedef long long int lli;
 typedef pair<int, int> pii;
 typedef map<string, int> msi;
 typedef map<int, vector<int>> miv;
@@ -38,10 +37,6 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
     Mint& operator+=(const Mint &o) { v += o.v; if (v >= MOD) v -= MOD; return *this; }
     Mint& operator-=(const Mint &o) { v -= o.v; if (v < 0) v += MOD; return *this; }
     Mint& operator*=(const Mint &o) { v = int(1LL * v * o.v % MOD); return *this; }
-    bool operator<(const Mint& o) const {return v < o.v;}
-    bool operator>(const Mint& o) const {return v > o.v;}
-    bool operator==(const Mint& o) const {return v == o.v;}
-    bool operator!=(const Mint& o) const {return v != o.v;}
     Mint pow(long long p) const {
         Mint a = *this, res = 1;
         while (p > 0) {
@@ -57,14 +52,6 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
         return os;
     }
 };
-istream& operator>>(std::istream& input, Mint& m) {
-    input >> m.v;
-    return input;
-}
-template<typename T> std::ostream& operator<<(std::ostream& os, const Mint& m) {
-    os << m.v << " ";
-    return os;
-}
 
 // Funciones vector
 #define PB(a) push_back(a);
@@ -87,7 +74,7 @@ bool sort_func(int a, int b) {
     ;                                                                                                                                                        \
     copy(v1.begin(), v1.end(), back_inserter(v2));
 
-// Funciones pair
+// Funciones map
 #define F first;
 #define S second;
 
@@ -132,15 +119,67 @@ bool isNumeric(string const &str) {
     return !str.empty() && it == str.end();
 }
 
-void lee(int n, vi& vect) {
+void lee(lli n, vll& vect) {
   rep(i, n) cin >> vect[i];
   return ;
 }
 
-#define INF INT_MAX
+#define INF LONG_MAX
 
-int solve() {
+struct DSU
+{
+    vll f;
+    DSU(){};
+    DSU(lli n){
+        f.resize(n);
+        for(lli i=0;i<n;i++)f[i]=i; // Crea una lista de n elementos con los números de [0, n-1]
+    }
+    lli find(lli x){ // Esta función find es mucho más óptima, ya que por defecto f[x] = x. La única operación existente es sustituir un valor de la lista por otro existente.
+                     // Este proceso lo podemos representar como un arbol donde f tiene el padre del elemento i siendo sí mismo por defecto y la operación merge cambia el padre del elemento y al padre del elemento x
+        if(f[x]==x)return x;
+        return f[x]=find(f[x]);
+    }
+    void merge(lli x,lli y){
+        x=find(x),y=find(y);
+        if(x==y)return;
+        f[y]=x;
+    }
+};
+
+lli solve() {
     // Code aquí
+    int n;
+    cin>>n;
+    vll a(n),p(n); // a es el array original
+    for(auto &x:a)cin>>x;
+
+    iota(p.begin(),p.end(),0); // p es una de elementos consecutivos perteneciente a [0, p-1]
+    sort(p.begin(),p.end(),[&](int x,int y){ // El array p dice el orden de los índices de los elementos sin ordenar en orden.
+        return a[x]>a[y];                    // Si a[x] < a[y], en p y irá antes que x
+    });
+
+    lli mi=INF; // Inicializamos min como infinito
+    lli ans=0;
+    DSU fl(n+1),fr(n+1); // Creamos 2 listas de tamaño n+1
+    for(auto i:p){ // Asumiremos que el elemento en la posición a[i] es la mediana (empezariamos asumiendo que la mediana es el elemento más grande)
+        for(int _=0;_<2;_++){ // Repetimos 2 veces el siguiente proceso por cada valor de p
+            lli x=fl.find(i+1); // Buscamos el elemento x en fl con nuestra función find
+            if(x){ // Si el elemento tiene un padre que no sea el nodo imaginario 0
+                mi=min(mi,a[x-1]); // Actualizamos el mínimo (x-1 es para adaptar a incio de cuenta 0)
+                fl.merge(x-1,x); // Establecemos que el padre de x es x-1
+            }
+
+            /// Repetimos lo mismo en fr con el elemento anterior pero solo operamos si x<n (si x pertenece a la lista)
+            x=fr.find(i);
+            if(x<n){ // Si el elemento no es el elemento imaginario al final de la lista
+                mi=min(mi,a[x]);
+                fr.merge(x+1,x);
+            }
+        }
+        ans=max(ans,a[i]-mi);
+        
+    }
+    cout<< ans <<endl;
     return 0;
 }
 
@@ -155,5 +194,3 @@ signed main() {
     }
     return 0;
 }
-
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

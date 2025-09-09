@@ -1,17 +1,7 @@
 Powershell:
-
-Opción 1:
-g++ -o main.exe "CF Global R 26 9-jun-24\C2. Magnitude (Hard Version).cpp"
-Measure-Command{.\main.exe > output.out}
-
-Opción 2:
-g++ -o main.exe "Pinely R 4 (Div. 1 + Div. 2) 28-jul-24\E. Coloring Game.cpp"
+g++ -DDEBUG -std=c++17 -O3 -o main.exe "test.cpp"
 Measure-Command{Get-Content input.in | .\main.exe > output.out}
 
-Opción 3:
-Measure-Command{.\main.exe > output.out}
-Measure-Command{Get-Content input.in | .\main.exe > output.txt}
-
-Opción 4:
-g++ -o main.exe "CF R 955 (Div. 2, with prizes from NEAR!) 25-jun-24\D. Beauty of the mountains.cpp"
-Measure-Command{Get-Content input.in | .\main.exe > output.txt}
+bash: 
+g++ -DDEBUG -std=c++17 -O3 -o main.exe "test.cpp"
+time .\main.exe < input.in > output.out

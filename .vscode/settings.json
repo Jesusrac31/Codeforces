@@ -19,6 +19,8 @@
         "stack": "cpp",
         "xiosbase": "cpp",
         "xtree": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "iosfwd": "cpp",
+        "complex": "cpp"
     }
 }

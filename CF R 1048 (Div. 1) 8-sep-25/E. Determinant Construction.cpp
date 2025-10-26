@@ -65,6 +65,10 @@ istream& operator>>(std::istream& input, Mint& m) {
     input >> m.v;
     return input;
 }
+template<typename T> std::ostream& operator<<(std::ostream& os, const Mint& m) {
+    os << m.v << " ";
+    return os;
+}
 
 // Funciones vector
 #define PB(a) push_back(a);
@@ -141,6 +145,8 @@ void lee(int n, vi& vect) {
 
 int solve() {
     // Code aquí
+    int x;
+    cin >> x;
     return 0;
 }
 

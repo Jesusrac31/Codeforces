@@ -1,0 +1,71 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            // TAREA 1: COMPILAR
+            // Esta tarea solo crea el main.exe, no lo ejecuta.
+            "label": "1. Compilar C++",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "-Wall",
+                "${file}",
+                "-o",
+                "${workspaceFolder}/main.exe"
+            ],
+            "group": "build", // Pertenece al grupo build, pero no es la default
+            "problemMatcher": ["$gcc"],
+            "detail": "Genera el ejecutable"
+        },
+        {
+            // TAREA 2: EJECUTAR CON REDIRECCIÓN ( < > )
+            // Esta es la que se lanzará con Ctrl+Shift+B
+            "label": "2. Run with IO",
+            "type": "shell",
+            
+            // Configuración para Windows (usa cmd para que funcionen < y >)
+            "windows": {
+                "command": "cmd",
+                "args": [
+                    "/c",
+                    "main.exe < input.in > output.out"
+                ]
+            },
+            
+            // Configuración para Linux/Mac
+            "linux": {
+                "command": "bash",
+                "args": [
+                    "-c",
+                    "./main.exe < input.in > output.out"
+                ]
+            },
+            "osx": {
+                "command": "bash",
+                "args": [
+                    "-c",
+                    "./main.exe < input.in > output.out"
+                ]
+            },
+
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            
+            // TRUCO: Esta tarea depende de la anterior. 
+            // Primero compila, y si sale bien, ejecuta esto.
+            "dependsOn": "1. Compilar C++",
+            
+            "group": {
+                "kind": "build",
+                "isDefault": true // <--- ESTO HACE QUE CTRL+SHIFT+B EJECUTE ESTA TAREA
+            },
+            "presentation": {
+                "reveal": "silent", // No abre la terminal si no hay errores
+                "panel": "shared",
+                "close": true
+            }
+        }
+    ]
+}

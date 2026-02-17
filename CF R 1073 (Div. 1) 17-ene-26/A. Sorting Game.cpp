@@ -3,6 +3,7 @@
 #endif
 
 #include<bits/stdc++.h>
+#include<unordered_set>
 //#pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
@@ -12,6 +13,8 @@
 #else
 #define debug(...) 228
 #endif
+
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -138,6 +141,35 @@ void lee(int n, vi& vect) {
 
 int solve() {
     // Code aquí
+    int n;
+    cin >> n;
+    string num;
+    cin >> num;
+    vi changes;
+    int index_atras = n-1;
+    for (int i = 0; i<index_atras; i++){
+        if (num[i] == '1'){
+            while (num[index_atras] == '1' && index_atras > i){
+                index_atras--;
+            }
+            if (index_atras <= i) break;
+            changes.PB(i);
+            changes.PB(index_atras);
+            index_atras--;
+        }
+    }
+    
+    if (changes.size() == 0){
+        cout << "Bob" << endl;
+    } else {
+        cout << "Alice" << endl;
+        cout << changes.size() << endl;
+        ord(changes);
+        for (auto i:changes){
+            cout << i+1 << " ";
+        }
+        cout << endl;
+    }
     return 0;
 }
 
@@ -153,4 +185,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2190/problem/A

@@ -13,6 +13,8 @@
 #define debug(...) 228
 #endif
 
+#include<bits/stdc++.h>
+
 using namespace std;
 
 typedef vector<int> vi;
@@ -136,8 +138,38 @@ void lee(int n, vi& vect) {
 
 #define INF INT_MAX
 
+struct Node {
+    int id;
+    int v;
+    Node(int nId = -1, int Nv = 0){
+        v = Nv;
+    }
+};
+istream& operator>>(std::istream& input, Node& m) {
+    input >> m.v;
+    return input;
+}
+
+
 int solve() {
     // Code aquí
+    int n, p, q;
+    cin >> n >> p >> q;
+    vector<Node> a(n);
+    for (int i = 0; i<n;i++) {
+        cin >> a[i];
+        a[i].id = i;
+    }
+    vector<vector<Node*>> tree;
+    int u, v;
+    for (int i = 0; i<n-1; i++){
+        cin >> u >> v;
+        tree[u].PB(&a[v]);
+        tree[v].PB(&a[u]);
+    }
+
+    
+
     return 0;
 }
 

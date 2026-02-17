@@ -3,6 +3,7 @@
 #endif
 
 #include<bits/stdc++.h>
+#include<unordered_set>
 //#pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
@@ -12,6 +13,8 @@
 #else
 #define debug(...) 228
 #endif
+
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -138,6 +141,24 @@ void lee(int n, vi& vect) {
 
 int solve() {
     // Code aquí
+    int n, k;
+    cin >> n >> k;
+    vi a(n);
+    for (int i = 0; i<n; i++) cin >> a[i];
+
+    vi a_s;
+    copia(a, a_s);
+    ord(a_s);
+    int max_seq = -1;
+    for (int i = 0; i<n; i++){
+        if (max_seq+1 >= a_s[i]){
+            max_seq = max(max_seq, a_s[i]);
+        } else {
+            break;
+        }
+    }
+    cout << min(max_seq+1, k-1) << endl;
+
     return 0;
 }
 
@@ -153,4 +174,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2183/problem/B

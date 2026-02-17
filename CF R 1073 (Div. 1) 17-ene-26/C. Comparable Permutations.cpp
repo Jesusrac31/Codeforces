@@ -13,6 +13,8 @@
 #define debug(...) 228
 #endif
 
+#include<bits/stdc++.h>
+
 using namespace std;
 
 typedef vector<int> vi;
@@ -138,6 +140,93 @@ void lee(int n, vi& vect) {
 
 int solve() {
     // Code aquí
+    int n;
+    cin >> n;
+    vi resp(n);
+    for (int i = 1; i<n; i++){
+        cout << "? " << i << " " << i+1 << endl;
+        cin >> resp[i];
+    }
+    vi sol(n);
+    bool exist = false;
+    iota(sol.begin(), sol.end(), 1);
+    for (int i = n-1; i>1; i--){
+        if (resp[i] < resp[i-1]){ //Buscamos el ultimo pico apuntando hacia arriba de la grafica
+            exist = true;
+            // Ahora tenemos que crear la solución. Para eso tenemos en cuenta que resp[i] es 1 si el elemento i es menor que i+1
+            // Primero definimos a como sol[i-1] y b como sol[i]
+            // Buscamos el punto más abajo en la permutacion en sol[i..n], llamale sol[x]
+            // El punto más bajo es tan facil como buscar x para que resp[x] > resp [x-1], si no existe, x=n
+            // Ordenamos dichos puntos usando la misma estrategia que se usa en merge sort:
+            // Partes de una lista con sol[x] y las variables l y r iguales a 1
+            // Si sol[x-l] < sol[x+r] entonces añades sol[x-l] a la lista y sumas 1 a l
+            // En caso contrario haces lo mismo con la r
+            // Repite hasta que x+r sea mayor que n (introduce todos los elementos que quedan en orden por la izquierda) o que sol[x+r] > b, si pasa eso habrás llegado a sol[i] < sol[x+r]
+            // Así que metes b a la lista y tienes los elementos de esa franja ordenados lexicograficamente.
+            // Hasta ahora has gastado en el peor de los casos aproximadamente 2n operaciones, para saber la relación entre cada par de elementos adyascentes y para ordenar este rango
+            // Te faltan n operaciones, estas las usaras para introducir a, compara con cada elemento de la listade forma ordenada de menor a mayor, el primero que diga ser mayor que a debe ser intercambiado por este
+            // Esta ultima parte la puedes hacer con busqueda binaria pero no es necesario :)
+            // Necesitas entonces como muchisimo 3n operaciones (usando busqueda binaria 2n + log(n))
+            int down = n;
+            for (int j = i; j<n; j++){ // Puede hacerse más optimo con busqueda binaria
+                if (resp[j] > resp[j-1]){
+                    down = j;
+                    break;
+                }
+            }
+            vi reorder = {down};
+            int l=1, r=1;
+            while (down-l >= i){
+                if (down+r <= n){
+                    int smaller;
+                    cout << "? " << down-l << " " << down+r << endl;
+                    cin >> smaller;
+                    if (smaller){
+                        reorder.PB(down-l);
+                        l++;
+                    } else {
+                        reorder.PB(down+r);
+                        r++;
+                    }
+                } else {
+                    reorder.PB(down-l);
+                    l++;
+                }
+            }
+
+            // Apply resolution to all range
+            pii range = {i, down+r};
+            int index = 0;
+            for (int j = range.first; j<range.second; j++){
+                sol[j-1] = reorder[index];
+                index++;
+            }
+
+            // Changing a
+            int aFinder;
+            for (int j = 0; j<reorder.size(); j++){ // Optimizable con busqueda binaria
+                cout << "? " << i-1 << " " << reorder[j] << endl;
+                cin >> aFinder;
+                if (aFinder){
+                    sol[i-2] = reorder[j];
+                    sol[range.first+j-1] = i-1;
+                    break;
+                }
+            }
+
+
+            break;
+        }
+    }
+    if (exist){
+        cout << "! ";
+        for (auto x:sol){
+            cout << x << " ";
+        }
+        cout << endl;
+    } else {
+        cout << "! -1" << endl;
+    }
     return 0;
 }
 
@@ -153,4 +242,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2190/problem/C

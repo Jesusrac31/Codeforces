@@ -3,6 +3,7 @@
 #endif
 
 #include<bits/stdc++.h>
+#include<unordered_set>
 //#pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
@@ -12,6 +13,8 @@
 #else
 #define debug(...) 228
 #endif
+
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -138,6 +141,31 @@ void lee(int n, vi& vect) {
 
 int solve() {
     // Code aquí
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    int posAbre = -1, posCierra = n;
+    bool sol = false, check = false;
+    for (int i = 0; i<n; i++){
+        if (s[i] == '('){
+            if (posCierra != n && check){
+                sol = true;
+                break;
+            }
+            if (posCierra != n){
+                check = true;
+            }
+            posAbre = i;
+        } else {
+            if (posCierra == n){
+                posCierra = i;
+            }
+        }
+    }
+
+    cout << (sol ? n-2:-1) << endl; 
+
     return 0;
 }
 
@@ -153,4 +181,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2190/problem/B1

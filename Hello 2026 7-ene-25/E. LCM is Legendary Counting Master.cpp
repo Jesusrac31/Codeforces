@@ -1,29 +1,30 @@
 #ifdef DEBUG
 #define _GLIBCXX_DEBUG
 #endif
-
+ 
 #include<bits/stdc++.h>
-//#pragma GCC optimize("O3")
+#include<unordered_set>
+#pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
-
+ 
 #ifdef DEBUG
 #include "lib/debug.h"
 #else
 #define debug(...) 228
 #endif
-
+ 
 using namespace std;
-
+ 
 typedef vector<int> vi;
 typedef vector<long long> vll;
 typedef long long lli;
 typedef pair<int, int> pii;
 typedef map<string, int> msi;
 typedef map<int, vector<int>> miv;
-
+ 
 const int MOD = 998244353; // Módulo del problema, cambiar en caso de no ser ese. NO TIENE PORQUÉ SER CONSTANTE, SOLO GLOBAL
-
+ 
 struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
     int v;
     Mint(long long val = 0) {
@@ -39,8 +40,6 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
     Mint& operator*=(const Mint &o) { v = int(1LL * v * o.v % MOD); return *this; }
     bool operator<(const Mint& o) const {return v < o.v;}
     bool operator>(const Mint& o) const {return v > o.v;}
-    bool operator<=(const Mint& o) const {return v <= o.v;}
-    bool operator>=(const Mint& o) const {return v >= o.v;}
     bool operator==(const Mint& o) const {return v == o.v;}
     bool operator!=(const Mint& o) const {return v != o.v;}
     Mint pow(long long p) const {
@@ -62,10 +61,14 @@ istream& operator>>(std::istream& input, Mint& m) {
     input >> m.v;
     return input;
 }
-
+template<typename T> std::ostream& operator<<(std::ostream& os, const Mint& m) {
+    os << m.v << " ";
+    return os;
+}
+ 
 // Funciones vector
 #define PB(a) push_back(a);
-
+ 
 bool sort_func(int a, int b) {
     if (a < b) {
         return true;
@@ -83,30 +86,30 @@ bool sort_func(int a, int b) {
 #define copia(v1, v2)                                                                                                                    \
     ;                                                                                                                                                        \
     copy(v1.begin(), v1.end(), back_inserter(v2));
-
+ 
 // Funciones pair
-#define F first
-#define S second
-
+#define F first;
+#define S second;
+ 
 // Logaritmo de 2
 double log_2 = log(2);
 double log2(int a) { return (log(a) / log_2); }
-
+ 
 // Imprime cualquier vector 
 template<typename T> std::ostream& operator<<(std::ostream& os, const std::vector<T>& vec) {
     os << "[ ";//Quita esto si no quieres los corchetes o cambia lo que quieras poner
     for(const auto& elem : vec) {
         os << elem << " ";
     }
-    os << "]";
+    os << "]" << endl;
     return os;
 }
-
+ 
 void Imprime_set(set<int> s) {
     copy(s.begin(), s.end(), ostream_iterator<int>(cout, " "));
     cout << endl;
 }
-
+ 
 int maximo_comun_divisor(int a, int b) {
     int temporal; // Para no perder b
     while (b != 0) {
@@ -116,11 +119,11 @@ int maximo_comun_divisor(int a, int b) {
     }
     return a;
 }
-
+ 
 int minimo_comun_multiplo(int a, int b) {
     return (a * b) / maximo_comun_divisor(a, b);
 }
-
+ 
 bool isNumeric(string const &str) {
     auto it = str.begin();
     while (it != str.end() && isdigit(*it)) {
@@ -128,23 +131,83 @@ bool isNumeric(string const &str) {
     }
     return !str.empty() && it == str.end();
 }
-
+ 
 void lee(int n, vi& vect) {
   rep(i, n) cin >> vect[i];
   return ;
 }
-
+ 
 #define INF INT_MAX
-
+#define MAX_M 3001
+double pi = 2*acos(0.0);
+ 
+vector<vi> divisors(MAX_M);
+ 
+// Obtiene la lista de divisores de forma muy poco óptima
+void getDivisors(){
+    for (int i = 1; i<MAX_M; i++){
+        for (int j = 1; j<=i; j++){
+            if (i%j==0){
+                divisors[i].PB(j);
+            }
+        }
+    }
+} 
+ 
 int solve() {
     // Code aquí
+    int n, m;
+    cin >> n >> m;
+    vi a(n+1);
+    for (int i = 1; i<=n; i++) cin >> a[i];
+ 
+    vector<vector<Mint>> dp(n+1, vector<Mint>(m+1, 0));
+    if (a[0] <= 1) {
+        dp[1][1] = 1; 
+    } else {
+        cout << 0 << endl;
+        return 0;
+    }
+    // Estrategia de deduccion, el anterior es el que suma valores al posterior
+    for (int i = 1; i<n; i++){
+        // Si un valor está definido, solo procesamos dicho valor
+        if (a[i] != 0){
+            for (int d:divisors[a[i]]){
+                if (a[i]+d > m){
+                    break;
+                }
+                dp[i+1][a[i]+d]+=dp[i][a[i]];
+            }
+        } else { // En caso de que no esté definido procesamos todos
+            for (int j = 1; j<m; j++){
+                for (int d:divisors[j]){
+                    if (j+d > m){
+                        break;
+                    }
+                    dp[i+1][j+d]+=dp[i][j];
+                }
+            }
+        }
+    }
+    // El último número debes comprobar si está definido, en tal caso, la solución es dp[n][a.back()], sino es la suma de dp[n]
+    Mint sol;
+    if (a.back() == 0){
+        for (auto x:dp.back()){
+            sol+=x;
+        }
+    } else {
+        sol = dp.back()[a.back()];
+    }
+    cout << sol << endl;
+ 
     return 0;
 }
-
+ 
 signed main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr); 
+    getDivisors();
     int T;
     cin >> T; // Número de casos
     while (T--) {
@@ -153,4 +216,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2183/problem/E

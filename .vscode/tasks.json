@@ -1,28 +1,57 @@
 {
+    "version": "2.0.0",
     "tasks": [
         {
-            "type": "cppbuild",
-            "label": "C/C++: g++.exe compilar archivo activo",
-            "command": "C:\\MinGW\\bin\\g++.exe",
+            "label": "Compilar C++ con g++",
+            "type": "shell",
+            "command": "g++",
             "args": [
-                "-fdiagnostics-color=always",
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
-            ],
-            "options": {
-                "cwd": "${fileDirname}"
-            },
-            "problemMatcher": [
-                "$gcc"
+                "-g",                // Añade información para poder usar el debugger
+                "-Wall",             // (Opcional) Te avisa de advertencias/errores comunes
+                "-Wno-sign-compare",
+                "${file}",           // El archivo que tienes abierto actualmente
+                "-o",                // Flag de salida
+                "${workspaceFolder}/main.exe" // Nombre del ejecutable (sin .cpp)
             ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Tarea generada por el depurador."
+            "problemMatcher": ["$gcc"],
+            "detail": "Tarea de compilación estándar"
+        },
+        {
+            // --- NUEVA TAREA DE EJECUCIÓN CON REDIRECCIÓN ---
+            "label": "Ejecutar con Input/Output",
+            "type": "shell",
+            "windows": {
+                // Comando específico para Windows (CMD)
+                "command": "cmd",
+                "args": [
+                    "/c",
+                    "main.exe < input.in > output.out"
+                ]
+            },
+            "linux": {
+                // Comando para Linux/Mac (Bash)
+                "command": "bash",
+                "args": [
+                    "-c",
+                    "./main.exe < input.in > output.out"
+                ]
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "dependsOn": "Compilar C++", // Primero compila, luego ejecuta
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "never", // No me abras la terminal si todo va bien
+                "panel": "shared"
+            }
         }
-    ],
-    "version": "2.0.0"
+    ]
 }

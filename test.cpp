@@ -5,8 +5,6 @@ typedef long long lli; // Cambia el nombre de una estructura de dato
 #define INF 10e9 // Cada vez que escribas INF se escribirá 10e9, funciona también con funciones
 double pi = 2*acos(0.0); // pi
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 #ifdef DEBUG
 #include "lib/debug.h"
 #else
@@ -155,27 +153,3 @@ signed main() {
     }
     return 0;
 }
-=======
-
-signed main() {
-    int t;
-    priority_queue<int> pq;
-    pq.push(2);
-    pq.push(3);
-    cout << pq.top();
-
-    return 0;
-}
->>>>>>> 8415ed494c1d1179a3fbce4a52c1ad4af60da423
-=======
-
-signed main() {
-    int t;
-    priority_queue<int> pq;
-    pq.push(2);
-    pq.push(3);
-    cout << pq.top();
-
-    return 0;
-}
->>>>>>> 8415ed494c1d1179a3fbce4a52c1ad4af60da423

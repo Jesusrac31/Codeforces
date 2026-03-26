@@ -3,6 +3,7 @@
 #endif
 
 #include<bits/stdc++.h>
+#include<unordered_set>
 //#pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
@@ -12,6 +13,8 @@
 #else
 #define debug(...) 228
 #endif
+
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -61,6 +64,10 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
 istream& operator>>(std::istream& input, Mint& m) {
     input >> m.v;
     return input;
+}
+template<typename T> std::ostream& operator<<(std::ostream& os, const Mint& m) {
+    os << m.v << " ";
+    return os;
 }
 
 // Funciones vector
@@ -135,10 +142,11 @@ void lee(int n, vi& vect) {
 }
 
 #define INF INT_MAX
-double pi = 2*acos(0.0);
 
 int solve() {
     // Code aquí
+    int x;
+    cin >> x;
     return 0;
 }
 

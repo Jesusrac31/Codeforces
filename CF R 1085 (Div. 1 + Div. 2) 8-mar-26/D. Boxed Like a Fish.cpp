@@ -134,11 +134,53 @@ void lee(int n, vi& vect) {
   return ;
 }
 
-#define INF INT_MAX
-double pi = 2*acos(0.0);
+#define INF 10000000
+
+int getHotVertices(int v, int k, vector<vi>& tree, vector<bool>& hot, int father = 0){
+    if (hot[v]) return 0; // Its distance to a hot vertex is 0
+    // If the vertex is not hot, we will consider the two smallest distance to a hot child
+    int min1 = INF, min2 = INF;
+    for (auto x:tree[v]){
+        if (x != father){ 
+            int candidate = getHotVertices(x, k, tree, hot, v);
+            if (min1 > candidate){
+                min2 = min1;
+                min1 = candidate;
+            } else min2 = min(min2, candidate);
+        }
+    }
+    // If the sum of distance of those hot vertices is less than k, v is hot
+    if (min1 + min2 < k){
+        hot[v] = true;
+        return 0;
+    } else {
+        return min1+1;
+    }
+}
+
+bool isHot(int v, int k, int n, vector<vi>& tree){
+    vector<bool> hot(n+1);
+    for (int i = 0; i<=n; i++) hot[i] = (tree[i].size() == 1); // Leaf vertex are hot
+    // If two hot vertices have a distance of k+1 or less, all vertices in path are considered hot
+    // For optimization, we will only set as hot to the father of both hot vertices. We consider tree rooted in v.
+    getHotVertices(v, k, tree, hot); 
+    return hot[v];
+}
 
 int solve() {
     // Code aquí
+    int n, k, v;
+    cin >> n >> k >> v;
+    vector<vi> tree(n+1);
+    int u, w;
+    for (int i = 0; i<n-1; i++){
+        cin >> u >> w;
+        tree[u].PB(w);
+        tree[w].PB(u);
+    }
+
+    cout << (isHot(v, k, n, tree) ? "YES":"NO") << endl; // If the vertex where cyndaquil is is hot, then it will escape
+
     return 0;
 }
 
@@ -154,4 +196,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2207/problem/D

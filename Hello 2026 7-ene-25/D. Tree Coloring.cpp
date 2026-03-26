@@ -3,6 +3,7 @@
 #endif
 
 #include<bits/stdc++.h>
+#include<unordered_set>
 //#pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
@@ -12,6 +13,8 @@
 #else
 #define debug(...) 228
 #endif
+
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -135,10 +138,82 @@ void lee(int n, vi& vect) {
 }
 
 #define INF INT_MAX
-double pi = 2*acos(0.0);
+
+void get_depth(vector<vi>& tree, vector<vi>& depth, vi& padre, int node = 1, int p = 0){
+    if (depth.size()<=p){
+        depth.PB({});
+    }
+    depth[p].PB(node);
+    for (auto v:tree[node]){
+        if (padre[node] != v){
+            padre[v] = node;
+            get_depth(tree, depth, padre, v, p+1);
+        }
+    }
+}
 
 int solve() {
     // Code aquí
+    int n;
+    cin >> n;
+    vector<vi> tree(n+1);
+    int u, v;
+    for (int i = 0; i<n-1; i++){
+        cin >> u >> v;
+        tree[u].PB(v);
+        tree[v].PB(u);
+    }
+    vector<vi> depth; 
+    vi padre(n+1, 0);
+    get_depth(tree, depth, padre);
+
+    int colors = 0;
+    vi color_node (n+1, 0);
+
+    for (int i = 0; i<depth.size(); i++){
+        int colored = 1;
+        int reservaColors = 0;
+        bool singleParent = true;
+        int parent = padre[depth[i][0]];
+        for (int j = 0; j<depth[i].size(); j++){
+            if (parent != padre[depth[i][j]]){
+                singleParent = false;
+            }
+            if (reservaColors && color_node[padre[depth[i][j]]] != reservaColors){
+                color_node[depth[i][j]] = reservaColors;
+                reservaColors = 0;
+            } else {
+                if (colored == color_node[padre[depth[i][j]]]){
+                    reservaColors = colored;
+                    colored++;
+                }
+                color_node[depth[i][j]] = colored;
+                colored++;
+            }
+        }
+        if (i>0 && reservaColors && !singleParent){
+            color_node[depth[i].back()] = color_node[depth[i][0]];
+            color_node[depth[i][0]] = reservaColors;
+            colored--;
+        }
+        colors = max(colors, colored-1);
+    }
+    // Easy version
+    cout << colors << endl;
+
+    //Hard version
+    vector<vi> removals(colors+1);
+    for (int i = 1; i<color_node.size(); i++){
+        removals[color_node[i]].PB(i);
+    }
+    for (int i = 1; i<removals.size(); i++){
+        cout << removals[i].size() << " ";
+        for (auto v:removals[i]){
+            cout << v << " ";
+        }
+        cout << endl;
+    }
+
     return 0;
 }
 
@@ -154,4 +229,5 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2183/problem/D1
+// https://codeforces.com/contest/2183/problem/D2

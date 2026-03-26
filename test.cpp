@@ -1,13 +1,11 @@
-#ifdef DEBUG
-#define _GLIBCXX_DEBUG
-#endif
-
 #include<bits/stdc++.h>
-#include<unordered_set>
-#pragma GCC optimize("O3")
-//#pragma GCC optimize("O3,unroll-loops")
-//#pragma GCC target("avx2")
+using namespace std; // No tienes que usar el prefijo std::
+typedef long long lli; // Cambia el nombre de una estructura de dato
+#define int lli // Usa int como long long int
+#define INF 10e9 // Cada vez que escribas INF se escribirá 10e9, funciona también con funciones
+double pi = 2*acos(0.0); // pi
 
+<<<<<<< HEAD
 #ifdef DEBUG
 #include "lib/debug.h"
 #else
@@ -156,3 +154,15 @@ signed main() {
     }
     return 0;
 }
+=======
+
+signed main() {
+    int t;
+    priority_queue<int> pq;
+    pq.push(2);
+    pq.push(3);
+    cout << pq.top();
+
+    return 0;
+}
+>>>>>>> 8415ed494c1d1179a3fbce4a52c1ad4af60da423

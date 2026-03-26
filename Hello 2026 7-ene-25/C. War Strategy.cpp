@@ -3,6 +3,7 @@
 #endif
 
 #include<bits/stdc++.h>
+#include<unordered_set>
 //#pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
@@ -12,6 +13,8 @@
 #else
 #define debug(...) 228
 #endif
+
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -135,10 +138,21 @@ void lee(int n, vi& vect) {
 }
 
 #define INF INT_MAX
-double pi = 2*acos(0.0);
 
 int solve() {
     // Code aquí
+    int n, m, k;
+    cin >> n >> m >> k;
+    int off_min = min(k-1, n-k);
+    int off_max = max(k-1, n-k);
+    int max_casillas = 1+m-m/3; // 1+m-m/3
+    int each_way = 1+m/3;
+    if (each_way > off_min){
+        int newMax = off_min + (m+1-3*off_min)/2;
+        cout << min(n, off_min + newMax+1) << endl;
+    } else {
+        cout << max_casillas << endl;
+    }
     return 0;
 }
 
@@ -154,4 +168,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2183/problem/C

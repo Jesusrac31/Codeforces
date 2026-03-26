@@ -134,11 +134,67 @@ void lee(int n, vi& vect) {
   return ;
 }
 
-#define INF INT_MAX
-double pi = 2*acos(0.0);
+#define INF LONG_LONG_MAX
+#define int lli
+
+vector<int> getDivisors(int n, int maxi) {
+    vector<int> divisores;
+    for (int i = 1; i * i <= n; i++) {
+        if (n % i == 0) {
+            if (i<=maxi) divisores.push_back(i);
+            if (n / i != i && n/i <= maxi) {
+                divisores.push_back(n / i);
+            }
+        }
+    }
+    return divisores;
+}
+
+int phi(int n) {
+    int result = n;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            while (n % i == 0)
+                n /= i;
+            result -= result / i;
+        }
+    }
+    if (n > 1)
+        result -= result / n;
+    return result;
+}
+
+int gcd (int a, int b) {
+    if (a == 0) return b;
+    if (b == 0) return a;
+    while (b) {
+        a %= b;
+        swap(a, b);
+    }
+    return a;
+}
+
+bool testSol(int a, int b, int c) {
+    if (a == 0 && b == 0) return false;
+    else return (c % gcd(a, b) == 0);
+}
 
 int solve() {
     // Code aquí
+    int n, m;
+    cin >> n >> m;
+    int maxVal = (1<<(((int)log2(m))+1))-1;
+    
+    int sol = 0;
+    vector<int> divisors = getDivisors(n, maxVal);
+    sol += 2*divisors.size();
+    // Cuantas parejas (a, b) son coprimas podiendo tener valores entre 0, maxVal/d siendo d el gcd(a, b)
+    vector<int> SumPhi = {0};
+    for (int i = 1; i<=maxVal; i++) SumPhi.PB(SumPhi.back()+phi(i));
+    for (auto d:divisors){
+        sol += (n%d==0)*(2*(SumPhi[maxVal/d])-1);
+    }
+    cout << sol << endl;
     return 0;
 }
 

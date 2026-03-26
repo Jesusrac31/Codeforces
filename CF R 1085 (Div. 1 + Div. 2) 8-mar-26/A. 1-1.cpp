@@ -135,10 +135,30 @@ void lee(int n, vi& vect) {
 }
 
 #define INF INT_MAX
-double pi = 2*acos(0.0);
 
 int solve() {
     // Code aquí
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    int solMax = 0, solMin = 0;
+    for (int i = 1; i<n-1; i++)
+        if (s[i-1] == '1' && s[i+1] == '1')
+            s[i] = '1';
+
+    for (auto c:s) 
+        solMax += (c=='1');
+
+    for (int i = 1; i<n-1; i++)
+        if (s[i-1] == '1' && s[i+1] == '1')
+            s[i] = '0';
+
+    for (auto c:s) 
+        solMin += (c=='1');
+    
+    cout << solMin << " " << solMax << endl;
+
     return 0;
 }
 
@@ -154,4 +174,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2207/problem/A

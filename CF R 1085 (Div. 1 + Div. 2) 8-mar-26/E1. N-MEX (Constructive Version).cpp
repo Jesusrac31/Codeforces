@@ -135,10 +135,66 @@ void lee(int n, vi& vect) {
 }
 
 #define INF INT_MAX
-double pi = 2*acos(0.0);
+
+struct range {
+    int v;
+    int init;
+    int ending;
+
+    range(int vN, int initN, int endingN){
+        v = vN;
+        init = initN;
+        ending = endingN;
+    }
+};
 
 int solve() {
     // Code aquí
+    int n; cin >> n;
+    vi a(n+1); for (int i = 1; i<=n; i++) cin >> a[i];
+    a[0] = n;
+
+    vector<range> ranges = {{n, 0, 1}};
+    vector<bool> counter(n+1, true);
+    bool posible = true;
+    for (int i = 1; i<=n; i++){
+        if (a[i] > a[i-1]){
+            posible = false;
+            break;
+        } else if (a[i] == a[i-1]){
+            ranges.back().ending++;
+        } else {
+            if (n-a[i] > i){
+                posible = false;
+                break;
+            }
+            counter[a[i]] = false;
+            ranges.PB(range(a[i], i, i+1));
+        }
+    }
+    if (!posible){
+        cout << "NO" << endl;
+        return 0;
+    }
+    vi b(n+1, n);
+    int indexRanges = 0;
+    int indexCounter = n;
+    for (int i = 1; i<=n; i++){
+        if (i >= ranges[indexRanges].ending) {
+            indexRanges++;
+        } else {
+            counter[indexCounter] = false;
+            while(!counter[indexCounter]){
+                indexCounter--;
+            }
+            b[i] = indexCounter;
+        }
+    }
+
+    cout << "YES" << endl;
+    for (int i = 1; i<=n; i++) cout << b[i] << " ";
+    cout << endl;
+    
     return 0;
 }
 
@@ -154,4 +210,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2207/problem/E1

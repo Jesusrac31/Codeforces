@@ -3,6 +3,7 @@
 #endif
 
 #include<bits/stdc++.h>
+#include<unordered_set>
 //#pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
@@ -13,12 +14,14 @@
 #define debug(...) 228
 #endif
 
+#include<bits/stdc++.h>
+
 using namespace std;
 
 typedef vector<int> vi;
 typedef vector<long long> vll;
 typedef long long lli;
-typedef pair<int, int> pii;
+typedef pair<long long, long long> pii;
 typedef map<string, int> msi;
 typedef map<int, vector<int>> miv;
 
@@ -135,10 +138,51 @@ void lee(int n, vi& vect) {
 }
 
 #define INF INT_MAX
-double pi = 2*acos(0.0);
+#define int lli
 
 int solve() {
     // Code aquí
+    int n, l, r;
+    cin >> n >> l >> r;
+    pii sol = {0, 0};
+    priority_queue<pii> dudosasPendPos, dudosasPendNeg;
+    while(n--){
+        int a;
+        cin >> a;
+        pii candidato = {l-a, r-a};
+        if (candidato.first >= 0 && candidato.second >= 0) {
+            sol.first += candidato.first;
+            sol.second += candidato.second;
+        } else if (candidato.second > 0) {
+            dudosasPendPos.push(candidato);
+        }
+        candidato = {a-l, a-r};
+        if (candidato.first >= 0 && candidato.second >= 0) {
+            sol.first += candidato.first;
+            sol.second += candidato.second;
+        } else if (candidato.first > 0) {
+            dudosasPendNeg.push(candidato);
+        }
+    }
+    while (sol.first > sol.second && dudosasPendPos.size()){
+        sol = {sol.first + dudosasPendPos.top().first, sol.second + dudosasPendPos.top().second};
+        dudosasPendPos.pop();
+    } 
+    while (sol.first < sol.second && dudosasPendNeg.size()){
+        sol = {sol.first + dudosasPendNeg.top().first, sol.second + dudosasPendNeg.top().second};
+        dudosasPendNeg.pop();
+    }
+    while (dudosasPendPos.size() && dudosasPendNeg.size()){
+        pii newSol = {sol.first + dudosasPendPos.top().first, sol.second + dudosasPendPos.top().second};
+        newSol = {newSol.first + dudosasPendNeg.top().first, newSol.second + dudosasPendNeg.top().second};
+        dudosasPendPos.pop();
+        dudosasPendNeg.pop();
+        if (newSol.first < sol.first) break;
+        sol = newSol;
+    }
+
+    cout << (sol.first < sol.second ? sol.first:sol.second) << endl;
+
     return 0;
 }
 
@@ -154,4 +198,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2157/problem/D

@@ -18,7 +18,7 @@ using namespace std;
 typedef vector<int> vi;
 typedef vector<long long> vll;
 typedef long long lli;
-typedef pair<int, int> pii;
+typedef pair<lli, lli> pii;
 typedef map<string, int> msi;
 typedef map<int, vector<int>> miv;
 
@@ -84,9 +84,6 @@ bool sort_func(int a, int b) {
     ;                                                                                                                                                        \
     copy(v1.begin(), v1.end(), back_inserter(v2));
 
-// Funciones pair
-#define F first
-#define S second
 
 // Logaritmo de 2
 double log_2 = log(2);
@@ -135,10 +132,49 @@ void lee(int n, vi& vect) {
 }
 
 #define INF INT_MAX
-double pi = 2*acos(0.0);
+#define int lli
+
+int searchHighest(int init, int ending, vll& a){
+    int sol = init;
+    for (auto x = init; x < ending; x++) 
+        if (a[sol] < a[x])
+            sol = x;
+    return sol;
+}
+
+
+pii divide (int init, int ending, int h, vll& a){
+    pii sol = {0, 0};
+    int mid = searchHighest(init, ending, a);
+    sol.first = (h-a[mid])*(ending-init);
+    if (ending - init <= 1) {
+        return sol;
+    }
+    
+    pii solleft, solright;
+    solleft = divide(init, mid, a[mid], a);
+    solright = divide(mid+1, ending, a[mid], a);
+    if (solleft.first >= solright.first){
+        sol.first += solleft.first;
+        sol.second = max(solleft.second, solright.first);
+    } else {
+        sol.first += solright.first;
+        sol.second = max(solright.second, solleft.first);
+    }
+    return sol;
+}
+
 
 int solve() {
     // Code aquí
+    int n, h;
+    cin >> n >> h;
+    vll a(n);
+    for (int i = 0; i<n; i++) cin >> a[i];
+    a.push_back(0); // Avoid overflow
+
+    pii sol = divide(0, n, h, a);
+    cout << sol.first + sol.second << endl;
     return 0;
 }
 
@@ -154,4 +190,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2207/problem/C

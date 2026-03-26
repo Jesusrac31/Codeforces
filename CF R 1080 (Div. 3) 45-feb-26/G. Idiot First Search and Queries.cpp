@@ -3,7 +3,7 @@
 #endif
 
 #include<bits/stdc++.h>
-//#pragma GCC optimize("O3")
+#pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
 
@@ -134,11 +134,64 @@ void lee(int n, vi& vect) {
   return ;
 }
 
-#define INF INT_MAX
-double pi = 2*acos(0.0);
+#define INF LONG_LONG_MAX
+
+struct Nodo {
+    int id;
+    Nodo* l = nullptr;
+    Nodo* r = nullptr;
+    Nodo* padre = nullptr;
+    lli exit = 0;
+};
+
+lli getExitValue(Nodo& node){
+    if (node.l == nullptr) node.exit = 1;
+    else {
+        node.exit += getExitValue(*node.l);
+        node.exit += getExitValue(*node.r);
+        node.exit += 3;
+    }
+    return node.exit;
+}
+
+int processDown(Nodo& node, int k){
+    if (k == 0 || k == (*node.l).exit+1 || k == node.exit-1) return node.id;
+    if (k < (*node.l).exit+1) return processDown(*node.l, k-1);
+    else return processDown(*node.r, k-1-((*node.l).exit+1));
+}
+
+int processQuery (Nodo& node_act, int k){
+    if (node_act.exit <= k){
+        return processQuery(*node_act.padre, k-node_act.exit);
+    } else {
+        return processDown(node_act, k);
+    }
+}
 
 int solve() {
     // Code aquí
+    int n, q; cin >> n >> q;
+
+    vector<Nodo> nodos(n+1);
+    int l, r;
+    for (int i = 1; i<=n; i++){
+        cin >> l >> r;
+        nodos[i].id = i;
+        if (l == 0 && r == 0) continue;
+        nodos[i].l = &nodos[l];
+        nodos[i].r = &nodos[r];
+        nodos[l].padre = &nodos[i];
+        nodos[r].padre = &nodos[i];
+    }
+
+    getExitValue(nodos[1]);
+    int v, k;
+    while(q--){
+        cin >> v >> k;
+        cout << processQuery(nodos[v], k) << " ";
+    }
+    cout << endl;
+
     return 0;
 }
 

@@ -3,7 +3,8 @@
 #endif
 
 #include<bits/stdc++.h>
-//#pragma GCC optimize("O3")
+#include<unordered_set>
+#pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
 
@@ -12,6 +13,8 @@
 #else
 #define debug(...) 228
 #endif
+
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -39,8 +42,6 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
     Mint& operator*=(const Mint &o) { v = int(1LL * v * o.v % MOD); return *this; }
     bool operator<(const Mint& o) const {return v < o.v;}
     bool operator>(const Mint& o) const {return v > o.v;}
-    bool operator<=(const Mint& o) const {return v <= o.v;}
-    bool operator>=(const Mint& o) const {return v >= o.v;}
     bool operator==(const Mint& o) const {return v == o.v;}
     bool operator!=(const Mint& o) const {return v != o.v;}
     Mint pow(long long p) const {
@@ -61,6 +62,10 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
 istream& operator>>(std::istream& input, Mint& m) {
     input >> m.v;
     return input;
+}
+template<typename T> std::ostream& operator<<(std::ostream& os, const Mint& m) {
+    os << m.v << " ";
+    return os;
 }
 
 // Funciones vector
@@ -85,8 +90,8 @@ bool sort_func(int a, int b) {
     copy(v1.begin(), v1.end(), back_inserter(v2));
 
 // Funciones pair
-#define F first
-#define S second
+#define F first;
+#define S second;
 
 // Logaritmo de 2
 double log_2 = log(2);
@@ -135,10 +140,44 @@ void lee(int n, vi& vect) {
 }
 
 #define INF INT_MAX
-double pi = 2*acos(0.0);
+
 
 int solve() {
     // Code aquí
+    int n, q;
+    cin >> n >> q;
+    vi v(n+2);
+    for(int i = 1; i<=n; i++){
+        cin >> v[i];
+    }
+    
+    vector<int> mxl(n + 1), mir(n + 1);
+    for (int i = 1; i <= n; i++){
+        mxl[i] = i - 1;
+        while (mxl[i] > 0 && v[mxl[i]] < v[i])
+            mxl[i] = mxl[mxl[i]];
+    }
+    for (int i = n; i >= 1; i--){
+        mir[i] = i + 1;
+        while (mir[i] <= n && v[mir[i]] > v[i])
+            mir[i] = mir[mir[i]];
+    }
+    //cout << mxl << endl << mir << endl;
+    vi ranges(n+1, INF);
+    for (int i = 1; i<=n; i++){
+        ranges[mxl[i]] = min(ranges[mxl[i]], mir[i]);
+    }
+    for (int i = ranges.size()-2; i>=0; i--){
+        ranges[i] = min(ranges[i], ranges[i+1]);
+    }
+    //cout << ranges << endl << endl;
+    
+
+    while(q--){
+        int l, r;
+        cin >> l >> r;
+        cout << (ranges[l] <= r ? "NO" : "YES") << endl;
+    }
     return 0;
 }
 
@@ -153,5 +192,3 @@ signed main() {
     }
     return 0;
 }
-
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

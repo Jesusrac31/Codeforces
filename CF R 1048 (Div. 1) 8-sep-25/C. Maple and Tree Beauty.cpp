@@ -3,6 +3,7 @@
 #endif
 
 #include<bits/stdc++.h>
+#include<unordered_set>
 //#pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
@@ -12,6 +13,8 @@
 #else
 #define debug(...) 228
 #endif
+
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -39,8 +42,6 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
     Mint& operator*=(const Mint &o) { v = int(1LL * v * o.v % MOD); return *this; }
     bool operator<(const Mint& o) const {return v < o.v;}
     bool operator>(const Mint& o) const {return v > o.v;}
-    bool operator<=(const Mint& o) const {return v <= o.v;}
-    bool operator>=(const Mint& o) const {return v >= o.v;}
     bool operator==(const Mint& o) const {return v == o.v;}
     bool operator!=(const Mint& o) const {return v != o.v;}
     Mint pow(long long p) const {
@@ -61,6 +62,10 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
 istream& operator>>(std::istream& input, Mint& m) {
     input >> m.v;
     return input;
+}
+template<typename T> std::ostream& operator<<(std::ostream& os, const Mint& m) {
+    os << m.v << " ";
+    return os;
 }
 
 // Funciones vector
@@ -85,8 +90,8 @@ bool sort_func(int a, int b) {
     copy(v1.begin(), v1.end(), back_inserter(v2));
 
 // Funciones pair
-#define F first
-#define S second
+#define F first;
+#define S second;
 
 // Logaritmo de 2
 double log_2 = log(2);
@@ -135,10 +140,75 @@ void lee(int n, vi& vect) {
 }
 
 #define INF INT_MAX
-double pi = 2*acos(0.0);
+#define MAX_OBJ 200001
+
+int dfs(vector<vi>& tree, vi& objetos){
+    stack<pii> record;
+    record.push({1, 0});
+    int min_depth = INF;
+    
+    while(record.size()){
+        pii node = record.top();
+        record.pop();
+        if (objetos.size()==node.second){
+            objetos.PB(0);
+        }
+        objetos[node.second]++;
+        
+        if (tree[node.first].size() == 0){
+            //cout << node.first << endl;
+            min_depth = min(min_depth, node.second);
+        } else {
+            for (auto u:tree[node.first]){
+                record.push({u, node.second+1});
+            }
+        }
+    }
+    return min_depth;
+}
+
+int transformMargin(vi& objetos, int min_depth){
+    int margin = 0;
+    for (int i = objetos.size()-1; i>min_depth; i--){
+        margin += objetos[i];
+        objetos.pop_back();
+    }
+    for (int i = 0; i<margin; i++){
+        objetos.PB(1);
+    }
+    return margin;
+}
+
+bool backpack(vi& objetos, int k){
+    bitset<MAX_OBJ> dp = 1; // Pesos posibles
+    for (int i = 0; i < objetos.size(); i++){
+        dp = (dp | (dp << objetos[i]));
+        if (dp[k]){
+            return true;
+        }
+    }
+    return dp[k];
+}
 
 int solve() {
     // Code aquí
+    int n, k;
+    cin >> n >> k;
+    vector<vi> tree(n+1);
+    int el;
+    for (int i = 2; i<=n; i++) {
+        cin >> el;
+        if (el != i){
+            tree[el].PB(i);
+        }
+    }
+    
+    vi objetos;
+    int min_depth = dfs(tree, objetos);
+
+    transformMargin(objetos, min_depth);
+
+    cout << min_depth + backpack(objetos, k) << endl;
     return 0;
 }
 
@@ -153,5 +223,3 @@ signed main() {
     }
     return 0;
 }
-
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)

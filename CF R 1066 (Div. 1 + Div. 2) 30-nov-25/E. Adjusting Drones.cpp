@@ -3,6 +3,7 @@
 #endif
 
 #include<bits/stdc++.h>
+#include<unordered_set>
 //#pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
@@ -12,6 +13,8 @@
 #else
 #define debug(...) 228
 #endif
+
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -135,10 +138,33 @@ void lee(int n, vi& vect) {
 }
 
 #define INF INT_MAX
-double pi = 2*acos(0.0);
 
-int solve() {
+int solve(int T) {
     // Code aquí
+    int n, k;
+    cin >> n >> k;
+    vi a(n);
+    for (int i = 0; i<n; i++) cin >> a[i];
+    sort(a.begin(), a.end());
+
+    vi rangos;
+    int ant_el = 0, longitud = 0;
+    for (int i = 0; i<n; i++){
+        if (longitud-k >= a[i]-ant_el || a[i] == ant_el){
+            longitud++;
+        } else {
+            rangos.PB(longitud);
+            ant_el = a[i];
+            longitud = 1;
+        }
+    }
+    rangos.PB(longitud);
+    int maxi = 0;
+    for (int x:rangos){
+        maxi = max(maxi, x-k);
+    }
+    cout << maxi << endl;
+
     return 0;
 }
 
@@ -149,9 +175,9 @@ signed main() {
     int T;
     cin >> T; // Número de casos
     while (T--) {
-        solve();
+        solve(T);
     }
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2157/problem/E

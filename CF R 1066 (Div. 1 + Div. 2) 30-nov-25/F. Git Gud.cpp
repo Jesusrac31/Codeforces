@@ -3,6 +3,7 @@
 #endif
 
 #include<bits/stdc++.h>
+#include<unordered_set>
 //#pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
@@ -12,6 +13,8 @@
 #else
 #define debug(...) 228
 #endif
+
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -135,10 +138,36 @@ void lee(int n, vi& vect) {
 }
 
 #define INF INT_MAX
-double pi = 2*acos(0.0);
+#define int lli
+
+vector<pii> ans;
+
+void printSeq(int inc, int n, int k){
+    for (int i = inc; i<k; i+=inc){
+        for (int j = n-n%k + i; j>= 0; j-=k){
+            if (j<n){
+                ans.push_back((pii){j, min(inc, n-j)});
+            }
+        }
+    }
+    return ;
+}
 
 int solve() {
-    // Code aquí
+    int n;
+    cin >> n;
+
+    int k = 100;
+    int inc_act = 1;
+    for (int i = k; i/k<=n; i*=k){
+        printSeq(inc_act, n, i);
+        inc_act *= k;
+    }
+    cout << ans.size() << endl;
+    for (auto x:ans){
+        cout << x.first << " " << x.second << endl;
+    }
+
     return 0;
 }
 
@@ -146,12 +175,8 @@ signed main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr); 
-    int T;
-    cin >> T; // Número de casos
-    while (T--) {
-        solve();
-    }
+    solve();
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2157/problem/F

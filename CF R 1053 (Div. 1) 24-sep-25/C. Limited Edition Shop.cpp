@@ -3,6 +3,7 @@
 #endif
 
 #include<bits/stdc++.h>
+#include<unordered_set>
 //#pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
@@ -12,6 +13,8 @@
 #else
 #define debug(...) 228
 #endif
+
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -61,6 +64,10 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
 istream& operator>>(std::istream& input, Mint& m) {
     input >> m.v;
     return input;
+}
+template<typename T> std::ostream& operator<<(std::ostream& os, const Mint& m) {
+    os << m.v << " ";
+    return os;
 }
 
 // Funciones vector
@@ -129,16 +136,38 @@ bool isNumeric(string const &str) {
     return !str.empty() && it == str.end();
 }
 
-void lee(int n, vi& vect) {
+void lee(int n, vll& vect) {
   rep(i, n) cin >> vect[i];
   return ;
 }
 
 #define INF INT_MAX
-double pi = 2*acos(0.0);
+
+lli SolRec(bitset<200005>& bloq, vll& v, vll& a, vll& b, int ia = 0, int ib = 0, lli ans = 0){
+    while(ia < a.size() && bloq[a[ia]-1]){
+        ia++;
+    }
+    if (ia == a.size() || ib == b.size()){
+        return ans;
+    }
+    lli sol_opt = SolRec(bloq, v, a, b, ia+1, ib, ans+v[a[ia]-1]);
+    bloq[b[ib]-1] = 1;
+    sol_opt = max(SolRec(bloq, v, a, b, ia, ib+1, ans), sol_opt);
+    bloq[b[ib]-1] = 0;
+    return sol_opt;
+}
 
 int solve() {
     // Code aquí
+    int n;
+    cin >> n;
+    vll v(n), a(n), b(n);
+    lee(n, v);
+    lee(n, a);
+    lee(n, b);
+    bitset<200005> bloq(0);
+    cout << SolRec(bloq, v, a, b) << endl;
+
     return 0;
 }
 

@@ -67,7 +67,7 @@ istream& operator>>(std::istream& input, Mint& m) {
 #define PB(a) push_back(a);
 
 bool sort_func(int a, int b) {
-    if (a < b) {
+    if (a > b) {
         return true;
     } else {
         return false;
@@ -135,10 +135,35 @@ void lee(int n, vi& vect) {
 }
 
 #define INF INT_MAX
-double pi = 2*acos(0.0);
 
 int solve() {
     // Code aquí
+    int n, m, l;
+    cin >> n >> m >> l;
+    vi a(n);
+    for (int i = 0; i<n; i++) cin >> a[i];
+
+    int tamano = min(m, n+1);
+    int init = 0;
+    int index = 0;
+    vi d(tamano);
+    for (int t = 1; t<=l; t++){
+        d.back()++;
+        ord(d);
+        if (index < n && a[index] == t){
+            index++;
+            d[0]=0;
+            ord(d);
+            if (tamano > min(m, n+1-index)){
+                d.pop_back();
+                tamano--;
+            }
+        }
+        //cout << d << endl;
+    }
+    cout << d[0] << endl;
+    //cout << "-----------------------" << endl;
+
     return 0;
 }
 
@@ -154,4 +179,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2207/problem/B

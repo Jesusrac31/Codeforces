@@ -3,6 +3,7 @@
 #endif
 
 #include<bits/stdc++.h>
+#include<unordered_set>
 //#pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
@@ -12,6 +13,8 @@
 #else
 #define debug(...) 228
 #endif
+
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -135,23 +138,56 @@ void lee(int n, vi& vect) {
 }
 
 #define INF INT_MAX
-double pi = 2*acos(0.0);
 
-int solve() {
-    // Code aquí
+int solve(){
+    // Este es un problema de la maleta con los atributos balance, numero de objetos y cuantos elementos de la secuencia )(( están presentes. 
+    // Haces una programación dinámica sin tener en cuenta nada durante el proceso. Como en el problema de la mochila, por cada objeto (en este caso caracter)
+    // Tenemos que decidir si meter el elemento o no. No meterlo implica que la nueva columna sigue igual, meterlo implica sumar los cambios, según el caracter y que elemento de
+    // la tabla sea, actuaremos de una forma o de otra
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    // dp[k][b][l] ->   k = que caracteres aparecen de )((
+    //                  b = balance ( ( suma 1 y ) resta 1)
+    //                  l = longitud secuencia
+    vector<vector<vector<Mint>>> dp(4, vector(n + 1, vector(n + 1, Mint(0)))); // balance, length
+    dp[0][0][0] = 1; // Importante empezar con 1. El score de una lista de balance 0 con longitud 0 es 1.
+    for(int i = 0; i < n; i++){
+        auto ndp = dp; // Simula el siguiente estado, copiamos la columna de antes a ndp (new dp). Optimiza espacio
+        // El hecho de copiar la fila original incluye tambien que pasaria con cada caracter si no lo añadimos.
+        int add = s[i] == '(' ? 1 : -1; // El cambio de balance
+        for(int b = 0; b < n; b++){
+            if(b + add < 0) continue; // Si fuera menor que 0 no hay posibilidades de que sea regular
+            for(int l = 0; l < n; l++){
+                for(int k = 0; k < 4; k++){
+                    int ni = k; // Indice k que se modifica
+                    if(k == 0 && s[i] == ')') ni++;
+                    if((k == 1 || k == 2) && s[i] == '(') ni++;
+                    ndp[ni][b + add][l + 1] += dp[k][b][l];
+                }
+            }
+        }
+        swap(dp, ndp); // Parte de la mecanica de ahorro de memoria con las columnas de dp y ndp
+    }
+
+    Mint ans = 0;
+    for(int l = 0; l <= n; l++){
+        ans += dp[3][0][l] * (l - 2); // Todas las secuencias de longitud l tienen un score de l-2
+    }
+
+    cout << ans << '\n';
     return 0;
 }
 
-signed main() {
+int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr); 
     int T;
-    cin >> T; // Número de casos
-    while (T--) {
+    cin >> T;
+    while(T--){
         solve();
     }
-    return 0;
 }
-
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2190/problem/B2

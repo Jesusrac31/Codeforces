@@ -1,0 +1,2 @@
+- powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Update-Readme.ps1"
+- powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Update-ReadmeStats.ps1"

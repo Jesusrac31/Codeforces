@@ -1,8 +1,8 @@
 # Codeforces Solutions Repository
 
 Este repositorio contiene mis soluciones de problemas de Codeforces.
-Cada carpeta corresponde a un concurso e incluye su nombre y la fecha en la que se realizÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â³.
-AdemÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡s, hay una carpeta de problemas variados (`Randoms`).
+Cada carpeta corresponde a un concurso e incluye su nombre y la fecha en la que se realizó.
+Además, hay una carpeta de problemas variados (`Randoms`).
 
 ## Resumen
 
@@ -13,8 +13,8 @@ AdemÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡�
 
 ## Criterio de estado
 
-- Se marca como **(sin terminar)** cuando el archivo tiene un comentario final indicando pendiente (por ejemplo, `Eliminar comentario si el proyecto estÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ terminado`) o una nota explÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â­cita de fallo.
-- En archivos antiguos sin este sistema de comentarios, el estado puede no estar indicado explÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â­citamente.
+- Se marca como **(sin terminar)** cuando el archivo tiene un comentario final indicando pendiente (por ejemplo, `Eliminar comentario si el proyecto está terminado`) o una nota explí­cita de fallo.
+- En archivos antiguos sin este sistema de comentarios, el estado puede no estar indicado explí­citamente.
 
 ## Problemas por concurso/carpeta
 

@@ -162,33 +162,75 @@ int solve() {
     pair<int, char> valGreatest = (*ending);
 
     // Primero haz una secuencia con el grande y el chico hasta quedarte sin chico o que el grande sea igual al mediano.
-    bool select = true;
-    while (true){
-        if (select){
-            valGreatest.first--;
-            sol+=valGreatest.second;
-            if (valGreatest.first == valMiddle.first) break;
-        } else {
-            if (!valSmallest.first) break;
-            valSmallest.first--;
-            sol+=valSmallest.second;
-        }
-        select = !select;
+    if (valGreatest.first != valMiddle.first){
+        valGreatest.first--;
+        sol+=valGreatest.second;
     }
+    //cout << sol << endl;
+    while (valSmallest.first && valGreatest.first != valMiddle.first){
+        valSmallest.first--;
+        sol+=valSmallest.second;
+        valGreatest.first--;
+        sol+=valGreatest.second;
+    }
+    //cout << sol << endl;
     // Ahora mezclamos el mediano con el grande hasta que el mediano llegue al chico y empiece su turno (empiezas por el mediano)
-    select = false;
-    while (true){
-        if (select){
-            valGreatest.first--;
-            sol+=valGreatest.second;
-        } else {
-            if (valMiddle.first == valSmallest.first) break;
-            valMiddle.first--;
-            sol+=valMiddle.second;
-        }
-        select = !select;
+    while (valMiddle.first != valSmallest.first){
+        valMiddle.first--;
+        sol+=valMiddle.second;
+        valGreatest.first--;
+        sol+=valGreatest.second;
     }
+    //cout << sol << endl;
+    // Final, si hemos llegado a este punto pueden pasar X cosas
+    // El primer while paró ya que el valor Smallest llegó a 0, en ese caso no hacemos nada ya que el segundo habrá reducido el valor middle a 0 y termina en el valor Greatest
+    // El primer while paró ya que el valor Greatest llegó a Middle, entonces el segundo bucle se ejecutará con normalidad y falta reducir todos los valores a 0
+    // Para reducir los valores a 0 hay una secuencia que reduce todos los valores en uno, repetimos dicha secuencia hasta que no nos queden más
+    // Al terminar siempre nuestros whiles con el valor Greatest, sabemos que no podemos empezar con este
+    // Debemos decidir si empezar con Middle o con Smallest, para este punto o ambos estan en 0 o tienen todos los números el mismo valor
+    // Resulta que esto no es tanto un problema ya que la secuencia habrá quedado como GXGXG donde G es el valor de greatest
+    // Eso significa que el final queda algo como GXGXGY
+    // La secuencia que hablabamos antes con números es:
+    // 1 2 3 2 3 1 3 1 2
+    // Así que la secuencia realmente sería X G Y G Y X Y X G
+    // Ahora sí, cual es X y cual es Y
+    // Si la longitud de sol al llegar es menor que 2, es irrelevante. En caso contrario, X es el mismo que el penultimo caracter
+    
+    string secuencia = "XGYGYXYXG";
+    char elF = 'S', elS = 'M';
+    if (sol.size()>=2){
+        if (valMiddle.second == sol[sol.size()-2]){
+            elF = 'M';
+            elS = 'S';
+        }
+    }
+    for (int i = 0; i<secuencia.size(); i++){
+        if (secuencia[i] == 'X'){
+            secuencia[i] = elF;
+        } else if (secuencia[i] == 'G'){
+            secuencia[i] = 'G';
+        } else {
+            secuencia[i] = elS;
+        }
+    }
+    for (int i = 0; true; i = (i+1)%9){
+        if (secuencia[i] == 'S'){
+            if (!valSmallest.first) break;
+            sol+=valSmallest.second;
+            valSmallest.first--;
+        } else if (secuencia[i] == 'M'){
+            if (!valMiddle.first) break;
+            sol+=valMiddle.second;
+            valMiddle.first--;
+        } else {
+            if (!valGreatest.first) break;
+            sol+=valGreatest.second;
+            valGreatest.first--;
+        }
+    }
+
     cout << sol << endl;
+    //cout << "-------------" << endl;
     return 0;
 }
 
@@ -204,4 +246,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2209/problem/D

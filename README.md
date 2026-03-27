@@ -1,20 +1,20 @@
 # Codeforces Solutions Repository
 
 Este repositorio contiene mis soluciones de problemas de Codeforces.
-Cada carpeta corresponde a un concurso e incluye su nombre y la fecha en la que se realizó.
-Además, hay una carpeta de problemas variados (`Randoms`).
+Cada carpeta corresponde a un concurso e incluye su nombre y la fecha en la que se realizÃƒÂ³.
+AdemÃƒÂ¡s, hay una carpeta de problemas variados (`Randoms`).
 
 ## Resumen
 
 - Problemas intentados: **247**
-- Problemas resueltos: **231**
-- Problemas sin terminar: **16**
-- Porcentaje de resoluciÃ³n: **93.52%**
+- Problemas resueltos: **232**
+- Problemas sin terminar: **15**
+- Porcentaje de resoluciÃ³n: **93.93%**
 
 ## Criterio de estado
 
-- Se marca como **(sin terminar)** cuando el archivo tiene un comentario final indicando pendiente (por ejemplo, `Eliminar comentario si el proyecto está terminado`) o una nota explí­cita de fallo.
-- En archivos antiguos sin este sistema de comentarios, el estado puede no estar indicado explí­citamente.
+- Se marca como **(sin terminar)** cuando el archivo tiene un comentario final indicando pendiente (por ejemplo, `Eliminar comentario si el proyecto estÃƒÂ¡ terminado`) o una nota explÃƒÂ­Ã‚Â­cita de fallo.
+- En archivos antiguos sin este sistema de comentarios, el estado puede no estar indicado explÃƒÂ­Ã‚Â­citamente.
 
 ## Problemas por concurso/carpeta
 
@@ -23,7 +23,7 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 - [A. Flip Flops.cpp](CF%20R%201087%20(Div.%202)%2021-mar-26/A.%20Flip%20Flops.cpp)
 - [B. Array.cpp](CF%20R%201087%20(Div.%202)%2021-mar-26/B.%20Array.cpp)
 - [C. Find the Zero.cpp](CF%20R%201087%20(Div.%202)%2021-mar-26/C.%20Find%20the%20Zero.cpp)
-- [D. Ghostfires.cpp](CF%20R%201087%20(Div.%202)%2021-mar-26/D.%20Ghostfires.cpp) (sin terminar)
+- [D. Ghostfires.cpp](CF%20R%201087%20(Div.%202)%2021-mar-26/D.%20Ghostfires.cpp)
 
 ### CF R 1085 (Div. 1 + Div. 2) 8-mar-26
 

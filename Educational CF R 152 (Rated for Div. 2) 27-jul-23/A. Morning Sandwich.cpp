@@ -71,3 +71,4 @@ int main() {
   }
   return 0;
 }
+// https://codeforces.com/contest/1849/problem/A

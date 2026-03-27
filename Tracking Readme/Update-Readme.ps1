@@ -9,7 +9,7 @@ $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot $RootPath)).Path
 $readmeFullPath = Join-Path $repoRoot $ReadmePath
 
 if (-not (Test-Path -LiteralPath $readmeFullPath)) {
-    throw "No se encontro el archivo README en: $readmeFullPath"
+    throw "No se encontró el archivo README en: $readmeFullPath"
 }
 
 function Get-RelativePath([string]$fullPath, [string]$basePath) {
@@ -108,7 +108,7 @@ if ($randomGroup) {
     }
 }
 
-$readmeLines = Get-Content -LiteralPath $readmeFullPath
+$readmeLines = Get-Content -LiteralPath $readmeFullPath -Encoding UTF8
 $sectionHeader = '## Problemas por concurso/carpeta'
 $sectionIndexMatch = $readmeLines | Select-String -Pattern '^## Problemas por concurso/carpeta$' | Select-Object -First 1
 
@@ -152,7 +152,7 @@ foreach ($group in $orderedGroups) {
     $output.Add('') | Out-Null
 }
 
-[System.IO.File]::WriteAllLines($readmeFullPath, $output, (New-Object System.Text.UTF8Encoding($false)))
+[System.IO.File]::WriteAllLines($readmeFullPath, $output, (New-Object System.Text.UTF8Encoding($true)))
 
 Write-Output "README actualizado: seccion de problemas regenerada y ordenada."
 Write-Output "Concursos/carpetas: $($orderedGroups.Count)"

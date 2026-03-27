@@ -113,3 +113,4 @@ int main() {
     }
     return 0;
 }
+// https://codeforces.com/contest/2124/problem/B

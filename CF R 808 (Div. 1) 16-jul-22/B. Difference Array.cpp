@@ -39,3 +39,4 @@ int main() {
   }
   return 0;
 }
+// https://codeforces.com/contest/1708/problem/B

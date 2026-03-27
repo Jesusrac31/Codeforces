@@ -201,3 +201,4 @@ int main() {
     }
     return 0;
 }
+// https://codeforces.com/contest/2119/problem/A

@@ -57,3 +57,4 @@ int main() {
   }
   return 0;
 }
+// https://codeforces.com/contest/1704/problem/A

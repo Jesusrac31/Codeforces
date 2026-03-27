@@ -12,7 +12,7 @@ if (-not (Test-Path -LiteralPath $readmeFullPath)) {
     throw "No se encontro el archivo README en: $readmeFullPath"
 }
 
-$lines = Get-Content -LiteralPath $readmeFullPath
+$lines = Get-Content -LiteralPath $readmeFullPath -Encoding UTF8
 
 $total = 0
 $unfinished = 0
@@ -32,6 +32,8 @@ $percentage = if ($total -gt 0) {
 } else {
     0
 }
+
+$resolutionLabel = "Porcentaje de resoluci$([char]0x00F3)n"
 
 $resumenHeaderMatch = $lines | Select-String -Pattern '^## Resumen$' | Select-Object -First 1
 
@@ -54,7 +56,7 @@ $newResumenBlock = @(
     "- Problemas intentados: **$total**",
     "- Problemas resueltos: **$solved**",
     "- Problemas sin terminar: **$unfinished**",
-    "- Porcentaje de resolución: **$percentage%**",
+    "- ${resolutionLabel}: **$percentage%**",
     ''
 )
 
@@ -72,7 +74,7 @@ for ($i = $resumenEndExclusive; $i -lt $lines.Count; $i++) {
     $output.Add($lines[$i]) | Out-Null
 }
 
-[System.IO.File]::WriteAllLines($readmeFullPath, $output, (New-Object System.Text.UTF8Encoding($false)))
+[System.IO.File]::WriteAllLines($readmeFullPath, $output, (New-Object System.Text.UTF8Encoding($true)))
 
 Write-Output "Resumen actualizado."
 Write-Output "Intentados=$total | Resueltos=$solved | Sin terminar=$unfinished | Porcentaje=$percentage%"

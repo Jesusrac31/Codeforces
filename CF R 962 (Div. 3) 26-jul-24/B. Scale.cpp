@@ -195,3 +195,4 @@ int main() {
   }
   return 0;
 }
+// https://codeforces.com/contest/1996/problem/B

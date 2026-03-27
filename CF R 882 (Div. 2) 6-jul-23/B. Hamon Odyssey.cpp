@@ -82,3 +82,4 @@ int main() {
   }
   return 0;
 }
+// https://codeforces.com/contest/1847/problem/B

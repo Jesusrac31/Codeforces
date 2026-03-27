@@ -185,3 +185,4 @@ int main() {
   }
   return 0;
 }
+// https://codeforces.com/contest/1986/problem/C

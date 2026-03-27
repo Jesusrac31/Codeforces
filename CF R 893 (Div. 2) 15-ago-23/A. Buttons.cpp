@@ -87,3 +87,4 @@ int main() {
   }
   return 0;
 }
+// https://codeforces.com/contest/1858/problem/A

@@ -7,9 +7,9 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 ## Resumen
 
 - Problemas intentados: **247**
-- Problemas resueltos: **204**
-- Problemas sin terminar: **43**
-- Porcentaje de resolución: **82.59%**
+- Problemas resueltos: **205**
+- Problemas sin terminar: **42**
+- Porcentaje de resolución: **83%**
 
 ## Criterio de estado
 
@@ -456,7 +456,7 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ### CF R 803 (Div. 2) 28-jun-22
 
-- [D. Fixed Point Guessing.cpp](CF%20R%20803%20(Div.%202)%2028-jun-22/D.%20Fixed%20Point%20Guessing.cpp) (sin terminar)
+- [D. Fixed Point Guessing.cpp](CF%20R%20803%20(Div.%202)%2028-jun-22/D.%20Fixed%20Point%20Guessing.cpp)
 
 ### Randoms
 

@@ -7,9 +7,9 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 ## Resumen
 
 - Problemas intentados: **247**
-- Problemas resueltos: **205**
-- Problemas sin terminar: **42**
-- Porcentaje de resolución: **83%**
+- Problemas resueltos: **206**
+- Problemas sin terminar: **41**
+- Porcentaje de resolución: **83.4%**
 
 ## Criterio de estado
 
@@ -452,7 +452,7 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ### CF R 804 (Div. 2) 4-jul-22
 
-- [C. The Third Problem.cpp](CF%20R%20804%20(Div.%202)%204-jul-22/C.%20The%20Third%20Problem.cpp) (sin terminar)
+- [C. The Third Problem.cpp](CF%20R%20804%20(Div.%202)%204-jul-22/C.%20The%20Third%20Problem.cpp)
 
 ### CF R 803 (Div. 2) 28-jun-22
 

@@ -7,9 +7,9 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 ## Resumen
 
 - Problemas intentados: **247**
-- Problemas resueltos: **203**
-- Problemas sin terminar: **44**
-- Porcentaje de resolución: **82.19%**
+- Problemas resueltos: **204**
+- Problemas sin terminar: **43**
+- Porcentaje de resolución: **82.59%**
 
 ## Criterio de estado
 
@@ -160,7 +160,7 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 - [B. AND Reconstruction.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/B.%20AND%20Reconstruction.cpp)
 - [C. Absolute Zero.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/C.%20Absolute%20Zero.cpp)
 - [D. Prime XOR Coloring.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/D.%20Prime%20XOR%20Coloring.cpp)
-- [E. Coloring Game.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/E.%20Coloring%20Game.cpp) (sin terminar)
+- [E. Coloring Game.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/E.%20Coloring%20Game.cpp)
 
 ### CF R 962 (Div. 3) 26-jul-24
 

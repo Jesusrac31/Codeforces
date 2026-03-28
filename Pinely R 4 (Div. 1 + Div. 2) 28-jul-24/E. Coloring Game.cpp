@@ -1,320 +1,259 @@
-//Librerías incluidas en #include<bitstdc++.h>
-#include<algorithm>
-#include<array>
-#include<atomic>
-#include<bitset>
-#include<ccomplex>
-#include<cerrno>
-#include<cfenv>
-#include<cfloat>
-#include<chrono>
-#include<cinttypes>
-#include<ciso646>
-#include<climits>
-#include<clocale>
-#include<cmath>
-#include<complex>
-#include<condition_variable>
-#include<csetjmp>
-#include<csignal>
-#include<cstdalign>
-#include<cstdarg>
-#include<cstdbool>
-#include<cstddef>
-#include<cstdint>
-#include<cstdio>
-#include<cstdlib>
-#include<cstring>
-#include<ctgmath>
-#include<ctime>
-#include<cwchar>
-#include<cwctype>
-#include<deque>
-#include<exception>
-#include<forward_list>
-#include<fstream>
-#include<functional>
-#include<future>
-#include<initializer_list>
-#include<iomanip>
-#include<ios>
-#include<iosfwd>
-#include<iostream>
-#include<istream>
-#include<iterator>
-#include<limits>
-#include<list>
-#include<locale>
-#include<map>
-#include<memory>
-#include<mutex>
-#include<new>
-#include<numeric>
-#include<ostream>
-#include<queue>
-#include<random>
-#include<ratio>
-#include<regex>
-#include<scoped_allocator>
-#include<set>
-#include<sstream>
-#include<stack>
-#include<stdexcept>
-#include<streambuf>
-#include<string>
-#include<system_error>
-#include<thread>
-#include<tuple>
-#include<type_traits>
-#include<typeindex>
-#include<typeinfo>
-#include<unordered_map>
-#include<unordered_set>
-#include<utility>
-#include<valarray>
-#include<vector>
-#include <stdlib.h>
+#ifdef DEBUG
+#define _GLIBCXX_DEBUG
+#endif
+
+#include<bits/stdc++.h>
+//#pragma GCC optimize("O3")
+//#pragma GCC optimize("O3,unroll-loops")
+//#pragma GCC target("avx2")
+
+#ifdef DEBUG
+#include "lib/debug.h"
+#else
+#define debug(...) 228
+#endif
+
 using namespace std;
 
 typedef vector<int> vi;
-typedef vector<long long int> vll;
-typedef long long int lli;
+typedef vector<long long> vll;
+typedef long long lli;
 typedef pair<int, int> pii;
 typedef map<string, int> msi;
 typedef map<int, vector<int>> miv;
+
+const int MOD = 998244353; // Módulo del problema, cambiar en caso de no ser ese. NO TIENE PORQUÉ SER CONSTANTE, SOLO GLOBAL
+
+struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
+    int v;
+    Mint(long long val = 0) {
+        v = int(val % MOD);
+        if (v < 0) v += MOD;
+    }
+    Mint operator+(const Mint &o) const { return Mint(v + o.v); }
+    Mint operator-(const Mint &o) const { return Mint(v - o.v); }
+    Mint operator*(const Mint &o) const { return Mint(1LL * v * o.v); }
+    Mint operator/(const Mint &o) const { return *this * o.inv(); }
+    Mint& operator+=(const Mint &o) { v += o.v; if (v >= MOD) v -= MOD; return *this; }
+    Mint& operator-=(const Mint &o) { v -= o.v; if (v < 0) v += MOD; return *this; }
+    Mint& operator*=(const Mint &o) { v = int(1LL * v * o.v % MOD); return *this; }
+    bool operator<(const Mint& o) const {return v < o.v;}
+    bool operator>(const Mint& o) const {return v > o.v;}
+    bool operator<=(const Mint& o) const {return v <= o.v;}
+    bool operator>=(const Mint& o) const {return v >= o.v;}
+    bool operator==(const Mint& o) const {return v == o.v;}
+    bool operator!=(const Mint& o) const {return v != o.v;}
+    Mint pow(long long p) const {
+        Mint a = *this, res = 1;
+        while (p > 0) {
+            if (p & 1) res *= a;
+            a *= a;
+            p >>= 1;
+        }
+        return res;
+    }
+    Mint inv() const { return pow(MOD - 2); }
+    friend ostream& operator<<(ostream& os, const Mint& m) {
+        os << m.v;
+        return os;
+    }
+};
+istream& operator>>(std::istream& input, Mint& m) {
+    input >> m.v;
+    return input;
+}
 
 // Funciones vector
 #define PB(a) push_back(a);
 
 bool sort_func(int a, int b) {
-  if (a < b) {
-    return true;
-  } else {
-    return false;
-  }
+    if (a < b) {
+        return true;
+    } else {
+        return false;
+    }
 }
-#define ord(vect) sort(vect.begin(), vect.end(), sort_func);
-
+#define ord(vect) sort(vect.begin(), vect.end(), sort_func)
+#define rep(x,n) for(int x = 0; x < n; ++x)
 #define borra_el(vect, el) vect.erase(vect.find(el));
 #define borra_range(vect, a, b) vect.erase(a, b);
 #define borra(vect, n) vect.erase(vect.begin() + n);
 #define B begin();
 #define E end();
-#define copia(v1, v2)                                                          \
-  ;                                                                            \
-  copy(v1.begin(), v1.end(), back_inserter(v2));
+#define copia(v1, v2)                                                                                                                    \
+    ;                                                                                                                                                        \
+    copy(v1.begin(), v1.end(), back_inserter(v2));
 
-// Funciones map
-#define F first;
-#define S second;
+// Funciones pair
+#define F first
+#define S second
 
 // Logaritmo de 2
 double log_2 = log(2);
 double log2(int a) { return (log(a) / log_2); }
 
-void Imprime(vector<bool> vect) {
-  for (int i = 0; i < vect.size(); i++) {
-    cout << vect[i] << " ";
-  }
-  cout << "\n";
-}
-
-void Imprime2d(vector<vi> vect) {
-  for (int j = 0; j<vect.size(); j++){
-    for (int i = 0; i < vect[j].size(); i++) {
-        cout << vect[j][i] << " ";
+// Imprime cualquier vector 
+template<typename T> std::ostream& operator<<(std::ostream& os, const std::vector<T>& vec) {
+    os << "[ ";//Quita esto si no quieres los corchetes o cambia lo que quieras poner
+    for(const auto& elem : vec) {
+        os << elem << " ";
     }
-    cout << "\n";
-  }
+    os << "]";
+    return os;
 }
 
 void Imprime_set(set<int> s) {
-  copy(s.begin(), s.end(), ostream_iterator<int>(cout, " "));
-  cout << endl;
+    copy(s.begin(), s.end(), ostream_iterator<int>(cout, " "));
+    cout << endl;
 }
 
 int maximo_comun_divisor(int a, int b) {
-  int temporal; // Para no perder b
-  while (b != 0) {
-    temporal = b;
-    b = a % b;
-    a = temporal;
-  }
-  return a;
+    int temporal; // Para no perder b
+    while (b != 0) {
+        temporal = b;
+        b = a % b;
+        a = temporal;
+    }
+    return a;
 }
 
 int minimo_comun_multiplo(int a, int b) {
-  return (a * b) / maximo_comun_divisor(a, b);
+    return (a * b) / maximo_comun_divisor(a, b);
 }
 
 bool isNumeric(string const &str) {
-  auto it = str.begin();
-  while (it != str.end() && isdigit(*it)) {
-    it++;
-  }
-  return !str.empty() && it == str.end();
+    auto it = str.begin();
+    while (it != str.end() && isdigit(*it)) {
+        it++;
+    }
+    return !str.empty() && it == str.end();
 }
 
-vi lee(int n) {
-  int el;
-  vi vect;
-  for (int i = 0; i < n; i++) {
-    cin >> el;
-    vect.PB(el);
-  }
-  return (vect);
+void lee(int n, vi& vect) {
+    rep(i, n) cin >> vect[i];
+    return ;
 }
-vector<vi> conexiones;
-set<int> impar, par;
-vector<bool> bloqueados_impar;
-vector<bool> bloqueados_par;
-bool Alice = false;
 
-void resuelve(int turno, int nodo){
-    /*cout << "Nodo: " << nodo << " --> ";
-    cout << "Bloqueados_impar: " << endl;
-    Imprime(bloqueados_impar);
-    cout << "Bloqueados_par: " << endl;
-    Imprime(bloqueados_par);*/
-    if (Alice == false){
-        //cout << "Alice falso - ";
-        if (turno%2 == 0){
-            //cout << "Vamos a pares - ";
-            if (bloqueados_impar[nodo]){
-                // Debes jugar con Alice
-                //cout << "Activamos Alice - ";
-                Alice = true;
+#define INF INT_MAX
+double pi = 2*acos(0.0);
+
+unordered_set<int> isColor0;
+unordered_set<int> isColor1;
+
+bool coloring2(vector<vi>& grafo, int node, int color, vector<bool>& recorrido){
+    if (recorrido[node]){ // Si ya lo has recorrido
+        // Comprueba que el color sea consistente
+        if (color==0) return (isColor0.find(node) != isColor0.end());
+        else return (isColor1.find(node) != isColor1.end());
+    }
+    // Sino, establece el color y marca como recorrido
+    recorrido[node] = true;
+    if (color==0) isColor0.insert(node);
+    else isColor1.insert(node);
+
+    // Comprueba tambien sus hijos
+    bool sol = true;
+    for (auto v:grafo[node]){
+        sol &= coloring2(grafo, v, (color+1)&1, recorrido);
+    }
+    return sol;
+}
+
+bool coloring2(vector<vi>& grafo, int n){
+    vector<bool> recorrido(n+1, false);
+    return coloring2(grafo, 1, 1, recorrido);
+}
+
+void SequenceBob(int n){
+    int a, b;
+    auto color1It = isColor0.begin();
+    auto color2It = isColor1.begin();
+    for (int i = 0; i<n; i++){
+        cin >> a >> b;
+        if (a == -1) exit; // Bad answer
+        if (a == 1){
+            if (color1It==isColor0.end()){ // Si ya he coloreado todos los 1
+                cout << (*color2It) << " " << b << endl;
+                color2It++;
             } else {
-                par.insert(nodo);
-                bloqueados_par[nodo] = true;
-                //cout << "Recorremos nodo - ";
-                for (int i = 0; i<conexiones[nodo].size(); i++){
-                    if (!bloqueados_impar[conexiones[nodo][i]]){ // Si esta bloqueado no lo recorras pero no pasa nada
-                        //cout << "New_Process" << endl;
-                        resuelve(turno+1, conexiones[nodo][i]);
-                    }
-                }
+                cout << (*color1It) << " " << 1 << endl;
+                color1It++;
+            }
+        } else if (b == 1){
+            if (color1It==isColor0.end()){ // Si ya he coloreado todos los 1
+                cout << (*color2It) << " " << a << endl;
+                color2It++;
+            } else {
+                cout << (*color1It) << " " << 1 << endl;
+                color1It++;
             }
         } else {
-            //cout << "Vamos a impares - ";
-            if (bloqueados_par[nodo]){
-                // Debes jugar con Alice
-                //cout << "Activamos Alice - ";
-                Alice = true;
+            if (color2It==isColor1.end()){ // Si ya he coloreado todos los 2
+                cout << (*color1It) << " " << 3 << endl;
+                color1It++;
             } else {
-                impar.insert(nodo);
-                bloqueados_impar[nodo] = true;
-                //cout << "Recorremos nodo - ";
-                for (int i = 0; i<conexiones[nodo].size(); i++){
-                    if (!bloqueados_par[conexiones[nodo][i]]){ // Si esta bloqueado no lo recorras pero no pasa nada
-                        //cout << "New_Process" << endl;
-                        resuelve(turno+1, conexiones[nodo][i]);
-                    }
-                }
+                cout << (*color2It) << " " << 2 << endl;
+                color2It++;
             }
         }
     }
-    //cout << "Nodo Finalizado" << endl;
+}
+
+void SequenceAlice(int n){
+    int node, c;
+    for (int i = 0; i<n; i++){
+        cout << "1 2" << endl;
+        cin >> node >> c;
+        if (node == -1) exit; // Bad answer
+    }
 }
 
 int solve() {
-  // Code aquí
-  int n, m;
-  cin >> n;
+    // Input
+    int n, m; cin >> n >> m;
+    if (n == -1) exit; // Bad answer
 
-  if (n == -1){
-    return 1;
-  }
+    vector<vi> grafo(n+1);
+    int u, v;
+    for (int i = 0; i<m; i++){ cin >> u >> v; grafo[u].PB(v); grafo[v].PB(u); }
 
-  cin >> m;
+    // Bob gana si solo si puede colorear el grafo con dos colores solo. Prueba:
+    // Si necesitara tres colores, Alice podría siempre seleccionar dos colores y llegaría un momento en el que Bob no puede hacer nada.
+    // Si puede colorear el grafo con dos colores, sigue el siguiente proceso:
+    // 1. Selecciona los vertices que debe pintar de color 1
+    // 2. Selecciona los vertices que debe pintar de color 2
+    // 3. Si Alice selecciona el color 1, pinta uno de los vertices que debes pintar de color 1
+    // 4. En caso de que no lo seleccione, habrá seleccionado el color 2, por lo que debes pintar uno de los vertices del otro grupo
+    // 5. Si en algún momento pintas todos los vertices de uno de los grupos, los vertices restantes no serán adyascentes entre ellos, por lo que puedes usar tambien el color 3 en ellos sin problema
 
-  conexiones.clear();
-  bloqueados_impar.clear();
-  bloqueados_par.clear();
-  impar.clear();
-  par.clear();
-  Alice = false;
-  for (int i = 0; i<=n; i++){
-    conexiones.PB({});
-    bloqueados_impar.PB(false);
-    bloqueados_par.PB(false);
-  }
-  int u, v;
-  for (int i = 0; i<m; i++){
-    cin >> u >> v;
-    conexiones[min(u,v)].PB(max(u,v));
-  }
-  resuelve(1, 1); // Decide si debe ser Alice o Bob 
-  /*cout << "Conexiones:" << endl;
-  Imprime2d(conexiones);
-  cout << "Impares:" << endl;
-  Imprime_set(impar);
-  cout << "Pares:" << endl;
-  Imprime_set(par);
-  cout << "Bloqueados_impar: " << endl;
-  Imprime(bloqueados_impar);
-  cout << "Bloqueados_par: " << endl;
-  Imprime(bloqueados_par);
-  cout << Alice << endl;*/
+    // Ahora el problema se reduce a si el grafo puede ser coloreado con tan solo dos colores lo cual es fácil de comprobar, ya que si un vertice es de color 1, todos los vecinos serán color 2, y los vecinos de estos color 1, y así sucesivamente
+    // Si en algún momento hay alguna contradicción, sería imposible.
+    // Esto funciona principalmente al ser un grafo conectado, no dirigido y simple.
+    isColor0.clear();
+    isColor1.clear();
+    bool winBob = coloring2(grafo, n);
 
-  if (Alice){
-    cout << "Alice" << endl;
-    cout.flush();
-    int j, c;
-    for (int i = 0; i<n; i++){
-        cout << "1 2" << endl;
-        cout.flush();
-        cin >> j >> c;
+    cout << (winBob ? "Bob":"Alice") << endl;
+
+    if (winBob){
+        SequenceBob(n);
+    } else {
+        SequenceAlice(n);
     }
-  } else {
-    cout << "Bob" << endl;
-    cout.flush();
-    auto itr_impar = impar.begin();
-    auto itr_par = par.begin();
-    int a, b;
-    for (int i = 0; i<n; i++){
-        cin >> a >> b;
-        if (itr_impar == impar.end()){
-            cout << (*itr_par) << " " << max(a, b) << endl;
-            cout.flush();
-            itr_par++;
-        } else if (itr_par == par.end()){
-            cout << (*itr_impar) << " " << min(a, b) << endl;
-            cout.flush();
-            itr_impar++;
-        } else {
-            if (min(a,b) == 1){
-                cout << (*itr_impar) << " " << min(a, b) << endl;
-                cout.flush();
-                itr_impar++;
-            } else {
-                cout << (*itr_par) << " " << max(a, b) << endl;
-                cout.flush();
-                itr_par++;
-            }
-        }
-    }
-  }
 
-  
-  return 0;
+    return 0;
 }
 
-int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
-  cout.tie(nullptr); 
-  int T;
-  cin >> T; // Número de casos
-  int salir = 0;
-  while (T-- && salir == 0) {
-    salir = solve();
-  }
-  if (salir == 1){
-    cout << "You Lost\n";
-    cout.flush();
-  }
-  return 0;
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr); 
+    int T;
+    cin >> T; // Número de casos
+    while (T--) {
+        solve();
+    }
+    return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/1991/problem/E

@@ -7,9 +7,9 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 ## Resumen
 
 - Problemas intentados: **247**
-- Problemas resueltos: **200**
-- Problemas sin terminar: **47**
-- Porcentaje de resolución: **80.97%**
+- Problemas resueltos: **203**
+- Problemas sin terminar: **44**
+- Porcentaje de resolución: **82.19%**
 
 ## Criterio de estado
 
@@ -460,9 +460,9 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ### Randoms
 
-- [Difference of GCDs.cpp](Randoms/Difference%20of%20GCDs.cpp) (sin terminar)
-- [differences operatin.cpp](Randoms/differences%20operatin.cpp) (sin terminar)
-- [E. Majority Wins.cpp](Randoms/E.%20Majority%20Wins.cpp) (sin terminar)
+- [A. Difference Operations.cpp](Randoms/A.%20Difference%20Operations.cpp)
+- [B. Difference of GCDs.cpp](Randoms/B.%20Difference%20of%20GCDs.cpp)
+- [E. Majority Wins.cpp](Randoms/E.%20Majority%20Wins.cpp)
 - [E. Replace.cpp](Randoms/E.%20Replace.cpp)
 - [F. Conquer or of Forest.cpp](Randoms/F.%20Conquer%20or%20of%20Forest.cpp)
 

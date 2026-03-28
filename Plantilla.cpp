@@ -130,8 +130,8 @@ bool isNumeric(string const &str) {
 }
 
 void lee(int n, vi& vect) {
-  rep(i, n) cin >> vect[i];
-  return ;
+    rep(i, n) cin >> vect[i];
+    return ;
 }
 
 #define INF INT_MAX

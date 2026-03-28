@@ -3,8 +3,7 @@
 #endif
 
 #include<bits/stdc++.h>
-#include<unordered_set>
-#pragma GCC optimize("O3")
+//#pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
 
@@ -40,6 +39,8 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
     Mint& operator*=(const Mint &o) { v = int(1LL * v * o.v % MOD); return *this; }
     bool operator<(const Mint& o) const {return v < o.v;}
     bool operator>(const Mint& o) const {return v > o.v;}
+    bool operator<=(const Mint& o) const {return v <= o.v;}
+    bool operator>=(const Mint& o) const {return v >= o.v;}
     bool operator==(const Mint& o) const {return v == o.v;}
     bool operator!=(const Mint& o) const {return v != o.v;}
     Mint pow(long long p) const {
@@ -60,10 +61,6 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
 istream& operator>>(std::istream& input, Mint& m) {
     input >> m.v;
     return input;
-}
-template<typename T> std::ostream& operator<<(std::ostream& os, const Mint& m) {
-    os << m.v << " ";
-    return os;
 }
 
 // Funciones vector
@@ -88,8 +85,8 @@ bool sort_func(int a, int b) {
     copy(v1.begin(), v1.end(), back_inserter(v2));
 
 // Funciones pair
-#define F first;
-#define S second;
+#define F first
+#define S second
 
 // Logaritmo de 2
 double log_2 = log(2);
@@ -133,69 +130,32 @@ bool isNumeric(string const &str) {
 }
 
 void lee(int n, vi& vect) {
-  rep(i, n) cin >> vect[i];
-  return ;
+    rep(i, n) cin >> vect[i];
+    return ;
 }
 
 #define INF INT_MAX
 double pi = 2*acos(0.0);
 
-int solve(int T) {
+int solve() {
     // Code aquí
-    int n;
-    cin >> n;
-    string s;
-    cin >> s;
-    int sol = 0;
-    if (s != "1"){
-        sol = n+3;
-        int count0 = 0, count1 = 0, last1 = -3;
-        for (int i = 0; i<n; i++){
-            if (s[i] == '1'){
-                if (last1 == i-1){
-                    sol = min(sol, n+2);
-                }
-                last1=i;
-                count1++;
-            } else {
-                count0++;
-            }
-            if (count0 == count1){
-                if (i == n-1){
-                    sol = min(sol, n+1);
-                }
-                sol = min(sol, n+2);
-            }
-            if (count0 < count1){
-                sol = min(sol, n+1);
-            }
-        }
-        if (count0 <= count1){
-            sol = min(sol, n);
-        }
-        if (!count1){
-            sol = -1;
-        }
-        count0 = 0; count1 = 0;
-        for (int i = n-1; i>=0; i--){
-            if (s[i] == '1'){
-                count1++;
-            } else {
-                count0++;
-            }
-            if (count0 == count1){
-                if (i == 1){
-                    sol = min(sol, n+1);
-                }
-                sol = min(sol, n+2);
-            }
-            if (count0 < count1){
-                sol = min(sol, n+1);
-            }
+    int n; cin >> n;
+    vi a(n); for (int i = 0; i<n; i++) cin >> a[i];
+
+    // Minimiza todos los valores:
+    for (int i = 1; i<n; i++) {
+        a[i] = a[i]-a[i-1]*(int)(a[i]/a[i-1]);
+        if (!a[i]) a[i] = a[i-1]; 
+    }
+    // Remata todos los números
+    for (int i = n-1; i>0; i--) a[i] -= a[i-1];
+    for (int i = 1; i<n; i++){
+        if (a[i] != 0){
+            cout << "NO" << endl; return 0;
         }
     }
-    cout << sol << endl;
-    
+    cout << "YES" << endl;
+
     return 0;
 }
 
@@ -206,9 +166,9 @@ signed main() {
     int T;
     cin >> T; // Número de casos
     while (T--) {
-        solve(T);
+        solve();
     }
     return 0;
 }
 
-// https://codeforces.com/contest/2189/problem/E
+// https://codeforces.com/contest/1708/problem/A

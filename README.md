@@ -7,14 +7,19 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 ## Resumen
 
 - Problemas intentados: **250**
-- Problemas resueltos: **216**
-- Problemas sin terminar: **34**
-- Porcentaje de resolución: **86.4%**
+- Problemas resueltos: **217**
+- Problemas sin terminar: **33**
+- Porcentaje de resolución: **86.8%**
 
 ## Criterio de estado
 
 - Se marca como **(sin terminar)** cuando el archivo tiene un comentario final indicando pendiente (por ejemplo, `Eliminar comentario si el proyecto está terminado`) o una nota explícita de fallo.
 - En archivos antiguos sin este sistema de comentarios, el estado puede no estar indicado explícitamente.
+
+## Comando ejecución problema
+```cmd
+g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp" && .\main.exe < input.in > output.out
+```
 
 ## Problemas por concurso/carpeta
 
@@ -406,7 +411,7 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ### Educational CF R 133 (Rated for Div. 2) 4-ago-22
 
-- [C. Robot in a Hallway.cpp](Educational%20CF%20R%20133%20(Rated%20for%20Div.%202)%204-ago-22/C.%20Robot%20in%20a%20Hallway.cpp) (sin terminar)
+- [C. Robot in a Hallway.cpp](Educational%20CF%20R%20133%20(Rated%20for%20Div.%202)%204-ago-22/C.%20Robot%20in%20a%20Hallway.cpp)
 
 ### CF R 811 (Div. 3) 1-ago-22
 

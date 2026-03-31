@@ -1,85 +1,326 @@
-Access node: 1
-Solution obtained: 0
-Access node: 2
-Solution obtained: 0
-Access node: 4
-Solution obtained: 1
-Access node: 3
-Solution obtained: 3
-Exit node: 3
-Access node: 5
-Solution obtained: 2
-Exit node: 5
-Exit node: 4
-Access node: 7
-Solution obtained: 1
-Exit node: 7
-Exit node: 2
-Access node: 6
-Solution obtained: 1
-Access node: 8
-Solution obtained: 2
-Access node: 9
-Solution obtained: 3
-Exit node: 9
-Exit node: 8
-Exit node: 6
-Exit node: 1
-0 3 1 2 1 1 2 3 
-Access node: 1
-Solution obtained: 0
-Access node: 2
-Solution obtained: 0
-Access node: 3
-Solution obtained: 0
-Access node: 4
-Solution obtained: 3
-Exit node: 4
-Exit node: 3
-Exit node: 2
-Exit node: 1
-0 0 3 
-Access node: 1
-Solution obtained: 0
-Access node: 2
-Solution obtained: 1
-Access node: 3
-Solution obtained: 2
-Access node: 4
-Solution obtained: 2
-Exit node: 4
-Exit node: 3
-Exit node: 2
-Exit node: 1
-1 2 2 
-Access node: 1
-Solution obtained: 0
-Access node: 2
-Solution obtained: 0
-Access node: 3
-Solution obtained: 1
-Access node: 5
-Solution obtained: 1
-Access node: 7
-Solution obtained: 2
-Exit node: 7
-Access node: 8
-Solution obtained: 2
-Exit node: 8
-Exit node: 5
-Access node: 6
-Solution obtained: 1
-Access node: 10
-Solution obtained: 1
-Exit node: 10
-Exit node: 6
-Exit node: 3
-Access node: 4
-Solution obtained: 2
-Exit node: 4
-Exit node: 2
-Access node: 9
-Solution obtained: 1
-Exit node: 9
-Exit node: 1
-0 1 2 1 1 2 2 1 1 
+----------------------
+Test: 2
+[ [ 0 0 ]
+ [ 0 0 ]
+ ]
+Caso 2: 
+[ [ 3 1 ]
+ [ 3 1 ]
+ ]
+Caso 1: 
+[ [ 0 1111100000 ]
+ [ 1111100000 2 ]
+ ]
+Inspect with: 3 and 3
+Inspect with: 1111100001 and 1
+Inspect with: 1111100003 and 3
+Inspect with: 3 and 1
+Solución: 3
+----------------------
+Test: 2
+[ [ 0 1 ]
+ [ 0 0 ]
+ ]
+Caso 2: 
+[ [ 4 1 ]
+ [ 3 2 ]
+ ]
+Caso 1: 
+[ [ 0 1111100000 ]
+ [ 1111100000 2 ]
+ ]
+Inspect with: 3 and 4
+Inspect with: 1111100001 and 1
+Inspect with: 1111100003 and 3
+Inspect with: 3 and 2
+Solución: 3
+----------------------
+Test: 2
+[ [ 0 0 ]
+ [ 1 0 ]
+ ]
+Caso 2: 
+[ [ 3 1 ]
+ [ 3 1 ]
+ ]
+Caso 1: 
+[ [ 0 1111100000 ]
+ [ 1111100000 3 ]
+ ]
+Inspect with: 3 and 3
+Inspect with: 1111100001 and 1
+Inspect with: 1111100003 and 3
+Inspect with: 4 and 1
+Solución: 3
+----------------------
+Test: 2
+[ [ 0 0 ]
+ [ 0 1 ]
+ ]
+Caso 2: 
+[ [ 3 2 ]
+ [ 4 1 ]
+ ]
+Caso 1: 
+[ [ 0 1111100000 ]
+ [ 1111100000 2 ]
+ ]
+Inspect with: 3 and 3
+Inspect with: 1111100001 and 2
+Inspect with: 1111100003 and 4
+Inspect with: 3 and 1
+Solución: 3
+----------------------
+Test: 2
+[ [ 0 2 ]
+ [ 0 0 ]
+ ]
+Caso 2: 
+[ [ 5 1 ]
+ [ 4 3 ]
+ ]
+Caso 1: 
+[ [ 0 1111100000 ]
+ [ 1111100000 2 ]
+ ]
+Inspect with: 3 and 5
+Inspect with: 1111100001 and 1
+Inspect with: 1111100003 and 4
+Inspect with: 3 and 3
+Solución: 3
+----------------------
+Test: 2
+[ [ 0 1 ]
+ [ 1 0 ]
+ ]
+Caso 2: 
+[ [ 4 1 ]
+ [ 3 2 ]
+ ]
+Caso 1: 
+[ [ 0 1111100000 ]
+ [ 1111100000 3 ]
+ ]
+Inspect with: 3 and 4
+Inspect with: 1111100001 and 1
+Inspect with: 1111100003 and 3
+Inspect with: 4 and 2
+Solución: 4
+----------------------
+Test: 2
+[ [ 0 1 ]
+ [ 0 1 ]
+ ]
+Caso 2: 
+[ [ 4 2 ]
+ [ 4 2 ]
+ ]
+Caso 1: 
+[ [ 0 1111100000 ]
+ [ 1111100000 2 ]
+ ]
+Inspect with: 3 and 4
+Inspect with: 1111100001 and 2
+Inspect with: 1111100003 and 4
+Inspect with: 3 and 2
+Solución: 3
+----------------------
+Test: 2
+[ [ 0 0 ]
+ [ 2 0 ]
+ ]
+Caso 2: 
+[ [ 3 1 ]
+ [ 3 1 ]
+ ]
+Caso 1: 
+[ [ 0 1111100000 ]
+ [ 1111100000 4 ]
+ ]
+Inspect with: 3 and 3
+Inspect with: 1111100001 and 1
+Inspect with: 1111100003 and 3
+Inspect with: 5 and 1
+Solución: 3
+----------------------
+Test: 2
+[ [ 0 0 ]
+ [ 1 1 ]
+ ]
+Caso 2: 
+[ [ 3 2 ]
+ [ 4 1 ]
+ ]
+Caso 1: 
+[ [ 0 1111100000 ]
+ [ 1111100000 3 ]
+ ]
+Inspect with: 3 and 3
+Inspect with: 1111100001 and 2
+Inspect with: 1111100003 and 4
+Inspect with: 4 and 1
+Solución: 3
+----------------------
+Test: 2
+[ [ 0 0 ]
+ [ 0 2 ]
+ ]
+Caso 2: 
+[ [ 4 3 ]
+ [ 5 1 ]
+ ]
+Caso 1: 
+[ [ 0 1111100000 ]
+ [ 1111100000 3 ]
+ ]
+Inspect with: 3 and 4
+Inspect with: 1111100001 and 3
+Inspect with: 1111100003 and 5
+Inspect with: 4 and 1
+Solución: 4
+----------------------
+Test: 3
+[ [ 0 0 0 ]
+ [ 0 0 0 ]
+ ]
+Caso 2: 
+[ [ 5 3 1 ]
+ [ 5 3 1 ]
+ ]
+Caso 1: 
+[ [ 0 1111100000 4 ]
+ [ 1111100000 2 1111100000 ]
+ ]
+Inspect with: 5 and 5
+Inspect with: 1111100003 and 3
+Inspect with: 5 and 1
+Inspect with: 1111100005 and 5
+Inspect with: 5 and 3
+Inspect with: 1111100001 and 1
+Solución: 5
+----------------------
+Test: 2
+[ [ 0 3 ]
+ [ 0 0 ]
+ ]
+Caso 2: 
+[ [ 6 1 ]
+ [ 5 4 ]
+ ]
+Caso 1: 
+[ [ 0 1111100000 ]
+ [ 1111100000 2 ]
+ ]
+Inspect with: 3 and 6
+Inspect with: 1111100001 and 1
+Inspect with: 1111100003 and 5
+Inspect with: 3 and 4
+Solución: 4
+----------------------
+Test: 2
+[ [ 0 2 ]
+ [ 1 0 ]
+ ]
+Caso 2: 
+[ [ 5 1 ]
+ [ 4 3 ]
+ ]
+Caso 1: 
+[ [ 0 1111100000 ]
+ [ 1111100000 3 ]
+ ]
+Inspect with: 3 and 5
+Inspect with: 1111100001 and 1
+Inspect with: 1111100003 and 4
+Inspect with: 4 and 3
+Solución: 4
+----------------------
+Test: 2
+[ [ 0 2 ]
+ [ 0 1 ]
+ ]
+Caso 2: 
+[ [ 5 2 ]
+ [ 4 3 ]
+ ]
+Caso 1: 
+[ [ 0 1111100000 ]
+ [ 1111100000 2 ]
+ ]
+Inspect with: 3 and 5
+Inspect with: 1111100001 and 2
+Inspect with: 1111100003 and 4
+Inspect with: 3 and 3
+Solución: 3
+----------------------
+Test: 2
+[ [ 0 1 ]
+ [ 2 0 ]
+ ]
+Caso 2: 
+[ [ 4 1 ]
+ [ 3 2 ]
+ ]
+Caso 1: 
+[ [ 0 1111100000 ]
+ [ 1111100000 4 ]
+ ]
+Inspect with: 3 and 4
+Inspect with: 1111100001 and 1
+Inspect with: 1111100003 and 3
+Inspect with: 5 and 2
+Solución: 4
+----------------------
+Test: 2
+[ [ 0 1 ]
+ [ 1 1 ]
+ ]
+Caso 2: 
+[ [ 4 2 ]
+ [ 4 2 ]
+ ]
+Caso 1: 
+[ [ 0 1111100000 ]
+ [ 1111100000 3 ]
+ ]
+Inspect with: 3 and 4
+Inspect with: 1111100001 and 2
+Inspect with: 1111100003 and 4
+Inspect with: 4 and 2
+Solución: 4
+----------------------
+Test: 2
+[ [ 0 1 ]
+ [ 0 2 ]
+ ]
+Caso 2: 
+[ [ 4 3 ]
+ [ 5 2 ]
+ ]
+Caso 1: 
+[ [ 0 1111100000 ]
+ [ 1111100000 3 ]
+ ]
+Inspect with: 3 and 4
+Inspect with: 1111100001 and 3
+Inspect with: 1111100003 and 5
+Inspect with: 4 and 2
+Solución: 4
+----------------------
+Test: 2
+[ [ 0 0 ]
+ [ 3 0 ]
+ ]
+Caso 2: 
+[ [ 4 1 ]
+ [ 3 1 ]
+ ]
+Caso 1: 
+[ [ 0 1111100000 ]
+ [ 1111100000 5 ]
+ ]
+Inspect with: 3 and 4
+Inspect with: 1111100001 and 1
+Inspect with: 1111100003 and 3
+Inspect with: 6 and 1
+Solución: 4

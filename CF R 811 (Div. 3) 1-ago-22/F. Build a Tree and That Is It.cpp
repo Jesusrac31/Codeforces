@@ -139,48 +139,99 @@ double pi = 2*acos(0.0);
 
 int solve() {
     // Code aquí
-    int n; cin >> n;
-    vi a(n); rep(i, n) cin >> a[i];
-    DBG_COUT(cout << a << endl);
+    int n, d12, d23, d13; cin >> n >> d12 >> d23 >> d13;
 
-    set<int> elements;
-    for (int i = 0; i<n; i++){
-        int modulus = a[i]%10;
-        switch (modulus){
-            case 0:
-                elements.insert(a[i]);
-                break;
-            case 1:
-                elements.insert((a[i]+1)%20);
-                break;
-            case 2:
-                elements.insert(a[i]%20);
-                break;
-            case 3:
-                elements.insert((a[i]+9)%20);
-                break;
-            case 4:
-                elements.insert((a[i]+18)%20);
-                break;
-            case 5:
-                elements.insert(a[i]+5);
-                break;
-            case 6: 
-                elements.insert((a[i]+6)%20);
-                break;
-            case 7:
-                elements.insert((a[i]+5)%20);
-                break;
-            case 8:
-                elements.insert((a[i]+14)%20);
-                break;
-            case 9:
-                elements.insert((a[i]+3)%20);
-                break;
+    // La rama principal debe ser la que tiene la distancia más pequeña
+
+    int refNode; // Nodo 1 en esquema
+    int endMainNode; // Nodo 2 en esquema
+    int extraNode; // Nodo 3 en esquema
+    int distPrincipal; // d12 en esquema
+    int distEndingExtra; // d23 en esquema
+    int distReferenciaExtra; // d13 en esquema
+
+    if (d12 < d23){
+        if (d12 < d13){
+            refNode = 1;
+            endMainNode = 2;
+            extraNode = 3;
+            distPrincipal = d12;
+            distEndingExtra = d23;
+            distReferenciaExtra = d13;
+        } else {
+            refNode = 1;
+            endMainNode = 3;
+            extraNode = 2;
+            distPrincipal = d13;
+            distEndingExtra = d23;
+            distReferenciaExtra = d12;
+        }
+    } else {
+        if (d23 < d13){
+            refNode = 2;
+            endMainNode = 3;
+            extraNode = 1;
+            distPrincipal = d23;
+            distEndingExtra = d13;
+            distReferenciaExtra = d12;
+        } else {
+            refNode = 1;
+            endMainNode = 3;
+            extraNode = 2;
+            distPrincipal = d13;
+            distEndingExtra = d23;
+            distReferenciaExtra = d12;
         }
     }
-    cout << (elements.size() == 1 ? "YES":"NO") << endl;
     
+    int p = (distReferenciaExtra+distEndingExtra-distPrincipal);
+    DBG_COUT(cout << "P before dividing: " << p << endl);
+    if (p&1){
+        cout << "NO" << endl;
+        return 0;
+    }
+    p/=2; // Longitud de la rama del 3 a partir de la rama entre 1 y 2
+    DBG_COUT(cout << "Branch 3 size: " << p << endl);
+    
+    int i = distPrincipal+p+1-distEndingExtra; // Nodo del camino entre 1 y 2 que conecta el camino del 3
+
+    DBG_COUT(cout << "Start of branch 3: " << i << endl);
+    if (i<=0 || i>distPrincipal+1 || i+p+distPrincipal <= 0 || 1+p+distPrincipal > n){
+        cout << "NO" << endl;
+        return 0;
+    }
+
+    int node = 4; // Id del nodo extra siguiente a colocar
+    vector<pii> aristas;
+    // Construimos camino entre 1 y 2
+    int prev = refNode;
+    for (int i = 1; i<distPrincipal; i++){
+        aristas.PB(pii(prev, node)); prev = node; node++;
+    }
+    aristas.PB(pii(prev, endMainNode));
+
+    // Rama del nodo 3
+    int codo; // Indice desde donde empieza la rama
+    if (i == 1) codo = refNode;
+    else if (i == distPrincipal+1) codo = endMainNode;
+    else codo = i+2;
+
+    prev = codo;
+    for (int i = 1; i<p; i++){
+        aristas.PB(pii(prev, node)); prev = node; node++;
+    }
+    aristas.PB(pii(prev, extraNode));
+
+    // Añade los nodos faltantes
+    while(node <= n){
+        aristas.PB(pii(prev, node)) prev = node; node++;
+    }
+
+    cout << "YES" << endl;
+    for (int i = 0; i<aristas.size(); i++){
+        cout << aristas[i].first << " " << aristas[i].second << endl;
+    }
+
     return 0;
 }
 
@@ -196,4 +247,4 @@ signed main() {
     return 0;
 }
 
-// https://codeforces.com/contest/1714/problem/E
+// https://codeforces.com/contest/1714/problem/F

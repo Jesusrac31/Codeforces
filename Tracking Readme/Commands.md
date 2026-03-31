@@ -33,3 +33,8 @@ Ejecuta los tres comandos en este orden para dejar todo actualizado:
 ```powershell
 powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Backfill-StatusComments.ps1"; powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Update-Readme.ps1"; powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Update-ReadmeStats.ps1"
 ```
+
+En cmd:
+```cmd
+powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Backfill-StatusComments.ps1" & powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Update-Readme.ps1" & powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Update-ReadmeStats.ps1"
+```

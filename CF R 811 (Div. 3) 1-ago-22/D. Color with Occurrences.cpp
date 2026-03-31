@@ -66,8 +66,8 @@ istream& operator>>(std::istream& input, Mint& m) {
 // Funciones vector
 #define PB(a) push_back(a);
 
-bool sort_func(int a, int b) {
-    if (a < b) {
+bool sort_func(string a, string b) {
+    if (a.size() < b.size()) {
         return true;
     } else {
         return false;
@@ -139,48 +139,34 @@ double pi = 2*acos(0.0);
 
 int solve() {
     // Code aquí
+    string s; cin >> s;
     int n; cin >> n;
-    vi a(n); rep(i, n) cin >> a[i];
-    DBG_COUT(cout << a << endl);
-
-    set<int> elements;
-    for (int i = 0; i<n; i++){
-        int modulus = a[i]%10;
-        switch (modulus){
-            case 0:
-                elements.insert(a[i]);
-                break;
-            case 1:
-                elements.insert((a[i]+1)%20);
-                break;
-            case 2:
-                elements.insert(a[i]%20);
-                break;
-            case 3:
-                elements.insert((a[i]+9)%20);
-                break;
-            case 4:
-                elements.insert((a[i]+18)%20);
-                break;
-            case 5:
-                elements.insert(a[i]+5);
-                break;
-            case 6: 
-                elements.insert((a[i]+6)%20);
-                break;
-            case 7:
-                elements.insert((a[i]+5)%20);
-                break;
-            case 8:
-                elements.insert((a[i]+14)%20);
-                break;
-            case 9:
-                elements.insert((a[i]+3)%20);
-                break;
+    vector<string> posibles(n); rep(i, n) cin >> posibles[i];
+    int sol = 0;
+    vector<pii> ops;
+    for (int i = 0; i<s.size(); ){
+        int offset = 0;
+        pii op = {0,0};
+        for (int j = n-1; j>=0; j--){
+            for (int k = 0; k<posibles[j].size() && i-k >= 0; k++){
+                if (posibles[j].size()-k > offset && s.substr(i-k,posibles[j].size()) == posibles[j]){
+                    offset=posibles[j].size()-k;
+                    op.first = j;
+                    op.second = i-k;
+                }
+            }
         }
+        if (offset == 0){
+            cout << -1 << endl;
+            return 0;
+        }
+        i += offset;
+        ops.PB(op);
+        sol++;
     }
-    cout << (elements.size() == 1 ? "YES":"NO") << endl;
-    
+    cout << sol << endl;
+    for (auto x:ops) cout << x.first+1 << " " << x.second+1 << endl;
+
     return 0;
 }
 
@@ -196,4 +182,4 @@ signed main() {
     return 0;
 }
 
-// https://codeforces.com/contest/1714/problem/E
+// https://codeforces.com/contest/1714/problem/D

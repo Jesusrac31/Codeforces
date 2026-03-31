@@ -134,53 +134,41 @@ void lee(int n, vi& vect) {
     return ;
 }
 
+#define vi vll
+#define int lli
+
 #define INF INT_MAX
 double pi = 2*acos(0.0);
+
+void dfs(vector<vector<vi>>& tree, vi& sol, vi &sumsB, int node = 1, int sumA = 0){
+    DBG_COUT(cout << "Access node: " << node << endl);
+    DBG_COUT(cout << "Solution obtained: " << distance(sumsB.begin(), upper_bound(sumsB.begin(), sumsB.end(), sumA))-1 << endl);
+    sol[node] = distance(sumsB.begin(), upper_bound(sumsB.begin(), sumsB.end(), sumA))-1;
+    
+    for (int i = 0; i<tree[node].size(); i++){
+        sumsB.PB(sumsB.back()+tree[node][i][2]);
+        dfs(tree, sol, sumsB, tree[node][i][0], sumA+tree[node][i][1]);
+        sumsB.pop_back();
+    }
+    DBG_COUT(cout << "Exit node: " << node << endl);
+}
 
 int solve() {
     // Code aquí
     int n; cin >> n;
-    vi a(n); rep(i, n) cin >> a[i];
-    DBG_COUT(cout << a << endl);
-
-    set<int> elements;
-    for (int i = 0; i<n; i++){
-        int modulus = a[i]%10;
-        switch (modulus){
-            case 0:
-                elements.insert(a[i]);
-                break;
-            case 1:
-                elements.insert((a[i]+1)%20);
-                break;
-            case 2:
-                elements.insert(a[i]%20);
-                break;
-            case 3:
-                elements.insert((a[i]+9)%20);
-                break;
-            case 4:
-                elements.insert((a[i]+18)%20);
-                break;
-            case 5:
-                elements.insert(a[i]+5);
-                break;
-            case 6: 
-                elements.insert((a[i]+6)%20);
-                break;
-            case 7:
-                elements.insert((a[i]+5)%20);
-                break;
-            case 8:
-                elements.insert((a[i]+14)%20);
-                break;
-            case 9:
-                elements.insert((a[i]+3)%20);
-                break;
-        }
+    vector<vector<vi>> tree(n+1); // Cada conexión tiene asignado conexion, a_i y b_i
+    int p, a, b;
+    for (int i = 2; i<=n; i++){
+        cin >> p >> a >> b;
+        tree[p].PB(vi({i, a, b}));
     }
-    cout << (elements.size() == 1 ? "YES":"NO") << endl;
-    
+
+    vi sol(n+1, 0);
+    vi sumsB = {0};
+    dfs(tree, sol, sumsB);
+    for(int i = 2; i<=n; i++) cout << sol[i] << " ";
+    cout << endl;
+
     return 0;
 }
 
@@ -196,4 +184,4 @@ signed main() {
     return 0;
 }
 
-// https://codeforces.com/contest/1714/problem/E
+// https://codeforces.com/contest/1714/problem/G

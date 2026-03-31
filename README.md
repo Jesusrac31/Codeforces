@@ -7,9 +7,9 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 ## Resumen
 
 - Problemas intentados: **247**
-- Problemas resueltos: **210**
-- Problemas sin terminar: **37**
-- Porcentaje de resolución: **85.02%**
+- Problemas resueltos: **212**
+- Problemas sin terminar: **35**
+- Porcentaje de resolución: **85.83%**
 
 ## Criterio de estado
 
@@ -146,14 +146,6 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 - [A. Dora's Set.cpp](CF%20R%20969%20(Div.%202)%2030-ago-24/A.%20Dora's%20Set.cpp)
 - [B. Index and Maximum Value.cpp](CF%20R%20969%20(Div.%202)%2030-ago-24/B.%20Index%20and%20Maximum%20Value.cpp) (sin terminar)
 
-### Pinely R 4 (Div. 1 + Div. 2) 28-jul-24
-
-- [A. Maximize the Last Element.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/A.%20Maximize%20the%20Last%20Element.cpp)
-- [B. AND Reconstruction.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/B.%20AND%20Reconstruction.cpp)
-- [C. Absolute Zero.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/C.%20Absolute%20Zero.cpp)
-- [D. Prime XOR Coloring.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/D.%20Prime%20XOR%20Coloring.cpp)
-- [E. Coloring Game.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/E.%20Coloring%20Game.cpp)
-
 ### Educational CF R 168 (Rated for Div. 2) 30-jul-24
 
 - [A. Strong Password.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/A.%20Strong%20Password.cpp)
@@ -161,6 +153,14 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 - [C. Even Positions.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/C.%20Even%20Positions.cpp)
 - [D. Maximize the Root.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/D.%20Maximize%20the%20Root.cpp)
 - [E. Level Up.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/E.%20Level%20Up.cpp) (sin terminar)
+
+### Pinely R 4 (Div. 1 + Div. 2) 28-jul-24
+
+- [A. Maximize the Last Element.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/A.%20Maximize%20the%20Last%20Element.cpp)
+- [B. AND Reconstruction.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/B.%20AND%20Reconstruction.cpp)
+- [C. Absolute Zero.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/C.%20Absolute%20Zero.cpp)
+- [D. Prime XOR Coloring.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/D.%20Prime%20XOR%20Coloring.cpp)
+- [E. Coloring Game.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/E.%20Coloring%20Game.cpp)
 
 ### CF R 962 (Div. 3) 26-jul-24
 
@@ -410,10 +410,10 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ### CF R 811 (Div. 3) 1-ago-22
 
-- [A. Everyone Loves to Sleep.cpp](CF%20R%20811%20(Div.%203)%201-ago-22/A.%20Everyone%20Loves%20to%20Sleep.cpp) (sin terminar)
+- [A. Everyone Loves to Sleep.cpp](CF%20R%20811%20(Div.%203)%201-ago-22/A.%20Everyone%20Loves%20to%20Sleep.cpp)
 - [B. Remove Prefix.cpp](CF%20R%20811%20(Div.%203)%201-ago-22/B.%20Remove%20Prefix.cpp)
 - [C. Minimum Varied Number.cpp](CF%20R%20811%20(Div.%203)%201-ago-22/C.%20Minimum%20Varied%20Number.cpp)
-- [E. Add Modulo 10.cpp](CF%20R%20811%20(Div.%203)%201-ago-22/E.%20Add%20Modulo%2010.cpp) (sin terminar)
+- [E. Add Modulo 10.cpp](CF%20R%20811%20(Div.%203)%201-ago-22/E.%20Add%20Modulo%2010.cpp)
 
 ### CodeTON R 2 (Div. 1 + Div. 2, Rated, Prizes!) 31-jul-22
 

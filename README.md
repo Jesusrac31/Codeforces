@@ -6,10 +6,10 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ## Resumen
 
-- Problemas intentados: **247**
-- Problemas resueltos: **212**
+- Problemas intentados: **250**
+- Problemas resueltos: **215**
 - Problemas sin terminar: **35**
-- Porcentaje de resolución: **85.83%**
+- Porcentaje de resolución: **86%**
 
 ## Criterio de estado
 
@@ -413,7 +413,10 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 - [A. Everyone Loves to Sleep.cpp](CF%20R%20811%20(Div.%203)%201-ago-22/A.%20Everyone%20Loves%20to%20Sleep.cpp)
 - [B. Remove Prefix.cpp](CF%20R%20811%20(Div.%203)%201-ago-22/B.%20Remove%20Prefix.cpp)
 - [C. Minimum Varied Number.cpp](CF%20R%20811%20(Div.%203)%201-ago-22/C.%20Minimum%20Varied%20Number.cpp)
+- [D. Color with Occurrences.cpp](CF%20R%20811%20(Div.%203)%201-ago-22/D.%20Color%20with%20Occurrences.cpp)
 - [E. Add Modulo 10.cpp](CF%20R%20811%20(Div.%203)%201-ago-22/E.%20Add%20Modulo%2010.cpp)
+- [F. Build a Tree and That Is It.cpp](CF%20R%20811%20(Div.%203)%201-ago-22/F.%20Build%20a%20Tree%20and%20That%20Is%20It.cpp)
+- [G. Path Prefixes.cpp](CF%20R%20811%20(Div.%203)%201-ago-22/G.%20Path%20Prefixes.cpp)
 
 ### CodeTON R 2 (Div. 1 + Div. 2, Rated, Prizes!) 31-jul-22
 

@@ -8,9 +8,9 @@
 //#pragma GCC target("avx2")
 
 #ifdef DEBUG
-#include "lib/debug.h"
+#define DBG_COUT(stmt) do { stmt; } while (0)
 #else
-#define debug(...) 228
+#define DBG_COUT(stmt) do {} while (0)
 #endif
 
 using namespace std;

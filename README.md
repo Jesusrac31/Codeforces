@@ -7,9 +7,9 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 ## Resumen
 
 - Problemas intentados: **250**
-- Problemas resueltos: **215**
-- Problemas sin terminar: **35**
-- Porcentaje de resolución: **86%**
+- Problemas resueltos: **216**
+- Problemas sin terminar: **34**
+- Porcentaje de resolución: **86.4%**
 
 ## Criterio de estado
 
@@ -102,7 +102,7 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 - [C. Subset Multiplication.cpp](CF%20R%201036%2C%20EPIC%20Institute%20of%20Technology%20R%20Summer%202025%20(Div.%201%20%2B%20Div.%202)%206-jul-25/C.%20Subset%20Multiplication.cpp)
 - [D. Make a Palindrome.cpp](CF%20R%201036%2C%20EPIC%20Institute%20of%20Technology%20R%20Summer%202025%20(Div.%201%20%2B%20Div.%202)%206-jul-25/D.%20Make%20a%20Palindrome.cpp)
 - [E. Make it Zero.cpp](CF%20R%201036%2C%20EPIC%20Institute%20of%20Technology%20R%20Summer%202025%20(Div.%201%20%2B%20Div.%202)%206-jul-25/E.%20Make%20it%20Zero.cpp)
-- [F. Appending Permutations.cpp](CF%20R%201036%2C%20EPIC%20Institute%20of%20Technology%20R%20Summer%202025%20(Div.%201%20%2B%20Div.%202)%206-jul-25/F.%20Appending%20Permutations.cpp) (sin terminar)
+- [F. Appending Permutations.cpp](CF%20R%201036%2C%20EPIC%20Institute%20of%20Technology%20R%20Summer%202025%20(Div.%201%20%2B%20Div.%202)%206-jul-25/F.%20Appending%20Permutations.cpp)
 - [G. Maximise Sum.cpp](CF%20R%201036%2C%20EPIC%20Institute%20of%20Technology%20R%20Summer%202025%20(Div.%201%20%2B%20Div.%202)%206-jul-25/G.%20Maximise%20Sum.cpp)
 - [H. Longest Good Subsequence.cpp](CF%20R%201036%2C%20EPIC%20Institute%20of%20Technology%20R%20Summer%202025%20(Div.%201%20%2B%20Div.%202)%206-jul-25/H.%20Longest%20Good%20Subsequence.cpp)
 - [I. Lexicographic Partition.cpp](CF%20R%201036%2C%20EPIC%20Institute%20of%20Technology%20R%20Summer%202025%20(Div.%201%20%2B%20Div.%202)%206-jul-25/I.%20Lexicographic%20Partition.cpp)

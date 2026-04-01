@@ -6,10 +6,10 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ## Resumen
 
-- Problemas intentados: **250**
-- Problemas resueltos: **218**
-- Problemas sin terminar: **32**
-- Porcentaje de resolución: **87.2%**
+- Problemas intentados: **251**
+- Problemas resueltos: **223**
+- Problemas sin terminar: **28**
+- Porcentaje de resolución: **88.84%**
 
 ## Criterio de estado
 
@@ -400,10 +400,11 @@ g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp" && .\main.exe < input.in
 
 ### CF R 821 (Div. 2) 19-sep-22
 
-- [A. Consecutive Sum.cpp](CF%20R%20821%20(Div.%202)%2019-sep-22/A.%20Consecutive%20Sum.cpp) (sin terminar)
-- [B. Rule of League.cpp](CF%20R%20821%20(Div.%202)%2019-sep-22/B.%20Rule%20of%20League.cpp) (sin terminar)
-- [C. Parity Shuffle Sorting.cpp](CF%20R%20821%20(Div.%202)%2019-sep-22/C.%20Parity%20Shuffle%20Sorting.cpp) (sin terminar)
-- [D1-2. Zero-One (Easy-Hard Version).cpp](CF%20R%20821%20(Div.%202)%2019-sep-22/D1-2.%20Zero-One%20(Easy-Hard%20Version).cpp) (sin terminar)
+- [A. Consecutive Sum.cpp](CF%20R%20821%20(Div.%202)%2019-sep-22/A.%20Consecutive%20Sum.cpp)
+- [B. Rule of League.cpp](CF%20R%20821%20(Div.%202)%2019-sep-22/B.%20Rule%20of%20League.cpp)
+- [C. Parity Shuffle Sorting.cpp](CF%20R%20821%20(Div.%202)%2019-sep-22/C.%20Parity%20Shuffle%20Sorting.cpp)
+- [D1. Zero-One (Easy Version).cpp](CF%20R%20821%20(Div.%202)%2019-sep-22/D1.%20Zero-One%20(Easy%20Version).cpp)
+- [D2. Zero-One (Hard Version).cpp](CF%20R%20821%20(Div.%202)%2019-sep-22/D2.%20Zero-One%20(Hard%20Version).cpp)
 
 ### CF R 812 (Div. 2) 6-ago-22
 

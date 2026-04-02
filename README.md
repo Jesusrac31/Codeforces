@@ -7,9 +7,9 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 ## Resumen
 
 - Problemas intentados: **251**
-- Problemas resueltos: **224**
-- Problemas sin terminar: **27**
-- Porcentaje de resolución: **89.24%**
+- Problemas resueltos: **225**
+- Problemas sin terminar: **26**
+- Porcentaje de resolución: **89.64%**
 
 ## Criterio de estado
 
@@ -151,14 +151,6 @@ g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp" && .\main.exe < input.in
 - [A. Dora's Set.cpp](CF%20R%20969%20(Div.%202)%2030-ago-24/A.%20Dora's%20Set.cpp)
 - [B. Index and Maximum Value.cpp](CF%20R%20969%20(Div.%202)%2030-ago-24/B.%20Index%20and%20Maximum%20Value.cpp) (sin terminar)
 
-### Educational CF R 168 (Rated for Div. 2) 30-jul-24
-
-- [A. Strong Password.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/A.%20Strong%20Password.cpp)
-- [B. Make Three Regions.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/B.%20Make%20Three%20Regions.cpp)
-- [C. Even Positions.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/C.%20Even%20Positions.cpp)
-- [D. Maximize the Root.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/D.%20Maximize%20the%20Root.cpp)
-- [E. Level Up.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/E.%20Level%20Up.cpp) (sin terminar)
-
 ### Pinely R 4 (Div. 1 + Div. 2) 28-jul-24
 
 - [A. Maximize the Last Element.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/A.%20Maximize%20the%20Last%20Element.cpp)
@@ -166,6 +158,14 @@ g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp" && .\main.exe < input.in
 - [C. Absolute Zero.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/C.%20Absolute%20Zero.cpp)
 - [D. Prime XOR Coloring.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/D.%20Prime%20XOR%20Coloring.cpp)
 - [E. Coloring Game.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/E.%20Coloring%20Game.cpp)
+
+### Educational CF R 168 (Rated for Div. 2) 30-jul-24
+
+- [A. Strong Password.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/A.%20Strong%20Password.cpp)
+- [B. Make Three Regions.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/B.%20Make%20Three%20Regions.cpp)
+- [C. Even Positions.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/C.%20Even%20Positions.cpp)
+- [D. Maximize the Root.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/D.%20Maximize%20the%20Root.cpp)
+- [E. Level Up.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/E.%20Level%20Up.cpp) (sin terminar)
 
 ### CF R 962 (Div. 3) 26-jul-24
 
@@ -373,7 +373,7 @@ g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp" && .\main.exe < input.in
 
 - [A. The Man who became a God.cpp](CF%20R%20882%20(Div.%202)%206-jul-23/A.%20The%20Man%20who%20became%20a%20God.cpp)
 - [B. Hamon Odyssey.cpp](CF%20R%20882%20(Div.%202)%206-jul-23/B.%20Hamon%20Odyssey.cpp)
-- [C. Vampiric Powers, anyone.cpp](CF%20R%20882%20(Div.%202)%206-jul-23/C.%20Vampiric%20Powers%2C%20anyone.cpp) (sin terminar)
+- [C. Vampiric Powers, anyone.cpp](CF%20R%20882%20(Div.%202)%206-jul-23/C.%20Vampiric%20Powers%2C%20anyone.cpp)
 
 ### Educational CF R 151 (Rated for Div. 2) 29-jun-23
 

@@ -1,95 +1,202 @@
-#include <bits/stdc++.h>
-#include <stdlib.h>
-#include <iostream>
+#ifdef DEBUG
+#define _GLIBCXX_DEBUG
+#endif
+
+#include<bits/stdc++.h>
+//#pragma GCC optimize("O3")
+//#pragma GCC optimize("O3,unroll-loops")
+//#pragma GCC target("avx2")
+
+#ifdef DEBUG
+#define DBG_COUT(stmt) do { stmt; } while (0)
+#else
+#define DBG_COUT(stmt) do {} while (0)
+#endif
+
 using namespace std;
 
 typedef vector<int> vi;
-typedef vector<long long int> vll;
-typedef long long int lli;
+typedef vector<long long> vll;
+typedef long long lli;
 typedef pair<int, int> pii;
 typedef map<string, int> msi;
 typedef map<int, vector<int>> miv;
+
+const int MOD = 998244353; // Módulo del problema, cambiar en caso de no ser ese. NO TIENE PORQUÉ SER CONSTANTE, SOLO GLOBAL
+
+struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
+    int v;
+    Mint(long long val = 0) {
+        v = int(val % MOD);
+        if (v < 0) v += MOD;
+    }
+    Mint operator+(const Mint &o) const { return Mint(v + o.v); }
+    Mint operator-(const Mint &o) const { return Mint(v - o.v); }
+    Mint operator*(const Mint &o) const { return Mint(1LL * v * o.v); }
+    Mint operator/(const Mint &o) const { return *this * o.inv(); }
+    Mint& operator+=(const Mint &o) { v += o.v; if (v >= MOD) v -= MOD; return *this; }
+    Mint& operator-=(const Mint &o) { v -= o.v; if (v < 0) v += MOD; return *this; }
+    Mint& operator*=(const Mint &o) { v = int(1LL * v * o.v % MOD); return *this; }
+    bool operator<(const Mint& o) const {return v < o.v;}
+    bool operator>(const Mint& o) const {return v > o.v;}
+    bool operator<=(const Mint& o) const {return v <= o.v;}
+    bool operator>=(const Mint& o) const {return v >= o.v;}
+    bool operator==(const Mint& o) const {return v == o.v;}
+    bool operator!=(const Mint& o) const {return v != o.v;}
+    Mint pow(long long p) const {
+        Mint a = *this, res = 1;
+        while (p > 0) {
+            if (p & 1) res *= a;
+            a *= a;
+            p >>= 1;
+        }
+        return res;
+    }
+    Mint inv() const { return pow(MOD - 2); }
+    friend ostream& operator<<(ostream& os, const Mint& m) {
+        os << m.v;
+        return os;
+    }
+};
+istream& operator>>(std::istream& input, Mint& m) {
+    input >> m.v;
+    return input;
+}
 
 // Funciones vector
 #define PB(a) push_back(a);
 
 bool sort_func(int a, int b) {
-  if (a < b) {
-    return true;
-  } else {
-    return false;
-  }
+    if (a < b) {
+        return true;
+    } else {
+        return false;
+    }
 }
-#define ord(vect) sort(vect.begin(), vect.end(), sort_func);
-
+#define ord(vect) sort(vect.begin(), vect.end(), sort_func)
+#define rep(x,n) for(int x = 0; x < n; ++x)
 #define borra_el(vect, el) vect.erase(vect.find(el));
 #define borra_range(vect, a, b) vect.erase(a, b);
-#define borra(vect, n) vect.erase(vect.begin()+n);
+#define borra(vect, n) vect.erase(vect.begin() + n);
 #define B begin();
 #define E end();
-#define copia(v1,v2); copy(v1.begin(), v1.end(), back_inserter(v2));
+#define copia(v1, v2)                                                                                                                    \
+    ;                                                                                                                                                        \
+    copy(v1.begin(), v1.end(), back_inserter(v2));
 
-
-// Funciones map
-#define F first;
-#define S second;
+// Funciones pair
+#define F first
+#define S second
 
 // Logaritmo de 2
 double log_2 = log(2);
 double log2(int a) { return (log(a) / log_2); }
 
-void Imprime(vi vect) {
-  for (int i = 0; i < vect.size(); i++) {
-    cout << vect[i] << " ";
-  }
-  cout << endl;
+// Imprime cualquier vector 
+template<typename T> std::ostream& operator<<(std::ostream& os, const std::vector<T>& vec) {
+    os << "[ ";//Quita esto si no quieres los corchetes o cambia lo que quieras poner
+    for(const auto& elem : vec) {
+        os << elem << " ";
+    }
+    os << "]";
+    return os;
 }
 
-vi lee(int n) {
-  int el;
-  vi vect;
-  for (int i = 0; i < n; i++) {
-    cin >> el;
-    vect.PB(el);
-  }
-  return (vect);
+void Imprime_set(set<int> s) {
+    copy(s.begin(), s.end(), ostream_iterator<int>(cout, " "));
+    cout << endl;
 }
 
-int solve(int T) {
-  // Code aquí
-  int n, maxi=0, ant = 0;
-  vi a;
-  cin >> n;
-  a = lee(n);
-  for (int i=0; i<n; i++){
-    ant = ant ^ a[i];
-    if (ant > maxi){
-      maxi = ant;
+int maximo_comun_divisor(int a, int b) {
+    int temporal; // Para no perder b
+    while (b != 0) {
+        temporal = b;
+        b = a % b;
+        a = temporal;
     }
-    if (a[i] > maxi){
-      maxi = a[i];
-    }
-  }
-  ant = 0;
-  for (int i=n-1; i>=0; i--){
-    ant = ant ^ a[i];
-    if (ant > maxi){
-      maxi = ant;
-    }
-    if (a[i] > maxi){
-      maxi = a[i];
-    }
-  }
-  cout << maxi << endl;
-  return 0;
+    return a;
 }
 
-int main() {
-  int T;
-  cin >> T; // Número de casos
-  while (T--) {
-    solve(T);
-  }
-  return 0;
+int minimo_comun_multiplo(int a, int b) {
+    return (a * b) / maximo_comun_divisor(a, b);
 }
-//Eliminar comentario si el proyecto esta terminado (Dinamica empezo el 21/06/2024)
+
+bool isNumeric(string const &str) {
+    auto it = str.begin();
+    while (it != str.end() && isdigit(*it)) {
+        it++;
+    }
+    return !str.empty() && it == str.end();
+}
+
+void lee(int n, vi& vect) {
+    rep(i, n) cin >> vect[i];
+    return ;
+}
+
+#define INF INT_MAX
+double pi = 2*acos(0.0);
+
+int searching(vi& pref, int x){
+  DBG_COUT(cout << "Start with " << x << endl);
+    auto l = pref.begin(), r = pref.end();
+    int acc = 0;
+    for (int i = 10; i>=0; i--){
+        auto m = lower_bound(l, r,acc + (1 << i));
+        if (m == l){ // Tienes que coger derecha
+            DBG_COUT(cout << "Todos en derecha " << i << endl);
+            acc += (1<<i);
+        } else if (m == r){ // Tienes que coger izquierda
+            DBG_COUT(cout << "Todos en izquierda " << i << endl);
+        } else if (x & (1 << i)){
+            r = m;
+            DBG_COUT(cout << "Rango de la izquierda " << i << endl);
+        } else {
+            l = m;
+            acc += (1<<i);
+            DBG_COUT(cout << "Rango de la derecha " << i << endl);
+        }
+    }
+    DBG_COUT(cout << "Obtained " << (*l) << endl << "Final result: " << (int)((*l)^x) << endl);
+    return (int)((*l)^x);
+}
+
+int solve() {
+    // Code aquí
+    int n; cin >> n;
+    vi a(n); rep(i, n) cin >> a[i];
+    DBG_COUT(cout << "Test: " << a << endl);
+
+    // Busca el subarray cuyo xor sea máximo
+    // Esto es buscar un índice l y r tal que pref[r]^pref[l-1] sea máximo, siendo pref[x] el xor del array entre 0 y x
+    // Primero debes obtener todos los valores de pref[x] (pref[0] = 0)
+    // Luego para cada pref[l-1] buscas pref[r] que más se adecúe, esto lo puedes hacer con busqueda binaria ya que si el primer bit pref[l-1] es 1, buscas uno que sea 0.
+    // Recuerda, no necesitas los índices;
+    vi pref(n+1);
+    pref[0] = 0;
+    for (int i = 1; i<=n; i++) pref[i] = pref[i-1]^a[i-1];
+
+    ord(pref);
+
+    int sol = 0;
+    for (int i = 0; i<=n; i++){
+        sol = max(sol, searching(pref, pref[i]));
+    }
+    cout << sol << endl;
+
+    return 0;
+}
+
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr); 
+    int T;
+    cin >> T; // Número de casos
+    while (T--) {
+        solve();
+    }
+    return 0;
+}
+
+// https://codeforces.com/contest/1847/problem/C

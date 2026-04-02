@@ -1,7 +1,72 @@
-2
-2
-1
-4
-4
-1
-2
+Test: [ 1 1 2 2 ]
+Start with 0
+Todos en izquierda 10
+Todos en izquierda 9
+Todos en izquierda 8
+Todos en izquierda 7
+Todos en izquierda 6
+Todos en izquierda 5
+Todos en izquierda 4
+Todos en izquierda 3
+Todos en izquierda 2
+Rango de la derecha 1
+Todos en izquierda 0
+Obtained 2
+Final result: 2
+Start with 0
+Todos en izquierda 10
+Todos en izquierda 9
+Todos en izquierda 8
+Todos en izquierda 7
+Todos en izquierda 6
+Todos en izquierda 5
+Todos en izquierda 4
+Todos en izquierda 3
+Todos en izquierda 2
+Rango de la derecha 1
+Todos en izquierda 0
+Obtained 2
+Final result: 2
+Start with 0
+Todos en izquierda 10
+Todos en izquierda 9
+Todos en izquierda 8
+Todos en izquierda 7
+Todos en izquierda 6
+Todos en izquierda 5
+Todos en izquierda 4
+Todos en izquierda 3
+Todos en izquierda 2
+Rango de la derecha 1
+Todos en izquierda 0
+Obtained 2
+Final result: 2
+Start with 1
+Todos en izquierda 10
+Todos en izquierda 9
+Todos en izquierda 8
+Todos en izquierda 7
+Todos en izquierda 6
+Todos en izquierda 5
+Todos en izquierda 4
+Todos en izquierda 3
+Todos en izquierda 2
+Rango de la derecha 1
+Todos en izquierda 0
+Obtained 2
+Final result: 3
+Start with 2
+Todos en izquierda 10
+Todos en izquierda 9
+Todos en izquierda 8
+Todos en izquierda 7
+Todos en izquierda 6
+Todos en izquierda 5
+Todos en izquierda 4
+Todos en izquierda 3
+Todos en izquierda 2
+Rango de la izquierda 1
+Rango de la derecha 0
+Obtained 1
+Final result: 3
+3

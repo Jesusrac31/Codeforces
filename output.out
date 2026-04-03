@@ -1,84 +1,9 @@
-Test: 0000010011
-Pastilla 0:
-	Tiempo: 3
-	Cura: 0000010000
-	Sintomas: 0000000110
-Pastilla 1:
-	Tiempo: 3
-	Cura: 0000000101
-	Sintomas: 0000000000
-Pastilla 2:
-	Tiempo: 3
-	Cura: 0000001010
-	Sintomas: 0000000100
-Pastilla 3:
-	Tiempo: 5
-	Cura: 0000011010
-	Sintomas: 0000000100
-Computing: 0000010011
-Adding: 0000000111 to 3
-Adding: 0000010010 to 3
-Adding: 0000010101 to 3
-Adding: 0000000101 to 5
-Computing: 0000000111
-Adding: 0000000010 to 6
-Computing: 0000010010
-Adding: 0000000110 to 6
-Adding: 0000010100 to 6
-Adding: 0000000100 to 8
-Computing: 0000010101
-Adding: 0000010000 to 6
-Computing: 0000000101
-Adding: 0000000000 to 8
-Computing: 0000000010
-Computing: 0000000110
-Computing: 0000010000
-Computing: 0000010100
-Computing: 0000000000
-Computing: 0000000100
-8
-Test: 0000000000
-Pastilla 0:
-	Tiempo: 10
-	Cura: 0000001011
-	Sintomas: 0000000100
-Computing: 0000000000
-Adding: 0000000100 to 10
-Computing: 0000000100
-0
-Test: 0000000011
-Pastilla 0:
-	Tiempo: 2
-	Cura: 0000000010
-	Sintomas: 0000000001
-Pastilla 1:
-	Tiempo: 3
-	Cura: 0000000001
-	Sintomas: 0000000010
-Computing: 0000000011
-Adding: 0000000001 to 2
-Adding: 0000000010 to 3
-Computing: 0000000001
-Computing: 0000000010
--1
-Test: 0000000011
-Pastilla 0:
-	Tiempo: 3
-	Cura: 0000000001
-	Sintomas: 0000000010
-Pastilla 1:
-	Tiempo: 3
-	Cura: 0000000010
-	Sintomas: 0000000000
-Pastilla 2:
-	Tiempo: 4
-	Cura: 0000000010
-	Sintomas: 0000000001
-Computing: 0000000011
-Adding: 0000000010 to 3
-Adding: 0000000001 to 3
-Computing: 0000000001
-Computing: 0000000010
-Adding: 0000000000 to 6
-Computing: 0000000000
-6
+YES
+YES
+NO
+NO
+YES
+YES
+NO
+YES
+YES

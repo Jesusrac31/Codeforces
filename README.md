@@ -7,9 +7,9 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 ## Resumen
 
 - Problemas intentados: **251**
-- Problemas resueltos: **227**
-- Problemas sin terminar: **24**
-- Porcentaje de resolución: **90.44%**
+- Problemas resueltos: **228**
+- Problemas sin terminar: **23**
+- Porcentaje de resolución: **90.84%**
 
 ## Criterio de estado
 
@@ -338,7 +338,7 @@ g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp" && .\main.exe < input.in
 - [C. Tiles Comeback.cpp](CF%20R%20888%20(Div.%203)%2025-jul-23/C.%20Tiles%20Comeback.cpp)
 - [D. Prefix Permutation Sums.cpp](CF%20R%20888%20(Div.%203)%2025-jul-23/D.%20Prefix%20Permutation%20Sums.cpp)
 - [E. Nastya and Potions.cpp](CF%20R%20888%20(Div.%203)%2025-jul-23/E.%20Nastya%20and%20Potions.cpp)
-- [G. Vlad and the Mountains.cpp](CF%20R%20888%20(Div.%203)%2025-jul-23/G.%20Vlad%20and%20the%20Mountains.cpp) (sin terminar)
+- [G. Vlad and the Mountains.cpp](CF%20R%20888%20(Div.%203)%2025-jul-23/G.%20Vlad%20and%20the%20Mountains.cpp)
 
 ### CF R 887 (Div. 2) 23-jul-23
 

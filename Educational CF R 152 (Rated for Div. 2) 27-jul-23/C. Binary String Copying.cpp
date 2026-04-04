@@ -1,147 +1,191 @@
-#include <bits/stdc++.h>
-#include <iostream>
-#include <stdlib.h>
+#ifdef DEBUG
+#define _GLIBCXX_DEBUG
+#endif
+
+#include<bits/stdc++.h>
+//#pragma GCC optimize("O3")
+//#pragma GCC optimize("O3,unroll-loops")
+//#pragma GCC target("avx2")
+
+#ifdef DEBUG
+#define DBG_COUT(stmt) do { stmt; } while (0)
+#else
+#define DBG_COUT(stmt) do {} while (0)
+#endif
+
 using namespace std;
 
 typedef vector<int> vi;
-typedef vector<long long int> vll;
-typedef long long int lli;
-typedef map<int, int> mii;
+typedef vector<long long> vll;
+typedef long long lli;
+typedef pair<int, int> pii;
 typedef map<string, int> msi;
 typedef map<int, vector<int>> miv;
+
+const int MOD = 998244353; // Módulo del problema, cambiar en caso de no ser ese. NO TIENE PORQUÉ SER CONSTANTE, SOLO GLOBAL
+
+struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
+    int v;
+    Mint(long long val = 0) {
+        v = int(val % MOD);
+        if (v < 0) v += MOD;
+    }
+    Mint operator+(const Mint &o) const { return Mint(v + o.v); }
+    Mint operator-(const Mint &o) const { return Mint(v - o.v); }
+    Mint operator*(const Mint &o) const { return Mint(1LL * v * o.v); }
+    Mint operator/(const Mint &o) const { return *this * o.inv(); }
+    Mint& operator+=(const Mint &o) { v += o.v; if (v >= MOD) v -= MOD; return *this; }
+    Mint& operator-=(const Mint &o) { v -= o.v; if (v < 0) v += MOD; return *this; }
+    Mint& operator*=(const Mint &o) { v = int(1LL * v * o.v % MOD); return *this; }
+    bool operator<(const Mint& o) const {return v < o.v;}
+    bool operator>(const Mint& o) const {return v > o.v;}
+    bool operator<=(const Mint& o) const {return v <= o.v;}
+    bool operator>=(const Mint& o) const {return v >= o.v;}
+    bool operator==(const Mint& o) const {return v == o.v;}
+    bool operator!=(const Mint& o) const {return v != o.v;}
+    Mint pow(long long p) const {
+        Mint a = *this, res = 1;
+        while (p > 0) {
+            if (p & 1) res *= a;
+            a *= a;
+            p >>= 1;
+        }
+        return res;
+    }
+    Mint inv() const { return pow(MOD - 2); }
+    friend ostream& operator<<(ostream& os, const Mint& m) {
+        os << m.v;
+        return os;
+    }
+};
+istream& operator>>(std::istream& input, Mint& m) {
+    input >> m.v;
+    return input;
+}
 
 // Funciones vector
 #define PB(a) push_back(a);
 
 bool sort_func(int a, int b) {
-  if (a < b) {
-    return true;
-  } else {
-    return false;
-  }
+    if (a < b) {
+        return true;
+    } else {
+        return false;
+    }
 }
-#define ord(vect) sort(vect.begin(), vect.end(), sort_func);
-
+#define ord(vect) sort(vect.begin(), vect.end(), sort_func)
+#define rep(x,n) for(int x = 0; x < n; ++x)
 #define borra_el(vect, el) vect.erase(vect.find(el));
 #define borra_range(vect, a, b) vect.erase(a, b);
 #define borra(vect, n) vect.erase(vect.begin() + n);
 #define B begin();
 #define E end();
-#define copia(v1, v2)                                                          \
-  ;                                                                            \
-  copy(v1.begin(), v1.end(), back_inserter(v2));
+#define copia(v1, v2)                                                                                                                    \
+    ;                                                                                                                                                        \
+    copy(v1.begin(), v1.end(), back_inserter(v2));
 
-// Funciones map
-#define F first;
-#define S second;
+// Funciones pair
+#define F first
+#define S second
 
 // Logaritmo de 2
 double log_2 = log(2);
 double log2(int a) { return (log(a) / log_2); }
 
-void Imprime(vector<vector<int>> vect) {
-  for (int i = 0; i < vect.size(); i++) {
-    cout << vect[i][0] << " " << vect[i][1] << ";   ";
-  }
-  cout << endl;
+// Imprime cualquier vector 
+template<typename T> std::ostream& operator<<(std::ostream& os, const std::vector<T>& vec) {
+    os << "[ ";//Quita esto si no quieres los corchetes o cambia lo que quieras poner
+    for(const auto& elem : vec) {
+        os << elem << " ";
+    }
+    os << "]";
+    return os;
 }
 
-vi lee(int n) {
-  int el;
-  vi vect;
-  for (int i = 0; i < n; i++) {
-    cin >> el;
-    vect.PB(el);
-  }
-  return (vect);
+void Imprime_set(set<int> s) {
+    copy(s.begin(), s.end(), ostream_iterator<int>(cout, " "));
+    cout << endl;
+}
+
+int maximo_comun_divisor(int a, int b) {
+    int temporal; // Para no perder b
+    while (b != 0) {
+        temporal = b;
+        b = a % b;
+        a = temporal;
+    }
+    return a;
+}
+
+int minimo_comun_multiplo(int a, int b) {
+    return (a * b) / maximo_comun_divisor(a, b);
+}
+
+bool isNumeric(string const &str) {
+    auto it = str.begin();
+    while (it != str.end() && isdigit(*it)) {
+        it++;
+    }
+    return !str.empty() && it == str.end();
+}
+
+void lee(int n, vi& vect) {
+    rep(i, n) cin >> vect[i];
+    return ;
+}
+
+#define INF INT_MAX
+double pi = 2*acos(0.0);
+
+int getRealL(vi& leftStops, int val){
+    return (*lower_bound(leftStops.begin(), leftStops.end(), val));
+}
+int getRealR(vi& rightStops, int val){
+    return (*(upper_bound(rightStops.begin(), rightStops.end(), val)-1));
 }
 
 int solve() {
-  // Code aquí
-  int n, m, l, r;
-  vector<vector<int>> opciones;
-  string s;
-  bool original = false;
-  cin >> n >> m;
-  vi puntos_inflexion;
-  cin >> s;
-  for (int i = 1; i < n; i++) {
-    if (s[i] != s[i - 1]) {
-      if (s[i] == '1') {
-        puntos_inflexion.PB(i);
-      }
+    // Code aquí
+    int n, m; cin >> n >> m;
+    string s; cin >> s;
+    DBG_COUT(cout << "Test: " << s << endl);
+    vi leftStops;
+    vi rightStops = {0};
+    for (int i = 0; i<n; i++){
+        if (s[i] == '1'){ leftStops.PB(i); }
+        else { rightStops.PB(i); }
     }
-  }
-  ord(puntos_inflexion);
-  /*for (int i = 0; i < puntos_inflexion.size(); i++) {
-    cout << puntos_inflexion[i] << ";   ";
-  }
-  cout << endl;*/
-  while (m--) {
-    cin >> l >> r;
-    if (s[l - 1] == '0') {
-      for (int i = 0; i < puntos_inflexion.size()+1; i++) {
-        if (i == puntos_inflexion.size()){
-          l=puntos_inflexion.size();
-          break;
-        }
-        if (puntos_inflexion[i] > l) {
-          l = puntos_inflexion[i]+1;
-          break;
-        }
-      }
-    }
-    if (s[r - 1] == '1') {
-      for (int i = puntos_inflexion.size() - 1; i >= 0; i--) {
-        if (i == puntos_inflexion.size()){
-          r=0;
-          break;
-        }
-        if (puntos_inflexion[i] < r) {
-          r = puntos_inflexion[i];
-          break;
-        }
-      }
-    }
-    if (r - l < 0) {
-      original = true;
-    } else {
-      vi vect = {l, r};
-      bool inserta = true;
-      for (int i = 0; i < opciones.size(); i++) {
-        if (l == opciones[i][0] && r == opciones[i][1]) {
-          inserta = false;
-          break;
-        }
-        if (l < opciones[i][0] || (l == opciones[i][0] && r < opciones[i][1])) {
-          cout << l << " " << r << endl;
-          if (i + 1 == opciones.size()) {
-            opciones.PB(vect);
-          } else {
-            opciones.insert(opciones.begin() + i + 1, vect);
-          }
-          inserta = false;
-          break;
-        }
-      }
-      if (inserta) {
-        opciones.PB(vect);
-      }
-      Imprime(opciones);
-    }
-  }
-  Imprime(opciones);
-  cout << opciones.size() + original << endl;
+    leftStops.PB(n);
+    DBG_COUT(cout << "Left stops: " << leftStops << endl);
+    DBG_COUT(cout << "Right stops: " << rightStops << endl);
 
-  return 0;
+    set<pii> combinaciones;
+    while(m--){
+        int l, r;
+        cin >> l >> r;
+        l--; r--;
+        DBG_COUT(cout << "Operation: " << l << " " << r << endl);
+        int newL = getRealL(leftStops, l);
+        int newR = getRealR(rightStops, r);
+        DBG_COUT(cout << "Range obtained: " << newL << " " << newR << endl);
+        if (newL >= newR) {newL = -1; newR = -1;}
+        combinaciones.insert(pii(newL, newR));
+    }
+    cout << combinaciones.size() << endl;
+
+    return 0;
 }
 
-int main() {
-  int T;
-  cin >> T; // Número de casos
-  while (T--) {
-    solve();
-  }
-  return 0;
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr); 
+    int T;
+    cin >> T; // Número de casos
+    while (T--) {
+        solve();
+    }
+    return 0;
 }
-//Eliminar comentario si el proyecto esta terminado (Dinamica empezo el 21/06/2024)
+
+// https://codeforces.com/contest/1849/problem/C

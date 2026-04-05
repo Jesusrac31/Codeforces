@@ -7,9 +7,9 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 ## Resumen
 
 - Problemas intentados: **252**
-- Problemas resueltos: **231**
-- Problemas sin terminar: **21**
-- Porcentaje de resolución: **91.67%**
+- Problemas resueltos: **232**
+- Problemas sin terminar: **20**
+- Porcentaje de resolución: **92.06%**
 
 ## Criterio de estado
 
@@ -294,7 +294,7 @@ g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp" && .\main.exe < input.in
 - [A. Buttons.cpp](CF%20R%20893%20(Div.%202)%2015-ago-23/A.%20Buttons.cpp)
 - [B. The Walkway.cpp](CF%20R%20893%20(Div.%202)%2015-ago-23/B.%20The%20Walkway.cpp)
 - [C. Yet Another Permutation Problem.cpp](CF%20R%20893%20(Div.%202)%2015-ago-23/C.%20Yet%20Another%20Permutation%20Problem.cpp)
-- [D. Trees and Segments.cpp](CF%20R%20893%20(Div.%202)%2015-ago-23/D.%20Trees%20and%20Segments.cpp) (sin terminar)
+- [D. Trees and Segments.cpp](CF%20R%20893%20(Div.%202)%2015-ago-23/D.%20Trees%20and%20Segments.cpp)
 
 ### CF R 892 (Div. 2) 12-ago-23
 

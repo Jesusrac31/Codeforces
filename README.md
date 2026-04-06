@@ -7,9 +7,9 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 ## Resumen
 
 - Problemas intentados: **252**
-- Problemas resueltos: **232**
-- Problemas sin terminar: **20**
-- Porcentaje de resolución: **92.06%**
+- Problemas resueltos: **233**
+- Problemas sin terminar: **19**
+- Porcentaje de resolución: **92.46%**
 
 ## Criterio de estado
 
@@ -287,7 +287,7 @@ g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp" && .\main.exe < input.in
 ### Educational CF R 153 (Rated for Div. 2) 17-ago-23
 
 - [A. Not a Substring.cpp](Educational%20CF%20R%20153%20(Rated%20for%20Div.%202)%2017-ago-23/A.%20Not%20a%20Substring.cpp)
-- [B. Fancy Coins.cpp](Educational%20CF%20R%20153%20(Rated%20for%20Div.%202)%2017-ago-23/B.%20Fancy%20Coins.cpp) (sin terminar)
+- [B. Fancy Coins.cpp](Educational%20CF%20R%20153%20(Rated%20for%20Div.%202)%2017-ago-23/B.%20Fancy%20Coins.cpp)
 
 ### CF R 893 (Div. 2) 15-ago-23
 

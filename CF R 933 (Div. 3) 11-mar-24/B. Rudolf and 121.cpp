@@ -87,21 +87,25 @@ int solve() {
   // Code aquí
   int n;
   cin >> n;
-  int suma = 0, el;
-  for (int i = 0; i < n; i++) {
-    cin >> el;
-    if (i % 2 == 0) {
-      suma -= el * i;
-    } else {
-      suma += el * i;
+  int a, b, c;
+  cin >> a >> b;
+  bool ya = true;
+  for (int i = 2; i < n; i++) {
+    cin >> c;
+    b -= 2 * a;
+    c -= a;
+    if (b < 0) {
+      ya = false;
     }
+    a = b;
+    b = c;
   }
-  cout << suma << endl;
-  if (suma == 0) {
+  if (b == 0 && a == 0 && ya){
     cout << "YES" << endl;
   } else {
     cout << "NO" << endl;
   }
+  //cout << a << " " << b << " " << c << endl;
   return 0;
 }
 
@@ -113,4 +117,5 @@ int main() {
   }
   return 0;
 }
+
 // https://codeforces.com/contest/1941/problem/B

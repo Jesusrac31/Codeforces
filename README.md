@@ -7,9 +7,9 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 ## Resumen
 
 - Problemas intentados: **252**
-- Problemas resueltos: **235**
-- Problemas sin terminar: **17**
-- Porcentaje de resolución: **93.25%**
+- Problemas resueltos: **236**
+- Problemas sin terminar: **16**
+- Porcentaje de resolución: **93.65%**
 
 ## Criterio de estado
 
@@ -265,7 +265,7 @@ g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp" && .\main.exe < input.in
 - [B. Rudolf and 121.cpp](CF%20R%20933%20(Div.%203)%2011-mar-24/B.%20Rudolf%20and%20121.cpp)
 - [C. Rudolf and the Ugly String.cpp](CF%20R%20933%20(Div.%203)%2011-mar-24/C.%20Rudolf%20and%20the%20Ugly%20String.cpp)
 - [D. Rudolf and the Ball Game.cpp](CF%20R%20933%20(Div.%203)%2011-mar-24/D.%20Rudolf%20and%20the%20Ball%20Game.cpp)
-- [E. Rudolf and k Bridges.cpp](CF%20R%20933%20(Div.%203)%2011-mar-24/E.%20Rudolf%20and%20k%20Bridges.cpp) (sin terminar)
+- [E. Rudolf and k Bridges.cpp](CF%20R%20933%20(Div.%203)%2011-mar-24/E.%20Rudolf%20and%20k%20Bridges.cpp)
 
 ### CF R 932 (Div. 2) 5-mar-24
 

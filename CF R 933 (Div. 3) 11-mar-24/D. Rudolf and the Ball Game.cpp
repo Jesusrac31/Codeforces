@@ -85,6 +85,45 @@ vi lee(int n) {
 
 int solve() {
   // Code aquí
+  int n, m, x;
+  cin >> n >> m >> x;
+  set<int> pelotas;
+  pelotas.insert(x - 1);
+  int mov;
+  lli desplazado = 0;
+  string dir;
+  for (int i = 0; i < m; i++) {
+    cin >> mov >> dir;
+    if (dir == "?") {
+      vi added;
+      for (auto j : pelotas) {
+        added.PB((j + 2 * mov) % n);
+      }
+      for (int j = 0; j < added.size(); j++) {
+        pelotas.insert(added[j]);
+      }
+      desplazado -= mov;
+      if (desplazado < 0) {
+        desplazado += n;
+      }
+    } else if (dir == "0") {
+      desplazado += mov;
+    } else {
+      desplazado -= mov;
+      if (desplazado < 0) {
+        desplazado += n;
+      }
+    }
+  }
+  cout << pelotas.size() << endl;
+  set<int> sol;
+  for (auto j : pelotas) {
+    sol.insert((j + desplazado) % n + 1);
+  }
+  for (auto j : sol) {
+    cout << j << " ";
+  }
+  cout << endl;
   return 0;
 }
 

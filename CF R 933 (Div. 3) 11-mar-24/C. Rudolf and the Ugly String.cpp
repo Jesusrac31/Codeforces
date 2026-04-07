@@ -85,10 +85,21 @@ vi lee(int n) {
 
 int solve() {
   int n;
-  cin n;
+  cin >> n;
   string s;
-  cin s;
-  for (int i = 2; i < n; i++))
+  cin >> s;
+  int sol = 0;
+  for (int i = 2; i < n; i++) {
+    if (s[i - 2] == 'p' && s[i - 1] == 'i' && s[i] == 'e') {
+      sol++;
+      i += 2;
+    }
+    if (s[i - 2] == 'm' && s[i - 1] == 'a' && s[i] == 'p') {
+      sol++;
+      i += 2;
+    }
+  }
+  cout << sol << endl;
   return 0;
 }
 
@@ -100,4 +111,5 @@ int main() {
   }
   return 0;
 }
+
 // https://codeforces.com/contest/1941/problem/C

@@ -85,7 +85,23 @@ vi lee(int n) {
 
 int solve() {
   // Code aquí
-  in
+  int n, m, k;
+  cin >> n >> m >> k;
+  vi l, r;
+  l = lee(n);
+  r = lee(m);
+  ord(l);
+  ord(r);
+  int index_l = 0, index_r = m - 1, sol = 0;
+  while (index_l < n && index_r >= 0) {
+    if (l[index_l] + r[index_r] <= k) {
+      sol += index_r + 1;
+      index_l++;
+    } else {
+      index_r--;
+    }
+  }
+  cout << sol << endl;
   return 0;
 }
 
@@ -97,4 +113,5 @@ int main() {
   }
   return 0;
 }
+
 // https://codeforces.com/contest/1941/problem/A

@@ -7,9 +7,9 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 ## Resumen
 
 - Problemas intentados: **252**
-- Problemas resueltos: **236**
-- Problemas sin terminar: **16**
-- Porcentaje de resolución: **93.65%**
+- Problemas resueltos: **237**
+- Problemas sin terminar: **15**
+- Porcentaje de resolución: **94.05%**
 
 ## Criterio de estado
 
@@ -250,7 +250,7 @@ g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp" && .\main.exe < input.in
 - [A. Strange Splitting.cpp](CF%20Global%20R%2026%209-jun-24/A.%20Strange%20Splitting.cpp)
 - [B. Large Addition.cpp](CF%20Global%20R%2026%209-jun-24/B.%20Large%20Addition.cpp)
 - [C1. Magnitude (Easy Version).cpp](CF%20Global%20R%2026%209-jun-24/C1.%20Magnitude%20(Easy%20Version).cpp)
-- [C2. Magnitude (Hard Version).cpp](CF%20Global%20R%2026%209-jun-24/C2.%20Magnitude%20(Hard%20Version).cpp) (sin terminar)
+- [C2. Magnitude (Hard Version).cpp](CF%20Global%20R%2026%209-jun-24/C2.%20Magnitude%20(Hard%20Version).cpp)
 
 ### CF R 951 (Div. 2) 6-jun-24
 

@@ -98,7 +98,7 @@ g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp" && .\main.exe < input.in
 - [D. This Is the Last Time.cpp](CF%20R%201037%20(Div.%203)%2017-jul-25/D.%20This%20Is%20the%20Last%20Time.cpp)
 - [E. G-C-D, Unlucky!.cpp](CF%20R%201037%20(Div.%203)%2017-jul-25/E.%20G-C-D%2C%20Unlucky!.cpp)
 - [F. 1-1-1, Free Tree!.cpp](CF%20R%201037%20(Div.%203)%2017-jul-25/F.%201-1-1%2C%20Free%20Tree!.cpp)
-- [G. Big Wins!.cpp](CF%20R%201037%20(Div.%203)%2017-jul-25/G.%20Big%20Wins!.cpp) (sin terminar)
+- [G. Big Wins!.cpp](CF%20R%201037%20(Div.%203)%2017-jul-25/G.%20Big%20Wins!.cpp)
 
 ### CF R 1036, EPIC Institute of Technology R Summer 2025 (Div. 1 + Div. 2) 6-jul-25
 

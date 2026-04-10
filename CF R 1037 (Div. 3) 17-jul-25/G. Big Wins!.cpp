@@ -194,4 +194,6 @@ signed main() {
     }
     return 0;
 }
-//Eliminar comentario si el proyecto esta terminado (Dinamica empezo el 21/06/2024)
+
+// https://codeforces.com/contest/2126/problem/G1
+// https://codeforces.com/contest/2126/problem/G2

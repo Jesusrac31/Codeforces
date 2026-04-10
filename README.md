@@ -7,9 +7,9 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 ## Resumen
 
 - Problemas intentados: **252**
-- Problemas resueltos: **237**
-- Problemas sin terminar: **15**
-- Porcentaje de resolución: **94.05%**
+- Problemas resueltos: **238**
+- Problemas sin terminar: **14**
+- Porcentaje de resolución: **94.44%**
 
 ## Criterio de estado
 

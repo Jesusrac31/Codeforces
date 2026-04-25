@@ -6,10 +6,10 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ## Resumen
 
-- Problemas intentados: **252**
-- Problemas resueltos: **237**
+- Problemas intentados: **253**
+- Problemas resueltos: **238**
 - Problemas sin terminar: **15**
-- Porcentaje de resolución: **94.05%**
+- Porcentaje de resolución: **94.07%**
 
 ## Criterio de estado
 
@@ -22,6 +22,10 @@ g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp" && .\main.exe < input.in
 ```
 
 ## Problemas por concurso/carpeta
+
+### CF R 1093 (Div. 1) 13-abr-26
+
+- [E. Weird Chessboard.cpp](CF%20R%201093%20(Div.%201)%2013-abr-26/E.%20Weird%20Chessboard.cpp)
 
 ### CF R 1087 (Div. 2) 21-mar-26
 

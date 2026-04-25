@@ -6,10 +6,10 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ## Resumen
 
-- Problemas intentados: **252**
-- Problemas resueltos: **238**
+- Problemas intentados: **253**
+- Problemas resueltos: **239**
 - Problemas sin terminar: **14**
-- Porcentaje de resolución: **94.44%**
+- Porcentaje de resolución: **94.47%**
 
 ## Criterio de estado
 

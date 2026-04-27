@@ -6,10 +6,10 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ## Resumen
 
-- Problemas intentados: **256**
+- Problemas intentados: **254**
 - Problemas resueltos: **241**
-- Problemas sin terminar: **15**
-- Porcentaje de resolución: **94.14%**
+- Problemas sin terminar: **13**
+- Porcentaje de resolución: **94.88%**
 
 ## Criterio de estado
 
@@ -472,11 +472,6 @@ g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp" && .\main.exe < input.in
 ### CF R 803 (Div. 2) 28-jun-22
 
 - [D. Fixed Point Guessing.cpp](CF%20R%20803%20(Div.%202)%2028-jun-22/D.%20Fixed%20Point%20Guessing.cpp)
-
-### 
-
-- [tmp_kgood.cpp](tmp_kgood.cpp) (sin terminar)
-- [tmp_kgood2.cpp](tmp_kgood2.cpp) (sin terminar)
 
 ### Randoms
 

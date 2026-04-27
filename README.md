@@ -6,10 +6,10 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ## Resumen
 
-- Problemas intentados: **254**
-- Problemas resueltos: **240**
-- Problemas sin terminar: **14**
-- Porcentaje de resolución: **94.49%**
+- Problemas intentados: **256**
+- Problemas resueltos: **241**
+- Problemas sin terminar: **15**
+- Porcentaje de resolución: **94.14%**
 
 ## Criterio de estado
 
@@ -156,14 +156,6 @@ g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp" && .\main.exe < input.in
 - [A. Dora's Set.cpp](CF%20R%20969%20(Div.%202)%2030-ago-24/A.%20Dora's%20Set.cpp)
 - [B. Index and Maximum Value.cpp](CF%20R%20969%20(Div.%202)%2030-ago-24/B.%20Index%20and%20Maximum%20Value.cpp) (sin terminar)
 
-### Pinely R 4 (Div. 1 + Div. 2) 28-jul-24
-
-- [A. Maximize the Last Element.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/A.%20Maximize%20the%20Last%20Element.cpp)
-- [B. AND Reconstruction.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/B.%20AND%20Reconstruction.cpp)
-- [C. Absolute Zero.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/C.%20Absolute%20Zero.cpp)
-- [D. Prime XOR Coloring.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/D.%20Prime%20XOR%20Coloring.cpp)
-- [E. Coloring Game.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/E.%20Coloring%20Game.cpp)
-
 ### Educational CF R 168 (Rated for Div. 2) 30-jul-24
 
 - [A. Strong Password.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/A.%20Strong%20Password.cpp)
@@ -171,6 +163,14 @@ g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp" && .\main.exe < input.in
 - [C. Even Positions.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/C.%20Even%20Positions.cpp)
 - [D. Maximize the Root.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/D.%20Maximize%20the%20Root.cpp)
 - [E. Level Up.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/E.%20Level%20Up.cpp) (sin terminar)
+
+### Pinely R 4 (Div. 1 + Div. 2) 28-jul-24
+
+- [A. Maximize the Last Element.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/A.%20Maximize%20the%20Last%20Element.cpp)
+- [B. AND Reconstruction.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/B.%20AND%20Reconstruction.cpp)
+- [C. Absolute Zero.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/C.%20Absolute%20Zero.cpp)
+- [D. Prime XOR Coloring.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/D.%20Prime%20XOR%20Coloring.cpp)
+- [E. Coloring Game.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/E.%20Coloring%20Game.cpp)
 
 ### CF R 962 (Div. 3) 26-jul-24
 
@@ -232,7 +232,7 @@ g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp" && .\main.exe < input.in
 - [B. Collatz Conjecture.cpp](CF%20R%20955%20(Div.%202%2C%20with%20prizes%20from%20NEAR!)%2025-jun-24/B.%20Collatz%20Conjecture.cpp)
 - [C. Boring Day.cpp](CF%20R%20955%20(Div.%202%2C%20with%20prizes%20from%20NEAR!)%2025-jun-24/C.%20Boring%20Day.cpp)
 - [D. Beauty of the mountains.cpp](CF%20R%20955%20(Div.%202%2C%20with%20prizes%20from%20NEAR!)%2025-jun-24/D.%20Beauty%20of%20the%20mountains.cpp)
-- [E. Number of k-good subarrays.cpp](CF%20R%20955%20(Div.%202%2C%20with%20prizes%20from%20NEAR!)%2025-jun-24/E.%20Number%20of%20k-good%20subarrays.cpp) (sin terminar)
+- [E. Number of k-good subarrays.cpp](CF%20R%20955%20(Div.%202%2C%20with%20prizes%20from%20NEAR!)%2025-jun-24/E.%20Number%20of%20k-good%20subarrays.cpp)
 
 ### CF R 954 (Div. 3) 23-jun-24
 
@@ -472,6 +472,11 @@ g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp" && .\main.exe < input.in
 ### CF R 803 (Div. 2) 28-jun-22
 
 - [D. Fixed Point Guessing.cpp](CF%20R%20803%20(Div.%202)%2028-jun-22/D.%20Fixed%20Point%20Guessing.cpp)
+
+### 
+
+- [tmp_kgood.cpp](tmp_kgood.cpp) (sin terminar)
+- [tmp_kgood2.cpp](tmp_kgood2.cpp) (sin terminar)
 
 ### Randoms
 

@@ -1,300 +1,201 @@
-//Librerías incluidas en #include<bitstdc++.h>
-#include<algorithm>
-#include<array>
-#include<atomic>
-#include<bitset>
-#include<ccomplex>
-#include<cerrno>
-#include<cfenv>
-#include<cfloat>
-#include<chrono>
-#include<cinttypes>
-#include<ciso646>
-#include<climits>
-#include<clocale>
-#include<cmath>
-#include<complex>
-#include<condition_variable>
-#include<csetjmp>
-#include<csignal>
-#include<cstdalign>
-#include<cstdarg>
-#include<cstdbool>
-#include<cstddef>
-#include<cstdint>
-#include<cstdio>
-#include<cstdlib>
-#include<cstring>
-#include<ctgmath>
-#include<ctime>
-#include<cwchar>
-#include<cwctype>
-#include<deque>
-#include<exception>
-#include<forward_list>
-#include<fstream>
-#include<functional>
-#include<future>
-#include<initializer_list>
-#include<iomanip>
-#include<ios>
-#include<iosfwd>
-#include<iostream>
-#include<istream>
-#include<iterator>
-#include<limits>
-#include<list>
-#include<locale>
-#include<map>
-#include<memory>
-#include<mutex>
-#include<new>
-#include<numeric>
-#include<ostream>
-#include<queue>
-#include<random>
-#include<ratio>
-#include<regex>
-#include<scoped_allocator>
-#include<set>
-#include<sstream>
-#include<stack>
-#include<stdexcept>
-#include<streambuf>
-#include<string>
-#include<system_error>
-#include<thread>
-#include<tuple>
-#include<type_traits>
-#include<typeindex>
-#include<typeinfo>
-#include<unordered_map>
-#include<unordered_set>
-#include<utility>
-#include<valarray>
-#include<vector>
-#include <stdlib.h>
+#ifdef DEBUG
+#define _GLIBCXX_DEBUG
+#endif
+
+#include<bits/stdc++.h>
+//#pragma GCC optimize("O3")
+//#pragma GCC optimize("O3,unroll-loops")
+//#pragma GCC target("avx2")
+
+#ifdef DEBUG
+#define DBG_COUT(stmt) do { stmt; } while (0)
+#else
+#define DBG_COUT(stmt) do {} while (0)
+#endif
+
 using namespace std;
 
 typedef vector<int> vi;
-typedef vector<long long int> vll;
-typedef long long int lli;
+typedef vector<long long> vll;
+typedef long long lli;
 typedef pair<int, int> pii;
 typedef map<string, int> msi;
 typedef map<int, vector<int>> miv;
+
+const int MOD = 998244353; // Módulo del problema, cambiar en caso de no ser ese. NO TIENE PORQUÉ SER CONSTANTE, SOLO GLOBAL
+
+struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
+    int v;
+    Mint(long long val = 0) {
+        v = int(val % MOD);
+        if (v < 0) v += MOD;
+    }
+    Mint operator+(const Mint &o) const { return Mint(v + o.v); }
+    Mint operator-(const Mint &o) const { return Mint(v - o.v); }
+    Mint operator*(const Mint &o) const { return Mint(1LL * v * o.v); }
+    Mint operator/(const Mint &o) const { return *this * o.inv(); }
+    Mint& operator+=(const Mint &o) { v += o.v; if (v >= MOD) v -= MOD; return *this; }
+    Mint& operator-=(const Mint &o) { v -= o.v; if (v < 0) v += MOD; return *this; }
+    Mint& operator*=(const Mint &o) { v = int(1LL * v * o.v % MOD); return *this; }
+    bool operator<(const Mint& o) const {return v < o.v;}
+    bool operator>(const Mint& o) const {return v > o.v;}
+    bool operator<=(const Mint& o) const {return v <= o.v;}
+    bool operator>=(const Mint& o) const {return v >= o.v;}
+    bool operator==(const Mint& o) const {return v == o.v;}
+    bool operator!=(const Mint& o) const {return v != o.v;}
+    Mint pow(long long p) const {
+        Mint a = *this, res = 1;
+        while (p > 0) {
+            if (p & 1) res *= a;
+            a *= a;
+            p >>= 1;
+        }
+        return res;
+    }
+    Mint inv() const { return pow(MOD - 2); }
+    friend ostream& operator<<(ostream& os, const Mint& m) {
+        os << m.v;
+        return os;
+    }
+};
+istream& operator>>(std::istream& input, Mint& m) {
+    input >> m.v;
+    return input;
+}
 
 // Funciones vector
 #define PB(a) push_back(a);
 
 bool sort_func(int a, int b) {
-  if (a < b) {
-    return true;
-  } else {
-    return false;
-  }
+    if (a < b) {
+        return true;
+    } else {
+        return false;
+    }
 }
-#define ord(vect) sort(vect.begin(), vect.end(), sort_func);
-
+#define ord(vect) sort(vect.begin(), vect.end(), sort_func)
+#define rep(x,n) for(int x = 0; x < n; ++x)
 #define borra_el(vect, el) vect.erase(vect.find(el));
 #define borra_range(vect, a, b) vect.erase(a, b);
 #define borra(vect, n) vect.erase(vect.begin() + n);
 #define B begin();
 #define E end();
-#define copia(v1, v2)                                                          \
-  ;                                                                            \
-  copy(v1.begin(), v1.end(), back_inserter(v2));
+#define copia(v1, v2)                                                                                                                    \
+    ;                                                                                                                                                        \
+    copy(v1.begin(), v1.end(), back_inserter(v2));
 
-// Funciones map
-#define F first;
-#define S second;
+// Funciones pair
+#define F first
+#define S second
 
 // Logaritmo de 2
 double log_2 = log(2);
 double log2(int a) { return (log(a) / log_2); }
 
-void Imprime(vi vect) {
-  for (int i = 0; i < vect.size(); i++) {
-    cout << vect[i] << " ";
-  }
-  cout << "\n";
-}
-
-void ImprimeBool(vector<bool> vect) {
-  for (int i = 0; i < vect.size(); i++) {
-    cout << vect[i] << " ";
-  }
-  cout << "\n";
-}
-
-void Imprime2d(vector<vi> vect) {
-  for (int j = 0; j<vect.size(); j++){
-    for (int i = 0; i < vect[j].size(); i++) {
-        cout << vect[j][i] << " ";
+// Imprime cualquier vector 
+template<typename T> std::ostream& operator<<(std::ostream& os, const std::vector<T>& vec) {
+    os << "[ ";//Quita esto si no quieres los corchetes o cambia lo que quieras poner
+    for(const auto& elem : vec) {
+        os << elem << " ";
     }
-    cout << "\n";
-  }
+    os << "]";
+    return os;
 }
 
 void Imprime_set(set<int> s) {
-  copy(s.begin(), s.end(), ostream_iterator<int>(cout, " "));
-  cout << endl;
+    copy(s.begin(), s.end(), ostream_iterator<int>(cout, " "));
+    cout << endl;
 }
 
 int maximo_comun_divisor(int a, int b) {
-  int temporal; // Para no perder b
-  while (b != 0) {
-    temporal = b;
-    b = a % b;
-    a = temporal;
-  }
-  return a;
+    int temporal; // Para no perder b
+    while (b != 0) {
+        temporal = b;
+        b = a % b;
+        a = temporal;
+    }
+    return a;
 }
 
 int minimo_comun_multiplo(int a, int b) {
-  return (a * b) / maximo_comun_divisor(a, b);
+    return (a * b) / maximo_comun_divisor(a, b);
 }
 
 bool isNumeric(string const &str) {
-  auto it = str.begin();
-  while (it != str.end() && isdigit(*it)) {
-    it++;
-  }
-  return !str.empty() && it == str.end();
+    auto it = str.begin();
+    while (it != str.end() && isdigit(*it)) {
+        it++;
+    }
+    return !str.empty() && it == str.end();
 }
 
-vll lee(int n) {
-  lli el;
-  vll vect = {0};
-  for (int i = 0; i < n; i++) {
-    cin >> el;
-    vect.PB(el);
-  }
-  return (vect);
+void lee(int n, vi& vect) {
+    rep(i, n) cin >> vect[i];
+    return ;
 }
 
-vi camino;
-lli valor_camino;
-vector<vi> nodos;
-vll attacks;
-vi camino_actual;
-lli sumando;
-vector<bool> bloqueados;
-vector<bool> muertos;
+#define INF LLONG_MAX
+// Debe ser mayor a 2, depende del input pero 24 es suficiente
+#define RONDAS 24 
+double pi = 2*acos(0.0);
 
-void max_path(int nodo_act = 0){
-    // Recorremos todos los nodos posteriores para hacer los posibles caminos
-    for (int i = nodo_act+1; i<nodos.size(); i++){
-        if (!bloqueados[i]){ // Solo si el nodo no está bloqueado
-            //cout << "nodo: " << i << " sumando: " << sumando << endl;
-            
-            // Camino actual, sumando y bloqueados podrían meterse en la función recursiva pero trae problemas de memoria
-            // La solución es actualizarlas antes de acceder y al terminar devolverlas a su valor inicial
-            camino_actual.PB(i);
-            sumando += attacks[i];
-            // Bloqueamos todos los nodos adyascentes al nodo actual
-            for (int j = 0; j<nodos[i].size(); j++){
-                bloqueados[nodos[i][j]] = true;
-            }
+void dfs(vector<vi>& tree, vll& a, vector<vll>& dp, vector<pair<lli, lli>>& minimo, int n, int node, int padre = -1){
+    // Computa todos los resultados de sus hijos
+    for (auto x:tree[node]) if (x != padre) dfs(tree, a, dp, minimo, n, x, node);
 
-            max_path(i);
-
-            camino_actual.pop_back();
-            sumando -= attacks[i];
-            for (int j = 0; j<nodos[i].size(); j++){
-                if (!muertos[nodos[i][j]]){ // Solo desbloqueamos los monstruos que no hayamos matado
-                    bloqueados[nodos[i][j]] = false;
-                }
+    // Por cada ronda, tenemos que actualizar nuestro nodo
+    for (int r = 1; r <= RONDAS; r++){
+        dp[node][r] = r * a[node];
+        for (auto x:tree[node]) if (x != padre){
+            if (dp[x][r] != minimo[x].first){
+                dp[node][r] += minimo[x].first;
+            } else {
+                dp[node][r] += minimo[x].second;
             }
         }
     }
-
-    //Una vez hecho el camino completo (todos los nodos han sido seleccionados o están bloqueados), comprobamos si es el máximo para almacenarlo
-    if (sumando > valor_camino){
-        valor_camino = sumando;
-        camino.clear();
-        copia(camino_actual, camino);
+    // Actualizamos el mínimo del nodo
+    for (int r = 1; r <= RONDAS; r++){
+        if (minimo[node].first > dp[node][r]){
+            minimo[node].second = minimo[node].first;
+            minimo[node].first = dp[node][r];
+        } else if (minimo[node].second > dp[node][r]){
+            minimo[node].second = dp[node][r];
+        }
     }
 }
 
 int solve() {
-  
-  // Reseteamos los arrays globales attacks, nodos, bloqueados y muertos que usaremos más adelante
-  attacks.clear();
-  nodos.clear();
-  bloqueados.clear();
-  muertos.clear();
-
-  // Obtenemos el número de monstruos o nodos
-  int n;
-  cin >> n;
-
-  // Recogemos el ataque de cada monstruo o el peso del nodo
-  attacks = lee(n);
-
-  /* Preparamos la matriz nodos donde cada columna nos indica cuales nodos bloquearíamos si seleccionamos un nodo en concreto.
-     Ej: En nodos[4] hay un array de indices, los nodos que comparten un segmento con el nodo 4
-     Además decimos que ningún nodo está bloqueado ni muerto y calculamos la suma de todos los ataques */
-  lli total = 0;
-
-  for(int i = 0; i<=n; i++){
-    nodos.PB({});
-    bloqueados.PB(false); // No están bloqueados al principio
-    muertos.PB(false); // No están muertos al principio
-    total += attacks[i];
-  }
-
-  // Inicializamos la matriz nodos donde cada columna nos indica cuales nodos bloquearíamos si seleccionamos un nodo en concreto.
-  // Ej: En nodos[4] hay un array de indices, los nodos que comparten un segmento con el nodo 4
-  int x, y;
-
-  for (int i = 0; i<n-1; i++){
-    cin >> x >> y;
-    nodos[min(x, y)].PB(max(x,y)); // Por como está hecho el algoritmo, un nodo con un indice grande no podrá acceder a un nodo con indice chico, así que no lo incluimos.
-    // Ej: El nodo 4 nunca podrá acceder al nodo 1, pero el nodo 1 sí al nodo 4.
-  }
-
-  // Iniciamos la variable donde estará el daño recibido
-  lli suma = 0;
-  
-  //cout << "total: " << total << endl;
-  while (total != 0){
-    // Reset variables globales del algoritmo
-    valor_camino = 0;
-    sumando = 0;
-    camino.clear();
-    camino_actual.clear();
-
-    // Aplica daño
-    suma += total;
-
-    // Calculo de monstruos que matamos y cuanto daño nos ahorramos
-    max_path();
-    total -= valor_camino;
-
-    // Bloqueamos y matamos los monstruos a los que matamos para representar su muerte
-    for (int i = 0; i<camino.size(); i++){
-        bloqueados[camino[i]] = true;
-        muertos[camino[i]] = true;
+    // Code aquí
+    int n; cin >> n;
+    vll a(n+1); for (int i = 1; i<=n; i++) cin >> a[i];
+    vector<vi> tree(n+1);
+    for (int i = 0; i<n-1; i++){
+        int x, y; cin >> x >> y;
+        tree[x].PB(y);
+        tree[y].PB(x);
     }
-    //cout << "total: " << total << ", valor_camino: " << valor_camino << endl;
-    //Imprime(camino);
-    //ImprimeBool(bloqueados);
-  }
-  cout << suma << endl;
-  return 0;
+
+    vector<vll> dp(n+1, vll(RONDAS+1, 0)); // dp[i][j] = Daño mínimo recibido por el subarbol del nodo i si eliminas el nodo en el turno j
+    vector<pair<lli, lli>> minimo(n+1, pair<lli, lli>(INF, INF)); // Debemos llevar un recuento de los dos números más chicos de dp por nodo
+    dfs(tree, a, dp, minimo, n, 1);
+
+    lli sol = INF; for (int i = 1; i<=RONDAS; i++) sol = min(sol, dp[1][i]);
+    cout << sol << endl;
+
+    return 0;
 }
 
-int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
-  cout.tie(nullptr); 
-  int T;
-  cin >> T; // Número de casos
-  while (T--) {
-    solve();
-  }
-  return 0;
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr); 
+    int T;
+    cin >> T; // Número de casos
+    while (T--) {
+        solve();
+    }
+    return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
-// Muy lento :(
+// https://codeforces.com/contest/1988/problem/D

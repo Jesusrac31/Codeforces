@@ -7,9 +7,9 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 ## Resumen
 
 - Problemas intentados: **254**
-- Problemas resueltos: **243**
-- Problemas sin terminar: **11**
-- Porcentaje de resolución: **95.67%**
+- Problemas resueltos: **244**
+- Problemas sin terminar: **10**
+- Porcentaje de resolución: **96.06%**
 
 ## Criterio de estado
 
@@ -194,7 +194,7 @@ g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp" && .\main.exe < input.in
 - [B. Array Craft.cpp](CF%20R%20960%20(Div.%202)%2020-jul-24/B.%20Array%20Craft.cpp)
 - [C. Mad MAD Sum.cpp](CF%20R%20960%20(Div.%202)%2020-jul-24/C.%20Mad%20MAD%20Sum.cpp)
 - [D. Grid Puzzle.cpp](CF%20R%20960%20(Div.%202)%2020-jul-24/D.%20Grid%20Puzzle.cpp)
-- [E1. Catch the Mole(Easy Version).cpp](CF%20R%20960%20(Div.%202)%2020-jul-24/E1.%20Catch%20the%20Mole(Easy%20Version).cpp) (sin terminar)
+- [E. Catch the Mole.cpp](CF%20R%20960%20(Div.%202)%2020-jul-24/E.%20Catch%20the%20Mole.cpp)
 
 ### CF R 959 sponsored by NEAR (Div. 1 + Div. 2) 18-jul-24
 

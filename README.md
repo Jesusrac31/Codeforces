@@ -7,9 +7,9 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 ## Resumen
 
 - Problemas intentados: **254**
-- Problemas resueltos: **244**
-- Problemas sin terminar: **10**
-- Porcentaje de resolución: **96.06%**
+- Problemas resueltos: **245**
+- Problemas sin terminar: **9**
+- Porcentaje de resolución: **96.46%**
 
 ## Criterio de estado
 
@@ -19,6 +19,10 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 ## Comando ejecución problema
 ```cmd
 g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp" && .\main.exe < input.in > output.out
+```
+```shell 
+g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp"
+Measure-Command{Get-Content input.in | .\main.exe > output.out}
 ```
 
 ## Problemas por concurso/carpeta
@@ -162,7 +166,7 @@ g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp" && .\main.exe < input.in
 - [B. Make Three Regions.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/B.%20Make%20Three%20Regions.cpp)
 - [C. Even Positions.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/C.%20Even%20Positions.cpp)
 - [D. Maximize the Root.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/D.%20Maximize%20the%20Root.cpp)
-- [E. Level Up.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/E.%20Level%20Up.cpp) (sin terminar)
+- [E. Level Up.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/E.%20Level%20Up.cpp)
 
 ### Pinely R 4 (Div. 1 + Div. 2) 28-jul-24
 

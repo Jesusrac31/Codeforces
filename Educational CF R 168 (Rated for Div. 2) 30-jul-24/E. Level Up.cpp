@@ -1,222 +1,216 @@
-//Librerías incluidas en #include<bitstdc++.h>
-#include<algorithm>
-#include<array>
-#include<atomic>
-#include<bitset>
-#include<ccomplex>
-#include<cerrno>
-#include<cfenv>
-#include<cfloat>
-#include<chrono>
-#include<cinttypes>
-#include<ciso646>
-#include<climits>
-#include<clocale>
-#include<cmath>
-#include<complex>
-#include<condition_variable>
-#include<csetjmp>
-#include<csignal>
-#include<cstdalign>
-#include<cstdarg>
-#include<cstdbool>
-#include<cstddef>
-#include<cstdint>
-#include<cstdio>
-#include<cstdlib>
-#include<cstring>
-#include<ctgmath>
-#include<ctime>
-#include<cwchar>
-#include<cwctype>
-#include<deque>
-#include<exception>
-#include<forward_list>
-#include<fstream>
-#include<functional>
-#include<future>
-#include<initializer_list>
-#include<iomanip>
-#include<ios>
-#include<iosfwd>
-#include<iostream>
-#include<istream>
-#include<iterator>
-#include<limits>
-#include<list>
-#include<locale>
-#include<map>
-#include<memory>
-#include<mutex>
-#include<new>
-#include<numeric>
-#include<ostream>
-#include<queue>
-#include<random>
-#include<ratio>
-#include<regex>
-#include<scoped_allocator>
-#include<set>
-#include<sstream>
-#include<stack>
-#include<stdexcept>
-#include<streambuf>
-#include<string>
-#include<system_error>
-#include<thread>
-#include<tuple>
-#include<type_traits>
-#include<typeindex>
-#include<typeinfo>
-#include<unordered_map>
-#include<unordered_set>
-#include<utility>
-#include<valarray>
-#include<vector>
-#include <stdlib.h>
+#ifdef DEBUG
+#define _GLIBCXX_DEBUG
+#endif
+
+#include<bits/stdc++.h>
+//#pragma GCC optimize("O3")
+//#pragma GCC optimize("O3,unroll-loops")
+//#pragma GCC target("avx2")
+
+#ifdef DEBUG
+#define DBG_COUT(stmt) do { stmt; } while (0)
+#else
+#define DBG_COUT(stmt) do {} while (0)
+#endif
+
 using namespace std;
 
 typedef vector<int> vi;
-typedef vector<long long int> vll;
-typedef long long int lli;
+typedef vector<long long> vll;
+typedef long long lli;
 typedef pair<int, int> pii;
 typedef map<string, int> msi;
 typedef map<int, vector<int>> miv;
+
+const int MOD = 998244353; // Módulo del problema, cambiar en caso de no ser ese. NO TIENE PORQUÉ SER CONSTANTE, SOLO GLOBAL
+
+struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
+    int v;
+    Mint(long long val = 0) {
+        v = int(val % MOD);
+        if (v < 0) v += MOD;
+    }
+    Mint operator+(const Mint &o) const { return Mint(v + o.v); }
+    Mint operator-(const Mint &o) const { return Mint(v - o.v); }
+    Mint operator*(const Mint &o) const { return Mint(1LL * v * o.v); }
+    Mint operator/(const Mint &o) const { return *this * o.inv(); }
+    Mint& operator+=(const Mint &o) { v += o.v; if (v >= MOD) v -= MOD; return *this; }
+    Mint& operator-=(const Mint &o) { v -= o.v; if (v < 0) v += MOD; return *this; }
+    Mint& operator*=(const Mint &o) { v = int(1LL * v * o.v % MOD); return *this; }
+    bool operator<(const Mint& o) const {return v < o.v;}
+    bool operator>(const Mint& o) const {return v > o.v;}
+    bool operator<=(const Mint& o) const {return v <= o.v;}
+    bool operator>=(const Mint& o) const {return v >= o.v;}
+    bool operator==(const Mint& o) const {return v == o.v;}
+    bool operator!=(const Mint& o) const {return v != o.v;}
+    Mint pow(long long p) const {
+        Mint a = *this, res = 1;
+        while (p > 0) {
+            if (p & 1) res *= a;
+            a *= a;
+            p >>= 1;
+        }
+        return res;
+    }
+    Mint inv() const { return pow(MOD - 2); }
+    friend ostream& operator<<(ostream& os, const Mint& m) {
+        os << m.v;
+        return os;
+    }
+};
+istream& operator>>(std::istream& input, Mint& m) {
+    input >> m.v;
+    return input;
+}
 
 // Funciones vector
 #define PB(a) push_back(a);
 
 bool sort_func(int a, int b) {
-  if (a < b) {
-    return true;
-  } else {
-    return false;
-  }
+    if (a < b) {
+        return true;
+    } else {
+        return false;
+    }
 }
-#define ord(vect) sort(vect.begin(), vect.end(), sort_func);
-
+#define ord(vect) sort(vect.begin(), vect.end(), sort_func)
+#define rep(x,n) for(int x = 0; x < n; ++x)
 #define borra_el(vect, el) vect.erase(vect.find(el));
 #define borra_range(vect, a, b) vect.erase(a, b);
 #define borra(vect, n) vect.erase(vect.begin() + n);
 #define B begin();
 #define E end();
-#define copia(v1, v2)                                                          \
-  ;                                                                            \
-  copy(v1.begin(), v1.end(), back_inserter(v2));
+#define copia(v1, v2)                                                                                                                    \
+    ;                                                                                                                                                        \
+    copy(v1.begin(), v1.end(), back_inserter(v2));
 
-// Funciones map
-#define F first;
-#define S second;
+// Funciones pair
+#define F first
+#define S second
 
 // Logaritmo de 2
 double log_2 = log(2);
 double log2(int a) { return (log(a) / log_2); }
 
-void Imprime(vi vect) {
-  for (int i = 0; i < vect.size(); i++) {
-    cout << vect[i] << " ";
-  }
-  cout << "\n";
-}
-
-void Imprime2d(vector<vi> vect) {
-  for (int j = 0; j<vect.size(); j++){
-    for (int i = 0; i < vect[j].size(); i++) {
-        cout << vect[j][i] << " ";
+// Imprime cualquier vector 
+template<typename T> std::ostream& operator<<(std::ostream& os, const std::vector<T>& vec) {
+    os << "[ ";//Quita esto si no quieres los corchetes o cambia lo que quieras poner
+    for(const auto& elem : vec) {
+        os << elem << " ";
     }
-    cout << "\n";
-  }
+    os << "]";
+    return os;
 }
 
 void Imprime_set(set<int> s) {
-  copy(s.begin(), s.end(), ostream_iterator<int>(cout, " "));
-  cout << endl;
+    copy(s.begin(), s.end(), ostream_iterator<int>(cout, " "));
+    cout << endl;
 }
 
 int maximo_comun_divisor(int a, int b) {
-  int temporal; // Para no perder b
-  while (b != 0) {
-    temporal = b;
-    b = a % b;
-    a = temporal;
-  }
-  return a;
+    int temporal; // Para no perder b
+    while (b != 0) {
+        temporal = b;
+        b = a % b;
+        a = temporal;
+    }
+    return a;
 }
 
 int minimo_comun_multiplo(int a, int b) {
-  return (a * b) / maximo_comun_divisor(a, b);
+    return (a * b) / maximo_comun_divisor(a, b);
 }
 
 bool isNumeric(string const &str) {
-  auto it = str.begin();
-  while (it != str.end() && isdigit(*it)) {
-    it++;
-  }
-  return !str.empty() && it == str.end();
+    auto it = str.begin();
+    while (it != str.end() && isdigit(*it)) {
+        it++;
+    }
+    return !str.empty() && it == str.end();
 }
 
-vector<vector<bool>> sol_ant; 
-vi ultimos;
+void lee(int n, vi& vect) {
+    rep(i, n) cin >> vect[i];
+    return ;
+}
 
-vi lee(int n) {
-  int el;
-  vi vect;
-  for (int i = 0; i < n; i++) {
-    cin >> el;
-    vect.PB(el);
-    sol_ant.PB({});
-    ultimos.PB(0);
-  }
-  return (vect);
+#define INF INT_MAX
+double pi = 2*acos(0.0);
+
+class BIT {
+public:
+    int n; vector<int> bit;
+    BIT(int n): n(n), bit(n + 1, 0) {}
+    void add(int i, int x){for(; i<=n; i+=i&-i) bit[i]+=x; }
+    int sum(int i) const { 
+        int r=0; 
+        for(; i>0; i-=i&-i) r+=bit[i]; 
+        return r; 
+    }
+};
+
+bool checkSol(int i, int x, BIT& count, vi& a){ // sum(count[i][j], j in x..n)/x > a[i+1]
+    DBG_COUT(cout << "Check " << i << " " << x << ": " << (count.sum(x)/x <= a[i]) << endl);
+    return (x && (1+(count.sum(x))/x) > a[i]);
 }
 
 int solve() {
-  // Code aquí
-  int n, q;
-  cin >> n >> q;
-  vi v;
-  v = lee(n);
-  while(q--){    
-    int y, x;
-    int xp = 0;
-    cin >> y >> x;
-    if (sol_ant[x-1].size() > y-1){
-        if (sol_ant[x-1][y-1]){
-            cout << "YES" << endl;
-        } else {
-            cout << "NO" << endl;
+    // Code aquí
+    int n, q; cin >> n >> q;
+    vi a(n); for (int i = 0; i<n; i++) cin >> a[i];
+
+    // Por cada valor de k, el número de monstruos que puede pelear puede ser distinto
+    // Define como sol[i][x] como una variable binaria donde es 1 si y solo si para k = x, se pelea con el monstruo i
+    // Resulta que sol[i][x] -> sol[i][x+1]
+    // Tambien sucede que !sol[i][x] -> !sol[i][x-1]
+    // Define limit[i] como el menor x tal que sol[i][x] = 1
+    // Define count[i][x] como el número de veces que aparece x en limit[j] para todo j <= i 
+    // Para calcular nuestro nivel trás i monstruos con subidas de nivel x, tan solo necesitamos sumar count[i][y] y dividirlo entre x para todo y >= x
+    // Define level[i][x] como el nivel trál el monstruo i con subidas de nivel x
+    // sol[i+1][x] = 1 <-> level[i][x] <= a[i+1]
+
+    // El problema actual es calcular los niveles para obtener sol[i][x], sin embargo no es realmente necesario
+    // Si obtenemos los valores de limit[i] es suficiente ya que sol[i][limit[i]] = 1 y sol[i][limit[i]-1] = 0
+    // Entonces sabemos lo siguiente:
+    // sol[i][j] = 1 <-> j >= limit[i]
+    // sol[i][j] = 0 <-> j < limit[i]
+    // count[i][x] = count[i-1][x] + (limit[i] == x)
+    // sol[i+1][x] = 1 <-> sum(count[i][j], j in x..n)/x <= a[i+1]
+
+    // Para buscar limit[i] puedes usar busqueda binaria, buscas la menor x tal que sol[i][j] = 1
+    // Puedes observar que esta busqueda usa una suma "sum(count[j][x], j in 0..i)", esto es una suma de prefijo
+    // Con un fenwick tree podemos actualizar la suma en O(log n) y calcular el resultado tambien en O(log n) dando la eficiencia que falta en el problema
+
+    vi limit(n);
+    BIT count(n+1);
+    for (int i = 0; i<n; i++){
+        int l = 0, r = n+1;
+        while (r - l > 1) { 
+            int mid = (l + r) / 2;
+            if (checkSol(i, mid, count, a)) l = mid;
+            else r = mid;
         }
-    } else {
-        xp = ultimos[x-1];
-        for (int i = sol_ant[x-1].size(); i<y-1; i++){
-            if ((xp/x)+1<=v[i]){
-                sol_ant[x-1].PB(true);
-                xp++;
-            } else {
-                sol_ant[x-1].PB(false);
-            }
-        }
-        ultimos[x-1]=xp;
-        if ((xp/x)+1<=v[y-1]){
-            cout << "YES" << endl;
-        } else {
-            cout << "NO" << endl;
-        }
+        l++;
+        limit[i] = l;
+        count.add(l, 1);
     }
-  }
-  return 0;
+    DBG_COUT(cout << limit << endl);
+    int index, k;
+    while(q--){
+        cin >> index >> k;
+        if (k >= limit[index-1]) cout << "YES" << endl;
+        else cout << "NO" << endl;
+    }
+    
+    return 0;
 }
 
-int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
-  cout.tie(nullptr); 
-  int T = 1;
-  //cin >> T; // Número de casos
-  while (T--) {
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr); 
     solve();
-  }
-  return 0;
+    return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/1997/problem/E

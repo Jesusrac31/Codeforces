@@ -1,344 +1,232 @@
-//Librerías incluidas en #include<bitstdc++.h>
-#include<algorithm>
-#include<array>
-#include<atomic>
-#include<bitset>
-#include<ccomplex>
-#include<cerrno>
-#include<cfenv>
-#include<cfloat>
-#include<chrono>
-#include<cinttypes>
-#include<ciso646>
-#include<climits>
-#include<clocale>
-#include<cmath>
-#include<complex>
-#include<condition_variable>
-#include<csetjmp>
-#include<csignal>
-#include<cstdalign>
-#include<cstdarg>
-#include<cstdbool>
-#include<cstddef>
-#include<cstdint>
-#include<cstdio>
-#include<cstdlib>
-#include<cstring>
-#include<ctgmath>
-#include<ctime>
-#include<cwchar>
-#include<cwctype>
-#include<deque>
-#include<exception>
-#include<forward_list>
-#include<fstream>
-#include<functional>
-#include<future>
-#include<initializer_list>
-#include<iomanip>
-#include<ios>
-#include<iosfwd>
-#include<iostream>
-#include<istream>
-#include<iterator>
-#include<limits>
-#include<list>
-#include<locale>
-#include<map>
-#include<memory>
-#include<mutex>
-#include<new>
-#include<numeric>
-#include<ostream>
-#include<queue>
-#include<random>
-#include<ratio>
-#include<regex>
-#include<scoped_allocator>
-#include<set>
-#include<sstream>
-#include<stack>
-#include<stdexcept>
-#include<streambuf>
-#include<string>
-#include<system_error>
-#include<thread>
-#include<tuple>
-#include<type_traits>
-#include<typeindex>
-#include<typeinfo>
-#include<unordered_map>
-#include<unordered_set>
-#include<utility>
-#include<valarray>
-#include<vector>
-#include <stdlib.h>
+#ifdef DEBUG
+#define _GLIBCXX_DEBUG
+#endif
+
+#include<bits/stdc++.h>
+//#pragma GCC optimize("O3")
+//#pragma GCC optimize("O3,unroll-loops")
+//#pragma GCC target("avx2")
+
+#ifdef DEBUG
+#define DBG_COUT(stmt) do { stmt; } while (0)
+#else
+#define DBG_COUT(stmt) do {} while (0)
+#endif
+
 using namespace std;
 
 typedef vector<int> vi;
-typedef vector<long long int> vll;
-typedef long long int lli;
+typedef vector<long long> vll;
+typedef long long lli;
 typedef pair<int, int> pii;
 typedef map<string, int> msi;
 typedef map<int, vector<int>> miv;
+
+const int MOD = 998244353; // Módulo del problema, cambiar en caso de no ser ese. NO TIENE PORQUÉ SER CONSTANTE, SOLO GLOBAL
+
+struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
+    int v;
+    Mint(long long val = 0) {
+        v = int(val % MOD);
+        if (v < 0) v += MOD;
+    }
+    Mint operator+(const Mint &o) const { return Mint(v + o.v); }
+    Mint operator-(const Mint &o) const { return Mint(v - o.v); }
+    Mint operator*(const Mint &o) const { return Mint(1LL * v * o.v); }
+    Mint operator/(const Mint &o) const { return *this * o.inv(); }
+    Mint& operator+=(const Mint &o) { v += o.v; if (v >= MOD) v -= MOD; return *this; }
+    Mint& operator-=(const Mint &o) { v -= o.v; if (v < 0) v += MOD; return *this; }
+    Mint& operator*=(const Mint &o) { v = int(1LL * v * o.v % MOD); return *this; }
+    bool operator<(const Mint& o) const {return v < o.v;}
+    bool operator>(const Mint& o) const {return v > o.v;}
+    bool operator<=(const Mint& o) const {return v <= o.v;}
+    bool operator>=(const Mint& o) const {return v >= o.v;}
+    bool operator==(const Mint& o) const {return v == o.v;}
+    bool operator!=(const Mint& o) const {return v != o.v;}
+    Mint pow(long long p) const {
+        Mint a = *this, res = 1;
+        while (p > 0) {
+            if (p & 1) res *= a;
+            a *= a;
+            p >>= 1;
+        }
+        return res;
+    }
+    Mint inv() const { return pow(MOD - 2); }
+    friend ostream& operator<<(ostream& os, const Mint& m) {
+        os << m.v;
+        return os;
+    }
+};
+istream& operator>>(std::istream& input, Mint& m) {
+    input >> m.v;
+    return input;
+}
 
 // Funciones vector
 #define PB(a) push_back(a);
 
 bool sort_func(int a, int b) {
-  if (a < b) {
-    return true;
-  } else {
-    return false;
-  }
+    if (a < b) {
+        return true;
+    } else {
+        return false;
+    }
 }
-#define ord(vect) sort(vect.begin(), vect.end(), sort_func);
-
+#define ord(vect) sort(vect.begin(), vect.end(), sort_func)
+#define rep(x,n) for(int x = 0; x < n; ++x)
 #define borra_el(vect, el) vect.erase(vect.find(el));
 #define borra_range(vect, a, b) vect.erase(a, b);
 #define borra(vect, n) vect.erase(vect.begin() + n);
 #define B begin();
 #define E end();
-#define copia(v1, v2)                                                          \
-  ;                                                                            \
-  copy(v1.begin(), v1.end(), back_inserter(v2));
+#define copia(v1, v2)                                                                                                                    \
+    ;                                                                                                                                                        \
+    copy(v1.begin(), v1.end(), back_inserter(v2));
 
-// Funciones map
-#define F first;
-#define S second;
+// Funciones pair
+#define F first
+#define S second
 
 // Logaritmo de 2
 double log_2 = log(2);
 double log2(int a) { return (log(a) / log_2); }
 
-void Imprime(vector<pair<int, set<int>>> vect) {
-  for (int i = 0; i < vect.size(); i++) {
-    cout << vect[i].first << " --> [";
-    copy(vect[i].second.begin(), vect[i].second.end(), ostream_iterator<int>(cout, ", "));
-    cout << "]\n";
-  }
-  cout << "\n";
-}
-
-void Imprime_letras (vector<pair<int, vi>> vect){
-  for (int i = 0; i < vect.size(); i++) {
-    cout << vect[i].first << " --> [";
-    for (int j = 0; j<vect[i].second.size(); j++){
-        cout << vect[i].second[j] << ", ";
+// Imprime cualquier vector 
+template<typename T> std::ostream& operator<<(std::ostream& os, const std::vector<T>& vec) {
+    os << "[ ";//Quita esto si no quieres los corchetes o cambia lo que quieras poner
+    for(const auto& elem : vec) {
+        os << elem << " ";
     }
-    cout << "]\n";
-  }
-  cout << "\n";
-}
-
-void Imprime2d(vector<vi> vect) {
-  for (int j = 0; j<vect.size(); j++){
-    for (int i = 0; i < vect[j].size(); i++) {
-        cout << vect[j][i] << " ";
-    }
-    cout << "\n";
-  }
+    os << "]";
+    return os;
 }
 
 void Imprime_set(set<int> s) {
-  copy(s.begin(), s.end(), ostream_iterator<int>(cout, " "));
-  cout << endl;
+    copy(s.begin(), s.end(), ostream_iterator<int>(cout, " "));
+    cout << endl;
 }
 
 int maximo_comun_divisor(int a, int b) {
-  int temporal; // Para no perder b
-  while (b != 0) {
-    temporal = b;
-    b = a % b;
-    a = temporal;
-  }
-  return a;
+    int temporal; // Para no perder b
+    while (b != 0) {
+        temporal = b;
+        b = a % b;
+        a = temporal;
+    }
+    return a;
 }
 
 int minimo_comun_multiplo(int a, int b) {
-  return (a * b) / maximo_comun_divisor(a, b);
+    return (a * b) / maximo_comun_divisor(a, b);
 }
 
 bool isNumeric(string const &str) {
-  auto it = str.begin();
-  while (it != str.end() && isdigit(*it)) {
-    it++;
-  }
-  return !str.empty() && it == str.end();
-}
-
-vi lee(int n) {
-  int el;
-  vi vect;
-  for (int i = 0; i < n; i++) {
-    cin >> el;
-    vect.PB(el);
-  }
-  return (vect);
-}
-
-// Necesitaremos también un traductor de letras a números a partir de una función
-// A --> 0
-// Z --> 25
-int CharToInt(char a){
-    int num = a - '0';
-    return (num-17);
-}
-
-vector<pair<int, vi>> Init_letras(char x, int k){
-    vector<pair<int, vi>> letras;
-    pair<int, vi> par_letras;
-    par_letras.first = 0;
-    par_letras.second = {};
-    for (int i = 0; i<18; i++){
-      letras.PB(par_letras);
-    } 
-    letras[CharToInt(x)].first = k;
-    letras[CharToInt(x)].second.PB(0);
-
-    return letras;
-}
-
-vector<pair<int, set<int>>> Init_contadores(char x, int k){
-    vector<pair<int, set<int>>> contadores;
-    pair<int, set<int>> par_contadores;
-
-    par_contadores.first = k;
-    par_contadores.second = {CharToInt(x)};
-
-    contadores.PB(par_contadores);
-
-    return contadores;
-}
-
-int Limit (int x, int limit){
-    if (x>limit){
-        x = limit;
+    auto it = str.begin();
+    while (it != str.end() && isdigit(*it)) {
+        it++;
     }
-    return x;
+    return !str.empty() && it == str.end();
 }
 
-bool Debugging = false;
+void lee(int n, vi& vect) {
+    rep(i, n) cin >> vect[i];
+    return ;
+}
+
+#define INF INT_MAX
+double pi = 2*acos(0.0);
+
+int getIndex(char c){
+    return c-'A';
+}
 
 int solve() {
-  // Code aquí
-  if (Debugging){
-    cout << "----------------START----------------" << endl;
-  }
-  int n, c, k;
-  cin >> n >> c >> k;
-  string word;
-  cin >> word;
+    // Code aquí
+    int n, c, k; cin >> n >> c >> k;
+    string s; cin >> s;
 
-  if (Debugging){
-    cout << k << endl;
-    cout << word << endl;
-  }
+    // Cada grupo de k caracteres consecutivos, al menos uno de ellos tiene que ser un case, en caso contrario, no sería solución
+    // Crea mascaras de 18 bits a partir de los substrings de longitud k indicando que al menos uno de esos caracteres aparece, 
+    // llamalas m[i] siendo i el carácter donde empieza el substring para crear la máscara
+    // Necesitas una mascara que al hacer la operación y con todos los m[i], ninguno sea 0. Llamemos a esa máscara sol, ¿qué posibles valores puede tomar?
+    // Tiene como mucho 2^c posibles valores, identifiquemos cuales de esas combinaciones NO son válidas
+    // Una combinación no es válida si al hacer la operación y con algún m[i] da 0
+    // Esto es lo mismo a decir que sol es submáscara de ~m[i]
+    // Ten en cuenta tambien que el último caracter de s SIEMPRE es un case
+    // Ahora, dado un m[i], es fácil saber cuales son las máscaras que no son válidas
 
-  // Para este algoritmo necesitaremos recorrer todas las posibles cadenas a la vez almacenando en una lista las que tienen cada letra.
-  vector<pair<int, vi>> letras = Init_letras(word[word.size()-1], k);
-  // Necesitamos una lista para los contadores desde la que se haga referencia a la anterior
-  vector<pair<int, set<int>>> contadores = Init_contadores(word[word.size()-1], k);
-
-  // Durante el recorrido 
-  int turno = 1;
-  for (int i = n-2; i>=0; i--){
-    if (Debugging){
-        cout << "\nTurno: " << turno << endl;
-    }
-    // Reseteamos contador de la letra y todos sus adyascentes
-    letras[CharToInt(word[i])].first = turno + k;
-    for (int j = 0; j<letras[CharToInt(word[i])].second.size(); j++){
-        contadores[letras[CharToInt(word[i])].second[j]].first = turno+k;
-    }
-
-    // Comprobamos si alguna letra acaba de elminarse para comprobar si las listas con dicha letra necesitan reemplazo
-    int index_letra_eliminada = CharToInt(word[Limit(i+k, n-1)]);
-
-    if (Debugging){
-        cout << "Letra inspeccion: " <<  word[Limit(i+k, n-1)] << endl;
-        cout << "Contador letra eliminada: " << letras[index_letra_eliminada].first << endl;
-    }
-
-    if (letras[index_letra_eliminada].first == turno) {
-        if (Debugging){
-            cout << "ALARM!!!\nCantidad de listas: " << letras[index_letra_eliminada].second.size() << endl;
-        }
-        for (int j = 0; j<letras[index_letra_eliminada].second.size(); j++){
-            if (Debugging){
-                cout << "Contador lista " << j << ": " << contadores[letras[index_letra_eliminada].second[j]].first << endl;
+    unordered_set<int> masks;
+    int mask = 0;
+    vi presente(c, 0);
+    for (int i = 0; i<n; i++){
+        if (i >= k){
+            masks.insert(mask);
+            presente[getIndex(s[i])]++;
+            mask |= (1 << getIndex(s[i]));
+            presente[getIndex(s[i-k])]--;
+            if (!presente[getIndex(s[i-k])]){
+                mask &= ~(1 << getIndex(s[i-k]));
             }
-            if (contadores[letras[index_letra_eliminada].second[j]].first == turno){
-                //Inicia proceso de añadir nuevos elementos
-                if (Debugging){
-                    cout << endl << "Reemplazando..." << endl << endl;
-                }
-                bool primero = true;
-                pair<int, set<int>> copia;
-                for (int a = 0; a<letras.size(); a++){
-                    if (letras[a].first > turno){
-                        if (Debugging){
-                            cout << "Index_letra: " << a << endl;
-                        }
+        } else {
+            presente[getIndex(s[i])]++;
+            mask |= (1 << getIndex(s[i]));
+        }
+    }
+    masks.insert(mask);
+    masks.insert((1 << getIndex(s[n-1])));
+    DBG_COUT(
+        for (auto x:masks){
+            cout << bitset<18>(x) << endl;
+        }
+    );
+    int full = (1 << c) - 1;
+    vector<int> exists(1 << c, 0);
+    for (int current : masks) {
+        exists[current] = 1;
+    }
 
-                        if (primero){
-                            copia = contadores[letras[index_letra_eliminada].second[j]];
-                            contadores[letras[index_letra_eliminada].second[j]].second.insert(a);
-
-                            letras[a].second.PB(letras[index_letra_eliminada].second[j]);
-
-                            contadores[letras[index_letra_eliminada].second[j]].first = letras[a].first;
-                            primero = false;
-                        } else {
-                            contadores.PB(copia);
-                            contadores[contadores.size()-1].second.insert(a);
-
-                            for (auto b = contadores[contadores.size()-1].second.begin(); b!=contadores[contadores.size()-1].second.end(); b++){
-                                letras[*b].second.PB(contadores.size()-1);
-                            }
-
-                            contadores[contadores.size()-1].first = letras[a].first;
-                        }
-                    }
-                }
-                if (Debugging){
-                    cout << "\nContadores:\n";
-                    Imprime(contadores);
-                    cout << "\nLetras:\n";
-                    Imprime_letras(letras);
-                }
+    // hasSubmask[mask] = 1 si existe alguna máscara de `masks` que sea submáscara de `mask`.
+    // La DP propaga esa información desde cada estado hacia los superconjuntos que lo incluyen.
+    // Basicamente si a es submascara de b y b es submascara de c, a es submascara de c, por lo que como solo buscamos que exista, no comprobamos b
+    vector<int> hasSubmask = exists;
+    for (int bit = 0; bit < c; ++bit) {
+        for (int candidate = 0; candidate < (1 << c); ++candidate) {
+            if (candidate & (1 << bit)) {
+                hasSubmask[candidate] |= hasSubmask[candidate ^ (1 << bit)];
             }
         }
     }
-    turno++;
-  }
+    DBG_COUT(cout << hasSubmask << endl);
 
-  // Ahora tenemos en la lista de contadores los posibles caminos que podemos hacer y el tamaño de la lista de enlaces a letras es el tamaño, debemos buscar el más chico.
-  int minimo = 20; // Número mayor a 18
-  if (Debugging){
-    cout << "Listas: " << contadores.size() << endl;
-  }
-  for (int i = 0; i<contadores.size(); i++){
-    if (minimo > contadores[i].second.size()){
-        minimo = contadores[i].second.size();
+    int bestMask = 0;
+    int bestBits = c + 1;
+    for (int candidate = 0; candidate <= full; ++candidate) {
+        // Si el complemento del candidato contiene alguna máscara original, entonces
+        // existe una máscara de `masks` disjunta con él y no sirve.
+        if (hasSubmask[full ^ candidate]) continue;
+        int bits = __builtin_popcount((unsigned)candidate);
+        if (bits < bestBits) {
+            bestBits = bits;
+            bestMask = candidate;
+        }
     }
-  }
-  cout << minimo << endl;
+    DBG_COUT(cout << "Sol: " << bitset<18>(bestMask) << " -> ");
+    cout << bestBits << endl;
 
-  return 0;
+    return 0;
 }
 
-int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
-  cout.tie(nullptr); 
-  int T;
-  cin >> T; // Número de casos
-  while (T--) {
-    solve();
-  }
-  return 0;
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr); 
+    int T;
+    cin >> T; // Número de casos
+    while (T--) {
+        solve();
+    }
+    return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/1995/problem/D

@@ -7,9 +7,9 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 ## Resumen
 
 - Problemas intentados: **254**
-- Problemas resueltos: **245**
-- Problemas sin terminar: **9**
-- Porcentaje de resolución: **96.46%**
+- Problemas resueltos: **246**
+- Problemas sin terminar: **8**
+- Porcentaje de resolución: **96.85%**
 
 ## Criterio de estado
 
@@ -192,7 +192,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 - [B1. Bouquet (Easy Version).cpp](CF%20R%20961%20(Div.%202)%2023-jul-24/B1.%20Bouquet%20(Easy%20Version).cpp)
 - [B2. Bouquet (Hard Version).cpp](CF%20R%20961%20(Div.%202)%2023-jul-24/B2.%20Bouquet%20(Hard%20Version).cpp)
 - [C. Squaring.cpp](CF%20R%20961%20(Div.%202)%2023-jul-24/C.%20Squaring.cpp)
-- [D. Cases.cpp](CF%20R%20961%20(Div.%202)%2023-jul-24/D.%20Cases.cpp) (sin terminar)
+- [D. Cases.cpp](CF%20R%20961%20(Div.%202)%2023-jul-24/D.%20Cases.cpp)
 
 ### CF R 960 (Div. 2) 20-jul-24
 

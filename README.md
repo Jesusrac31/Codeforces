@@ -17,9 +17,11 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 - En archivos antiguos sin este sistema de comentarios, el estado puede no estar indicado explícitamente.
 
 ## Comando ejecución problema
+cmd:
 ```cmd
 g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp" && .\main.exe < input.in > output.out
 ```
+powershell:
 ```shell 
 g++ -DDEBUG -std=c++17 -O2 -Wall -o main.exe "test.cpp"
 Measure-Command{Get-Content input.in | .\main.exe > output.out}

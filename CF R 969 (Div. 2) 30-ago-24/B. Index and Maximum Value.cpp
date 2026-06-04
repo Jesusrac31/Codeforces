@@ -1,208 +1,174 @@
-//Librerías incluidas en #include<bitstdc++.h>
-#include<algorithm>
-#include<array>
-#include<atomic>
-#include<bitset>
-#include<ccomplex>
-#include<cerrno>
-#include<cfenv>
-#include<cfloat>
-#include<chrono>
-#include<cinttypes>
-#include<ciso646>
-#include<climits>
-#include<clocale>
-#include<cmath>
-#include<complex>
-#include<condition_variable>
-#include<csetjmp>
-#include<csignal>
-#include<cstdalign>
-#include<cstdarg>
-#include<cstdbool>
-#include<cstddef>
-#include<cstdint>
-#include<cstdio>
-#include<cstdlib>
-#include<cstring>
-#include<ctgmath>
-#include<ctime>
-#include<cwchar>
-#include<cwctype>
-#include<deque>
-#include<exception>
-#include<forward_list>
-#include<fstream>
-#include<functional>
-#include<future>
-#include<initializer_list>
-#include<iomanip>
-#include<ios>
-#include<iosfwd>
-#include<iostream>
-#include<istream>
-#include<iterator>
-#include<limits>
-#include<list>
-#include<locale>
-#include<map>
-#include<memory>
-#include<mutex>
-#include<new>
-#include<numeric>
-#include<ostream>
-#include<queue>
-#include<random>
-#include<ratio>
-#include<regex>
-#include<scoped_allocator>
-#include<set>
-#include<sstream>
-#include<stack>
-#include<stdexcept>
-#include<streambuf>
-#include<string>
-#include<system_error>
-#include<thread>
-#include<tuple>
-#include<type_traits>
-#include<typeindex>
-#include<typeinfo>
-#include<unordered_map>
-#include<unordered_set>
-#include<utility>
-#include<valarray>
-#include<vector>
-#include <stdlib.h>
+#ifdef DEBUG
+#define _GLIBCXX_DEBUG
+#endif
+
+#include<bits/stdc++.h>
+//#pragma GCC optimize("O3")
+//#pragma GCC optimize("O3,unroll-loops")
+//#pragma GCC target("avx2")
+
+#ifdef DEBUG
+#define DBG_COUT(stmt) do { stmt; } while (0)
+#else
+#define DBG_COUT(stmt) do {} while (0)
+#endif
+
 using namespace std;
 
 typedef vector<int> vi;
-typedef vector<long long int> vll;
-typedef long long int lli;
+typedef vector<long long> vll;
+typedef long long lli;
 typedef pair<int, int> pii;
 typedef map<string, int> msi;
 typedef map<int, vector<int>> miv;
+
+const int MOD = 998244353; // Módulo del problema, cambiar en caso de no ser ese. NO TIENE PORQUÉ SER CONSTANTE, SOLO GLOBAL
+
+struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
+    int v;
+    Mint(long long val = 0) {
+        v = int(val % MOD);
+        if (v < 0) v += MOD;
+    }
+    Mint operator+(const Mint &o) const { return Mint(v + o.v); }
+    Mint operator-(const Mint &o) const { return Mint(v - o.v); }
+    Mint operator*(const Mint &o) const { return Mint(1LL * v * o.v); }
+    Mint operator/(const Mint &o) const { return *this * o.inv(); }
+    Mint& operator+=(const Mint &o) { v += o.v; if (v >= MOD) v -= MOD; return *this; }
+    Mint& operator-=(const Mint &o) { v -= o.v; if (v < 0) v += MOD; return *this; }
+    Mint& operator*=(const Mint &o) { v = int(1LL * v * o.v % MOD); return *this; }
+    bool operator<(const Mint& o) const {return v < o.v;}
+    bool operator>(const Mint& o) const {return v > o.v;}
+    bool operator<=(const Mint& o) const {return v <= o.v;}
+    bool operator>=(const Mint& o) const {return v >= o.v;}
+    bool operator==(const Mint& o) const {return v == o.v;}
+    bool operator!=(const Mint& o) const {return v != o.v;}
+    Mint pow(long long p) const {
+        Mint a = *this, res = 1;
+        while (p > 0) {
+            if (p & 1) res *= a;
+            a *= a;
+            p >>= 1;
+        }
+        return res;
+    }
+    Mint inv() const { return pow(MOD - 2); }
+    friend ostream& operator<<(ostream& os, const Mint& m) {
+        os << m.v;
+        return os;
+    }
+};
+istream& operator>>(std::istream& input, Mint& m) {
+    input >> m.v;
+    return input;
+}
 
 // Funciones vector
 #define PB(a) push_back(a);
 
 bool sort_func(int a, int b) {
-  if (a < b) {
-    return true;
-  } else {
-    return false;
-  }
+    if (a < b) {
+        return true;
+    } else {
+        return false;
+    }
 }
-#define ord(vect) sort(vect.begin(), vect.end(), sort_func);
-
+#define ord(vect) sort(vect.begin(), vect.end(), sort_func)
+#define rep(x,n) for(int x = 0; x < n; ++x)
 #define borra_el(vect, el) vect.erase(vect.find(el));
 #define borra_range(vect, a, b) vect.erase(a, b);
 #define borra(vect, n) vect.erase(vect.begin() + n);
 #define B begin();
 #define E end();
-#define copia(v1, v2)                                                          \
-  ;                                                                            \
-  copy(v1.begin(), v1.end(), back_inserter(v2));
+#define copia(v1, v2)                                                                                                                    \
+    ;                                                                                                                                                        \
+    copy(v1.begin(), v1.end(), back_inserter(v2));
 
-// Funciones map
-#define F first;
-#define S second;
+// Funciones pair
+#define F first
+#define S second
 
 // Logaritmo de 2
 double log_2 = log(2);
 double log2(int a) { return (log(a) / log_2); }
 
-void Imprime(vi vect) {
-  for (int i = 0; i < vect.size(); i++) {
-    cout << vect[i] << " ";
-  }
-  cout << "\n";
-}
-
-void Imprime2d(vector<vi> vect) {
-  for (int j = 0; j<vect.size(); j++){
-    for (int i = 0; i < vect[j].size(); i++) {
-        cout << vect[j][i] << " ";
+// Imprime cualquier vector 
+template<typename T> std::ostream& operator<<(std::ostream& os, const std::vector<T>& vec) {
+    os << "[ ";//Quita esto si no quieres los corchetes o cambia lo que quieras poner
+    for(const auto& elem : vec) {
+        os << elem << " ";
     }
-    cout << "\n";
-  }
+    os << "]";
+    return os;
 }
 
 void Imprime_set(set<int> s) {
-  copy(s.begin(), s.end(), ostream_iterator<int>(cout, " "));
-  cout << endl;
+    copy(s.begin(), s.end(), ostream_iterator<int>(cout, " "));
+    cout << endl;
 }
 
 int maximo_comun_divisor(int a, int b) {
-  int temporal; // Para no perder b
-  while (b != 0) {
-    temporal = b;
-    b = a % b;
-    a = temporal;
-  }
-  return a;
+    int temporal; // Para no perder b
+    while (b != 0) {
+        temporal = b;
+        b = a % b;
+        a = temporal;
+    }
+    return a;
 }
 
 int minimo_comun_multiplo(int a, int b) {
-  return (a * b) / maximo_comun_divisor(a, b);
+    return (a * b) / maximo_comun_divisor(a, b);
 }
 
 bool isNumeric(string const &str) {
-  auto it = str.begin();
-  while (it != str.end() && isdigit(*it)) {
-    it++;
-  }
-  return !str.empty() && it == str.end();
+    auto it = str.begin();
+    while (it != str.end() && isdigit(*it)) {
+        it++;
+    }
+    return !str.empty() && it == str.end();
 }
 
-vi lee(int n) {
-  int el;
-  vi vect;
-  for (int i = 0; i < n; i++) {
-    cin >> el;
-    vect.PB(el);
-  }
-  return (vect);
+void lee(int n, vi& vect) {
+    rep(i, n) cin >> vect[i];
+    return ;
 }
+
+#define INF INT_MAX
+double pi = 2*acos(0.0);
+#define int lli
 
 int solve() {
-  // Code aquí
-  int n, m;
-  cin >> n >> m;
-  int maximo = 0;
-  int el;
-  for (int i = 0; i<n; i++){
-    cin >> el;
-    maximo = max(maximo, el);
-  }
-  char c;
-  int l, r;
-  for (int i = 0; i < m; i++){
-    cin >> c >> l >> r;
-    if (maximo >= l && maximo <= r){
-        if (c == '+'){
-            maximo++;
-        } else {
-            maximo--;
+    // Code aquí
+    int n, m; cin >> n >> m;
+    int maxi = 0, el;
+    while(n--) {cin >> el; maxi = max(el, maxi);}
+
+    char op;
+    int l, r;
+    while (m--){
+        cin >> op >> l >> r;
+        if (l <= maxi && maxi <= r){
+            if (op == '+')maxi++;
+            else maxi--;
         }
+        cout << maxi << " ";
     }
-  }
+    cout << endl;
 
-  cout << maximo << endl;
-
-  return 0;
+    return 0;
 }
 
-int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
-  cout.tie(nullptr); 
-  int T;
-  cin >> T; // Número de casos
-  while (T--) {
-    solve();
-  }
-  return 0;
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr); 
+    int T;
+    cin >> T; // Número de casos
+    while (T--) {
+        solve();
+    }
+    return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2007/problem/B

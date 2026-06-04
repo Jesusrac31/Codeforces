@@ -3,18 +3,15 @@
 #endif
 
 #include<bits/stdc++.h>
-#include<unordered_set>
 //#pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
 
 #ifdef DEBUG
-#include "lib/debug.h"
+#define DBG_COUT(stmt) do { stmt; } while (0)
 #else
-#define debug(...) 228
+#define DBG_COUT(stmt) do {} while (0)
 #endif
-
-#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -64,10 +61,6 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
 istream& operator>>(std::istream& input, Mint& m) {
     input >> m.v;
     return input;
-}
-template<typename T> std::ostream& operator<<(std::ostream& os, const Mint& m) {
-    os << m.v << " ";
-    return os;
 }
 
 // Funciones vector
@@ -137,16 +130,75 @@ bool isNumeric(string const &str) {
 }
 
 void lee(int n, vi& vect) {
-  rep(i, n) cin >> vect[i];
-  return ;
+    rep(i, n) cin >> vect[i];
+    return ;
 }
 
 #define INF INT_MAX
+int fl[1005],cnt;
+const int limit = 50;
+unordered_map<int, int> dp;
+
+int work(int x,int y){
+    int ans=0,tmp;
+    while(y && ans <= limit){
+        ++ans; tmp=y;
+        if (x>y) y=x-y; 
+        else y=y-x;
+        x=tmp;
+    }
+    if (x>1) return INF;
+    return ans;
+}
+void gen(int x,int y){
+    vector<int> seq; 
+    seq.push_back(x); 
+    seq.push_back(y);
+    int tmp;
+    while(!(x==2&&y==1)){
+        tmp=y;
+        if (x>y) y=x-y; else y=y-x;
+        x=tmp; 
+        seq.push_back(y);
+    }
+    DBG_COUT(cout << seq << endl);
+
+    int ans[limit+5][limit+5]={0};
+    int pre=seq.back(),n=1; seq.pop_back(); ans[1][1]=1;
+    while(!seq.empty()){
+        ++n;
+        if (seq.back()>pre) ans[n][n]=1,ans[n][n-1]=1,ans[n-1][n]=-1;
+        else ans[n][n]=1,ans[n][n-1]=1,ans[n-1][n]=1;
+        pre=seq.back(); seq.pop_back();
+    }
+    cout << n << endl;
+    for(int i=1;i<=n;++i){
+        for(int j=1;j<=n;++j){
+            cout << ans[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
 
 int solve() {
     // Code aquí
-    int x;
-    cin >> x;
+    mt19937 rd(clock());
+    int n; cin>>n;
+    if (n==0) {cout << 1 << endl << 0 << endl; return 0;}
+    if (n==1) {cout << 1 << endl << 1 << endl; return 0;}
+    srand(clock());
+    int y;
+    if (dp.find(n) != dp.end()) y = dp[n];
+    else {
+        while(true){
+            y=rd()%(n-1)+1;
+            int tmp=work(n,y);
+            DBG_COUT(cout << "Candidate: " << y << endl);
+            if (tmp<=limit) break;
+        }
+    }
+    dp[n] = y;
+    gen(n,y);
     return 0;
 }
 
@@ -162,4 +214,5 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2138/problem/E1
+// https://codeforces.com/contest/2138/problem/E2

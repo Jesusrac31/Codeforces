@@ -65,6 +65,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 
 ### CF R 1075 (Div. 2) 23-ene-26
 
+- [E. Majority Wins.cpp](CF%20R%201075%20(Div.%202)%2023-ene-26/E.%20Majority%20Wins.cpp)
 - [F. Zhora the Vacuum Cleaner.cpp](CF%20R%201075%20(Div.%202)%2023-ene-26/F.%20Zhora%20the%20Vacuum%20Cleaner.cpp) (sin terminar)
 
 ### CF R 1073 (Div. 1) 17-ene-26
@@ -483,7 +484,6 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 
 - [A. Difference Operations.cpp](Randoms/A.%20Difference%20Operations.cpp)
 - [B. Difference of GCDs.cpp](Randoms/B.%20Difference%20of%20GCDs.cpp)
-- [E. Majority Wins.cpp](Randoms/E.%20Majority%20Wins.cpp)
 - [E. Replace.cpp](Randoms/E.%20Replace.cpp)
 - [F. Conquer or of Forest.cpp](Randoms/F.%20Conquer%20or%20of%20Forest.cpp)
 

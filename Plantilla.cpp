@@ -146,11 +146,18 @@ signed main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr); 
+    auto start = chrono::high_resolution_clock::now();
     int T;
     cin >> T; // Número de casos
     while (T--) {
         solve();
     }
+    auto finish = chrono::high_resolution_clock::now();
+    DBG_COUT(
+        chrono::duration<double> elapsed = finish - start;
+        cout << "Tiempo de ejecucion: " << elapsed.count() << " segundos\n";
+        cerr << "Tiempo de ejecucion: " << elapsed.count() << " segundos\n";
+    );
     return 0;
 }
 

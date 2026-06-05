@@ -3,18 +3,15 @@
 #endif
 
 #include<bits/stdc++.h>
-#include<unordered_set>
 //#pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
 
 #ifdef DEBUG
-#include "lib/debug.h"
+#define DBG_COUT(stmt) do { stmt; } while (0)
 #else
-#define debug(...) 228
+#define DBG_COUT(stmt) do {} while (0)
 #endif
-
-#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -61,13 +58,10 @@ struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
         return os;
     }
 };
+
 istream& operator>>(std::istream& input, Mint& m) {
     input >> m.v;
     return input;
-}
-template<typename T> std::ostream& operator<<(std::ostream& os, const Mint& m) {
-    os << m.v << " ";
-    return os;
 }
 
 // Funciones vector
@@ -80,6 +74,7 @@ bool sort_func(int a, int b) {
         return false;
     }
 }
+
 #define ord(vect) sort(vect.begin(), vect.end(), sort_func)
 #define rep(x,n) for(int x = 0; x < n; ++x)
 #define borra_el(vect, el) vect.erase(vect.find(el));
@@ -136,37 +131,206 @@ bool isNumeric(string const &str) {
     return !str.empty() && it == str.end();
 }
 
-void lee(int n, vll& vect) {
-  rep(i, n) cin >> vect[i];
-  return ;
+void lee(int n, vi& vect) {
+    rep(i, n) cin >> vect[i];
+    return ;
 }
 
 #define INF INT_MAX
+double pi = 2*acos(0.0);
 
-lli SolRec(bitset<200005>& bloq, vll& v, vll& a, vll& b, int ia = 0, int ib = 0, lli ans = 0){
-    while(ia < a.size() && bloq[a[ia]-1]){
-        ia++;
+const lli NEG = LLONG_MIN / 4;
+
+/*
+    Lazy Segment Tree adaptado a esta DP.
+
+    Cambios respecto a tu estructura original:
+    1. Node.value guarda el máximo del intervalo.
+    2. lz guarda suma pendiente, no asignación.
+    3. range_assign se sustituye por range_add.
+    4. Se añade point_chmax.
+    5. find_first no se usa en este problema.
+*/
+
+struct Node { 
+    lli value; 
+    Node(lli n = NEG): value(n) {} 
+};
+
+class LazySegTree {
+    vector<Node> st;
+    vector<lli> lz;
+    int n;
+public:
+    LazySegTree(const vector<lli>& a) {
+        n = (int)a.size();
+        st.assign(4 * n, Node());
+        lz.assign(4 * n, 0);
+        build(a, 1, 0, n - 1);
     }
-    if (ia == a.size() || ib == b.size()){
-        return ans;
+    void range_add(int l, int r, lli val) { 
+        if (l <= r) range_add(1, 0, n - 1, l, r, val); 
     }
-    lli sol_opt = SolRec(bloq, v, a, b, ia+1, ib, ans+v[a[ia]-1]);
-    bloq[b[ib]-1] = 1;
-    sol_opt = max(SolRec(bloq, v, a, b, ia, ib+1, ans), sol_opt);
-    bloq[b[ib]-1] = 0;
-    return sol_opt;
-}
+    void point_chmax(int pos, lli val) { // Modifica la posición pos al maximo entre val y su valor actual
+        point_chmax(1, 0, n - 1, pos, val);
+    }
+    Node query(int l, int r) {
+        if (l > r) return Node(NEG);
+        return query(1, 0, n - 1, l, r);
+    }
+private:
+    Node convert(lli x) { 
+        return Node(x); 
+    }
+    Node combine(const Node& a, const Node& b) { 
+        return Node(max(a.value, b.value)); 
+    }
+    void apply(int p, int l, int r, lli val) { 
+        st[p].value += val; 
+        lz[p] += val; 
+    }
+    void push(int p, int l, int r) { 
+        if (lz[p] == 0 || l == r) return; 
+        int m = (l + r) >> 1; 
+        apply(p << 1, l, m, lz[p]); 
+        apply(p << 1 | 1, m + 1, r, lz[p]); 
+        lz[p] = 0; 
+    }
+    void pull(int p) { 
+        st[p] = combine(st[p << 1], st[p << 1 | 1]); 
+    }
+    void build(const vector<lli>& a, int p, int l, int r) {
+        if (l == r) { 
+            st[p] = convert(a[l]); 
+            return; 
+        }
+        int m = (l + r) >> 1; 
+        build(a, p << 1, l, m); 
+        build(a, p << 1 | 1, m + 1, r); 
+        pull(p);
+    }
+    void range_add(int p, int l, int r, int ql, int qr, lli val) {
+        if (qr < l || r < ql) return;
+        if (ql <= l && r <= qr) { 
+            apply(p, l, r, val); 
+            return; 
+        }
+        push(p, l, r); 
+        int m = (l + r) >> 1;
+        range_add(p << 1, l, m, ql, qr, val); 
+        range_add(p << 1 | 1, m + 1, r, ql, qr, val);
+        pull(p);
+    }
+
+    void point_chmax(int p, int l, int r, int pos, lli val) {
+        if (l == r) {
+            st[p].value = max(st[p].value, val);
+            return;
+        }
+        push(p, l, r);
+        int m = (l + r) >> 1;
+        if (pos <= m) point_chmax(p << 1, l, m, pos, val);
+        else point_chmax(p << 1 | 1, m + 1, r, pos, val);
+        pull(p);
+    }
+    Node query(int p, int l, int r, int ql, int qr) {
+        if (qr < l || r < ql) return Node(NEG);
+        if (ql <= l && r <= qr) return st[p];
+        push(p, l, r);
+        int m = (l + r) >> 1;
+        return combine(
+            query(p << 1, l, m, ql, qr),
+            query(p << 1 | 1, m + 1, r, ql, qr)
+        );
+    }
+};
 
 int solve() {
-    // Code aquí
     int n;
     cin >> n;
-    vll v(n), a(n), b(n);
-    lee(n, v);
-    lee(n, a);
-    lee(n, b);
-    bitset<200005> bloq(0);
-    cout << SolRec(bloq, v, a, b) << endl;
+
+    vll v(n + 1);
+    for (int i = 1; i <= n; i++) {
+        cin >> v[i];
+    }
+
+    vi a(n), b(n);
+    rep(i, n) cin >> a[i];
+    rep(i, n) cin >> b[i];
+
+    vi posB(n + 1);
+
+    rep(i, n) {
+        posB[b[i]] = i;
+    }
+
+    /*
+        dp[m] = mejor valor procesando cierto prefijo de A.
+
+        m representa:
+        - 0: no he descartado todavía ningún objeto por B.
+        - k + 1: el máximo posB descartado es k.
+
+        Inicialmente:
+        dp[0] = 0
+        dp[1..n] = -infinito
+    */
+
+    vll dp(n + 1, NEG);
+    dp[0] = 0;
+
+    LazySegTree state(dp);
+
+    DBG_COUT(
+        cout << "Values: " << v << endl;
+        cout << "Stack A: " << a << endl;
+        cout << "Stack B: " << b << endl;
+        cout << "Position in B: " << posB << endl;
+    );
+
+    for (int i = 0; i < n; i++) {
+        int x = a[i];
+        int q = posB[x];
+
+        /*
+            Antes de tocar nada, calculamos el mejor estado que puede descartar x.
+
+            Si m <= q, podemos decidir no coger x en A, es decir, eliminarlo por B.
+            Eso lleva el estado a q + 1.
+        */
+        lli best = state.query(0, q).value;
+
+        /*
+            Coger x desde A:
+            Solo es compatible con estados m <= q.
+            En todos esos estados sumamos v[x].
+        */
+        state.range_add(0, q, v[x]);
+
+        /*
+            No coger x desde A:
+            Entonces x se extraerá por B.
+            El nuevo máximo descartado pasa a ser q.
+            En nuestra codificación eso es q + 1.
+        */
+        state.point_chmax(q + 1, best);
+
+        DBG_COUT(
+            cout << "Procesando objeto " << x << endl;
+            cout << "posB = " << q << ", value = " << v[x] << ", best = " << best << endl;
+            cout << "DP actual: ";
+            for (int j = 0; j <= n; j++) {
+                lli cur = state.query(j, j).value;
+                if (cur <= NEG / 2) cout << "-INF ";
+                else cout << cur << " ";
+            }
+            cout << endl;
+        );
+    }
+
+    DBG_COUT(cout << "Solucion: ");
+    cout << state.query(0, n).value << '\n';
+    DBG_COUT(cout << "========================" << endl);
 
     return 0;
 }
@@ -175,12 +339,19 @@ signed main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr); 
+    auto start = chrono::high_resolution_clock::now();
     int T;
     cin >> T; // Número de casos
     while (T--) {
         solve();
     }
+    auto finish = chrono::high_resolution_clock::now();
+    DBG_COUT(
+        chrono::duration<double> elapsed = finish - start;
+        cout << "Tiempo de ejecucion: " << elapsed.count() << " segundos\n";
+        cerr << "Tiempo de ejecucion: " << elapsed.count() << " segundos\n";
+    );
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2150/problem/C

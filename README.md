@@ -50,14 +50,14 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 - [E1. N-MEX (Constructive Version).cpp](CF%20R%201085%20(Div.%201%20%2B%20Div.%202)%208-mar-26/E1.%20N-MEX%20(Constructive%20Version).cpp)
 - [E2. N-MEX (Counting Version).cpp](CF%20R%201085%20(Div.%201%20%2B%20Div.%202)%208-mar-26/E2.%20N-MEX%20(Counting%20Version).cpp)
 
-### CF R 1080 (Div. 3) 45-feb-26
-
-- [G. Idiot First Search and Queries.cpp](CF%20R%201080%20(Div.%203)%2045-feb-26/G.%20Idiot%20First%20Search%20and%20Queries.cpp) (sin terminar)
-- [H. Codeforces Heuristic Contest 001.cpp](CF%20R%201080%20(Div.%203)%2045-feb-26/H.%20Codeforces%20Heuristic%20Contest%20001.cpp)
-
 ### CF R 1083 (Div. 2) 26-feb-26
 
 - [G. Simons and Diophantus Equation.cpp](CF%20R%201083%20(Div.%202)%2026-feb-26/G.%20Simons%20and%20Diophantus%20Equation.cpp) (sin terminar)
+
+### CF R 1080 (Div. 3) 15-feb-26
+
+- [G. Idiot First Search and Queries.cpp](CF%20R%201080%20(Div.%203)%2015-feb-26/G.%20Idiot%20First%20Search%20and%20Queries.cpp) (sin terminar)
+- [H. Codeforces Heuristic Contest 001.cpp](CF%20R%201080%20(Div.%203)%2015-feb-26/H.%20Codeforces%20Heuristic%20Contest%20001.cpp)
 
 ### CF R 1079 (Div. 1) 11-feb-26
 

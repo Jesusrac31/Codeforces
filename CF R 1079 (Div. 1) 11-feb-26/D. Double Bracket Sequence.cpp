@@ -1,8 +1,98 @@
-#include<bits/stdc++.h>
-using namespace std;
- 
-#define int long long
+#ifdef DEBUG
+#define _GLIBCXX_DEBUG
+#endif
 
+#include<bits/stdc++.h>
+//#pragma GCC optimize("O3")
+//#pragma GCC optimize("O3,unroll-loops")
+//#pragma GCC target("avx2")
+
+#ifdef DEBUG
+#define DBG_COUT(stmt) do { stmt; } while (0)
+#else
+#define DBG_COUT(stmt) do {} while (0)
+#endif
+
+using namespace std;
+
+typedef vector<int> vi;
+typedef vector<long long> vll;
+typedef long long lli;
+typedef pair<int, int> pii;
+typedef map<string, int> msi;
+typedef map<int, vector<int>> miv;
+
+const int MOD = 998244353; // Módulo del problema, cambiar en caso de no ser ese. NO TIENE PORQUÉ SER CONSTANTE, SOLO GLOBAL
+
+struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
+    int v;
+    Mint(long long val = 0) {
+        v = int(val % MOD);
+        if (v < 0) v += MOD;
+    }
+    Mint operator+(const Mint &o) const { return Mint(v + o.v); }
+    Mint operator-(const Mint &o) const { return Mint(v - o.v); }
+    Mint operator*(const Mint &o) const { return Mint(1LL * v * o.v); }
+    Mint operator/(const Mint &o) const { return *this * o.inv(); }
+    Mint& operator+=(const Mint &o) { v += o.v; if (v >= MOD) v -= MOD; return *this; }
+    Mint& operator-=(const Mint &o) { v -= o.v; if (v < 0) v += MOD; return *this; }
+    Mint& operator*=(const Mint &o) { v = int(1LL * v * o.v % MOD); return *this; }
+    bool operator<(const Mint& o) const {return v < o.v;}
+    bool operator>(const Mint& o) const {return v > o.v;}
+    bool operator<=(const Mint& o) const {return v <= o.v;}
+    bool operator>=(const Mint& o) const {return v >= o.v;}
+    bool operator==(const Mint& o) const {return v == o.v;}
+    bool operator!=(const Mint& o) const {return v != o.v;}
+    Mint pow(long long p) const {
+        Mint a = *this, res = 1;
+        while (p > 0) {
+            if (p & 1) res *= a;
+            a *= a;
+            p >>= 1;
+        }
+        return res;
+    }
+    Mint inv() const { return pow(MOD - 2); }
+    friend ostream& operator<<(ostream& os, const Mint& m) {
+        os << m.v;
+        return os;
+    }
+};
+istream& operator>>(std::istream& input, Mint& m) {
+    input >> m.v;
+    return input;
+}
+
+// Funciones vector
+#define PB(a) push_back(a);
+
+bool sort_func(int a, int b) {
+    if (a < b) {
+        return true;
+    } else {
+        return false;
+    }
+}
+#define ord(vect) sort(vect.begin(), vect.end(), sort_func)
+#define rep(x,n) for(int x = 0; x < n; ++x)
+#define borra_el(vect, el) vect.erase(vect.find(el));
+#define borra_range(vect, a, b) vect.erase(a, b);
+#define borra(vect, n) vect.erase(vect.begin() + n);
+#define B begin();
+#define E end();
+#define copia(v1, v2)                                                                                                                    \
+    ;                                                                                                                                                        \
+    copy(v1.begin(), v1.end(), back_inserter(v2));
+
+// Funciones pair
+#define F first
+#define S second
+
+// Logaritmo de 2
+double log_2 = log(2);
+double log2(int a) { return (log(a) / log_2); }
+
+// Imprime cualquier vector 
 template<typename T> std::ostream& operator<<(std::ostream& os, const std::vector<T>& vec) {
     os << "[ ";//Quita esto si no quieres los corchetes o cambia lo que quieras poner
     for(const auto& elem : vec) {
@@ -11,102 +101,129 @@ template<typename T> std::ostream& operator<<(std::ostream& os, const std::vecto
     os << "]";
     return os;
 }
- 
-const int INF = 1'000'000'007;
- 
-void solve(){
-	int n;
-	cin >> n;
-	string s;
-	cin >> s;
- 
-	vector<int> stay(n);
- 
-	auto delete_cbs = [&](char open, char close){
-		vector<int> st;
-		for (int i = 0; i < n; i++){
-			if (s[i] == close){
-				if (!st.empty() && s[st.back()] == open){
-					st.pop_back();
-				}
-				else{
-					st.push_back(i);
-				}
-			}
-			else if (s[i] == open){
-				st.push_back(i);
-			}
-		}
-		for (int x : st){
-			stay[x] = 1;
-		}
-	};
-    #ifdef FELIX
-        cout << s << endl;
-    #endif
-    
-    // Pone stay[i] a 1 si el caracter i está ya balanceado
-	delete_cbs('(', ')');
-	delete_cbs('[', ']');
 
-    #ifdef FELIX
-        cout << "Transform delete_cbs: " << endl;
-        cout << s << endl;
-        cout << stay << endl;
-    #endif
- 
-	int last_open = 0;
-	int cnt_open = 0, cnt_close = 0;
-	int ans = 1;
- 
-	for (int i = 0; i < n; i++){
-		if (!stay[i]){
-			continue;
-		}
-		if (s[i] == '(' || s[i] == '['){
-			cnt_open++;
-			last_open = 1;
-		}
-		else{
-			cnt_close++;
-			if (last_open){
-				ans = 0;
-			}
-			last_open = 0;
-		}
-	}
-	if (cnt_open % 2 == 0 || cnt_close % 2 == 0){
-		ans = 0;
-	}
-	ans += (cnt_open + cnt_close) / 2;
-	cout << ans << '\n';
+void Imprime_set(set<int> s) {
+    copy(s.begin(), s.end(), ostream_iterator<int>(cout, " "));
+    cout << endl;
 }
- 
+
+int maximo_comun_divisor(int a, int b) {
+    int temporal; // Para no perder b
+    while (b != 0) {
+        temporal = b;
+        b = a % b;
+        a = temporal;
+    }
+    return a;
+}
+
+int minimo_comun_multiplo(int a, int b) {
+    return (a * b) / maximo_comun_divisor(a, b);
+}
+
+bool isNumeric(string const &str) {
+    auto it = str.begin();
+    while (it != str.end() && isdigit(*it)) {
+        it++;
+    }
+    return !str.empty() && it == str.end();
+}
+
+void lee(int n, vi& vect) {
+    rep(i, n) cin >> vect[i];
+    return ;
+}
+
+#define INF INT_MAX
+double pi = 2*acos(0.0);
+
+int solve() {
+    // Code aquí
+    int n; cin >> n;
+    string s; cin >> s;
+    DBG_COUT(cout << "Input string: " << s << endl;);
+
+    string notBeautyS;
+    vector<bool> isBeauty(n, false);
+    stack<int> openP;
+    stack<int> openB;
+    rep(i, n) {
+        if (s[i] == '(') {
+            openP.push(i);
+        } else if (s[i] == ')') {
+            if (!openP.empty()) {
+                int idx = openP.top();
+                openP.pop();
+                isBeauty[idx] = true;
+                isBeauty[i] = true;
+            }
+        } else if (s[i] == '[') {
+            openB.push(i);
+        } else if (s[i] == ']') {
+            if (!openB.empty()) {
+                int idx = openB.top();
+                openB.pop();
+                isBeauty[idx] = true;
+                isBeauty[i] = true;
+            }
+        }
+    }
+    rep(i, n) {
+        if (!isBeauty[i]) {
+            notBeautyS += s[i];
+        }
+    }
+    DBG_COUT(cout << "Not beauty string: " << notBeautyS << endl;);
+
+
+    int offset = 0;
+    if (notBeautyS.size() > 0 && (notBeautyS[0] == ')' || notBeautyS[0] == ']')) {
+        bool isOpen = false;
+        int counter = 0;
+        for (int i = 0; i < notBeautyS.size(); i++) {
+            DBG_COUT(cout << "Processing char: " << notBeautyS[i] << endl;);
+            if (notBeautyS[i] == '(' || notBeautyS[i] == '[') {
+                counter++;
+                isOpen = true;
+                offset = 1;
+            } else {
+                if (isOpen) {
+                    offset = 0;
+                    break;
+                }
+            }
+        }
+        DBG_COUT(cout << "Counter: " << counter << endl;);
+        if (counter %2 == 0){
+            offset = 0;
+        }
+    }
+
+    DBG_COUT(cout << "Offset: " << offset << endl;);
+    DBG_COUT(cout << "Solucion: ";);
+    cout << notBeautyS.size()/2 + offset << endl;
+    DBG_COUT(cout << "===========================" << endl;);
+
+    return 0;
+}
+
 signed main() {
-#ifdef FELIX
-	auto _clock_start = chrono::high_resolution_clock::now();
-#endif
-	ios_base::sync_with_stdio(false);
-	cin.tie(0);
-	cout.tie(0);
- 
-	int t = 1;
-	cin >> t;
-	for (int i = 1; i<=t; i++){
-        #ifdef FELIX
-            cout << "Test: " << i << endl;
-        #endif
-		solve();
-        #ifdef FELIX
-            cout << "------------------" << endl;
-        #endif
-	}
- 
-#ifdef FELIX
-	cout << "Executed in " << chrono::duration_cast<chrono::milliseconds>(
-		chrono::high_resolution_clock::now()
-			- _clock_start).count() << "ms." << endl;
-#endif
-	return 0;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr); 
+    auto start = chrono::high_resolution_clock::now();
+    int T;
+    cin >> T; // Número de casos
+    while (T--) {
+        solve();
+    }
+    auto finish = chrono::high_resolution_clock::now();
+    DBG_COUT(
+        chrono::duration<double> elapsed = finish - start;
+        cout << "Tiempo de ejecucion: " << elapsed.count() << " segundos\n";
+        cerr << "Tiempo de ejecucion: " << elapsed.count() << " segundos\n";
+    );
+    return 0;
 }
-//Eliminar comentario si el proyecto esta terminado (Dinamica empezo el 21/06/2024)
+
+// https://codeforces.com/contest/2196/problem/D

@@ -7,9 +7,9 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 ## Resumen
 
 - Problemas intentados: **254**
-- Problemas resueltos: **251**
-- Problemas sin terminar: **3**
-- Porcentaje de resolución: **98.82%**
+- Problemas resueltos: **252**
+- Problemas sin terminar: **2**
+- Porcentaje de resolución: **99.21%**
 
 ## Criterio de estado
 
@@ -61,7 +61,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 
 ### CF R 1079 (Div. 1) 11-feb-26
 
-- [D. Double Bracket Sequence.cpp](CF%20R%201079%20(Div.%201)%2011-feb-26/D.%20Double%20Bracket%20Sequence.cpp) (sin terminar)
+- [D. Double Bracket Sequence.cpp](CF%20R%201079%20(Div.%201)%2011-feb-26/D.%20Double%20Bracket%20Sequence.cpp)
 
 ### CF R 1075 (Div. 2) 23-ene-26
 

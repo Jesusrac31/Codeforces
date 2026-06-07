@@ -3,14 +3,14 @@
 #endif
 
 #include<bits/stdc++.h>
-#pragma GCC optimize("O3")
+//#pragma GCC optimize("O3")
 //#pragma GCC optimize("O3,unroll-loops")
 //#pragma GCC target("avx2")
 
 #ifdef DEBUG
-#include "lib/debug.h"
+#define DBG_COUT(stmt) do { stmt; } while (0)
 #else
-#define debug(...) 228
+#define DBG_COUT(stmt) do {} while (0)
 #endif
 
 using namespace std;
@@ -130,81 +130,180 @@ bool isNumeric(string const &str) {
 }
 
 void lee(int n, vi& vect) {
-  rep(i, n) cin >> vect[i];
-  return ;
+    rep(i, n) cin >> vect[i];
+    return ;
 }
 
-#define INF LONG_LONG_MAX
+#define INF INT_MAX
+double pi = 2*acos(0.0);
+#define int lli
+#define vi vll
 
-struct Nodo {
-    int id;
-    Nodo* l = nullptr;
-    Nodo* r = nullptr;
-    Nodo* padre = nullptr;
-    lli exit = 0;
-};
+const int LOG = 20; // El máximo del logaritmo en base 2. Si es 20, asumes que los nodos no pueden tener un valor > 2^20
+vector<vi> up; // binary lifting
+vi parent; // Obtiene el padre de cada nodo
+vi accValues; // Pesos de cada nodo, cuantas operaciones necesitas para llegar a 0
+vi firstApp; // Si empiezo en el vértice 1, en que momento aparece por primera vez el nodo x
+vi resultFromVertex1; // Resultados de las operaciones desde el vértice 1
 
-lli getExitValue(Nodo& node){
-    if (node.l == nullptr) node.exit = 1;
-    else {
-        node.exit += getExitValue(*node.l);
-        node.exit += getExitValue(*node.r);
-        node.exit += 3;
+int getAcc(vi& values, vi& acc, vector<vi>& arbol, int node = 0){
+    acc[node] = values[node];
+    for(auto x:arbol[node]){
+        acc[node] += getAcc(values, acc, arbol, x);
     }
-    return node.exit;
+    return acc[node];
 }
 
-int processDown(Nodo& node, int k){
-    if (k == 0 || k == (*node.l).exit+1 || k == node.exit-1) return node.id;
-    if (k < (*node.l).exit+1) return processDown(*node.l, k-1);
-    else return processDown(*node.r, k-1-((*node.l).exit+1));
-}
-
-int processQuery (Nodo& node_act, int k){
-    if (node_act.exit <= k){
-        return processQuery(*node_act.padre, k-node_act.exit);
-    } else {
-        return processDown(node_act, k);
+// construir padres
+void build_parent(vector<vi>& arbol, int node, int p){
+    parent[node] = p;
+    for(auto x: arbol[node]){
+        build_parent(arbol, x, node);
     }
+}
+
+// tabla binary lifting
+// Guarda en cada nodo su ascentro 2^i posiciones más arriba, esto se hace con una complejidad de O(log n) por nodo, osea O(n log n)
+void build_lift(int n){
+    up.assign(n+1, vi(LOG, -1));
+    for(int i = 0; i <= n; i++){
+        up[i][0] = parent[i];
+    }
+    for(int j = 1; j < LOG; j++){
+        for(int i = 0; i <= n; i++){
+            if(up[i][j-1] != -1)
+                up[i][j] = up[ up[i][j-1] ][j-1];
+        }
+    }
+}
+int getValues(vector<vi>& arbol, vi& values, int node = 0){
+    values[node] = arbol[node].size()+1;
+    for(auto x:arbol[node]){
+        values[node] += getValues(arbol, values, x);
+    }
+    return values[node];
+}
+
+void initAcc(vector<vi>& arbol, vi& values, int node = 1, int padre = 0){
+    accValues[node] = values[node] + accValues[padre];
+    for(auto x:arbol[node]){
+        initAcc(arbol, values, x, node);
+    }
+    return ;
+}
+
+void initFirstApp(vector<vi>& arbol, vi& values, int node = 1, int cost = 0){
+    firstApp[node] = cost;
+    for(auto x:arbol[node]){
+        initFirstApp(arbol, values, x, 1 + cost);
+        cost += values[x] + 1;
+    }
+    return ;
+}
+
+void initResults(vector<vi>& arbol, int node = 1){
+    resultFromVertex1.PB(node);
+    for(auto x:arbol[node]){
+        initResults(arbol, x);
+        resultFromVertex1.PB(node);
+    }
+    return ;
+}
+
+// Obtiene el peso del nodo
+int getWeight(int v){
+    return accValues[v];
+}
+
+// query
+int query(int v, int x){
+    int init = v;
+    if(getWeight(init) - getWeight(parent[init]) > x) return v;
+    for(int j = LOG-1; j >= 0; j--){
+        int u = up[v][j];
+        if(u != -1 && getWeight(init) - getWeight(u) <= x){
+            v = u;
+        }
+    }
+    return v;
 }
 
 int solve() {
     // Code aquí
     int n, q; cin >> n >> q;
 
-    vector<Nodo> nodos(n+1);
-    int l, r;
-    for (int i = 1; i<=n; i++){
-        cin >> l >> r;
-        nodos[i].id = i;
-        if (l == 0 && r == 0) continue;
-        nodos[i].l = &nodos[l];
-        nodos[i].r = &nodos[r];
-        nodos[l].padre = &nodos[i];
-        nodos[r].padre = &nodos[i];
-    }
+    vector<vi> arbol(n+1); 
+    arbol[0] = {1};
 
-    getExitValue(nodos[1]);
-    int v, k;
-    while(q--){
-        cin >> v >> k;
-        cout << processQuery(nodos[v], k) << " ";
+    int l, r;
+    rep(i, n) {
+        cin >> l >> r; 
+        if (l != 0 || r != 0) {
+            arbol[i+1] = {l, r};
+        }
     }
+    vi values(n+1, 0);
+    getValues(arbol, values);
+    DBG_COUT(cout << "Values: " << values << endl);
+    accValues.assign(n+1, 0);
+    initAcc(arbol, values);
+    DBG_COUT(cout << "Accumulated values: " << accValues << endl);
+
+    parent.assign(n+1, -1);
+    build_parent(arbol, 0, -1);
+    DBG_COUT(cout << "Parent: " << parent << endl);
+    build_lift(n);
+    DBG_COUT(cout << "Up lifting: " << up << endl);
+
+    firstApp.assign(n+1, -1);
+    initFirstApp(arbol, values);
+    DBG_COUT(cout << "First appearance when root is 1: " << firstApp << endl);
+
+    resultFromVertex1.clear();
+    initResults(arbol);
+    DBG_COUT(cout << "Results from vertex 1: " << resultFromVertex1 << endl);
+
+    int v, k;
+    while (q--){
+        cin >> v >> k;
+        DBG_COUT(cout << "Pair of " << v << " with value more than " << k << ":\n");
+        int vEq = query(v, k);
+        int kEq = k - (getWeight(v) - getWeight(vEq));
+        DBG_COUT(cout << "Equivalent operation: " << vEq << " " << kEq << endl);
+        int valueFrom1 = firstApp[vEq] + kEq;
+        DBG_COUT(cout << "Operation from vertex 1: " << valueFrom1 << endl);
+        int sol;
+        if (valueFrom1 >= resultFromVertex1.size()) sol = 0;
+        else if (valueFrom1 < 0) {cout << "WTH!!!" << endl; sol = 0;}
+        else sol = resultFromVertex1[valueFrom1];
+        DBG_COUT(cout << "Solución: ");
+        cout << sol << " ";
+        DBG_COUT(cout << endl);
+    }
+    DBG_COUT(cout << "===================================================");
     cout << endl;
 
     return 0;
 }
 
+
 signed main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr); 
+    auto start = chrono::high_resolution_clock::now();
     int T;
     cin >> T; // Número de casos
     while (T--) {
         solve();
     }
+    auto finish = chrono::high_resolution_clock::now();
+    DBG_COUT(
+        chrono::duration<double> elapsed = finish - start;
+        cout << "Tiempo de ejecucion: " << elapsed.count() << " segundos\n";
+        cerr << "Tiempo de ejecucion: " << elapsed.count() << " segundos\n";
+    );
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2195/problem/G

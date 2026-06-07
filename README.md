@@ -7,9 +7,9 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 ## Resumen
 
 - Problemas intentados: **254**
-- Problemas resueltos: **252**
-- Problemas sin terminar: **2**
-- Porcentaje de resolución: **99.21%**
+- Problemas resueltos: **253**
+- Problemas sin terminar: **1**
+- Porcentaje de resolución: **99.61%**
 
 ## Criterio de estado
 
@@ -56,7 +56,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 
 ### CF R 1080 (Div. 3) 15-feb-26
 
-- [G. Idiot First Search and Queries.cpp](CF%20R%201080%20(Div.%203)%2015-feb-26/G.%20Idiot%20First%20Search%20and%20Queries.cpp) (sin terminar)
+- [G. Idiot First Search and Queries.cpp](CF%20R%201080%20(Div.%203)%2015-feb-26/G.%20Idiot%20First%20Search%20and%20Queries.cpp)
 - [H. Codeforces Heuristic Contest 001.cpp](CF%20R%201080%20(Div.%203)%2015-feb-26/H.%20Codeforces%20Heuristic%20Contest%20001.cpp)
 
 ### CF R 1079 (Div. 1) 11-feb-26

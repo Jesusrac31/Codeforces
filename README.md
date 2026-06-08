@@ -7,9 +7,9 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 ## Resumen
 
 - Problemas intentados: **254**
-- Problemas resueltos: **253**
-- Problemas sin terminar: **1**
-- Porcentaje de resolución: **99.61%**
+- Problemas resueltos: **254**
+- Problemas sin terminar: **0**
+- Porcentaje de resolución: **100%**
 
 ## Criterio de estado
 
@@ -52,7 +52,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 
 ### CF R 1083 (Div. 2) 26-feb-26
 
-- [G. Simons and Diophantus Equation.cpp](CF%20R%201083%20(Div.%202)%2026-feb-26/G.%20Simons%20and%20Diophantus%20Equation.cpp) (sin terminar)
+- [G. Simons and Diophantus Equation.cpp](CF%20R%201083%20(Div.%202)%2026-feb-26/G.%20Simons%20and%20Diophantus%20Equation.cpp)
 
 ### CF R 1080 (Div. 3) 15-feb-26
 

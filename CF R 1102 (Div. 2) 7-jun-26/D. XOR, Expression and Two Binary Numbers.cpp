@@ -135,27 +135,78 @@ void lee(int n, vi& vect) {
 }
 
 #define INF INT_MAX
+#define MAXN 100005
 double pi = 2*acos(0.0);
 
-void compute(vector<bool>& sol, int l, int r){
-    if (r-l <= 1) return ;
-	int m = (l + r)/2;
-	sol[m] = sol[l] != sol[r];
-	compute(sol, l, m);
-	compute(sol, m, r);
-}
-
-int solve(int x, bool primero, bool segundo) {
+int solve(int T) {
     // Code aquí
-	int tamano = (1<< x )+1;
-	vector<bool> solucion(tamano+1);
-	solucion[1] = primero; solucion[tamano] = segundo;
-	compute(solucion, 1, tamano);
-	for (int i = 1; i<=tamano; i++){
-		cout << solucion[i] << " ";
-	}
-	cout << endl;
-	return 0;
+    int n, k; cin >> n >> k;
+    int size = (1<<k)+1;
+    pair<bitset<MAXN>, bitset<MAXN>> nums;
+    string s;
+    cin >> s; nums.first = bitset<MAXN>(s);
+    cin >> s; nums.second = bitset<MAXN>(s);
+    DBG_COUT(cout << "Test: " << n << " " << k << endl << nums.first << endl << nums.second << endl);
+
+    // Por cada bit, según su combinación podemos deducir los siguiente. (Vamos a tratar los números como bits)
+    // 1. Si la combinación es 0 0:
+    //      No hay 1s
+    // 2. Si la combinación es 1 0 y k es impar:
+    //      Los 1s son aquellos números cuya posición i cumplan que i != 0 mod 3
+    // 3. Si la combinación es 1 0 y k es par:
+    //      Los 1s son aquellos números cuya posición i cumplan que i != 2 mod 3
+    // 4. Si la combinación es 0 1:
+    //      Los 1s son aquellos números cuya posición i cumplan que i != 1 mod 3
+    // 5. Si la combinación es 1 1 y k es impar:
+    //      Los 1s son aquellos números cuya posición i cumplan que i != 2 mod 3
+    // 6. Si la combinación es 1 1 y k es par:
+    //      Los 1s son aquellos números cuya posición i cumplan que i != 0 mod 3
+
+    vector<lli> number1s(3, 0);
+    vector<lli> number0s(3, 0);
+
+    for (int i = 0; i<n; i++){
+        bool bitInit = nums.first[i];
+        bool bitEnd = nums.second[i];
+        if (!bitInit && !bitEnd){ // 1
+            number0s[0]++;
+            number0s[1]++;
+            number0s[2]++;
+        } else if (bitInit && !bitEnd){
+            if (k & 1){ // 2
+                number0s[0]++;
+                number1s[1]++;
+                number1s[2]++;
+            } else { // 3
+                number1s[0]++;
+                number1s[1]++;
+                number0s[2]++;
+            }
+        } else if (!bitInit && bitEnd){ // 4
+            number1s[0]++;
+            number0s[1]++;
+            number1s[2]++;
+        } else {
+            if (k & 1){ // 5
+                number1s[0]++;
+                number1s[1]++;
+                number0s[2]++;
+            } else { // 6
+                number0s[0]++;
+                number1s[1]++;
+                number1s[2]++;
+            }
+        }
+    }
+    DBG_COUT(cout << "Counts of 1s: " << number1s << endl);
+    DBG_COUT(cout << "Counts of 0s: " << number0s << endl);
+
+    // Los números tienen que ser multiplicados según el número de veces que cumplan
+    cout << number0s[0]*number1s[0]*((size)/3) + number0s[1]*number1s[1]*((size+2)/3) + number0s[2]*number1s[2]*((size+1)/3) << endl;
+
+
+    DBG_COUT(cout << "======================================" << endl);
+    return 0;
 }
 
 signed main() {
@@ -163,9 +214,11 @@ signed main() {
     cin.tie(nullptr);
     cout.tie(nullptr); 
     auto start = chrono::high_resolution_clock::now();
-
-	for (int i = 1; i<10; i++) solve(i, 0, 0);
-
+    int T;
+    cin >> T; // Número de casos
+    while (T--) {
+        solve(T);
+    }
     auto finish = chrono::high_resolution_clock::now();
     DBG_COUT(
         chrono::duration<double> elapsed = finish - start;
@@ -175,4 +228,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2234/problem/D

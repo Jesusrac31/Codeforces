@@ -137,25 +137,49 @@ void lee(int n, vi& vect) {
 #define INF INT_MAX
 double pi = 2*acos(0.0);
 
-void compute(vector<bool>& sol, int l, int r){
-    if (r-l <= 1) return ;
-	int m = (l + r)/2;
-	sol[m] = sol[l] != sol[r];
-	compute(sol, l, m);
-	compute(sol, m, r);
+vi w;
+void computeAdd(vi& h, int node){
+    int n = h.size();
+    int input = 0;
+    w[node] = 0;
+    for (int i = (node+1)%n; i!= node; i = (i+1)%n){
+        input = max(input, h[(i-1+n)%n]);
+        w[i] = min(w[i], input);
+    }
 }
 
-int solve(int x, bool primero, bool segundo) {
+void computeSub(vi& h, int node){
+    int n = h.size();
+    int input = 0;
+    w[node] = 0;
+    for (int i = (node-1+n)%n; i!= node; i = (i-1+n)%n){
+        input = max(input, h[i]);
+        w[i] = min(w[i], input);
+    }
+}
+
+int solve() {
     // Code aquí
-	int tamano = (1<< x )+1;
-	vector<bool> solucion(tamano+1);
-	solucion[1] = primero; solucion[tamano] = segundo;
-	compute(solucion, 1, tamano);
-	for (int i = 1; i<=tamano; i++){
-		cout << solucion[i] << " ";
-	}
-	cout << endl;
-	return 0;
+    int n; cin >> n;
+    vi h(n); rep(i, n) cin >> h[i]; // h[0] es la comunicación entre la vasija 0 y 1
+    for (int i = 0; i<n; i++){
+        w.assign(n, INF);
+        computeAdd(h, i);
+        DBG_COUT(cout << "One cycle done" << endl);
+        DBG_COUT(cout << "Capacidades despues de primer ciclo para el nodo " << i << ": " << w << endl);
+        computeSub(h, i);
+        DBG_COUT(cout << "Second cycle done" << endl);
+        DBG_COUT(cout << "Capacidades finales para el nodo " << i << ": " << w << endl);
+        lli sol = 0; for (auto x:w) sol+=x;
+        DBG_COUT(cout << "Solucion para i = " << i << ": ");
+        cout << sol << " ";
+        DBG_COUT(cout << endl);
+    }
+    DBG_COUT(cout << "==========================================" << endl);
+    cout << endl;
+
+
+    return 0;
 }
 
 signed main() {
@@ -163,9 +187,11 @@ signed main() {
     cin.tie(nullptr);
     cout.tie(nullptr); 
     auto start = chrono::high_resolution_clock::now();
-
-	for (int i = 1; i<10; i++) solve(i, 0, 0);
-
+    int T;
+    cin >> T; // Número de casos
+    while (T--) {
+        solve();
+    }
     auto finish = chrono::high_resolution_clock::now();
     DBG_COUT(
         chrono::duration<double> elapsed = finish - start;
@@ -175,4 +201,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2234/problem/C

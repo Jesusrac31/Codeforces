@@ -137,25 +137,20 @@ void lee(int n, vi& vect) {
 #define INF INT_MAX
 double pi = 2*acos(0.0);
 
-void compute(vector<bool>& sol, int l, int r){
-    if (r-l <= 1) return ;
-	int m = (l + r)/2;
-	sol[m] = sol[l] != sol[r];
-	compute(sol, l, m);
-	compute(sol, m, r);
-}
-
-int solve(int x, bool primero, bool segundo) {
+int solve() {
     // Code aquí
-	int tamano = (1<< x )+1;
-	vector<bool> solucion(tamano+1);
-	solucion[1] = primero; solucion[tamano] = segundo;
-	compute(solucion, 1, tamano);
-	for (int i = 1; i<=tamano; i++){
-		cout << solucion[i] << " ";
-	}
-	cout << endl;
-	return 0;
+    lli n; cin >> n;
+    // Necesitamos un palíndromo menor o igual a n que módulo 12 sea igual a n
+    
+    // Para todos los números del 0 al 9, los palíndromos son ellos mismos.
+    // Para el 10, el mejor palíndromo que podemos usar es el 22.
+    // para el 11, el propio 11 es un palíndromo válido
+    vll a = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 22, 11};
+    int mod = n%12;
+    if (a[mod] > n) cout << -1 << endl;
+    else cout << a[mod] << " " << n-a[mod] << endl;
+
+    return 0;
 }
 
 signed main() {
@@ -163,9 +158,11 @@ signed main() {
     cin.tie(nullptr);
     cout.tie(nullptr); 
     auto start = chrono::high_resolution_clock::now();
-
-	for (int i = 1; i<10; i++) solve(i, 0, 0);
-
+    int T;
+    cin >> T; // Número de casos
+    while (T--) {
+        solve();
+    }
     auto finish = chrono::high_resolution_clock::now();
     DBG_COUT(
         chrono::duration<double> elapsed = finish - start;
@@ -175,4 +172,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2234/problem/B

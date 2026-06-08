@@ -22,7 +22,7 @@ typedef pair<int, int> pii;
 typedef map<string, int> msi;
 typedef map<int, vector<int>> miv;
 
-const int MOD = 998244353; // Módulo del problema, cambiar en caso de no ser ese. NO TIENE PORQUÉ SER CONSTANTE, SOLO GLOBAL
+const int MOD = 1000000007; // Módulo del problema, cambiar en caso de no ser ese. NO TIENE PORQUÉ SER CONSTANTE, SOLO GLOBAL
 
 struct Mint { // Es una estructura como el int pero que trabaja en mod MOD
     int v;
@@ -136,26 +136,122 @@ void lee(int n, vi& vect) {
 
 #define INF INT_MAX
 double pi = 2*acos(0.0);
+#define index second
+#define value first
 
-void compute(vector<bool>& sol, int l, int r){
-    if (r-l <= 1) return ;
-	int m = (l + r)/2;
-	sol[m] = sol[l] != sol[r];
-	compute(sol, l, m);
-	compute(sol, m, r);
+vector<Mint> factorial = {1};
+Mint fact(int n){
+    while (factorial.size() <= n) {
+        factorial.PB(factorial.back()*factorial.size());
+    }
+    return factorial[n];
 }
 
-int solve(int x, bool primero, bool segundo) {
+
+bool isProperElement(vll& a, int i, int l, int r) {
+    lli expected = ((lli)i + 1LL - (lli)l) * ((lli)r - (lli)i);
+    return a[i] == expected;
+}
+
+
+pair<lli, int> getProperElement(vll& a, int l, int r) {
+    int left = l;
+    int right = r - 1;
+
+    /*
+        Buscamos desde los dos extremos.
+
+        Si el pivote está cerca de un extremo, lo encontramos rápido.
+        Si está en el centro, el intervalo se divide bastante equilibrado.
+    */
+    while (left <= right) {
+        if (isProperElement(a, left, l, r)) {
+            return {a[left], left};
+        }
+
+        if (left != right && isProperElement(a, right, l, r)) {
+            return {a[right], right};
+        }
+
+        left++;
+        right--;
+    }
+
+    return {-1, -1};
+}
+
+
+Mint calculatePosibles(vll& a, int l, int r) {
+    if (l == r) return Mint(1);
+
+    DBG_COUT(cout << "Inspecting range " << l << " " << r << endl);
+
+    pair<lli, int> element = getProperElement(a, l, r);
+
+    if (element.index == -1) {
+        DBG_COUT(cout << "No valid element found\n");
+        return Mint(0);
+    }
+
+    DBG_COUT(
+        cout << "Obtained element at " << element.index
+             << " with value " << element.value << endl;
+    );
+
+    lli expected =
+        ((lli)element.index + 1LL - (lli)l) *
+        ((lli)r - (lli)element.index);
+
+    if (element.value != expected) {
+        DBG_COUT(cout << "Oops, that value was impossible" << endl);
+        return Mint(0);
+    }
+
+    if (r - l <= 1) return Mint(1);
+
+    int len = r - l;
+    int leftSize = element.index - l;
+    int rightSize = r - 1 - element.index;
+
+    Mint combinaciones =
+        fact(len - 1) / (fact(leftSize) * fact(rightSize));
+
+    Mint sol = combinaciones;
+
+    DBG_COUT(cout << "Solution before recursion: " << sol << endl);
+
+    sol *= calculatePosibles(a, l, element.index);
+    sol *= calculatePosibles(a, element.index + 1, r);
+
+    return sol;
+}
+
+int solve(int T) {
     // Code aquí
-	int tamano = (1<< x )+1;
-	vector<bool> solucion(tamano+1);
-	solucion[1] = primero; solucion[tamano] = segundo;
-	compute(solucion, 1, tamano);
-	for (int i = 1; i<=tamano; i++){
-		cout << solucion[i] << " ";
-	}
-	cout << endl;
-	return 0;
+    int n; cin >> n;
+    vll a(n); rep(i, n) cin >> a[i];
+
+    // En primer lugar, veamos propiedades de la lista a de longitud n 0-indexed
+    // 1. En la posición a[i] solo puede haber un número en [1, (i+1)*(n-i)]
+    // 2. El 1 va en aquel a[i] = (i+1)*(n-i)
+    // 3. Solo puede haber un elemento a[i] = (i+1)*(n-i)
+    // 4. Al colocar el primer elemento, divides el array en 2 subarrays. ¿Cuántas formas hay de distribuir los elementos?
+    //      Resulta que si el 1 está en la posición i, en un subarray habrá i elementos y en el otro n-i-1 elementos
+    //      Aprovechando esto, ¿cuántas formas hay de seleccionar i elementos entre n-1? Claramente es n-1 sobre i
+    //      (n-1)!/(i! * (n-1-i)!)
+    // 5. Por cada subarray, debemos repetir el proceso
+
+    // Visto todo lo anterior, podemos aplicar una estrategia divide y vencerás, 
+    // Queda un problema pos solucionar y es el método de búsqueda del elemento donde colocar el número que toque
+    // Según el índice l y r, en la posición i debe haber un número u otro para ser válido.
+    // Si tenemos seleccionado un rango [l,r) y dos posiciones son posibles, al seleccionar una de ellas, la otra no podrá usarse, lo que significa que para cada rango que usemos solo puede haber un candidato.
+    // Necesitamos poder buscar de forma eficiente el valor que cumpla con la condición si existe.
+
+    Mint sol = calculatePosibles(a, 0, n);
+
+    cout << sol << endl;
+
+    return 0;
 }
 
 signed main() {
@@ -163,9 +259,11 @@ signed main() {
     cin.tie(nullptr);
     cout.tie(nullptr); 
     auto start = chrono::high_resolution_clock::now();
-
-	for (int i = 1; i<10; i++) solve(i, 0, 0);
-
+    int T;
+    cin >> T; // Número de casos
+    while (T--) {
+        solve(T);
+    }
     auto finish = chrono::high_resolution_clock::now();
     DBG_COUT(
         chrono::duration<double> elapsed = finish - start;
@@ -175,4 +273,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2234/problem/E

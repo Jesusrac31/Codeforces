@@ -137,25 +137,27 @@ void lee(int n, vi& vect) {
 #define INF INT_MAX
 double pi = 2*acos(0.0);
 
-void compute(vector<bool>& sol, int l, int r){
-    if (r-l <= 1) return ;
-	int m = (l + r)/2;
-	sol[m] = sol[l] != sol[r];
-	compute(sol, l, m);
-	compute(sol, m, r);
-}
-
-int solve(int x, bool primero, bool segundo) {
+int solve() {
     // Code aquí
-	int tamano = (1<< x )+1;
-	vector<bool> solucion(tamano+1);
-	solucion[1] = primero; solucion[tamano] = segundo;
-	compute(solucion, 1, tamano);
-	for (int i = 1; i<=tamano; i++){
-		cout << solucion[i] << " ";
-	}
-	cout << endl;
-	return 0;
+    int n; cin >> n;
+    vi a(n); rep(i, n) cin >> a[i];
+
+    // El algoritmo de euclides siempre reduce el tamaño del siguiente número de la secuencia, por lo que cualquier secuencia no ordenada no es válida
+    sort(a.begin(), a.end(), greater<int>());
+
+    // Comprueba que la secuencia sea válida
+    bool isEulerian = true;
+    for (int i = 2; i<n; i++)
+        if (a[i-2] % a[i-1] != a[i]){
+            isEulerian = false;
+            break;
+        }
+
+    if (isEulerian)
+        cout << a[0] << " " << a[1] << endl;
+    else cout << -1 << endl;
+    
+    return 0;
 }
 
 signed main() {
@@ -163,9 +165,11 @@ signed main() {
     cin.tie(nullptr);
     cout.tie(nullptr); 
     auto start = chrono::high_resolution_clock::now();
-
-	for (int i = 1; i<10; i++) solve(i, 0, 0);
-
+    int T;
+    cin >> T; // Número de casos
+    while (T--) {
+        solve();
+    }
     auto finish = chrono::high_resolution_clock::now();
     DBG_COUT(
         chrono::duration<double> elapsed = finish - start;
@@ -175,4 +179,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2234/problem/A

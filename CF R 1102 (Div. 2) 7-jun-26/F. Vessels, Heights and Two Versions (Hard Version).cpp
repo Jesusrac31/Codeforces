@@ -102,7 +102,6 @@ template<typename T> std::ostream& operator<<(std::ostream& os, const std::vecto
     return os;
 }
 
-
 void Imprime_set(set<int> s) {
     copy(s.begin(), s.end(), ostream_iterator<int>(cout, " "));
     cout << endl;
@@ -138,25 +137,85 @@ void lee(int n, vi& vect) {
 #define INF INT_MAX
 double pi = 2*acos(0.0);
 
-int solve(int n) {
+
+vector<lli> calcularIzquierda(const vector<lli>& b) {
+    int m = b.size();
+    vector<lli> res(m, 0);
+    vector<int> st;
+    for (int i = 0; i < m; i++) {
+        while (!st.empty() && b[st.back()] <= b[i]) {
+            st.pop_back();
+        }
+        int prv = st.empty() ? -1 : st.back();
+        res[i] = b[i] * (i - prv);
+        if (prv >= 0) {
+            res[i] += res[prv];
+        }
+        st.push_back(i);
+    }
+    return res;
+}
+
+vector<lli> calcularDerecha(const vector<lli>& b) {
+    int m = b.size();
+    vector<lli> res(m, 0);
+    vector<int> st;
+    for (int i = m - 1; i >= 0; i--) {
+        while (!st.empty() && b[st.back()] <= b[i]) {
+            st.pop_back();
+        }
+        int nxt = st.empty() ? m : st.back();
+        res[i] = b[i] * (nxt - i);
+        if (nxt < m) {
+            res[i] += res[nxt];
+        }
+        st.push_back(i);
+    }
+    return res;
+}
+
+int solve() {
     // Code aquí
-    vi a(n+1);
-    //a[n/2] = 1;
-    vector<vector<bool>> dp(n+1, vector<bool>(n+1));
-    for (int i = n; i>= 0; i--){
-        for (int j = n; j >= 0; j--){
-            if (dp[j][i] == 0){
-                for (int x = 0; x<=min(i, j); x++){
-                    for (int y = 0; y<=min(a[i-x], j); y++){
-                        if (x != 0 || y != 0) dp[j-y][i-x] = 1;
-                    }
-                }
-            }
+    int n; cin >> n;
+    vi h(n); rep(i, n) cin >> h[i]; // h[0] es la comunicación entre la vasija 0 y 1
+    
+    // Define G como C_n (grafo cíclico de n nodos)
+    // Los nodos están numerados de 0 a n-1. El nodo i representa la vasija i
+    // Las aristas entre el nodo i y el nodo (i+1) mod n tiene un peso de h[i]
+    // Desde cada par de nodos hay dos posibles caminos, pero solo nos interesa el camino cuya arísta con peso mayor sea menor.
+    // Al usar entre ambos caminos todas las aristas, buscamos la arista con mayor peso y la eliminamos
+    // Ahora solo tenemos un camino por nodo.
+
+    // Ahora hemos simplificado el problema, ya que es un problema con un grafo lineal.
+    // Para calcular las contribuciones por parte de la derecha usamos un stack
+    // Almacenas cuanto pasa la última arista y si pasa menos que la nueva, debes sacarla del stack y fusionarla. Debes llevar un track de la suma del stack
+    // Para la contribución por la izquierda hacemos lo mismo y sumamos ambos valores
+
+    int posMax = 0;
+    for (int i = 1; i < n; i++) {
+        if (h[i] > h[posMax]) {
+            posMax = i;
         }
     }
-    for (auto x:dp) cout << x << endl;
-    cout << endl;
+    int start = (posMax + 1) % n;
 
+    vector<lli> b;
+    b.reserve(n - 1);
+    for (int k = 0; k < n - 1; k++) {
+        int edgeIndex = (start + k) % n;
+        b.push_back(h[edgeIndex]);
+    }
+
+    vll solIzq = calcularIzquierda(b);
+    vll solDer = calcularDerecha(b);
+    
+    vll sol(n);
+    sol[start] = solDer[0];
+    for (int i = 1; i<solDer.size(); i++) sol[(start+i)%n] = solDer[i] + solIzq[i-1];
+    sol[(start-1+n)%n] = solIzq.back();
+    for (auto x:sol) cout << x << " ";
+    cout << endl;
+    
     return 0;
 }
 
@@ -165,7 +224,11 @@ signed main() {
     cin.tie(nullptr);
     cout.tie(nullptr); 
     auto start = chrono::high_resolution_clock::now();
-    solve(3);
+    int T;
+    cin >> T; // Número de casos
+    while (T--) {
+        solve();
+    }
     auto finish = chrono::high_resolution_clock::now();
     DBG_COUT(
         chrono::duration<double> elapsed = finish - start;
@@ -175,4 +238,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2234/problem/F

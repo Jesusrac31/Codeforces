@@ -26,15 +26,19 @@ Recuenta intentados/resueltos/sin terminar y actualiza el bloque de resumen del 
 powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Update-ReadmeStats.ps1"
 ```
 
+## 4. Ordenar por nivel
+
+A partir del enlace de cada problema mira el nivel de este y los ordeena por nivel.
+
 ## Flujo completo recomendado
 
 Ejecuta los tres comandos en este orden para dejar todo actualizado:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Backfill-StatusComments.ps1"; powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Update-Readme.ps1"; powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Update-ReadmeStats.ps1"
+powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Backfill-StatusComments.ps1"; powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Update-Readme.ps1"; powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Update-ReadmeStats.ps1"; powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Update-ReadmeLevels.ps1"
 ```
 
 En cmd:
 ```cmd
-powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Backfill-StatusComments.ps1" & powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Update-Readme.ps1" & powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Update-ReadmeStats.ps1"
+powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Backfill-StatusComments.ps1" & powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Update-Readme.ps1" & powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Update-ReadmeStats.ps1" & powershell -EsecutionPolicy Bypass -File ".\Tracking Readme\Update-ReadmeLevels.ps1"
 ```

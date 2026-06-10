@@ -176,15 +176,25 @@ int solve() {
     // De esta forma, definimos f(x) como el número de personas que podemos sentar si hay x ambivertidos que se comportan como introvertidos.
     // La función se calcula en O(n) por lo que sería una solución O(n^2). 
 
+    // Realmente f(x) si ves sus resultados hacen una forma cóncava, lo que significa que los valores crecen hasta un punto y luego baja. Ahora la pregunta consiste en buscar el valor máximo de nuestra función
+    // Si calculamos f(x) y f(x+1) puedes saber si la pendiente es positiva o negativa en x. 
+    // Haz busqueda binaria para encontrar un punto donde la pendiente con su siguiente sea negativa pero el del anterior con este es positiva
+
     int countA = 0; for (auto x:seq) if (x == 'A') countA++;
 
     int sol = 0;
-    for (int i = 0; i<=countA; i++){
-        int solI = cost(seq, i, x, s);
-        sol = max(sol, solI);
-        DBG_COUT(cout << "Solution for " << i << ": " << solI << endl);
+    int l = 0, r = countA+1;
+    while (r - l > 1) { 
+        int mid = (l + r) / 2;
+        DBG_COUT(cout << "Inspecting: " << mid << endl);
+        DBG_COUT(cout << "Diff: " << cost(seq, mid, x, s) - cost(seq, mid+1, x, s) << endl);
+        if (cost(seq, mid, x, s) - cost(seq, mid+1, x, s) < 0) l = mid;
+        else r = mid;
     }
+    DBG_COUT(cout << "Value obtained: " << l << " with cost " << cost(seq, l, x, s) << endl);
+    DBG_COUT(cout << "Value obtained: " << l+1 << " with cost " << cost(seq, l+1, x, s) << endl);
     DBG_COUT(cout << "Solucion: ");
+    sol = max(cost(seq, l+1, x, s), cost(seq, l, x, s));
     cout << sol << endl;
     DBG_COUT(cout << "====================================" << endl);
 
@@ -210,4 +220,5 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2232/problem/C1
+// https://codeforces.com/contest/2232/problem/C2

@@ -137,56 +137,17 @@ void lee(int n, vi& vect) {
 #define INF INT_MAX
 double pi = 2*acos(0.0);
 
-int cost (string& seq, int nIntAmb, int n, int s){
-    int lastTable = 0;
-    int currentTable = 0;
-    int sol = 0;
-    vector<int> tables(n, 0);
-    for (int i = 0; i<seq.size(); i++){
-        char letra = seq[i];
-        if (letra == 'A'){
-            if (nIntAmb){
-                nIntAmb--;
-                letra = 'I';
-            } else letra = 'E';
-        }
-        if (letra == 'I'){
-            if (lastTable < n){
-                tables[lastTable]++;
-                lastTable++;
-                sol++;
-            }
-        } else if (letra == 'E'){
-            if (currentTable < lastTable){
-                tables[currentTable]++;
-                sol++;
-            }
-        }
-        while (currentTable < lastTable && tables[currentTable] == s) currentTable++;
-    }
-    return sol;
-}
-
 int solve() {
     // Code aquí
-    int n, x, s; cin >> n >> x >> s;
-    string seq; cin >> seq;
+    int n; cin >> n;
+    vi a(n); rep(i, n) cin >> a[i];
+    ord(a);
 
-    // Este problema sería sencillo si el número de "ambivertidos" que se comportan como introvertido fuera conocido, ya que siempre son los primeros ambivertidos los que se comportan así
-    // De esta forma, definimos f(x) como el número de personas que podemos sentar si hay x ambivertidos que se comportan como introvertidos.
-    // La función se calcula en O(n) por lo que sería una solución O(n^2). 
-
-    int countA = 0; for (auto x:seq) if (x == 'A') countA++;
-
-    int sol = 0;
-    for (int i = 0; i<=countA; i++){
-        int solI = cost(seq, i, x, s);
-        sol = max(sol, solI);
-        DBG_COUT(cout << "Solution for " << i << ": " << solI << endl);
+    int l = 0, r = n-1, sol = 0;
+    while(a[l] != a[r] && l < r){
+        sol++; l++; r--;
     }
-    DBG_COUT(cout << "Solucion: ");
     cout << sol << endl;
-    DBG_COUT(cout << "====================================" << endl);
 
     return 0;
 }
@@ -210,4 +171,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2232/problem/A

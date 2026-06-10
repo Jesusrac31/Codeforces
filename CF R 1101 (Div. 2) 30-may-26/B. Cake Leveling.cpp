@@ -137,57 +137,36 @@ void lee(int n, vi& vect) {
 #define INF INT_MAX
 double pi = 2*acos(0.0);
 
-int cost (string& seq, int nIntAmb, int n, int s){
-    int lastTable = 0;
-    int currentTable = 0;
-    int sol = 0;
-    vector<int> tables(n, 0);
-    for (int i = 0; i<seq.size(); i++){
-        char letra = seq[i];
-        if (letra == 'A'){
-            if (nIntAmb){
-                nIntAmb--;
-                letra = 'I';
-            } else letra = 'E';
-        }
-        if (letra == 'I'){
-            if (lastTable < n){
-                tables[lastTable]++;
-                lastTable++;
-                sol++;
-            }
-        } else if (letra == 'E'){
-            if (currentTable < lastTable){
-                tables[currentTable]++;
-                sol++;
-            }
-        }
-        while (currentTable < lastTable && tables[currentTable] == s) currentTable++;
-    }
-    return sol;
-}
-
-int solve() {
+int solve(int T) {
     // Code aquí
-    int n, x, s; cin >> n >> x >> s;
-    string seq; cin >> seq;
+    int n; cin >> n;
+    vll a(n); rep(i, n) cin >> a[i];
 
-    // Este problema sería sencillo si el número de "ambivertidos" que se comportan como introvertido fuera conocido, ya que siempre son los primeros ambivertidos los que se comportan así
-    // De esta forma, definimos f(x) como el número de personas que podemos sentar si hay x ambivertidos que se comportan como introvertidos.
-    // La función se calcula en O(n) por lo que sería una solución O(n^2). 
-
-    int countA = 0; for (auto x:seq) if (x == 'A') countA++;
-
-    int sol = 0;
-    for (int i = 0; i<=countA; i++){
-        int solI = cost(seq, i, x, s);
-        sol = max(sol, solI);
-        DBG_COUT(cout << "Solution for " << i << ": " << solI << endl);
+    vll sol = {a[0]};
+    lli extra = 0;
+    for (int i = 1; i<n; i++){
+        a[i] += extra;
+        if (a[i] >= sol.back()) {
+            extra = a[i]-sol.back();
+            sol.PB(sol.back());
+        } else {
+            // Quitar 1 de la solución, aumenta sol.size() el nuevo valor
+            // sol.back() - x <= a[i] + sol.size() * x
+            // (sol.back() - a[i])/(sol.size()+1) <= x
+            DBG_COUT(cout << "Calculating new solution for " << i << endl);
+            lli reduccion = ((sol.back() - a[i]) / (sol.size() + 1)) + ((sol.back() - a[i]) % (sol.size() + 1) != 0);
+            extra = (a[i]+sol.size()*reduccion) - (sol.back()-reduccion);
+            DBG_COUT(cout << "Reduccion: " << reduccion << endl);
+            DBG_COUT(cout << "Nuevo valor de i: " << a[i]+sol.size()*reduccion << endl);
+            DBG_COUT(cout << "Extra: " << extra << endl);
+            DBG_COUT(cout << "newSol: " << sol.back() - reduccion << endl);
+            sol.PB(sol.back()-reduccion); 
+        }
     }
-    DBG_COUT(cout << "Solucion: ");
-    cout << sol << endl;
-    DBG_COUT(cout << "====================================" << endl);
-
+    for (auto x:sol) cout << x << " ";
+    cout << endl;
+    DBG_COUT(cout << endl);
+    
     return 0;
 }
 
@@ -199,7 +178,7 @@ signed main() {
     int T;
     cin >> T; // Número de casos
     while (T--) {
-        solve();
+        solve(T);
     }
     auto finish = chrono::high_resolution_clock::now();
     DBG_COUT(
@@ -210,4 +189,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2232/problem/B

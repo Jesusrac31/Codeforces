@@ -121,9 +121,12 @@ $items = foreach ($file in $cppFiles) {
     $index = $null
 
     # Estrategia 1: Buscar la URL de Codeforces en los comentarios del archivo
-    if ($raw -match '//\s*https?://codeforces\.com/contest/(\d+)/problem/([^/\s\r\n]+)') {
-        $contestId = [int]$matches[1]
-        $index = $matches[2].Trim()
+    $matchesList = [regex]::Matches($raw, '//\s*https?://codeforces\.com/contest/(\d+)/problem/([^/\s\r\n]+)')
+
+    if ($matchesList.Count -gt 0) {
+        $lastMatch = $matchesList[$matchesList.Count - 1]
+        $contestId = [int]$lastMatch.Groups[1].Value
+        $index = $lastMatch.Groups[2].Value.Trim()
     } else {
         # Estrategia 2: Fallback por nombre de carpeta e índice del archivo
         $contestId = $folderContestId[$folder]

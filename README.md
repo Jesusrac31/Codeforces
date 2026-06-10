@@ -640,7 +640,6 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [C1. Magnitude (Easy Version).cpp](CF%20Global%20R%2026%209-jun-24/C1.%20Magnitude%20(Easy%20Version).cpp) | CF Global R 26 9-jun-24 | 1300 | ✔ Resuelto |
 | [C. A Good Problem.cpp](CF%20R%201035%20(Div.%202)%205-jul-25/C.%20A%20Good%20Problem.cpp) | CF R 1035 (Div. 2) 5-jul-25 | 1300 | ✔ Resuelto |
 | [C. Subset Multiplication.cpp](CF%20R%201036%2C%20EPIC%20Institute%20of%20Technology%20R%20Summer%202025%20(Div.%201%20%2B%20Div.%202)%206-jul-25/C.%20Subset%20Multiplication.cpp) | CF R 1036, EPIC Institute of Technology R Summer 2025 (Div. 1 + Div. 2) 6-jul-25 | 1300 | ✔ Resuelto |
-| [C. Seating Arrangement.cpp](CF%20R%201101%20(Div.%202)%2030-may-26/C.%20Seating%20Arrangement.cpp) | CF R 1101 (Div. 2) 30-may-26 | 1300 | ✔ Resuelto |
 | [C. Parity Shuffle Sorting.cpp](CF%20R%20821%20(Div.%202)%2019-sep-22/C.%20Parity%20Shuffle%20Sorting.cpp) | CF R 821 (Div. 2) 19-sep-22 | 1300 | ✔ Resuelto |
 | [E1. Rudolf and Snowflakes (simple version).cpp](CF%20R%20883%20(Div.%203)%207-jul-23/E1.%20Rudolf%20and%20Snowflakes%20(simple%20version).cpp) | CF R 883 (Div. 3) 7-jul-23 | 1300 | ✔ Resuelto |
 | [D. Prefix Permutation Sums.cpp](CF%20R%20888%20(Div.%203)%2025-jul-23/D.%20Prefix%20Permutation%20Sums.cpp) | CF R 888 (Div. 3) 25-jul-23 | 1300 | ✔ Resuelto |
@@ -660,6 +659,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [D. Mathematical Problem.cpp](CF%20R%20954%20(Div.%203)%2023-jun-24/D.%20Mathematical%20Problem.cpp) | CF R 954 (Div. 3) 23-jun-24 | 1400 | ✔ Resuelto |
 | [C. Have Your Cake and Eat It Too.cpp](CF%20R%20956%20(Div.%202)%20and%20ByteRace%202024%207-jul-24/C.%20Have%20Your%20Cake%20and%20Eat%20It%20Too.cpp) | CF R 956 (Div. 2) and ByteRace 2024 7-jul-24 | 1400 | ✔ Resuelto |
 | [C. Strong Password.cpp](Educational%20CF%20R%20151%20(Rated%20for%20Div.%202)%2029-jun-23/C.%20Strong%20Password.cpp) | Educational CF R 151 (Rated for Div. 2) 29-jun-23 | 1400 | ✔ Resuelto |
+| [C. Seating Arrangement.cpp](CF%20R%201101%20(Div.%202)%2030-may-26/C.%20Seating%20Arrangement.cpp) | CF R 1101 (Div. 2) 30-may-26 | 1500 | ✔ Resuelto |
 | [D. XOR, Expression and Two Binary Numbers.cpp](CF%20R%201102%20(Div.%202)%207-jun-26/D.%20XOR%2C%20Expression%20and%20Two%20Binary%20Numbers.cpp) | CF R 1102 (Div. 2) 7-jun-26 | 1500 | ✔ Resuelto |
 | [A. Color the Picture.cpp](CF%20R%20810%20(Div.%201)%2024-jul-22/A.%20Color%20the%20Picture.cpp) | CF R 810 (Div. 1) 24-jul-22 | 1500 | ✔ Resuelto |
 | [E. Nastya and Potions.cpp](CF%20R%20888%20(Div.%203)%2025-jul-23/E.%20Nastya%20and%20Potions.cpp) | CF R 888 (Div. 3) 25-jul-23 | 1500 | ✔ Resuelto |
@@ -669,7 +669,6 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [D. Fun.cpp](CF%20R%20962%20(Div.%203)%2026-jul-24/D.%20Fun.cpp) | CF R 962 (Div. 3) 26-jul-24 | 1500 | ✔ Resuelto |
 | [D. Maximize the Root.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/D.%20Maximize%20the%20Root.cpp) | Educational CF R 168 (Rated for Div. 2) 30-jul-24 | 1500 | ✔ Resuelto |
 | [C. War Strategy.cpp](Hello%202026%207-ene-25/C.%20War%20Strategy.cpp) | Hello 2026 7-ene-25 | 1500 | ✔ Resuelto |
-| [D. Tree Coloring.cpp](Hello%202026%207-ene-25/D.%20Tree%20Coloring.cpp) | Hello 2026 7-ene-25 | 1500 | ✔ Resuelto |
 | [C. Remove Exactly Two.cpp](CF%20R%201000%20(Div.%202)%2022-ene-25/C.%20Remove%20Exactly%20Two.cpp) | CF R 1000 (Div. 2) 22-ene-25 | 1600 | ✔ Resuelto |
 | [D. Billion Players Game.cpp](CF%20R%201066%20(Div.%201%20%2B%20Div.%202)%2030-nov-25/D.%20Billion%20Players%20Game.cpp) | CF R 1066 (Div. 1 + Div. 2) 30-nov-25 | 1600 | ✔ Resuelto |
 | [B. One Night At Freddy's.cpp](CF%20R%201085%20(Div.%201%20%2B%20Div.%202)%208-mar-26/B.%20One%20Night%20At%20Freddy's.cpp) | CF R 1085 (Div. 1 + Div. 2) 8-mar-26 | 1600 | ✔ Resuelto |
@@ -695,7 +694,6 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [D. Swap Dilemma.cpp](CF%20R%20956%20(Div.%202)%20and%20ByteRace%202024%207-jul-24/D.%20Swap%20Dilemma.cpp) | CF R 956 (Div. 2) and ByteRace 2024 7-jul-24 | 1700 | ✔ Resuelto |
 | [E. Novice's Mistake.cpp](CF%20R%20957%20(Div.%203)%2011-jul-24/E.%20Novice's%20Mistake.cpp) | CF R 957 (Div. 3) 11-jul-24 | 1700 | ✔ Resuelto |
 | [B2. Bouquet (Hard Version).cpp](CF%20R%20961%20(Div.%202)%2023-jul-24/B2.%20Bouquet%20(Hard%20Version).cpp) | CF R 961 (Div. 2) 23-jul-24 | 1700 | ✔ Resuelto |
-| [C. Maple and Tree Beauty.cpp](CF%20R%201048%20(Div.%201)%208-sep-25/C.%20Maple%20and%20Tree%20Beauty.cpp) | CF R 1048 (Div. 1) 8-sep-25 | 1800 | ✔ Resuelto |
 | [D. Ghostfires.cpp](CF%20R%201087%20(Div.%202)%2021-mar-26/D.%20Ghostfires.cpp) | CF R 1087 (Div. 2) 21-mar-26 | 1800 | ✔ Resuelto |
 | [E2. Rudolf and Snowflakes (hard version).cpp](CF%20R%20883%20(Div.%203)%207-jul-23/E2.%20Rudolf%20and%20Snowflakes%20(hard%20version).cpp) | CF R 883 (Div. 3) 7-jul-23 | 1800 | ✔ Resuelto |
 | [F. Rudolph and Mimic.cpp](CF%20R%20883%20(Div.%203)%207-jul-23/F.%20Rudolph%20and%20Mimic.cpp) | CF R 883 (Div. 3) 7-jul-23 | 1800 | ✔ Resuelto |
@@ -717,6 +715,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [D. Prime XOR Coloring.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/D.%20Prime%20XOR%20Coloring.cpp) | Pinely R 4 (Div. 1 + Div. 2) 28-jul-24 | 1900 | ✔ Resuelto |
 | [E. Coloring Game.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/E.%20Coloring%20Game.cpp) | Pinely R 4 (Div. 1 + Div. 2) 28-jul-24 | 1900 | ✔ Resuelto |
 | [F. 1-1-1, Free Tree!.cpp](CF%20R%201037%20(Div.%203)%2017-jul-25/F.%201-1-1%2C%20Free%20Tree!.cpp) | CF R 1037 (Div. 3) 17-jul-25 | 2000 | ✔ Resuelto |
+| [C. Maple and Tree Beauty.cpp](CF%20R%201048%20(Div.%201)%208-sep-25/C.%20Maple%20and%20Tree%20Beauty.cpp) | CF R 1048 (Div. 1) 8-sep-25 | 2000 | ✔ Resuelto |
 | [D2. Zero-One (Hard Version).cpp](CF%20R%20821%20(Div.%202)%2019-sep-22/D2.%20Zero-One%20(Hard%20Version).cpp) | CF R 821 (Div. 2) 19-sep-22 | 2000 | ✔ Resuelto |
 | [G. Vlad and the Mountains.cpp](CF%20R%20888%20(Div.%203)%2025-jul-23/G.%20Vlad%20and%20the%20Mountains.cpp) | CF R 888 (Div. 3) 25-jul-23 | 2000 | ✔ Resuelto |
 | [E. Computing Machine.cpp](CF%20R%20953%20(Div.%202)%2016-jun-24/E.%20Computing%20Machine.cpp) | CF R 953 (Div. 2) 16-jun-24 | 2000 | ✔ Resuelto |
@@ -729,18 +728,18 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [E1. N-MEX (Constructive Version).cpp](CF%20R%201085%20(Div.%201%20%2B%20Div.%202)%208-mar-26/E1.%20N-MEX%20(Constructive%20Version).cpp) | CF R 1085 (Div. 1 + Div. 2) 8-mar-26 | 2100 | ✔ Resuelto |
 | [E. Vlad, Misha and Two Arrays.cpp](CF%20R%201102%20(Div.%202)%207-jun-26/E.%20Vlad%2C%20Misha%20and%20Two%20Arrays.cpp) | CF R 1102 (Div. 2) 7-jun-26 | 2100 | ✔ Resuelto |
 | [B. Rain.cpp](CF%20R%20810%20(Div.%201)%2024-jul-22/B.%20Rain.cpp) | CF R 810 (Div. 1) 24-jul-22 | 2100 | ✔ Resuelto |
+| [D. Tree Coloring.cpp](Hello%202026%207-ene-25/D.%20Tree%20Coloring.cpp) | Hello 2026 7-ene-25 | 2100 | ✔ Resuelto |
 | [E. LCM is Legendary Counting Master.cpp](Hello%202026%207-ene-25/E.%20LCM%20is%20Legendary%20Counting%20Master.cpp) | Hello 2026 7-ene-25 | 2100 | ✔ Resuelto |
-| [G. Big Wins!.cpp](CF%20R%201037%20(Div.%203)%2017-jul-25/G.%20Big%20Wins!.cpp) | CF R 1037 (Div. 3) 17-jul-25 | 2200 | ✔ Resuelto |
 | [D. Boxed Like a Fish.cpp](CF%20R%201085%20(Div.%201%20%2B%20Div.%202)%208-mar-26/D.%20Boxed%20Like%20a%20Fish.cpp) | CF R 1085 (Div. 1 + Div. 2) 8-mar-26 | 2200 | ✔ Resuelto |
 | [D. Trees and Segments.cpp](CF%20R%20893%20(Div.%202)%2015-ago-23/D.%20Trees%20and%20Segments.cpp) | CF R 893 (Div. 2) 15-ago-23 | 2200 | ✔ Resuelto |
 | [E. Level Up.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/E.%20Level%20Up.cpp) | Educational CF R 168 (Rated for Div. 2) 30-jul-24 | 2200 | ✔ Resuelto |
-| [F. Appending Permutations.cpp](CF%20R%201036%2C%20EPIC%20Institute%20of%20Technology%20R%20Summer%202025%20(Div.%201%20%2B%20Div.%202)%206-jul-25/F.%20Appending%20Permutations.cpp) | CF R 1036, EPIC Institute of Technology R Summer 2025 (Div. 1 + Div. 2) 6-jul-25 | 2300 | ✔ Resuelto |
 | [C. Comparable Permutations.cpp](CF%20R%201073%20(Div.%201)%2017-ene-26/C.%20Comparable%20Permutations.cpp) | CF R 1073 (Div. 1) 17-ene-26 | 2300 | ✔ Resuelto |
 | [G. Idiot First Search and Queries.cpp](CF%20R%201080%20(Div.%203)%2015-feb-26/G.%20Idiot%20First%20Search%20and%20Queries.cpp) | CF R 1080 (Div. 3) 15-feb-26 | 2300 | ✔ Resuelto |
 | [E. Mark and Professor Koro.cpp](CF%20R%20807%20(Div.%202)%2015-jul-22/E.%20Mark%20and%20Professor%20Koro.cpp) | CF R 807 (Div. 2) 15-jul-22 | 2300 | ✔ Resuelto |
 | [E. Number of k-good subarrays.cpp](CF%20R%20955%20(Div.%202%2C%20with%20prizes%20from%20NEAR!)%2025-jun-24/E.%20Number%20of%20k-good%20subarrays.cpp) | CF R 955 (Div. 2, with prizes from NEAR!) 25-jun-24 | 2300 | ✔ Resuelto |
 | [E. I Love Balls.cpp](CF%20R%20956%20(Div.%202)%20and%20ByteRace%202024%207-jul-24/E.%20I%20Love%20Balls.cpp) | CF R 956 (Div. 2) and ByteRace 2024 7-jul-24 | 2300 | ✔ Resuelto |
 | [D. Cases.cpp](CF%20R%20961%20(Div.%202)%2023-jul-24/D.%20Cases.cpp) | CF R 961 (Div. 2) 23-jul-24 | 2300 | ✔ Resuelto |
+| [G. Big Wins!.cpp](CF%20R%201037%20(Div.%203)%2017-jul-25/G.%20Big%20Wins!.cpp) | CF R 1037 (Div. 3) 17-jul-25 | 2400 | ✔ Resuelto |
 | [D. Traffic Lights.cpp](CF%20R%201038%2COrder%20Capital%20R%201%20(Div.%201%20%2B%20Div.%202)%2019-jul-25/D.%20Traffic%20Lights.cpp) | CF R 1038,Order Capital R 1 (Div. 1 + Div. 2) 19-jul-25 | 2400 | ✔ Resuelto |
 | [F. Git Gud.cpp](CF%20R%201066%20(Div.%201%20%2B%20Div.%202)%2030-nov-25/F.%20Git%20Gud.cpp) | CF R 1066 (Div. 1 + Div. 2) 30-nov-25 | 2400 | ✔ Resuelto |
 | [H. Codeforces Heuristic Contest 001.cpp](CF%20R%201080%20(Div.%203)%2015-feb-26/H.%20Codeforces%20Heuristic%20Contest%20001.cpp) | CF R 1080 (Div. 3) 15-feb-26 | 2400 | ✔ Resuelto |
@@ -748,15 +747,16 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [E. Cross Swapping.cpp](CF%20R%20812%20(Div.%202)%206-ago-22/E.%20Cross%20Swapping.cpp) | CF R 812 (Div. 2) 6-ago-22 | 2400 | ✔ Resuelto |
 | [D. Prufer Vertex.cpp](CF%20R%201073%20(Div.%201)%2017-ene-26/D.%20Prufer%20Vertex.cpp) | CF R 1073 (Div. 1) 17-ene-26 | 2500 | ✔ Resuelto |
 | [D. Double Bracket Sequence.cpp](CF%20R%201079%20(Div.%201)%2011-feb-26/D.%20Double%20Bracket%20Sequence.cpp) | CF R 1079 (Div. 1) 11-feb-26 | 2500 | ✔ Resuelto |
-| [E. Catch the Mole.cpp](CF%20R%20960%20(Div.%202)%2020-jul-24/E.%20Catch%20the%20Mole.cpp) | CF R 960 (Div. 2) 20-jul-24 | 2500 | ✔ Resuelto |
 | [F. Points.cpp](Educational%20CF%20R%20131%20(Rated%20for%20Div.%202)%208-jul-22/F.%20Points.cpp) | Educational CF R 131 (Rated for Div. 2) 8-jul-22 | 2500 | ✔ Resuelto |
 | [F. Jumping Man.cpp](Hello%202026%207-ene-25/F.%20Jumping%20Man.cpp) | Hello 2026 7-ene-25 | 2500 | ✔ Resuelto |
 | [E. And Constraint.cpp](CF%20R%201035%20(Div.%202)%205-jul-25/E.%20And%20Constraint.cpp) | CF R 1035 (Div. 2) 5-jul-25 | 2600 | ✔ Resuelto |
 | [E. Greedy Grid Counting.cpp](CF%20R%201038%2COrder%20Capital%20R%201%20(Div.%201%20%2B%20Div.%202)%2019-jul-25/E.%20Greedy%20Grid%20Counting.cpp) | CF R 1038,Order Capital R 1 (Div. 1 + Div. 2) 19-jul-25 | 2600 | ✔ Resuelto |
 | [D. Antiamuny and Slider Movement.cpp](CF%20R%201048%20(Div.%201)%208-sep-25/D.%20Antiamuny%20and%20Slider%20Movement.cpp) | CF R 1048 (Div. 1) 8-sep-25 | 2600 | ✔ Resuelto |
 | [E. Majority Wins.cpp](CF%20R%201075%20(Div.%202)%2023-ene-26/E.%20Majority%20Wins.cpp) | CF R 1075 (Div. 2) 23-ene-26 | 2600 | ✔ Resuelto |
+| [E. Catch the Mole.cpp](CF%20R%20960%20(Div.%202)%2020-jul-24/E.%20Catch%20the%20Mole.cpp) | CF R 960 (Div. 2) 20-jul-24 | 2600 | ✔ Resuelto |
 | [D. MEX Replacement on Tree.cpp](CF%20R%201093%20(Div.%201)%2013-abr-26/D.%20MEX%20Replacement%20on%20Tree.cpp) | CF R 1093 (Div. 1) 13-abr-26 | 2700 | ✔ Resuelto |
 | [G. Stripe, Token and Two Players.cpp](CF%20R%201102%20(Div.%202)%207-jun-26/G.%20Stripe%2C%20Token%20and%20Two%20Players.cpp) | CF R 1102 (Div. 2) 7-jun-26 | 2700 | ✔ Resuelto |
+| [F. Appending Permutations.cpp](CF%20R%201036%2C%20EPIC%20Institute%20of%20Technology%20R%20Summer%202025%20(Div.%201%20%2B%20Div.%202)%206-jul-25/F.%20Appending%20Permutations.cpp) | CF R 1036, EPIC Institute of Technology R Summer 2025 (Div. 1 + Div. 2) 6-jul-25 | 2800 | ✔ Resuelto |
 | [F. Zhora the Vacuum Cleaner.cpp](CF%20R%201075%20(Div.%202)%2023-ene-26/F.%20Zhora%20the%20Vacuum%20Cleaner.cpp) | CF R 1075 (Div. 2) 23-ene-26 | 2800 | ✔ Resuelto |
 | [G. Simons and Diophantus Equation.cpp](CF%20R%201083%20(Div.%202)%2026-feb-26/G.%20Simons%20and%20Diophantus%20Equation.cpp) | CF R 1083 (Div. 2) 26-feb-26 | 3000 | ✔ Resuelto |
 | [E. Determinant Construction.cpp](CF%20R%201048%20(Div.%201)%208-sep-25/E.%20Determinant%20Construction.cpp) | CF R 1048 (Div. 1) 8-sep-25 | 3100 | ✔ Resuelto |

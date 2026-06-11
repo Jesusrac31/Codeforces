@@ -6,8 +6,8 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ## Resumen
 
-- Problemas intentados: **264**
-- Problemas resueltos: **264**
+- Problemas intentados: **266**
+- Problemas resueltos: **266**
 - Problemas sin terminar: **0**
 - Porcentaje de resolución: **100%**
 
@@ -44,6 +44,8 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 - [A. Convergence.cpp](CF%20R%201101%20(Div.%202)%2030-may-26/A.%20Convergence.cpp)
 - [B. Cake Leveling.cpp](CF%20R%201101%20(Div.%202)%2030-may-26/B.%20Cake%20Leveling.cpp)
 - [C. Seating Arrangement.cpp](CF%20R%201101%20(Div.%202)%2030-may-26/C.%20Seating%20Arrangement.cpp)
+- [D. Magical Tiered Cake.cpp](CF%20R%201101%20(Div.%202)%2030-may-26/D.%20Magical%20Tiered%20Cake.cpp)
+- [E. Snaking Arrangement.cpp](CF%20R%201101%20(Div.%202)%2030-may-26/E.%20Snaking%20Arrangement.cpp)
 
 ### CF R 1093 (Div. 1) 13-abr-26
 
@@ -716,6 +718,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [E. Coloring Game.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/E.%20Coloring%20Game.cpp) | Pinely R 4 (Div. 1 + Div. 2) 28-jul-24 | 1900 | ✔ Resuelto |
 | [F. 1-1-1, Free Tree!.cpp](CF%20R%201037%20(Div.%203)%2017-jul-25/F.%201-1-1%2C%20Free%20Tree!.cpp) | CF R 1037 (Div. 3) 17-jul-25 | 2000 | ✔ Resuelto |
 | [C. Maple and Tree Beauty.cpp](CF%20R%201048%20(Div.%201)%208-sep-25/C.%20Maple%20and%20Tree%20Beauty.cpp) | CF R 1048 (Div. 1) 8-sep-25 | 2000 | ✔ Resuelto |
+| [D. Magical Tiered Cake.cpp](CF%20R%201101%20(Div.%202)%2030-may-26/D.%20Magical%20Tiered%20Cake.cpp) | CF R 1101 (Div. 2) 30-may-26 | 2000 | ✔ Resuelto |
 | [D2. Zero-One (Hard Version).cpp](CF%20R%20821%20(Div.%202)%2019-sep-22/D2.%20Zero-One%20(Hard%20Version).cpp) | CF R 821 (Div. 2) 19-sep-22 | 2000 | ✔ Resuelto |
 | [G. Vlad and the Mountains.cpp](CF%20R%20888%20(Div.%203)%2025-jul-23/G.%20Vlad%20and%20the%20Mountains.cpp) | CF R 888 (Div. 3) 25-jul-23 | 2000 | ✔ Resuelto |
 | [E. Computing Machine.cpp](CF%20R%20953%20(Div.%202)%2016-jun-24/E.%20Computing%20Machine.cpp) | CF R 953 (Div. 2) 16-jun-24 | 2000 | ✔ Resuelto |
@@ -753,6 +756,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [E. Greedy Grid Counting.cpp](CF%20R%201038%2COrder%20Capital%20R%201%20(Div.%201%20%2B%20Div.%202)%2019-jul-25/E.%20Greedy%20Grid%20Counting.cpp) | CF R 1038,Order Capital R 1 (Div. 1 + Div. 2) 19-jul-25 | 2600 | ✔ Resuelto |
 | [D. Antiamuny and Slider Movement.cpp](CF%20R%201048%20(Div.%201)%208-sep-25/D.%20Antiamuny%20and%20Slider%20Movement.cpp) | CF R 1048 (Div. 1) 8-sep-25 | 2600 | ✔ Resuelto |
 | [E. Majority Wins.cpp](CF%20R%201075%20(Div.%202)%2023-ene-26/E.%20Majority%20Wins.cpp) | CF R 1075 (Div. 2) 23-ene-26 | 2600 | ✔ Resuelto |
+| [E. Snaking Arrangement.cpp](CF%20R%201101%20(Div.%202)%2030-may-26/E.%20Snaking%20Arrangement.cpp) | CF R 1101 (Div. 2) 30-may-26 | 2600 | ✔ Resuelto |
 | [E. Catch the Mole.cpp](CF%20R%20960%20(Div.%202)%2020-jul-24/E.%20Catch%20the%20Mole.cpp) | CF R 960 (Div. 2) 20-jul-24 | 2600 | ✔ Resuelto |
 | [D. MEX Replacement on Tree.cpp](CF%20R%201093%20(Div.%201)%2013-abr-26/D.%20MEX%20Replacement%20on%20Tree.cpp) | CF R 1093 (Div. 1) 13-abr-26 | 2700 | ✔ Resuelto |
 | [G. Stripe, Token and Two Players.cpp](CF%20R%201102%20(Div.%202)%207-jun-26/G.%20Stripe%2C%20Token%20and%20Two%20Players.cpp) | CF R 1102 (Div. 2) 7-jun-26 | 2700 | ✔ Resuelto |

@@ -134,25 +134,85 @@ void lee(int n, vi& vect) {
     return ;
 }
 
-#define INF INT_MAX
-#define MAXI 100000
+#define INF LLONG_MAX
+#define SAMPLE 999999
 double pi = 2*acos(0.0);
+#define int lli
 
-int solve(int a, int b, int k) {
+mt19937 rd(clock());
+
+int gcd(int a, int b, int& x, int& y) {
+    x = 1, y = 0;
+    int x1 = 0, y1 = 1, a1 = a, b1 = b;
+    while (b1) {
+        int q = a1 / b1;
+        tie(x, x1) = make_tuple(x1, x - q * x1);
+        tie(y, y1) = make_tuple(y1, y - q * y1);
+        tie(a1, b1) = make_tuple(b1, a1 - q * b1);
+    }
+    return a1;
+}
+
+bool find_any_solution(int a, int b, int c, int &x0, int &y0, int &g) {
+    g = gcd(abs(a), abs(b), x0, y0);
+    if (c % g) {
+        return false;
+    }
+    x0 *= c / g;
+    y0 *= c / g;
+    if (a < 0) x0 = -x0;
+    if (b < 0) y0 = -y0;
+    return true;
+}
+
+int solve() {
     // Code aquí
-    vector<vi> sol;
-    for (int i = 0; i<MAXI; i++){
-        sol.PB({});
-        int next = i;
-        while(next >= 0){
-            sol.back().push_back(next);
-            if ((k-a*sol.back().back())%b) break;
-            next = (k-a*sol.back().back())/b;
-        }
-    }
-    for (auto x:sol){
-        cout << x << endl;
-    }
+    int n, a, b, k; cin >> n >> a >> b >> k;
+    DBG_COUT(cout << "Test: " << n << " " << a << " " << b << " " << k << endl);
+    
+    // Tenemos que resolver el sistema de ecuaciones:
+    // a * x[0] = k
+    // a * x[1] + b * x[0] = k
+    // a * x[2] + b * x[1] = k
+    // etc.
+    // a * x[i+1] + b * x[i] = k
+    // etc.
+    // a * x[n-1] + b * x[n-2] = k
+    // Donde x[i] son enteros no negativos
+    
+    // En primer lugar, si k no es divisible por d = gcd(a, b), la respuesta es 0.
+    // Por otro lado, para a = 1 y b = 1, la solución es n
+    // El primer paso de nuestro algoritmo es tratar de satisfacer las primeras ecuaciones. Entonces, si decimos que vamos a cumplir las primeras m ecuaciones:
+    // x[0] = k/a
+    // x[1] = (k - b * x[0])/a
+    // etc.
+    // x[i+1] = (k - b * x[i])/a
+    // etc.
+    // x[m-1] = (k - b * x[m-2])/a
+    
+    // Una vez hecho eso, sabemos que la ecuación a * x[m] + b * x[m-1] = k no se cumple, por lo que las siguientes son independientes
+    // Ahora tenemos en cuenta índices i >= m
+    // La evolución de la secuencia podemos ver que es lineal ya que x[i+1] = k/a - b/a * x[i]
+    // Generalizando, digamos que r = -b/a y c = k/a. Entonces x[i+1] = r * x[i] + c
+    // r es negativo ya que tanto a como b son positivos. Entoces hay un punto donde la sucesión converge:
+    // L = r * L + c -> L = c/(1 - r) = (k/a)/(1+b/a) = k/(a+b)
+    // Luego, definimos e[i] como el error entre x[i] y L. Entonces e[i+1] = x[i+1]-L -> e[i+1] = (r * x[i] + c) - (r * L + c) -> e[i+1] = r*(x[i] - L) -> e[i+1] = r*e[i]
+    // Entonces e[i] sigue una sucesión geométrica, por lo que x[i]-L = r^(i-m) (x[m]-L) [Recuerda que nuestro x[0] sería x[m]]
+    // Si sustituimos: x[i] = (-b/a)^(i-m) * (x[m] - k/(a+b)) + k/(a+b) <-> x[i] = (-b/a)^(i-m) * x[m] + (1 - (-b/a)^(i-m)) * k/(a+b)
+    // Ahora se trata de buscar el valor de i más grande tal que x[i] sea un entero no negativoy x[m] tampoco.
+    
+    // Para cumplir, volviendo a la definición recursiva, necesitamos que:
+    // 1. k - b * x[i] >= 0 -> x[i] <= k/b
+    // 2. b * x[i] = k mod a
+    // Así que ahora hay múltiples casos que contemplar:
+    // 1. i es infinito: Sucede si x[m] = L o si a = b. Esto es fácil de ver ya que r = -b/a, por lo que la pendiente sería -1 y entraría en bucle
+    // 2. i es finito
+    // E
+
+
+    
+    DBG_COUT(cout << "=========================================" << endl);
+
     return 0;
 }
 
@@ -161,7 +221,11 @@ signed main() {
     cin.tie(nullptr);
     cout.tie(nullptr); 
     auto start = chrono::high_resolution_clock::now();
-    solve(11, 37, 111111);
+    int T;
+    cin >> T; // Número de casos
+    while (T--) {
+        solve();
+    }
     auto finish = chrono::high_resolution_clock::now();
     DBG_COUT(
         chrono::duration<double> elapsed = finish - start;

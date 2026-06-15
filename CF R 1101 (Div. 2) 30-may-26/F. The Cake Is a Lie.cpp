@@ -134,85 +134,139 @@ void lee(int n, vi& vect) {
     return ;
 }
 
-#define INF LLONG_MAX
-#define SAMPLE 999999
+#define INF 1e9
 double pi = 2*acos(0.0);
-#define int lli
 
-mt19937 rd(clock());
-
-int gcd(int a, int b, int& x, int& y) {
-    x = 1, y = 0;
-    int x1 = 0, y1 = 1, a1 = a, b1 = b;
-    while (b1) {
-        int q = a1 / b1;
-        tie(x, x1) = make_tuple(x1, x - q * x1);
-        tie(y, y1) = make_tuple(y1, y - q * y1);
-        tie(a1, b1) = make_tuple(b1, a1 - q * b1);
+// Algoritmo de euclides extendido
+lli gcd(lli a, lli b, lli &x, lli &y){
+    if(b == 0){
+        x= 1; y = 0;
+        return a;
     }
-    return a1;
-}
-
-bool find_any_solution(int a, int b, int c, int &x0, int &y0, int &g) {
-    g = gcd(abs(a), abs(b), x0, y0);
-    if (c % g) {
-        return false;
-    }
-    x0 *= c / g;
-    y0 *= c / g;
-    if (a < 0) x0 = -x0;
-    if (b < 0) y0 = -y0;
-    return true;
+    lli x1, y1;
+    lli d = gcd(b, a%b, x1, y1);
+    x = y1;
+    y = x1 - y1*(a/b);
+    return d;
 }
 
 int solve() {
     // Code aquí
-    int n, a, b, k; cin >> n >> a >> b >> k;
-    DBG_COUT(cout << "Test: " << n << " " << a << " " << b << " " << k << endl);
+	lli n, a, b, k;
+    cin >> n >> a >> b >> k;
+	DBG_COUT(cout << "Test: " << n << " " << a << " " << b << " " << k << endl);
+	DBG_COUT(cout << "Ecuaciones: " << a << " * x[i+1] + " << b << " * x[i] = " << k << endl);
+
+	// Partimos de la ecuación diofántica a * x[i+1] + b * x[i] = k. Siendo x[i] el número de minutos que calientas un pancake 
+	// antes de mover los pancakes de sarten. Entonces la ecuación si se cunple, significa que el pancake i+1 se cocina bien (cookedness = k)
+
+	// Define g como el máximo común divisor de a y b
+    lli g = __gcd(a, b);
+	DBG_COUT(cout << "GCD(a, b) = " << g << endl);
+
+	// En caso de k no ser divisible por g, como en cualquier ecuación diofántica, ninguna tiene solución.
+    if(k % g != 0){
+		DBG_COUT(cout << "No se pueden satisfacer las ecuaciones..." << endl << "Solucion: ");
+        cout << "0\n";
+        return 0;
+    }
+
+	// Dividimos todos los valores entre g. Esto hace que se simplifiquen las ecuaciones y a efectos prácticos el número de soluciones permanece constante.
+    a /= g; b /= g; k /= g;
+
+	// Si a y b son 1 (a y b originales eran el mismo número), como sabemos que las ecuaciones tienen solución, el resultado es n, al haber n ecuaciones
+    if(a == 1 && b == 1) {
+		DBG_COUT(cout << "a = b, todas son soluciones." << endl << "Solucion: ");
+        cout << n << "\n";
+        return 0;
+    }
+	DBG_COUT(cout << "Nuevos valores: " << a << " " << b << " " << k << endl);
+
+    // Si no es uno de los casos bases, empezamos el proceso general:
+
+	// Paso 1: Cocina los primeros pancakes. La ecuación del pancake 0 es a * x[0] = k, así que lo que tenemos que hacer es satisfacer dicha ecuación si fuera posible.
+	// Continuamos con todas las demás ecuaciones hasta que nos sea imposible satisfacer la siguiente.
+    DBG_COUT(cout << "Empezando paso 1..." << endl);
+	lli ans = 0;
+    if(k % a == 0) { // Si se puede satisfacer a * x[0] = k
+        ans++; n--; // Reducimos el número de ecuaciones y aumentamos el número de ecuaciones satisfechas
+        lli x = k / a; // Fija el valor de x[0]
+        while(n > 0) { // Mientras que queden ecuaciones disponibles
+            DBG_COUT(cout << "Ultima x: " << x << endl);
+			if(k - (x * b) < 0 || (k - x * b) % a != 0) break; // En caso de no poder satisfacer la siguiente ecuación, pasa al paso 2
+			// En caso de satisfacerla, añade 1 al número de ecuaciones satisfechas y reduce el número de ecuaciones restantes
+			// Fija tambien el nuevo x[i]
+            x = (k - x * b) / a;
+            ans++;
+            n--;
+        }
+    }
+	DBG_COUT(cout << "Soluciones del paso 1: " << ans << endl);
+
+    // Paso 2: Busca cual es la secuencia más larga de x[0], x[1], ..., x[v] donde x[i+1] = (k - b * x[i])/a [Ecuación recursiva obtenida del principio]
+	// Ten en cuenta que todas las x[i] deben ser enteros no negativos. ¿Cuál es el valor máximo de v?
     
-    // Tenemos que resolver el sistema de ecuaciones:
-    // a * x[0] = k
-    // a * x[1] + b * x[0] = k
-    // a * x[2] + b * x[1] = k
-    // etc.
-    // a * x[i+1] + b * x[i] = k
-    // etc.
-    // a * x[n-1] + b * x[n-2] = k
-    // Donde x[i] son enteros no negativos
-    
-    // En primer lugar, si k no es divisible por d = gcd(a, b), la respuesta es 0.
-    // Por otro lado, para a = 1 y b = 1, la solución es n
-    // El primer paso de nuestro algoritmo es tratar de satisfacer las primeras ecuaciones. Entonces, si decimos que vamos a cumplir las primeras m ecuaciones:
-    // x[0] = k/a
-    // x[1] = (k - b * x[0])/a
-    // etc.
-    // x[i+1] = (k - b * x[i])/a
-    // etc.
-    // x[m-1] = (k - b * x[m-2])/a
-    
-    // Una vez hecho eso, sabemos que la ecuación a * x[m] + b * x[m-1] = k no se cumple, por lo que las siguientes son independientes
-    // Ahora tenemos en cuenta índices i >= m
-    // La evolución de la secuencia podemos ver que es lineal ya que x[i+1] = k/a - b/a * x[i]
-    // Generalizando, digamos que r = -b/a y c = k/a. Entonces x[i+1] = r * x[i] + c
-    // r es negativo ya que tanto a como b son positivos. Entoces hay un punto donde la sucesión converge:
-    // L = r * L + c -> L = c/(1 - r) = (k/a)/(1+b/a) = k/(a+b)
-    // Luego, definimos e[i] como el error entre x[i] y L. Entonces e[i+1] = x[i+1]-L -> e[i+1] = (r * x[i] + c) - (r * L + c) -> e[i+1] = r*(x[i] - L) -> e[i+1] = r*e[i]
-    // Entonces e[i] sigue una sucesión geométrica, por lo que x[i]-L = r^(i-m) (x[m]-L) [Recuerda que nuestro x[0] sería x[m]]
-    // Si sustituimos: x[i] = (-b/a)^(i-m) * (x[m] - k/(a+b)) + k/(a+b) <-> x[i] = (-b/a)^(i-m) * x[m] + (1 - (-b/a)^(i-m)) * k/(a+b)
-    // Ahora se trata de buscar el valor de i más grande tal que x[i] sea un entero no negativoy x[m] tampoco.
-    
-    // Para cumplir, volviendo a la definición recursiva, necesitamos que:
-    // 1. k - b * x[i] >= 0 -> x[i] <= k/b
-    // 2. b * x[i] = k mod a
-    // Así que ahora hay múltiples casos que contemplar:
-    // 1. i es infinito: Sucede si x[m] = L o si a = b. Esto es fácil de ver ya que r = -b/a, por lo que la pendiente sería -1 y entraría en bucle
-    // 2. i es finito
-    // E
+    // En vez de hacer una secuencia, vamos a usar una función f(x) = (k - b * x[i])/a. De esta forma, x[0] = f(x), x[2] = f(f(f(x))). Digamos que x[i] corresponde a f^(i+1)(x)
+    // Entonces, f^i(x) = (-b/a)^i * (x - L) + L. Donde L es el punto tal que f(x) = x, L = k/(a+b)
+
+    lli v = 0;
+    if(k % (a + b) == 0) v = INF; // Bucle infinito, la secuencia converge en un número entero por lo que la solución es máxima y la secuencia tiene longitud infinita (v = INF)
+    else {
+        if(a < b) swap(a, b);
+        // Estaremos resolviendo la ecuación diofántica (a + b) x + m y = k
+        // Esta sale de la formula x[i+1] = (k - b * x[i])/a. Esto sigue una progresión afin. 
+        // Define e[i] = x[i] - x[i-1]. Entonces, e[i] = (k - b * x[i-1])/a - (k - b * x[i-2])/a = b * (x[i-1] - x[i-2])/a = b * e[i-1] / a. 
+        // Entonces e[v] sigue una progresión geométrica. Así que e[v] = (b/a)^v (e[0])
+        // Podemos decir entonces que a^v * e[v] - b^v * e[0] = 0.
+        // Si decimos que e[v] = y, x[0] = x[1] + a^v * y.
+        // Como a * x[1] + b * x[0] = k <-> a * x[1] + b * (x[1] + a ^ v * y) = k <-> (a+b) x[1] + b * a^v * y
+        // Definimos m = b * a^v y x[1] 0 x. Entonces nos queda resolver la ecuación (a+b) * x + m * y = k
+        // Esta parte del código tan solo aumenta v poco a poco 
+
+		lli m = b; // m = b * a^v, al inicio v = 0, por lo que m = b
+        while(true) {
+            lli x, y;
+            gcd(a + b, m, x, y); // Obten una solución a la ecuacion diofántica
+
+            if(x < 0) {x += m; y -= a + b;} // Haz que la solucion tenga una x no negativa
+            x *= k; y *= k; // Adapta la solución para que de k
+            lli d = x / m; 
+        	x -= d * m; y += d * (a + b); // Obtiene la solución positiva
 
 
-    
-    DBG_COUT(cout << "=========================================" << endl);
+        	if(m / b * y + x < 0) break;
 
+        	// Aunque exista solución, solo comprueba que el inicio y el fin están correctos, por lo que buscamos si las soluciones intermedias son correctas
+        	bool ok = true;
+        	lli x1 = x, x2 = m / b * y + x;
+        	for(int _=0; _<v; _++)
+        	{
+        	    if(a * x1 + b * x2 != k) ok = false;
+
+        	    if((k - b * x1) % a)
+        	    {
+        	        ok = false;
+        	        break;
+        	    }
+
+        	    x2 = x1;
+        	    x1 = (k - b * x1) / a;
+        	}
+
+        	if(!ok) break;
+
+        	v++;
+
+        	if(a > k / m) break;
+        	m *= a;
+    	}
+    }
+
+    DBG_COUT(cout << "Valor obtenido del paso 2: " << v << endl);
+	DBG_COUT(cout << "Numero de ecuaciones satisfechas por el paso 2: " << (n - (n + v) / (v + 1)) << endl);
+
+	DBG_COUT(cout << "Solucion: ");
+    cout << ans + (n - (n + v) / (v + 1)) << "\n"; // Cada v + 1 números, hay v correctos y 1 incorrecto
     return 0;
 }
 
@@ -225,6 +279,7 @@ signed main() {
     cin >> T; // Número de casos
     while (T--) {
         solve();
+		DBG_COUT(cout << "========================================" << endl);
     }
     auto finish = chrono::high_resolution_clock::now();
     DBG_COUT(
@@ -235,4 +290,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2232/problem/F

@@ -205,12 +205,24 @@ int solve() {
 
     // Paso 2: Busca cual es la secuencia más larga de x[0], x[1], ..., x[v] donde x[i+1] = (k - b * x[i])/a [Ecuación recursiva obtenida del principio]
 	// Ten en cuenta que todas las x[i] deben ser enteros no negativos. ¿Cuál es el valor máximo de v?
+    
+    // En vez de hacer una secuencia, vamos a usar una función f(x) = (k - b * x[i])/a. De esta forma, x[0] = f(x), x[2] = f(f(f(x))). Digamos que x[i] corresponde a f^(i+1)(x)
+    // Entonces, f^i(x) = (-b/a)^i * (x - L) + L. Donde L es el punto tal que f(x) = x, L = k/(a+b)
+
     lli v = 0;
     if(k % (a + b) == 0) v = INF; // Bucle infinito, la secuencia converge en un número entero por lo que la solución es máxima y la secuencia tiene longitud infinita (v = INF)
     else {
         if(a < b) swap(a, b);
-        // Estaremos resolviendo la ecuación diofántica (a + b) x + b * a^v y = k
-		// Esta nos dará una periodicidad. Ya que si dado cualquier número después de v pasos volvemos al mismo número, tan solo tenemos que comprobarlo módulo v
+        // Estaremos resolviendo la ecuación diofántica (a + b) x + m y = k
+        // Esta sale de la formula x[i+1] = (k - b * x[i])/a. Esto sigue una progresión afin. 
+        // Define e[i] = x[i] - x[i-1]. Entonces, e[i] = (k - b * x[i-1])/a - (k - b * x[i-2])/a = b * (x[i-1] - x[i-2])/a = b * e[i-1] / a. 
+        // Entonces e[v] sigue una progresión geométrica. Así que e[v] = (b/a)^v (e[0])
+        // Podemos decir entonces que a^v * e[v] - b^v * e[0] = 0.
+        // Si decimos que e[v] = y, x[0] = x[1] + a^v * y.
+        // Como a * x[1] + b * x[0] = k <-> a * x[1] + b * (x[1] + a ^ v * y) = k <-> (a+b) x[1] + b * a^v * y
+        // Definimos m = b * a^v y x[1] 0 x. Entonces nos queda resolver la ecuación (a+b) * x + m * y = k
+        // Esta parte del código tan solo aumenta v poco a poco 
+
 		lli m = b; // m = b * a^v, al inicio v = 0, por lo que m = b
         while(true) {
             lli x, y;
@@ -219,12 +231,12 @@ int solve() {
             if(x < 0) {x += m; y -= a + b;} // Haz que la solucion tenga una x no negativa
             x *= k; y *= k; // Adapta la solución para que de k
             lli d = x / m; 
-        	x -= d * m; y += d * (a + b);
+        	x -= d * m; y += d * (a + b); // Obtiene la solución positiva
 
 
         	if(m / b * y + x < 0) break;
 
-        	/// Secondary Check
+        	// Aunque exista solución, solo comprueba que el inicio y el fin están correctos, por lo que buscamos si las soluciones intermedias son correctas
         	bool ok = true;
         	lli x1 = x, x2 = m / b * y + x;
         	for(int _=0; _<v; _++)
@@ -254,7 +266,7 @@ int solve() {
 	DBG_COUT(cout << "Numero de ecuaciones satisfechas por el paso 2: " << (n - (n + v) / (v + 1)) << endl);
 
 	DBG_COUT(cout << "Solucion: ");
-    cout << ans + (n - (n + v) / (v + 1)) << "\n";
+    cout << ans + (n - (n + v) / (v + 1)) << "\n"; // Cada v + 1 números, hay v correctos y 1 incorrecto
     return 0;
 }
 

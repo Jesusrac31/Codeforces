@@ -134,25 +134,127 @@ void lee(int n, vi& vect) {
     return ;
 }
 
-#define INF INT_MAX
-#define MAXI 100000
+#define INF 1e9
 double pi = 2*acos(0.0);
 
-int solve(int a, int b, int k) {
+// Algoritmo de euclides extendido
+lli gcd(lli a, lli b, lli &x, lli &y){
+    if(b == 0){
+        x= 1; y = 0;
+        return a;
+    }
+    lli x1, y1;
+    lli d = gcd(b, a%b, x1, y1);
+    x = y1;
+    y = x1 - y1*(a/b);
+    return d;
+}
+
+int solve() {
     // Code aquí
-    vector<vi> sol;
-    for (int i = 0; i<MAXI; i++){
-        sol.PB({});
-        int next = i;
-        while(next >= 0){
-            sol.back().push_back(next);
-            if ((k-a*sol.back().back())%b) break;
-            next = (k-a*sol.back().back())/b;
+	lli n, a, b, k;
+    cin >> n >> a >> b >> k;
+	DBG_COUT(cout << "Test: " << n << " " << a << " " << b << " " << k << endl);
+	DBG_COUT(cout << "Ecuaciones: " << a << " * x[i+1] + " << b << " * x[i] = " << k << endl);
+
+	// Partimos de la ecuación diofántica a * x[i+1] + b * x[i] = k. Siendo x[i] el número de minutos que calientas un pancake 
+	// antes de mover los pancakes de sarten. Entonces la ecuación si se cunple, significa que el pancake i+1 se cocina bien (cookedness = k)
+
+	// Define g como el máximo común divisor de a y b
+    lli g = __gcd(a, b);
+	DBG_COUT(cout << "GCD(a, b) = " << g << endl);
+
+	// En caso de k no ser divisible por g, como en cualquier ecuación diofántica, ninguna tiene solución.
+    if(k % g != 0){
+		DBG_COUT(cout << "No se pueden satisfacer las ecuaciones..." << endl << "Solucion: ");
+        cout << "0\n";
+        return 0;
+    }
+
+	// Dividimos todos los valores entre g. Esto hace que se simplifiquen las ecuaciones y a efectos prácticos el número de soluciones permanece constante.
+    a /= g; b /= g; k /= g;
+
+	// Si a y b son 1 (a y b originales eran el mismo número), como sabemos que las ecuaciones tienen solución, el resultado es n, al haber n ecuaciones
+    if(a == 1 && b == 1) {
+		DBG_COUT(cout << "a = b, todas son soluciones." << endl << "Solucion: ");
+        cout << n << "\n";
+        return 0;
+    }
+	DBG_COUT(cout << "Nuevos valores: " << a << " " << b << " " << k << endl);
+
+    // Si no es uno de los casos bases, empezamos el proceso general:
+
+	// Paso 1: Cocina los primeros pancakes. La ecuación del pancake 0 es a * x[0] = k, así que lo que tenemos que hacer es satisfacer dicha ecuación si fuera posible.
+	// Continuamos con todas las demás ecuaciones hasta que nos sea imposible satisfacer la siguiente.
+    DBG_COUT(cout << "Empezando paso 1..." << endl);
+	lli ans = 0;
+    if(k % a == 0) { // Si se puede satisfacer a * x[0] = k
+        ans++; n--; // Reducimos el número de ecuaciones y aumentamos el número de ecuaciones satisfechas
+        lli x = k / a; // Fija el valor de x[0]
+        while(n > 0) { // Mientras que queden ecuaciones disponibles
+            DBG_COUT(cout << "Ultima x: " << x << endl);
+			if(k - (x * b) < 0 || (k - x * b) % a != 0) break; // En caso de no poder satisfacer la siguiente ecuación, pasa al paso 2
+			// En caso de satisfacerla, añade 1 al número de ecuaciones satisfechas y reduce el número de ecuaciones restantes
+			// Fija tambien el nuevo x[i]
+            x = (k - x * b) / a;
+            ans++;
+            n--;
         }
     }
-    for (auto x:sol){
-        cout << x << endl;
+	DBG_COUT(cout << "Soluciones del paso 1: " << ans << endl);
+
+    // Paso 2: Busca cual es la secuencia más larga de x[0], x[1], ..., x[v] donde x[i+1] = (k - b * x[i])/a [Ecuación recursiva obtenida del principio]
+	// Ten en cuenta que todas las x[i] deben ser enteros no negativos. ¿Cuál es el valor máximo de v?
+    lli v = 0;
+    if(k % (a + b) == 0) v = INF; // Bucle infinito, la secuencia converge en un número entero por lo que la solución es máxima y la secuencia tiene longitud infinita (v = INF)
+    else {
+        if(a < b) swap(a, b);
+        // Estaremos resolviendo la ecuación diofántica (a + b) x + b * a^v y = k
+		// Esta nos dará una periodicidad. Ya que si dado cualquier número después de v pasos volvemos al mismo número, tan solo tenemos que comprobarlo módulo v
+		lli m = b; // m = b * a^v, al inicio v = 0, por lo que m = b
+        while(true) {
+            lli x, y;
+            gcd(a + b, m, x, y); // Obten una solución a la ecuacion diofántica
+
+            if(x < 0) {x += m; y -= a + b;} // Haz que la solucion tenga una x no negativa
+            x *= k; y *= k; // Adapta la solución para que de k
+            lli d = x / m; 
+        	x -= d * m; y += d * (a + b);
+
+
+        	if(m / b * y + x < 0) break;
+
+        	/// Secondary Check
+        	bool ok = true;
+        	lli x1 = x, x2 = m / b * y + x;
+        	for(int _=0; _<v; _++)
+        	{
+        	    if(a * x1 + b * x2 != k) ok = false;
+
+        	    if((k - b * x1) % a)
+        	    {
+        	        ok = false;
+        	        break;
+        	    }
+
+        	    x2 = x1;
+        	    x1 = (k - b * x1) / a;
+        	}
+
+        	if(!ok) break;
+
+        	v++;
+
+        	if(a > k / m) break;
+        	m *= a;
+    	}
     }
+
+    DBG_COUT(cout << "Valor obtenido del paso 2: " << v << endl);
+	DBG_COUT(cout << "Numero de ecuaciones satisfechas por el paso 2: " << (n - (n + v) / (v + 1)) << endl);
+
+	DBG_COUT(cout << "Solucion: ");
+    cout << ans + (n - (n + v) / (v + 1)) << "\n";
     return 0;
 }
 
@@ -161,7 +263,12 @@ signed main() {
     cin.tie(nullptr);
     cout.tie(nullptr); 
     auto start = chrono::high_resolution_clock::now();
-    solve(11, 37, 111111);
+    int T;
+    cin >> T; // Número de casos
+    while (T--) {
+        solve();
+		DBG_COUT(cout << "========================================" << endl);
+    }
     auto finish = chrono::high_resolution_clock::now();
     DBG_COUT(
         chrono::duration<double> elapsed = finish - start;

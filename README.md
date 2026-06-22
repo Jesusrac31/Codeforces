@@ -6,8 +6,8 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ## Resumen
 
-- Problemas intentados: **267**
-- Problemas resueltos: **267**
+- Problemas intentados: **274**
+- Problemas resueltos: **274**
 - Problemas sin terminar: **0**
 - Porcentaje de resolución: **100%**
 
@@ -28,6 +28,16 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 ```
 
 ## Problemas por concurso/carpeta
+
+### CF R 1103 (Div. 3) 12-jun-26
+
+- [A. Games on the Train.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/A.%20Games%20on%20the%20Train.cpp)
+- [B. Tatar TV Show.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/B.%20Tatar%20TV%20Show.cpp)
+- [C. Omsk Programmers.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/C.%20Omsk%20Programmers.cpp)
+- [D. Brand New Tatar TV Show.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/D.%20Brand%20New%20Tatar%20TV%20Show.cpp)
+- [E. Friendly Gifts.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/E.%20Friendly%20Gifts.cpp)
+- [F. Elections in Saransk.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/F.%20Elections%20in%20Saransk.cpp)
+- [G. Criterion in Burlandia.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/G.%20Criterion%20in%20Burlandia.cpp)
 
 ### CF R 1102 (Div. 2) 7-jun-26
 
@@ -524,6 +534,8 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [A. Convergence.cpp](CF%20R%201101%20(Div.%202)%2030-may-26/A.%20Convergence.cpp) | CF R 1101 (Div. 2) 30-may-26 | 800 | ✔ Resuelto |
 | [A. Euclid, Sequence and Two Numbers.cpp](CF%20R%201102%20(Div.%202)%207-jun-26/A.%20Euclid%2C%20Sequence%20and%20Two%20Numbers.cpp) | CF R 1102 (Div. 2) 7-jun-26 | 800 | ✔ Resuelto |
 | [B. Palindrome, Twelve and Two Terms.cpp](CF%20R%201102%20(Div.%202)%207-jun-26/B.%20Palindrome%2C%20Twelve%20and%20Two%20Terms.cpp) | CF R 1102 (Div. 2) 7-jun-26 | 800 | ✔ Resuelto |
+| [A. Games on the Train.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/A.%20Games%20on%20the%20Train.cpp) | CF R 1103 (Div. 3) 12-jun-26 | 800 | ✔ Resuelto |
+| [B. Tatar TV Show.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/B.%20Tatar%20TV%20Show.cpp) | CF R 1103 (Div. 3) 12-jun-26 | 800 | ✔ Resuelto |
 | [A. Round Down the Price.cpp](CF%20R%20805%20(Div.%203)%2010-jul-22/A.%20Round%20Down%20the%20Price.cpp) | CF R 805 (Div. 3) 10-jul-22 | 800 | ✔ Resuelto |
 | [A. Another String Minimization Problem.cpp](CF%20R%20809%20(Div.%202)%2018-jul-22/A.%20Another%20String%20Minimization%20Problem.cpp) | CF R 809 (Div. 2) 18-jul-22 | 800 | ✔ Resuelto |
 | [B. Remove Prefix.cpp](CF%20R%20811%20(Div.%203)%201-ago-22/B.%20Remove%20Prefix.cpp) | CF R 811 (Div. 3) 1-ago-22 | 800 | ✔ Resuelto |
@@ -588,6 +600,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [A. Not a Substring.cpp](Educational%20CF%20R%20153%20(Rated%20for%20Div.%202)%2017-ago-23/A.%20Not%20a%20Substring.cpp) | Educational CF R 153 (Rated for Div. 2) 17-ago-23 | 900 | ✔ Resuelto |
 | [C. Prefix Min and Suffix Max.cpp](CF%20R%201034%20(Div.%203)%201-jul-25/C.%20Prefix%20Min%20and%20Suffix%20Max.cpp) | CF R 1034 (Div. 3) 1-jul-25 | 1000 | ✔ Resuelto |
 | [B. Minimise Sum.cpp](CF%20R%201036%2C%20EPIC%20Institute%20of%20Technology%20R%20Summer%202025%20(Div.%201%20%2B%20Div.%202)%206-jul-25/B.%20Minimise%20Sum.cpp) | CF R 1036, EPIC Institute of Technology R Summer 2025 (Div. 1 + Div. 2) 6-jul-25 | 1000 | ✔ Resuelto |
+| [C. Omsk Programmers.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/C.%20Omsk%20Programmers.cpp) | CF R 1103 (Div. 3) 12-jun-26 | 1000 | ✔ Resuelto |
 | [B. Hamon Odyssey.cpp](CF%20R%20882%20(Div.%202)%206-jul-23/B.%20Hamon%20Odyssey.cpp) | CF R 882 (Div. 2) 6-jul-23 | 1000 | ✔ Resuelto |
 | [B. Permutations & Primes.cpp](CF%20R%20884%20(Div.%201%20%2B%20Div.%202)%2011-jul-23/B.%20Permutations%20%26%20Primes.cpp) | CF R 884 (Div. 1 + Div. 2) 11-jul-23 | 1000 | ✔ Resuelto |
 | [C. Tiles Comeback.cpp](CF%20R%20888%20(Div.%203)%2025-jul-23/C.%20Tiles%20Comeback.cpp) | CF R 888 (Div. 3) 25-jul-23 | 1000 | ✔ Resuelto |
@@ -643,6 +656,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [C1. Magnitude (Easy Version).cpp](CF%20Global%20R%2026%209-jun-24/C1.%20Magnitude%20(Easy%20Version).cpp) | CF Global R 26 9-jun-24 | 1300 | ✔ Resuelto |
 | [C. A Good Problem.cpp](CF%20R%201035%20(Div.%202)%205-jul-25/C.%20A%20Good%20Problem.cpp) | CF R 1035 (Div. 2) 5-jul-25 | 1300 | ✔ Resuelto |
 | [C. Subset Multiplication.cpp](CF%20R%201036%2C%20EPIC%20Institute%20of%20Technology%20R%20Summer%202025%20(Div.%201%20%2B%20Div.%202)%206-jul-25/C.%20Subset%20Multiplication.cpp) | CF R 1036, EPIC Institute of Technology R Summer 2025 (Div. 1 + Div. 2) 6-jul-25 | 1300 | ✔ Resuelto |
+| [D. Brand New Tatar TV Show.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/D.%20Brand%20New%20Tatar%20TV%20Show.cpp) | CF R 1103 (Div. 3) 12-jun-26 | 1300 | ✔ Resuelto |
 | [C. Parity Shuffle Sorting.cpp](CF%20R%20821%20(Div.%202)%2019-sep-22/C.%20Parity%20Shuffle%20Sorting.cpp) | CF R 821 (Div. 2) 19-sep-22 | 1300 | ✔ Resuelto |
 | [E1. Rudolf and Snowflakes (simple version).cpp](CF%20R%20883%20(Div.%203)%207-jul-23/E1.%20Rudolf%20and%20Snowflakes%20(simple%20version).cpp) | CF R 883 (Div. 3) 7-jul-23 | 1300 | ✔ Resuelto |
 | [D. Prefix Permutation Sums.cpp](CF%20R%20888%20(Div.%203)%2025-jul-23/D.%20Prefix%20Permutation%20Sums.cpp) | CF R 888 (Div. 3) 25-jul-23 | 1300 | ✔ Resuelto |
@@ -690,6 +704,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [F. Minimize Fixed Points.cpp](CF%20R%201034%20(Div.%203)%201-jul-25/F.%20Minimize%20Fixed%20Points.cpp) | CF R 1034 (Div. 3) 1-jul-25 | 1700 | ✔ Resuelto |
 | [D. Make a Palindrome.cpp](CF%20R%201036%2C%20EPIC%20Institute%20of%20Technology%20R%20Summer%202025%20(Div.%201%20%2B%20Div.%202)%206-jul-25/D.%20Make%20a%20Palindrome.cpp) | CF R 1036, EPIC Institute of Technology R Summer 2025 (Div. 1 + Div. 2) 6-jul-25 | 1700 | ✔ Resuelto |
 | [C. Manhattan Pairs.cpp](CF%20R%201038%2COrder%20Capital%20R%201%20(Div.%201%20%2B%20Div.%202)%2019-jul-25/C.%20Manhattan%20Pairs.cpp) | CF R 1038,Order Capital R 1 (Div. 1 + Div. 2) 19-jul-25 | 1700 | ✔ Resuelto |
+| [E. Friendly Gifts.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/E.%20Friendly%20Gifts.cpp) | CF R 1103 (Div. 3) 12-jun-26 | 1700 | ✔ Resuelto |
 | [C. The Third Problem.cpp](CF%20R%20804%20(Div.%202)%204-jul-22/C.%20The%20Third%20Problem.cpp) | CF R 804 (Div. 2) 4-jul-22 | 1700 | ✔ Resuelto |
 | [G. Path Prefixes.cpp](CF%20R%20811%20(Div.%203)%201-ago-22/G.%20Path%20Prefixes.cpp) | CF R 811 (Div. 3) 1-ago-22 | 1700 | ✔ Resuelto |
 | [E. Beautiful Array.cpp](CF%20R%20954%20(Div.%203)%2023-jun-24/E.%20Beautiful%20Array.cpp) | CF R 954 (Div. 3) 23-jun-24 | 1700 | ✔ Resuelto |
@@ -735,6 +750,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [D. Tree Coloring.cpp](Hello%202026%207-ene-25/D.%20Tree%20Coloring.cpp) | Hello 2026 7-ene-25 | 2100 | ✔ Resuelto |
 | [E. LCM is Legendary Counting Master.cpp](Hello%202026%207-ene-25/E.%20LCM%20is%20Legendary%20Counting%20Master.cpp) | Hello 2026 7-ene-25 | 2100 | ✔ Resuelto |
 | [D. Boxed Like a Fish.cpp](CF%20R%201085%20(Div.%201%20%2B%20Div.%202)%208-mar-26/D.%20Boxed%20Like%20a%20Fish.cpp) | CF R 1085 (Div. 1 + Div. 2) 8-mar-26 | 2200 | ✔ Resuelto |
+| [F. Elections in Saransk.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/F.%20Elections%20in%20Saransk.cpp) | CF R 1103 (Div. 3) 12-jun-26 | 2200 | ✔ Resuelto |
 | [D. Trees and Segments.cpp](CF%20R%20893%20(Div.%202)%2015-ago-23/D.%20Trees%20and%20Segments.cpp) | CF R 893 (Div. 2) 15-ago-23 | 2200 | ✔ Resuelto |
 | [E. Level Up.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/E.%20Level%20Up.cpp) | Educational CF R 168 (Rated for Div. 2) 30-jul-24 | 2200 | ✔ Resuelto |
 | [C. Comparable Permutations.cpp](CF%20R%201073%20(Div.%201)%2017-ene-26/C.%20Comparable%20Permutations.cpp) | CF R 1073 (Div. 1) 17-ene-26 | 2300 | ✔ Resuelto |
@@ -758,6 +774,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [D. Antiamuny and Slider Movement.cpp](CF%20R%201048%20(Div.%201)%208-sep-25/D.%20Antiamuny%20and%20Slider%20Movement.cpp) | CF R 1048 (Div. 1) 8-sep-25 | 2600 | ✔ Resuelto |
 | [E. Majority Wins.cpp](CF%20R%201075%20(Div.%202)%2023-ene-26/E.%20Majority%20Wins.cpp) | CF R 1075 (Div. 2) 23-ene-26 | 2600 | ✔ Resuelto |
 | [E. Snaking Arrangement.cpp](CF%20R%201101%20(Div.%202)%2030-may-26/E.%20Snaking%20Arrangement.cpp) | CF R 1101 (Div. 2) 30-may-26 | 2600 | ✔ Resuelto |
+| [G. Criterion in Burlandia.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/G.%20Criterion%20in%20Burlandia.cpp) | CF R 1103 (Div. 3) 12-jun-26 | 2600 | ✔ Resuelto |
 | [E. Catch the Mole.cpp](CF%20R%20960%20(Div.%202)%2020-jul-24/E.%20Catch%20the%20Mole.cpp) | CF R 960 (Div. 2) 20-jul-24 | 2600 | ✔ Resuelto |
 | [D. MEX Replacement on Tree.cpp](CF%20R%201093%20(Div.%201)%2013-abr-26/D.%20MEX%20Replacement%20on%20Tree.cpp) | CF R 1093 (Div. 1) 13-abr-26 | 2700 | ✔ Resuelto |
 | [G. Stripe, Token and Two Players.cpp](CF%20R%201102%20(Div.%202)%207-jun-26/G.%20Stripe%2C%20Token%20and%20Two%20Players.cpp) | CF R 1102 (Div. 2) 7-jun-26 | 2700 | ✔ Resuelto |

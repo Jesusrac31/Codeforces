@@ -137,30 +137,37 @@ void lee(int n, vi& vect) {
 #define INF INT_MAX
 double pi = 2*acos(0.0);
 
-vector<bool> isPrime;
-vector<int> primes;
-void criba(int n) {
-    isPrime = vector<bool>(n, true);
-    primes = vector<int>(1, 2);
-    isPrime[0] = isPrime[1] = false;
-    for (int i=3; i<n; i+=2) {
-        if (isPrime[i]) {
-            primes.push_back(i);
-            for (int h=2; h*i<n; ++h) {
-              isPrime[i*h] = 0;
-            }
-        }
-    }
-}
-
 int solve() {
     // Code aquí
-    criba(603);
-    cout << "{";
-    for (auto i:primes){
-        cout << i << ", ";
+    int n; cin >> n;
+    vi a(n); rep(i, n) cin >> a[i];
+    vi b(n); rep(i, n) cin >> b[i];
+
+    // Este problema consiste en buscar para cada posición en b, un número menor o igual en a. Decimos que un número es válido si cumple esa condición
+    // Resulta que b es estrictamente creciente, lo que llega a facilitar las cosas, ya que si un número es válido en la posición i, lo será también en la i+1
+    // Lo primero que hacemos sería encontrar la distancia mínima para satisfacer el número más pequeño y así consecutivamente. Afortunadamente, el input es de 2000, por lo que una búsqueda O(n^2) es posible
+    // Una vez colocado el primer elemento, quitamos este de la lista a y repetimos
+
+    int sol = 0;
+    for (int i = 0; i<n; i++){
+        DBG_COUT(cout << "Inspecting: " << i << " -> " << b[i] << endl);
+        for (int j = 0; j<a.size(); j++){
+            if (a[j] <= b[i]){
+                DBG_COUT(cout << "Found: " << j << " -> " << a[j] << endl);
+                sol += j;
+                borra(a, j);
+                break;
+            }
+        }
+        DBG_COUT(cout << "New a: " << a << endl);
+        if (a.size() != b.size()-i-1) {
+            DBG_COUT(cout << "FAIL" << endl);
+            cout << -1 << endl; return 0;
+        }
     }
-    cout << "}" << endl;
+
+    cout << sol << endl;
+
     return 0;
 }
 
@@ -170,7 +177,11 @@ signed main() {
     cout.tie(nullptr); 
     auto start = chrono::high_resolution_clock::now();
     int T;
-    solve();
+    cin >> T; // Número de casos
+    while (T--) {
+        solve();
+        DBG_COUT(cout << "================================" << endl);
+    }
     auto finish = chrono::high_resolution_clock::now();
     DBG_COUT(
         chrono::duration<double> elapsed = finish - start;
@@ -180,4 +191,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2237/problem/B

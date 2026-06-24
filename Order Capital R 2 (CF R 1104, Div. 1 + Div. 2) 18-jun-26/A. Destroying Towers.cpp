@@ -137,30 +137,20 @@ void lee(int n, vi& vect) {
 #define INF INT_MAX
 double pi = 2*acos(0.0);
 
-vector<bool> isPrime;
-vector<int> primes;
-void criba(int n) {
-    isPrime = vector<bool>(n, true);
-    primes = vector<int>(1, 2);
-    isPrime[0] = isPrime[1] = false;
-    for (int i=3; i<n; i+=2) {
-        if (isPrime[i]) {
-            primes.push_back(i);
-            for (int h=2; h*i<n; ++h) {
-              isPrime[i*h] = 0;
-            }
-        }
-    }
-}
-
 int solve() {
     // Code aquí
-    criba(603);
-    cout << "{";
-    for (auto i:primes){
-        cout << i << ", ";
+    int n; cin >> n;
+    vi a(n); rep(i, n) cin >> a[i];
+
+    int maxi = INF;
+    int sol = 0;
+    for (auto x: a){
+        sol+= min(maxi, x);
+        maxi = min(maxi, x);
     }
-    cout << "}" << endl;
+
+    cout << sol << endl;
+
     return 0;
 }
 
@@ -170,7 +160,10 @@ signed main() {
     cout.tie(nullptr); 
     auto start = chrono::high_resolution_clock::now();
     int T;
-    solve();
+    cin >> T; // Número de casos
+    while (T--) {
+        solve();
+    }
     auto finish = chrono::high_resolution_clock::now();
     DBG_COUT(
         chrono::duration<double> elapsed = finish - start;
@@ -180,4 +173,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2237/problem/A

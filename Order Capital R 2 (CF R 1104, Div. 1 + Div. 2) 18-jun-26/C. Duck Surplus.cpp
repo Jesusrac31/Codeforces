@@ -136,31 +136,32 @@ void lee(int n, vi& vect) {
 
 #define INF INT_MAX
 double pi = 2*acos(0.0);
-
-vector<bool> isPrime;
-vector<int> primes;
-void criba(int n) {
-    isPrime = vector<bool>(n, true);
-    primes = vector<int>(1, 2);
-    isPrime[0] = isPrime[1] = false;
-    for (int i=3; i<n; i+=2) {
-        if (isPrime[i]) {
-            primes.push_back(i);
-            for (int h=2; h*i<n; ++h) {
-              isPrime[i*h] = 0;
-            }
-        }
-    }
-}
+#define int lli
 
 int solve() {
     // Code aquí
-    criba(603);
-    cout << "{";
-    for (auto i:primes){
-        cout << i << ", ";
+    int n; cin >> n;
+    vi a(n); rep(i, n) cin >> a[i];
+
+    // Lo primero que tenemos que ver es el comportamiento en las distintas situaciones
+    // a[i] representará el valor inicial del elemento en la posición i de a. b[i] es el valor actual
+    // Si decimos b[i] = a[i] + x:
+    // a[i]+x, a[i+1], a[i+2]. Suponemos que a[i]+x > a[i+1] > a[i+2]
+    // a[i+2], a[i+2] + a[i+1], a[i+2] + a[i+1] + a[i] + x 
+    // De esta forma, el valor máximo es la suma de los últimos elementos, solo necesitamos buscar cual es el índice i desde donde empezar la secuencia
+    // Para esto buscamos una secuencia donde a[n-j] < sum(a[k] in i..n-j) para todo j entre 0 y n-i
+    // Esto nos permite computar un algoritmo O(n^2) que consiste en:
+    // Recorre el array de izquierda a derecha y busca el primer elemento i donde su secuencia i..n cumple la condición que se comprueba en O(n)
+    // Para optimizarlo, notamos que si la respuesta al subarray de los elementos entre 0 y j es i, pero el de 0 y j+1 no es i, puedes cortar el array original a j+1 .. n
+    // Esto permite computar en O(n)
+
+    int sol = a[0];
+    for (int i = 1; i<n; i++){
+        if (a[i] < sol) sol += a[i];
+        else sol = a[i];
     }
-    cout << "}" << endl;
+    cout << sol << endl;
+
     return 0;
 }
 
@@ -170,7 +171,10 @@ signed main() {
     cout.tie(nullptr); 
     auto start = chrono::high_resolution_clock::now();
     int T;
-    solve();
+    cin >> T; // Número de casos
+    while (T--) {
+        solve();
+    }
     auto finish = chrono::high_resolution_clock::now();
     DBG_COUT(
         chrono::duration<double> elapsed = finish - start;
@@ -180,4 +184,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2237/problem/C

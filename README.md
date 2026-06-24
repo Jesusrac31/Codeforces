@@ -6,8 +6,8 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ## Resumen
 
-- Problemas intentados: **274**
-- Problemas resueltos: **274**
+- Problemas intentados: **279**
+- Problemas resueltos: **279**
 - Problemas sin terminar: **0**
 - Porcentaje de resolución: **100%**
 
@@ -28,6 +28,14 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 ```
 
 ## Problemas por concurso/carpeta
+
+### Order Capital R 2 (CF R 1104, Div. 1 + Div. 2) 18-jun-26
+
+- [A. Destroying Towers.cpp](Order%20Capital%20R%202%20(CF%20R%201104%2C%20Div.%201%20%2B%20Div.%202)%2018-jun-26/A.%20Destroying%20Towers.cpp)
+- [B. Annoying the Ghost.cpp](Order%20Capital%20R%202%20(CF%20R%201104%2C%20Div.%201%20%2B%20Div.%202)%2018-jun-26/B.%20Annoying%20the%20Ghost.cpp)
+- [C. Duck Surplus.cpp](Order%20Capital%20R%202%20(CF%20R%201104%2C%20Div.%201%20%2B%20Div.%202)%2018-jun-26/C.%20Duck%20Surplus.cpp)
+- [D. Fullmetal Bitchemist.cpp](Order%20Capital%20R%202%20(CF%20R%201104%2C%20Div.%201%20%2B%20Div.%202)%2018-jun-26/D.%20Fullmetal%20Bitchemist.cpp)
+- [G. Send GCDs.cpp](Order%20Capital%20R%202%20(CF%20R%201104%2C%20Div.%201%20%2B%20Div.%202)%2018-jun-26/G.%20Send%20GCDs.cpp)
 
 ### CF R 1103 (Div. 3) 12-jun-26
 
@@ -580,6 +588,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [A. Morning Sandwich.cpp](Educational%20CF%20R%20152%20(Rated%20for%20Div.%202)%2027-jul-23/A.%20Morning%20Sandwich.cpp) | Educational CF R 152 (Rated for Div. 2) 27-jul-23 | 800 | ✔ Resuelto |
 | [A. Strong Password.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/A.%20Strong%20Password.cpp) | Educational CF R 168 (Rated for Div. 2) 30-jul-24 | 800 | ✔ Resuelto |
 | [A. Binary Array Game.cpp](Hello%202026%207-ene-25/A.%20Binary%20Array%20Game.cpp) | Hello 2026 7-ene-25 | 800 | ✔ Resuelto |
+| [A. Destroying Towers.cpp](Order%20Capital%20R%202%20(CF%20R%201104%2C%20Div.%201%20%2B%20Div.%202)%2018-jun-26/A.%20Destroying%20Towers.cpp) | Order Capital R 2 (CF R 1104, Div. 1 + Div. 2) 18-jun-26 | 800 | ✔ Resuelto |
 | [A. Maximize the Last Element.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/A.%20Maximize%20the%20Last%20Element.cpp) | Pinely R 4 (Div. 1 + Div. 2) 28-jul-24 | 800 | ✔ Resuelto |
 | [A. Difference Operations.cpp](Randoms/A.%20Difference%20Operations.cpp) | Randoms | 800 | ✔ Resuelto |
 | [B. Array.cpp](CF%20R%201087%20(Div.%202)%2021-mar-26/B.%20Array.cpp) | CF R 1087 (Div. 2) 21-mar-26 | 900 | ✔ Resuelto |
@@ -611,6 +620,8 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [B. Matrix Stabilization.cpp](CF%20R%20954%20(Div.%203)%2023-jun-24/B.%20Matrix%20Stabilization.cpp) | CF R 954 (Div. 3) 23-jun-24 | 1000 | ✔ Resuelto |
 | [B. Luke is a foodie.cpp](CodeTON%20R%202%20(Div.%201%20%2B%20Div.%202%2C%20Rated%2C%20Prizes!)%2031-jul-22/B.%20Luke%20is%20a%20foodie.cpp) | CodeTON R 2 (Div. 1 + Div. 2, Rated, Prizes!) 31-jul-22 | 1000 | ✔ Resuelto |
 | [B. Monsters.cpp](Educational%20CF%20R%20152%20(Rated%20for%20Div.%202)%2027-jul-23/B.%20Monsters.cpp) | Educational CF R 152 (Rated for Div. 2) 27-jul-23 | 1000 | ✔ Resuelto |
+| [B. Annoying the Ghost.cpp](Order%20Capital%20R%202%20(CF%20R%201104%2C%20Div.%201%20%2B%20Div.%202)%2018-jun-26/B.%20Annoying%20the%20Ghost.cpp) | Order Capital R 2 (CF R 1104, Div. 1 + Div. 2) 18-jun-26 | 1000 | ✔ Resuelto |
+| [C. Duck Surplus.cpp](Order%20Capital%20R%202%20(CF%20R%201104%2C%20Div.%201%20%2B%20Div.%202)%2018-jun-26/C.%20Duck%20Surplus.cpp) | Order Capital R 2 (CF R 1104, Div. 1 + Div. 2) 18-jun-26 | 1000 | ✔ Resuelto |
 | [B. Large Addition.cpp](CF%20Global%20R%2026%209-jun-24/B.%20Large%20Addition.cpp) | CF Global R 26 9-jun-24 | 1100 | ✔ Resuelto |
 | [B. Subsequence Update.cpp](CF%20R%201000%20(Div.%202)%2022-ene-25/B.%20Subsequence%20Update.cpp) | CF R 1000 (Div. 2) 22-ene-25 | 1100 | ✔ Resuelto |
 | [C. I Will Definitely Make It.cpp](CF%20R%201037%20(Div.%203)%2017-jul-25/C.%20I%20Will%20Definitely%20Make%20It.cpp) | CF R 1037 (Div. 3) 17-jul-25 | 1100 | ✔ Resuelto |
@@ -686,6 +697,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [D. Fun.cpp](CF%20R%20962%20(Div.%203)%2026-jul-24/D.%20Fun.cpp) | CF R 962 (Div. 3) 26-jul-24 | 1500 | ✔ Resuelto |
 | [D. Maximize the Root.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/D.%20Maximize%20the%20Root.cpp) | Educational CF R 168 (Rated for Div. 2) 30-jul-24 | 1500 | ✔ Resuelto |
 | [C. War Strategy.cpp](Hello%202026%207-ene-25/C.%20War%20Strategy.cpp) | Hello 2026 7-ene-25 | 1500 | ✔ Resuelto |
+| [D. Fullmetal Bitchemist.cpp](Order%20Capital%20R%202%20(CF%20R%201104%2C%20Div.%201%20%2B%20Div.%202)%2018-jun-26/D.%20Fullmetal%20Bitchemist.cpp) | Order Capital R 2 (CF R 1104, Div. 1 + Div. 2) 18-jun-26 | 1500 | ✔ Resuelto |
 | [C. Remove Exactly Two.cpp](CF%20R%201000%20(Div.%202)%2022-ene-25/C.%20Remove%20Exactly%20Two.cpp) | CF R 1000 (Div. 2) 22-ene-25 | 1600 | ✔ Resuelto |
 | [D. Billion Players Game.cpp](CF%20R%201066%20(Div.%201%20%2B%20Div.%202)%2030-nov-25/D.%20Billion%20Players%20Game.cpp) | CF R 1066 (Div. 1 + Div. 2) 30-nov-25 | 1600 | ✔ Resuelto |
 | [B. One Night At Freddy's.cpp](CF%20R%201085%20(Div.%201%20%2B%20Div.%202)%208-mar-26/B.%20One%20Night%20At%20Freddy's.cpp) | CF R 1085 (Div. 1 + Div. 2) 8-mar-26 | 1600 | ✔ Resuelto |
@@ -780,6 +792,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [G. Stripe, Token and Two Players.cpp](CF%20R%201102%20(Div.%202)%207-jun-26/G.%20Stripe%2C%20Token%20and%20Two%20Players.cpp) | CF R 1102 (Div. 2) 7-jun-26 | 2700 | ✔ Resuelto |
 | [F. Appending Permutations.cpp](CF%20R%201036%2C%20EPIC%20Institute%20of%20Technology%20R%20Summer%202025%20(Div.%201%20%2B%20Div.%202)%206-jul-25/F.%20Appending%20Permutations.cpp) | CF R 1036, EPIC Institute of Technology R Summer 2025 (Div. 1 + Div. 2) 6-jul-25 | 2800 | ✔ Resuelto |
 | [F. Zhora the Vacuum Cleaner.cpp](CF%20R%201075%20(Div.%202)%2023-ene-26/F.%20Zhora%20the%20Vacuum%20Cleaner.cpp) | CF R 1075 (Div. 2) 23-ene-26 | 2800 | ✔ Resuelto |
+| [G. Send GCDs.cpp](Order%20Capital%20R%202%20(CF%20R%201104%2C%20Div.%201%20%2B%20Div.%202)%2018-jun-26/G.%20Send%20GCDs.cpp) | Order Capital R 2 (CF R 1104, Div. 1 + Div. 2) 18-jun-26 | 2900 | ✔ Resuelto |
 | [G. Simons and Diophantus Equation.cpp](CF%20R%201083%20(Div.%202)%2026-feb-26/G.%20Simons%20and%20Diophantus%20Equation.cpp) | CF R 1083 (Div. 2) 26-feb-26 | 3000 | ✔ Resuelto |
 | [F. The Cake Is a Lie.cpp](CF%20R%201101%20(Div.%202)%2030-may-26/F.%20The%20Cake%20Is%20a%20Lie.cpp) | CF R 1101 (Div. 2) 30-may-26 | 3000 | ✔ Resuelto |
 | [E. Determinant Construction.cpp](CF%20R%201048%20(Div.%201)%208-sep-25/E.%20Determinant%20Construction.cpp) | CF R 1048 (Div. 1) 8-sep-25 | 3100 | ✔ Resuelto |

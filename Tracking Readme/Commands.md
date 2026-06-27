@@ -40,5 +40,5 @@ powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Backfill-StatusComme
 
 En cmd:
 ```cmd
-powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Backfill-StatusComments.ps1" & powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Update-Readme.ps1" & powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Update-ReadmeStats.ps1" & powershell -EsecutionPolicy Bypass -File ".\Tracking Readme\Update-ReadmeLevels.ps1"
+powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Backfill-StatusComments.ps1" & powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Update-Readme.ps1" & powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Update-ReadmeStats.ps1" & powershell -ExecutionPolicy Bypass -File ".\Tracking Readme\Update-ReadmeLevels.ps1"
 ```

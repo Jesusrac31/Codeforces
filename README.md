@@ -6,8 +6,8 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ## Resumen
 
-- Problemas intentados: **279**
-- Problemas resueltos: **279**
+- Problemas intentados: **281**
+- Problemas resueltos: **281**
 - Problemas sin terminar: **0**
 - Porcentaje de resolución: **100%**
 
@@ -35,6 +35,8 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 - [B. Annoying the Ghost.cpp](Order%20Capital%20R%202%20(CF%20R%201104%2C%20Div.%201%20%2B%20Div.%202)%2018-jun-26/B.%20Annoying%20the%20Ghost.cpp)
 - [C. Duck Surplus.cpp](Order%20Capital%20R%202%20(CF%20R%201104%2C%20Div.%201%20%2B%20Div.%202)%2018-jun-26/C.%20Duck%20Surplus.cpp)
 - [D. Fullmetal Bitchemist.cpp](Order%20Capital%20R%202%20(CF%20R%201104%2C%20Div.%201%20%2B%20Div.%202)%2018-jun-26/D.%20Fullmetal%20Bitchemist.cpp)
+- [E. Permutation Commutation.cpp](Order%20Capital%20R%202%20(CF%20R%201104%2C%20Div.%201%20%2B%20Div.%202)%2018-jun-26/E.%20Permutation%20Commutation.cpp)
+- [F. Paint the Array.cpp](Order%20Capital%20R%202%20(CF%20R%201104%2C%20Div.%201%20%2B%20Div.%202)%2018-jun-26/F.%20Paint%20the%20Array.cpp)
 - [G. Send GCDs.cpp](Order%20Capital%20R%202%20(CF%20R%201104%2C%20Div.%201%20%2B%20Div.%202)%2018-jun-26/G.%20Send%20GCDs.cpp)
 
 ### CF R 1103 (Div. 3) 12-jun-26
@@ -752,6 +754,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [E. Computing Machine.cpp](CF%20R%20953%20(Div.%202)%2016-jun-24/E.%20Computing%20Machine.cpp) | CF R 953 (Div. 2) 16-jun-24 | 2000 | ✔ Resuelto |
 | [D. The Omnipotent Monster Killer.cpp](CF%20R%20958%20(Div.%202)%2015-jul-24/D.%20The%20Omnipotent%20Monster%20Killer.cpp) | CF R 958 (Div. 2) 15-jul-24 | 2000 | ✔ Resuelto |
 | [C. Robot in a Hallway.cpp](Educational%20CF%20R%20133%20(Rated%20for%20Div.%202)%204-ago-22/C.%20Robot%20in%20a%20Hallway.cpp) | Educational CF R 133 (Rated for Div. 2) 4-ago-22 | 2000 | ✔ Resuelto |
+| [E. Permutation Commutation.cpp](Order%20Capital%20R%202%20(CF%20R%201104%2C%20Div.%201%20%2B%20Div.%202)%2018-jun-26/E.%20Permutation%20Commutation.cpp) | Order Capital R 2 (CF R 1104, Div. 1 + Div. 2) 18-jun-26 | 2000 | ✔ Resuelto |
 | [G. Modular Sorting.cpp](CF%20R%201034%20(Div.%203)%201-jul-25/G.%20Modular%20Sorting.cpp) | CF R 1034 (Div. 3) 1-jul-25 | 2100 | ✔ Resuelto |
 | [D. Token Removing.cpp](CF%20R%201035%20(Div.%202)%205-jul-25/D.%20Token%20Removing.cpp) | CF R 1035 (Div. 2) 5-jul-25 | 2100 | ✔ Resuelto |
 | [E. Make it Zero.cpp](CF%20R%201036%2C%20EPIC%20Institute%20of%20Technology%20R%20Summer%202025%20(Div.%201%20%2B%20Div.%202)%206-jul-25/E.%20Make%20it%20Zero.cpp) | CF R 1036, EPIC Institute of Technology R Summer 2025 (Div. 1 + Div. 2) 6-jul-25 | 2100 | ✔ Resuelto |
@@ -777,6 +780,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [H. Codeforces Heuristic Contest 001.cpp](CF%20R%201080%20(Div.%203)%2015-feb-26/H.%20Codeforces%20Heuristic%20Contest%20001.cpp) | CF R 1080 (Div. 3) 15-feb-26 | 2400 | ✔ Resuelto |
 | [E2. N-MEX (Counting Version).cpp](CF%20R%201085%20(Div.%201%20%2B%20Div.%202)%208-mar-26/E2.%20N-MEX%20(Counting%20Version).cpp) | CF R 1085 (Div. 1 + Div. 2) 8-mar-26 | 2400 | ✔ Resuelto |
 | [E. Cross Swapping.cpp](CF%20R%20812%20(Div.%202)%206-ago-22/E.%20Cross%20Swapping.cpp) | CF R 812 (Div. 2) 6-ago-22 | 2400 | ✔ Resuelto |
+| [F. Paint the Array.cpp](Order%20Capital%20R%202%20(CF%20R%201104%2C%20Div.%201%20%2B%20Div.%202)%2018-jun-26/F.%20Paint%20the%20Array.cpp) | Order Capital R 2 (CF R 1104, Div. 1 + Div. 2) 18-jun-26 | 2400 | ✔ Resuelto |
 | [D. Prufer Vertex.cpp](CF%20R%201073%20(Div.%201)%2017-ene-26/D.%20Prufer%20Vertex.cpp) | CF R 1073 (Div. 1) 17-ene-26 | 2500 | ✔ Resuelto |
 | [D. Double Bracket Sequence.cpp](CF%20R%201079%20(Div.%201)%2011-feb-26/D.%20Double%20Bracket%20Sequence.cpp) | CF R 1079 (Div. 1) 11-feb-26 | 2500 | ✔ Resuelto |
 | [F. Points.cpp](Educational%20CF%20R%20131%20(Rated%20for%20Div.%202)%208-jul-22/F.%20Points.cpp) | Educational CF R 131 (Rated for Div. 2) 8-jul-22 | 2500 | ✔ Resuelto |

@@ -6,8 +6,8 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ## Resumen
 
-- Problemas intentados: **281**
-- Problemas resueltos: **281**
+- Problemas intentados: **282**
+- Problemas resueltos: **282**
 - Problemas sin terminar: **0**
 - Porcentaje de resolución: **100%**
 
@@ -48,6 +48,10 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 - [E. Friendly Gifts.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/E.%20Friendly%20Gifts.cpp)
 - [F. Elections in Saransk.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/F.%20Elections%20in%20Saransk.cpp)
 - [G. Criterion in Burlandia.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/G.%20Criterion%20in%20Burlandia.cpp)
+
+### Educational CF R 191 (Rated for Div. 2) 9-jun-26
+
+- [F. Shortest GCD Paths.cpp](Educational%20CF%20R%20191%20(Rated%20for%20Div.%202)%209-jun-26/F.%20Shortest%20GCD%20Paths.cpp)
 
 ### CF R 1102 (Div. 2) 7-jun-26
 
@@ -796,6 +800,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [G. Stripe, Token and Two Players.cpp](CF%20R%201102%20(Div.%202)%207-jun-26/G.%20Stripe%2C%20Token%20and%20Two%20Players.cpp) | CF R 1102 (Div. 2) 7-jun-26 | 2700 | ✔ Resuelto |
 | [F. Appending Permutations.cpp](CF%20R%201036%2C%20EPIC%20Institute%20of%20Technology%20R%20Summer%202025%20(Div.%201%20%2B%20Div.%202)%206-jul-25/F.%20Appending%20Permutations.cpp) | CF R 1036, EPIC Institute of Technology R Summer 2025 (Div. 1 + Div. 2) 6-jul-25 | 2800 | ✔ Resuelto |
 | [F. Zhora the Vacuum Cleaner.cpp](CF%20R%201075%20(Div.%202)%2023-ene-26/F.%20Zhora%20the%20Vacuum%20Cleaner.cpp) | CF R 1075 (Div. 2) 23-ene-26 | 2800 | ✔ Resuelto |
+| [F. Shortest GCD Paths.cpp](Educational%20CF%20R%20191%20(Rated%20for%20Div.%202)%209-jun-26/F.%20Shortest%20GCD%20Paths.cpp) | Educational CF R 191 (Rated for Div. 2) 9-jun-26 | 2800 | ✔ Resuelto |
 | [G. Send GCDs.cpp](Order%20Capital%20R%202%20(CF%20R%201104%2C%20Div.%201%20%2B%20Div.%202)%2018-jun-26/G.%20Send%20GCDs.cpp) | Order Capital R 2 (CF R 1104, Div. 1 + Div. 2) 18-jun-26 | 2900 | ✔ Resuelto |
 | [G. Simons and Diophantus Equation.cpp](CF%20R%201083%20(Div.%202)%2026-feb-26/G.%20Simons%20and%20Diophantus%20Equation.cpp) | CF R 1083 (Div. 2) 26-feb-26 | 3000 | ✔ Resuelto |
 | [F. The Cake Is a Lie.cpp](CF%20R%201101%20(Div.%202)%2030-may-26/F.%20The%20Cake%20Is%20a%20Lie.cpp) | CF R 1101 (Div. 2) 30-may-26 | 3000 | ✔ Resuelto |

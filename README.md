@@ -6,8 +6,8 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ## Resumen
 
-- Problemas intentados: **287**
-- Problemas resueltos: **287**
+- Problemas intentados: **290**
+- Problemas resueltos: **290**
 - Problemas sin terminar: **0**
 - Porcentaje de resolución: **100%**
 
@@ -28,6 +28,12 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 ```
 
 ## Problemas por concurso/carpeta
+
+### CF R 1105 (Div. 1) 27-jun-26
+
+- [A. Nim Game Is XOR Game.cpp](CF%20R%201105%20(Div.%201)%2027-jun-26/A.%20Nim%20Game%20Is%20XOR%20Game.cpp)
+- [B. Decidophobia.cpp](CF%20R%201105%20(Div.%201)%2027-jun-26/B.%20Decidophobia.cpp)
+- [C. Revival.cpp](CF%20R%201105%20(Div.%201)%2027-jun-26/C.%20Revival.cpp)
 
 ### Order Capital R 2 (CF R 1104, Div. 1 + Div. 2) 18-jun-26
 
@@ -211,14 +217,6 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 - [A. Dora's Set.cpp](CF%20R%20969%20(Div.%202)%2030-ago-24/A.%20Dora's%20Set.cpp)
 - [B. Index and Maximum Value.cpp](CF%20R%20969%20(Div.%202)%2030-ago-24/B.%20Index%20and%20Maximum%20Value.cpp)
 
-### Pinely R 4 (Div. 1 + Div. 2) 28-jul-24
-
-- [A. Maximize the Last Element.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/A.%20Maximize%20the%20Last%20Element.cpp)
-- [B. AND Reconstruction.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/B.%20AND%20Reconstruction.cpp)
-- [C. Absolute Zero.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/C.%20Absolute%20Zero.cpp)
-- [D. Prime XOR Coloring.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/D.%20Prime%20XOR%20Coloring.cpp)
-- [E. Coloring Game.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/E.%20Coloring%20Game.cpp)
-
 ### Educational CF R 168 (Rated for Div. 2) 30-jul-24
 
 - [A. Strong Password.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/A.%20Strong%20Password.cpp)
@@ -226,6 +224,14 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 - [C. Even Positions.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/C.%20Even%20Positions.cpp)
 - [D. Maximize the Root.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/D.%20Maximize%20the%20Root.cpp)
 - [E. Level Up.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/E.%20Level%20Up.cpp)
+
+### Pinely R 4 (Div. 1 + Div. 2) 28-jul-24
+
+- [A. Maximize the Last Element.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/A.%20Maximize%20the%20Last%20Element.cpp)
+- [B. AND Reconstruction.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/B.%20AND%20Reconstruction.cpp)
+- [C. Absolute Zero.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/C.%20Absolute%20Zero.cpp)
+- [D. Prime XOR Coloring.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/D.%20Prime%20XOR%20Coloring.cpp)
+- [E. Coloring Game.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/E.%20Coloring%20Game.cpp)
 
 ### CF R 962 (Div. 3) 26-jul-24
 
@@ -681,6 +687,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [C. A Good Problem.cpp](CF%20R%201035%20(Div.%202)%205-jul-25/C.%20A%20Good%20Problem.cpp) | CF R 1035 (Div. 2) 5-jul-25 | 1300 | ✔ Resuelto |
 | [C. Subset Multiplication.cpp](CF%20R%201036%2C%20EPIC%20Institute%20of%20Technology%20R%20Summer%202025%20(Div.%201%20%2B%20Div.%202)%206-jul-25/C.%20Subset%20Multiplication.cpp) | CF R 1036, EPIC Institute of Technology R Summer 2025 (Div. 1 + Div. 2) 6-jul-25 | 1300 | ✔ Resuelto |
 | [D. Brand New Tatar TV Show.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/D.%20Brand%20New%20Tatar%20TV%20Show.cpp) | CF R 1103 (Div. 3) 12-jun-26 | 1300 | ✔ Resuelto |
+| [A. Nim Game Is XOR Game.cpp](CF%20R%201105%20(Div.%201)%2027-jun-26/A.%20Nim%20Game%20Is%20XOR%20Game.cpp) | CF R 1105 (Div. 1) 27-jun-26 | 1300 | ✔ Resuelto |
 | [C. Parity Shuffle Sorting.cpp](CF%20R%20821%20(Div.%202)%2019-sep-22/C.%20Parity%20Shuffle%20Sorting.cpp) | CF R 821 (Div. 2) 19-sep-22 | 1300 | ✔ Resuelto |
 | [E1. Rudolf and Snowflakes (simple version).cpp](CF%20R%20883%20(Div.%203)%207-jul-23/E1.%20Rudolf%20and%20Snowflakes%20(simple%20version).cpp) | CF R 883 (Div. 3) 7-jul-23 | 1300 | ✔ Resuelto |
 | [D. Prefix Permutation Sums.cpp](CF%20R%20888%20(Div.%203)%2025-jul-23/D.%20Prefix%20Permutation%20Sums.cpp) | CF R 888 (Div. 3) 25-jul-23 | 1300 | ✔ Resuelto |
@@ -703,6 +710,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [C. Cost of a Bracket Sequence.cpp](Educational%20CF%20R%20191%20(Rated%20for%20Div.%202)%209-jun-26/C.%20Cost%20of%20a%20Bracket%20Sequence.cpp) | Educational CF R 191 (Rated for Div. 2) 9-jun-26 | 1400 | ✔ Resuelto |
 | [C. Seating Arrangement.cpp](CF%20R%201101%20(Div.%202)%2030-may-26/C.%20Seating%20Arrangement.cpp) | CF R 1101 (Div. 2) 30-may-26 | 1500 | ✔ Resuelto |
 | [D. XOR, Expression and Two Binary Numbers.cpp](CF%20R%201102%20(Div.%202)%207-jun-26/D.%20XOR%2C%20Expression%20and%20Two%20Binary%20Numbers.cpp) | CF R 1102 (Div. 2) 7-jun-26 | 1500 | ✔ Resuelto |
+| [B. Decidophobia.cpp](CF%20R%201105%20(Div.%201)%2027-jun-26/B.%20Decidophobia.cpp) | CF R 1105 (Div. 1) 27-jun-26 | 1500 | ✔ Resuelto |
 | [A. Color the Picture.cpp](CF%20R%20810%20(Div.%201)%2024-jul-22/A.%20Color%20the%20Picture.cpp) | CF R 810 (Div. 1) 24-jul-22 | 1500 | ✔ Resuelto |
 | [E. Nastya and Potions.cpp](CF%20R%20888%20(Div.%203)%2025-jul-23/E.%20Nastya%20and%20Potions.cpp) | CF R 888 (Div. 3) 25-jul-23 | 1500 | ✔ Resuelto |
 | [E. Power of Points.cpp](CF%20R%20891%20(Div.%203)%207-ago-23/E.%20Power%20of%20Points.cpp) | CF R 891 (Div. 3) 7-ago-23 | 1500 | ✔ Resuelto |
@@ -779,6 +787,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [E. LCM is Legendary Counting Master.cpp](Hello%202026%207-ene-25/E.%20LCM%20is%20Legendary%20Counting%20Master.cpp) | Hello 2026 7-ene-25 | 2100 | ✔ Resuelto |
 | [D. Boxed Like a Fish.cpp](CF%20R%201085%20(Div.%201%20%2B%20Div.%202)%208-mar-26/D.%20Boxed%20Like%20a%20Fish.cpp) | CF R 1085 (Div. 1 + Div. 2) 8-mar-26 | 2200 | ✔ Resuelto |
 | [F. Elections in Saransk.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/F.%20Elections%20in%20Saransk.cpp) | CF R 1103 (Div. 3) 12-jun-26 | 2200 | ✔ Resuelto |
+| [C. Revival.cpp](CF%20R%201105%20(Div.%201)%2027-jun-26/C.%20Revival.cpp) | CF R 1105 (Div. 1) 27-jun-26 | 2200 | ✔ Resuelto |
 | [D. Trees and Segments.cpp](CF%20R%20893%20(Div.%202)%2015-ago-23/D.%20Trees%20and%20Segments.cpp) | CF R 893 (Div. 2) 15-ago-23 | 2200 | ✔ Resuelto |
 | [E. Level Up.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/E.%20Level%20Up.cpp) | Educational CF R 168 (Rated for Div. 2) 30-jul-24 | 2200 | ✔ Resuelto |
 | [C. Comparable Permutations.cpp](CF%20R%201073%20(Div.%201)%2017-ene-26/C.%20Comparable%20Permutations.cpp) | CF R 1073 (Div. 1) 17-ene-26 | 2300 | ✔ Resuelto |

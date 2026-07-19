@@ -1,8 +1,441 @@
-Iniciando stress test para Criba de Eratostenes (C++)...
- -> Ejecutando Test 1 (N = 136045)... ¡PASO!
- -> Ejecutando Test 2 (N = 48240)... ¡PASO!
- -> Ejecutando Test 3 (N = 114934)... ¡PASO!
- -> Ejecutando Test 4 (N = 93761)... ¡PASO!
- -> Ejecutando Test 5 (N = 48964)... ¡PASO!
-
-[EXITO] ¡Todos los tests de C++ pasaron con exito!
+Test: [ 1 2 3 ]
+Coste individual de 1: 1
+Coste individual de 2: 2
+Coste individual de 3: 3
+Sol para k = 0: 6
+Coste individual de 2: 2
+Coste individual de 2: 1
+Coste individual de 4: 3
+Sol para k = 1: 7
+Coste individual de 4: 4
+Coste individual de 4: 3
+Coste individual de 4: 2
+Sol para k = 2: 11
+Coste individual de 8: 8
+Coste individual de 8: 7
+Coste individual de 8: 6
+Sol para k = 3: 24
+Coste individual de 16: 16
+Coste individual de 16: 15
+Coste individual de 16: 14
+Sol para k = 4: 49
+Coste individual de 32: 32
+Coste individual de 32: 31
+Coste individual de 32: 30
+Sol para k = 5: 98
+Coste individual de 64: 64
+Coste individual de 64: 63
+Coste individual de 64: 62
+Sol para k = 6: 195
+Coste individual de 128: 128
+Coste individual de 128: 127
+Coste individual de 128: 126
+Sol para k = 7: 388
+Coste individual de 256: 256
+Coste individual de 256: 255
+Coste individual de 256: 254
+Sol para k = 8: 773
+Coste individual de 512: 512
+Coste individual de 512: 511
+Coste individual de 512: 510
+Sol para k = 9: 1542
+Coste individual de 1024: 1024
+Coste individual de 1024: 1023
+Coste individual de 1024: 1022
+Sol para k = 10: 3079
+Coste individual de 2048: 2048
+Coste individual de 2048: 2047
+Coste individual de 2048: 2046
+Sol para k = 11: 6152
+Coste individual de 4096: 4096
+Coste individual de 4096: 4095
+Coste individual de 4096: 4094
+Sol para k = 12: 12297
+Coste individual de 8192: 8192
+Coste individual de 8192: 8191
+Coste individual de 8192: 8190
+Sol para k = 13: 24586
+Coste individual de 16384: 16384
+Coste individual de 16384: 16383
+Coste individual de 16384: 16382
+Sol para k = 14: 49163
+Coste individual de 32768: 32768
+Coste individual de 32768: 32767
+Coste individual de 32768: 32766
+Sol para k = 15: 98316
+Coste individual de 65536: 65536
+Coste individual de 65536: 65535
+Coste individual de 65536: 65534
+Sol para k = 16: 196621
+Coste individual de 131072: 131072
+Coste individual de 131072: 131071
+Coste individual de 131072: 131070
+Sol para k = 17: 393230
+Solucion: 6
+Test: [ 2 2 2 2 ]
+Coste individual de 2: 2
+Coste individual de 2: 2
+Coste individual de 2: 2
+Coste individual de 2: 2
+Sol para k = 0: 8
+Coste individual de 2: 1
+Coste individual de 2: 1
+Coste individual de 2: 1
+Coste individual de 2: 1
+Sol para k = 1: 5
+Coste individual de 4: 3
+Coste individual de 4: 3
+Coste individual de 4: 3
+Coste individual de 4: 3
+Sol para k = 2: 14
+Coste individual de 8: 7
+Coste individual de 8: 7
+Coste individual de 8: 7
+Coste individual de 8: 7
+Sol para k = 3: 31
+Coste individual de 16: 15
+Coste individual de 16: 15
+Coste individual de 16: 15
+Coste individual de 16: 15
+Sol para k = 4: 64
+Coste individual de 32: 31
+Coste individual de 32: 31
+Coste individual de 32: 31
+Coste individual de 32: 31
+Sol para k = 5: 129
+Coste individual de 64: 63
+Coste individual de 64: 63
+Coste individual de 64: 63
+Coste individual de 64: 63
+Sol para k = 6: 258
+Coste individual de 128: 127
+Coste individual de 128: 127
+Coste individual de 128: 127
+Coste individual de 128: 127
+Sol para k = 7: 515
+Coste individual de 256: 255
+Coste individual de 256: 255
+Coste individual de 256: 255
+Coste individual de 256: 255
+Sol para k = 8: 1028
+Coste individual de 512: 511
+Coste individual de 512: 511
+Coste individual de 512: 511
+Coste individual de 512: 511
+Sol para k = 9: 2053
+Coste individual de 1024: 1023
+Coste individual de 1024: 1023
+Coste individual de 1024: 1023
+Coste individual de 1024: 1023
+Sol para k = 10: 4102
+Coste individual de 2048: 2047
+Coste individual de 2048: 2047
+Coste individual de 2048: 2047
+Coste individual de 2048: 2047
+Sol para k = 11: 8199
+Coste individual de 4096: 4095
+Coste individual de 4096: 4095
+Coste individual de 4096: 4095
+Coste individual de 4096: 4095
+Sol para k = 12: 16392
+Coste individual de 8192: 8191
+Coste individual de 8192: 8191
+Coste individual de 8192: 8191
+Coste individual de 8192: 8191
+Sol para k = 13: 32777
+Coste individual de 16384: 16383
+Coste individual de 16384: 16383
+Coste individual de 16384: 16383
+Coste individual de 16384: 16383
+Sol para k = 14: 65546
+Coste individual de 32768: 32767
+Coste individual de 32768: 32767
+Coste individual de 32768: 32767
+Coste individual de 32768: 32767
+Sol para k = 15: 131083
+Coste individual de 65536: 65535
+Coste individual de 65536: 65535
+Coste individual de 65536: 65535
+Coste individual de 65536: 65535
+Sol para k = 16: 262156
+Coste individual de 131072: 131071
+Coste individual de 131072: 131071
+Coste individual de 131072: 131071
+Coste individual de 131072: 131071
+Sol para k = 17: 524301
+Solucion: 5
+Test: [ 6 8 2 4 1 ]
+Coste individual de 6: 4
+Coste individual de 8: 4
+Coste individual de 2: 2
+Coste individual de 4: 3
+Coste individual de 1: 1
+Sol para k = 0: 14
+Coste individual de 6: 3
+Coste individual de 8: 3
+Coste individual de 2: 1
+Coste individual de 4: 2
+Coste individual de 2: 2
+Sol para k = 1: 12
+Coste individual de 8: 4
+Coste individual de 8: 2
+Coste individual de 4: 3
+Coste individual de 4: 1
+Coste individual de 4: 4
+Sol para k = 2: 16
+Coste individual de 8: 3
+Coste individual de 8: 1
+Coste individual de 8: 7
+Coste individual de 8: 5
+Coste individual de 8: 8
+Sol para k = 3: 27
+Coste individual de 16: 11
+Coste individual de 16: 9
+Coste individual de 16: 15
+Coste individual de 16: 13
+Coste individual de 16: 16
+Sol para k = 4: 68
+Coste individual de 32: 27
+Coste individual de 32: 25
+Coste individual de 32: 31
+Coste individual de 32: 29
+Coste individual de 32: 32
+Sol para k = 5: 149
+Coste individual de 64: 59
+Coste individual de 64: 57
+Coste individual de 64: 63
+Coste individual de 64: 61
+Coste individual de 64: 64
+Sol para k = 6: 310
+Coste individual de 128: 123
+Coste individual de 128: 121
+Coste individual de 128: 127
+Coste individual de 128: 125
+Coste individual de 128: 128
+Sol para k = 7: 631
+Coste individual de 256: 251
+Coste individual de 256: 249
+Coste individual de 256: 255
+Coste individual de 256: 253
+Coste individual de 256: 256
+Sol para k = 8: 1272
+Coste individual de 512: 507
+Coste individual de 512: 505
+Coste individual de 512: 511
+Coste individual de 512: 509
+Coste individual de 512: 512
+Sol para k = 9: 2553
+Coste individual de 1024: 1019
+Coste individual de 1024: 1017
+Coste individual de 1024: 1023
+Coste individual de 1024: 1021
+Coste individual de 1024: 1024
+Sol para k = 10: 5114
+Coste individual de 2048: 2043
+Coste individual de 2048: 2041
+Coste individual de 2048: 2047
+Coste individual de 2048: 2045
+Coste individual de 2048: 2048
+Sol para k = 11: 10235
+Coste individual de 4096: 4091
+Coste individual de 4096: 4089
+Coste individual de 4096: 4095
+Coste individual de 4096: 4093
+Coste individual de 4096: 4096
+Sol para k = 12: 20476
+Coste individual de 8192: 8187
+Coste individual de 8192: 8185
+Coste individual de 8192: 8191
+Coste individual de 8192: 8189
+Coste individual de 8192: 8192
+Sol para k = 13: 40957
+Coste individual de 16384: 16379
+Coste individual de 16384: 16377
+Coste individual de 16384: 16383
+Coste individual de 16384: 16381
+Coste individual de 16384: 16384
+Sol para k = 14: 81918
+Coste individual de 32768: 32763
+Coste individual de 32768: 32761
+Coste individual de 32768: 32767
+Coste individual de 32768: 32765
+Coste individual de 32768: 32768
+Sol para k = 15: 163839
+Coste individual de 65536: 65531
+Coste individual de 65536: 65529
+Coste individual de 65536: 65535
+Coste individual de 65536: 65533
+Coste individual de 65536: 65536
+Sol para k = 16: 327680
+Coste individual de 131072: 131067
+Coste individual de 131072: 131065
+Coste individual de 131072: 131071
+Coste individual de 131072: 131069
+Coste individual de 131072: 131072
+Sol para k = 17: 655361
+Solucion: 12
+Test: [ 1 3 5 7 9 11 13 15 ]
+Coste individual de 1: 1
+Coste individual de 3: 3
+Coste individual de 5: 4
+Coste individual de 7: 5
+Coste individual de 9: 5
+Coste individual de 11: 6
+Coste individual de 13: 6
+Coste individual de 15: 6
+Sol para k = 0: 36
+Coste individual de 2: 2
+Coste individual de 4: 3
+Coste individual de 6: 4
+Coste individual de 8: 4
+Coste individual de 10: 5
+Coste individual de 12: 5
+Coste individual de 14: 6
+Coste individual de 16: 5
+Sol para k = 1: 35
+Coste individual de 4: 4
+Coste individual de 4: 2
+Coste individual de 8: 5
+Coste individual de 8: 3
+Coste individual de 12: 6
+Coste individual de 12: 4
+Coste individual de 16: 6
+Coste individual de 16: 4
+Sol para k = 2: 36
+Coste individual de 8: 8
+Coste individual de 8: 6
+Coste individual de 8: 4
+Coste individual de 8: 2
+Coste individual de 16: 9
+Coste individual de 16: 7
+Coste individual de 16: 5
+Coste individual de 16: 3
+Sol para k = 3: 47
+Coste individual de 16: 16
+Coste individual de 16: 14
+Coste individual de 16: 12
+Coste individual de 16: 10
+Coste individual de 16: 8
+Coste individual de 16: 6
+Coste individual de 16: 4
+Coste individual de 16: 2
+Sol para k = 4: 76
+Coste individual de 32: 32
+Coste individual de 32: 30
+Coste individual de 32: 28
+Coste individual de 32: 26
+Coste individual de 32: 24
+Coste individual de 32: 22
+Coste individual de 32: 20
+Coste individual de 32: 18
+Sol para k = 5: 205
+Coste individual de 64: 64
+Coste individual de 64: 62
+Coste individual de 64: 60
+Coste individual de 64: 58
+Coste individual de 64: 56
+Coste individual de 64: 54
+Coste individual de 64: 52
+Coste individual de 64: 50
+Sol para k = 6: 462
+Coste individual de 128: 128
+Coste individual de 128: 126
+Coste individual de 128: 124
+Coste individual de 128: 122
+Coste individual de 128: 120
+Coste individual de 128: 118
+Coste individual de 128: 116
+Coste individual de 128: 114
+Sol para k = 7: 975
+Coste individual de 256: 256
+Coste individual de 256: 254
+Coste individual de 256: 252
+Coste individual de 256: 250
+Coste individual de 256: 248
+Coste individual de 256: 246
+Coste individual de 256: 244
+Coste individual de 256: 242
+Sol para k = 8: 2000
+Coste individual de 512: 512
+Coste individual de 512: 510
+Coste individual de 512: 508
+Coste individual de 512: 506
+Coste individual de 512: 504
+Coste individual de 512: 502
+Coste individual de 512: 500
+Coste individual de 512: 498
+Sol para k = 9: 4049
+Coste individual de 1024: 1024
+Coste individual de 1024: 1022
+Coste individual de 1024: 1020
+Coste individual de 1024: 1018
+Coste individual de 1024: 1016
+Coste individual de 1024: 1014
+Coste individual de 1024: 1012
+Coste individual de 1024: 1010
+Sol para k = 10: 8146
+Coste individual de 2048: 2048
+Coste individual de 2048: 2046
+Coste individual de 2048: 2044
+Coste individual de 2048: 2042
+Coste individual de 2048: 2040
+Coste individual de 2048: 2038
+Coste individual de 2048: 2036
+Coste individual de 2048: 2034
+Sol para k = 11: 16339
+Coste individual de 4096: 4096
+Coste individual de 4096: 4094
+Coste individual de 4096: 4092
+Coste individual de 4096: 4090
+Coste individual de 4096: 4088
+Coste individual de 4096: 4086
+Coste individual de 4096: 4084
+Coste individual de 4096: 4082
+Sol para k = 12: 32724
+Coste individual de 8192: 8192
+Coste individual de 8192: 8190
+Coste individual de 8192: 8188
+Coste individual de 8192: 8186
+Coste individual de 8192: 8184
+Coste individual de 8192: 8182
+Coste individual de 8192: 8180
+Coste individual de 8192: 8178
+Sol para k = 13: 65493
+Coste individual de 16384: 16384
+Coste individual de 16384: 16382
+Coste individual de 16384: 16380
+Coste individual de 16384: 16378
+Coste individual de 16384: 16376
+Coste individual de 16384: 16374
+Coste individual de 16384: 16372
+Coste individual de 16384: 16370
+Sol para k = 14: 131030
+Coste individual de 32768: 32768
+Coste individual de 32768: 32766
+Coste individual de 32768: 32764
+Coste individual de 32768: 32762
+Coste individual de 32768: 32760
+Coste individual de 32768: 32758
+Coste individual de 32768: 32756
+Coste individual de 32768: 32754
+Sol para k = 15: 262103
+Coste individual de 65536: 65536
+Coste individual de 65536: 65534
+Coste individual de 65536: 65532
+Coste individual de 65536: 65530
+Coste individual de 65536: 65528
+Coste individual de 65536: 65526
+Coste individual de 65536: 65524
+Coste individual de 65536: 65522
+Sol para k = 16: 524248
+Coste individual de 131072: 131072
+Coste individual de 131072: 131070
+Coste individual de 131072: 131068
+Coste individual de 131072: 131066
+Coste individual de 131072: 131064
+Coste individual de 131072: 131062
+Coste individual de 131072: 131060
+Coste individual de 131072: 131058
+Sol para k = 17: 1048537
+Solucion: 35
+Tiempo de ejecucion: 0.0046268 segundos

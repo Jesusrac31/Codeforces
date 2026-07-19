@@ -6,8 +6,8 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ## Resumen
 
-- Problemas intentados: **294**
-- Problemas resueltos: **294**
+- Problemas intentados: **313**
+- Problemas resueltos: **313**
 - Problemas sin terminar: **0**
 - Porcentaje de resolución: **100%**
 
@@ -28,6 +28,37 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 ```
 
 ## Problemas por concurso/carpeta
+
+### CF R 1111 (Div. 2) 18-jul-26
+
+- [A. Zero Sum.cpp](CF%20R%201111%20(Div.%202)%2018-jul-26/A.%20Zero%20Sum.cpp)
+- [B. Yet Another Constructive.cpp](CF%20R%201111%20(Div.%202)%2018-jul-26/B.%20Yet%20Another%20Constructive.cpp)
+- [C. Inversion of a Subsequence.cpp](CF%20R%201111%20(Div.%202)%2018-jul-26/C.%20Inversion%20of%20a%20Subsequence.cpp)
+- [D. XOR Sorting.cpp](CF%20R%201111%20(Div.%202)%2018-jul-26/D.%20XOR%20Sorting.cpp)
+
+### SpectralCup 2026 R 3 (CF R 1110, Div. 1 + Div. 2) 16-jul-26
+
+- [A. Who Watches the Watchpig.cpp](SpectralCup%202026%20R%203%20(CF%20R%201110%2C%20Div.%201%20%2B%20Div.%202)%2016-jul-26/A.%20Who%20Watches%20the%20Watchpig.cpp)
+- [B. Delete and Concatenate.cpp](SpectralCup%202026%20R%203%20(CF%20R%201110%2C%20Div.%201%20%2B%20Div.%202)%2016-jul-26/B.%20Delete%20and%20Concatenate.cpp)
+- [C. MEXOR.cpp](SpectralCup%202026%20R%203%20(CF%20R%201110%2C%20Div.%201%20%2B%20Div.%202)%2016-jul-26/C.%20MEXOR.cpp)
+- [D. Construct an Array.cpp](SpectralCup%202026%20R%203%20(CF%20R%201110%2C%20Div.%201%20%2B%20Div.%202)%2016-jul-26/D.%20Construct%20an%20Array.cpp)
+
+### CF R 1109 (Div. 3) 14-jul-26
+
+- [A. Iskander and Drawings.cpp](CF%20R%201109%20(Div.%203)%2014-jul-26/A.%20Iskander%20and%20Drawings.cpp)
+- [B. Nikita and Books.cpp](CF%20R%201109%20(Div.%203)%2014-jul-26/B.%20Nikita%20and%20Books.cpp)
+- [C. Stepan and Permutation.cpp](CF%20R%201109%20(Div.%203)%2014-jul-26/C.%20Stepan%20and%20Permutation.cpp)
+- [D. Yaroslav and Productivity.cpp](CF%20R%201109%20(Div.%203)%2014-jul-26/D.%20Yaroslav%20and%20Productivity.cpp)
+- [E. Masha and the Garland.cpp](CF%20R%201109%20(Div.%203)%2014-jul-26/E.%20Masha%20and%20the%20Garland.cpp)
+- [F. Anya Loves Trees!.cpp](CF%20R%201109%20(Div.%203)%2014-jul-26/F.%20Anya%20Loves%20Trees!.cpp)
+- [G. Yura and Deadlines.cpp](CF%20R%201109%20(Div.%203)%2014-jul-26/G.%20Yura%20and%20Deadlines.cpp)
+
+### CF R 1108 (Div. 2) 12-jul-26
+
+- [A. farmpiggie and Subset Sum.cpp](CF%20R%201108%20(Div.%202)%2012-jul-26/A.%20farmpiggie%20and%20Subset%20Sum.cpp)
+- [B. ezraft and Array.cpp](CF%20R%201108%20(Div.%202)%2012-jul-26/B.%20ezraft%20and%20Array.cpp)
+- [C. 0mar and Alternating Sums.cpp](CF%20R%201108%20(Div.%202)%2012-jul-26/C.%200mar%20and%20Alternating%20Sums.cpp)
+- [D. diss_quack and Array Game.cpp](CF%20R%201108%20(Div.%202)%2012-jul-26/D.%20diss_quack%20and%20Array%20Game.cpp)
 
 ### Educational CF R 192 (Rated for Div. 2) 6-jul-26
 
@@ -841,8 +872,27 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [I. Lexicographic Partition.cpp](CF%20R%201036%2C%20EPIC%20Institute%20of%20Technology%20R%20Summer%202025%20(Div.%201%20%2B%20Div.%202)%206-jul-25/I.%20Lexicographic%20Partition.cpp) | CF R 1036, EPIC Institute of Technology R Summer 2025 (Div. 1 + Div. 2) 6-jul-25 | 3500 | ✔ Resuelto |
 | [E. Weird Chessboard.cpp](CF%20R%201093%20(Div.%201)%2013-abr-26/E.%20Weird%20Chessboard.cpp) | CF R 1093 (Div. 1) 13-abr-26 | 3500 | ✔ Resuelto |
 | [E. Replace.cpp](Randoms/E.%20Replace.cpp) | Randoms | 3500 | ✔ Resuelto |
+| [A. farmpiggie and Subset Sum.cpp](CF%20R%201108%20(Div.%202)%2012-jul-26/A.%20farmpiggie%20and%20Subset%20Sum.cpp) | CF R 1108 (Div. 2) 12-jul-26 | Pendiente | ✔ Resuelto |
+| [B. ezraft and Array.cpp](CF%20R%201108%20(Div.%202)%2012-jul-26/B.%20ezraft%20and%20Array.cpp) | CF R 1108 (Div. 2) 12-jul-26 | Pendiente | ✔ Resuelto |
+| [C. 0mar and Alternating Sums.cpp](CF%20R%201108%20(Div.%202)%2012-jul-26/C.%200mar%20and%20Alternating%20Sums.cpp) | CF R 1108 (Div. 2) 12-jul-26 | Pendiente | ✔ Resuelto |
+| [D. diss_quack and Array Game.cpp](CF%20R%201108%20(Div.%202)%2012-jul-26/D.%20diss_quack%20and%20Array%20Game.cpp) | CF R 1108 (Div. 2) 12-jul-26 | Pendiente | ✔ Resuelto |
+| [A. Iskander and Drawings.cpp](CF%20R%201109%20(Div.%203)%2014-jul-26/A.%20Iskander%20and%20Drawings.cpp) | CF R 1109 (Div. 3) 14-jul-26 | Pendiente | ✔ Resuelto |
+| [B. Nikita and Books.cpp](CF%20R%201109%20(Div.%203)%2014-jul-26/B.%20Nikita%20and%20Books.cpp) | CF R 1109 (Div. 3) 14-jul-26 | Pendiente | ✔ Resuelto |
+| [C. Stepan and Permutation.cpp](CF%20R%201109%20(Div.%203)%2014-jul-26/C.%20Stepan%20and%20Permutation.cpp) | CF R 1109 (Div. 3) 14-jul-26 | Pendiente | ✔ Resuelto |
+| [D. Yaroslav and Productivity.cpp](CF%20R%201109%20(Div.%203)%2014-jul-26/D.%20Yaroslav%20and%20Productivity.cpp) | CF R 1109 (Div. 3) 14-jul-26 | Pendiente | ✔ Resuelto |
+| [E. Masha and the Garland.cpp](CF%20R%201109%20(Div.%203)%2014-jul-26/E.%20Masha%20and%20the%20Garland.cpp) | CF R 1109 (Div. 3) 14-jul-26 | Pendiente | ✔ Resuelto |
+| [F. Anya Loves Trees!.cpp](CF%20R%201109%20(Div.%203)%2014-jul-26/F.%20Anya%20Loves%20Trees!.cpp) | CF R 1109 (Div. 3) 14-jul-26 | Pendiente | ✔ Resuelto |
+| [G. Yura and Deadlines.cpp](CF%20R%201109%20(Div.%203)%2014-jul-26/G.%20Yura%20and%20Deadlines.cpp) | CF R 1109 (Div. 3) 14-jul-26 | Pendiente | ✔ Resuelto |
+| [A. Zero Sum.cpp](CF%20R%201111%20(Div.%202)%2018-jul-26/A.%20Zero%20Sum.cpp) | CF R 1111 (Div. 2) 18-jul-26 | Pendiente | ✔ Resuelto |
+| [B. Yet Another Constructive.cpp](CF%20R%201111%20(Div.%202)%2018-jul-26/B.%20Yet%20Another%20Constructive.cpp) | CF R 1111 (Div. 2) 18-jul-26 | Pendiente | ✔ Resuelto |
+| [C. Inversion of a Subsequence.cpp](CF%20R%201111%20(Div.%202)%2018-jul-26/C.%20Inversion%20of%20a%20Subsequence.cpp) | CF R 1111 (Div. 2) 18-jul-26 | Pendiente | ✔ Resuelto |
+| [D. XOR Sorting.cpp](CF%20R%201111%20(Div.%202)%2018-jul-26/D.%20XOR%20Sorting.cpp) | CF R 1111 (Div. 2) 18-jul-26 | Pendiente | ✔ Resuelto |
 | [C. Ntarsis' Set.cpp](CF%20R%20887%20(Div.%202)%2023-jul-23/C.%20Ntarsis'%20Set.cpp) | CF R 887 (Div. 2) 23-jul-23 | Pendiente | ✔ Resuelto |
 | [D. Imbalanced Arrays.cpp](CF%20R%20887%20(Div.%202)%2023-jul-23/D.%20Imbalanced%20Arrays.cpp) | CF R 887 (Div. 2) 23-jul-23 | Pendiente | ✔ Resuelto |
 | [C1. Dual (Easy Version).cpp](CF%20R%20889%20(Div.%202)%2029-jul-23/C1.%20Dual%20(Easy%20Version).cpp) | CF R 889 (Div. 2) 29-jul-23 | Pendiente | ✔ Resuelto |
 | [C2. Dual (Hard Version).cpp](CF%20R%20889%20(Div.%202)%2029-jul-23/C2.%20Dual%20(Hard%20Version).cpp) | CF R 889 (Div. 2) 29-jul-23 | Pendiente | ✔ Resuelto |
 | [F. Conquer or of Forest.cpp](Randoms/F.%20Conquer%20or%20of%20Forest.cpp) | Randoms | Pendiente | ✔ Resuelto |
+| [A. Who Watches the Watchpig.cpp](SpectralCup%202026%20R%203%20(CF%20R%201110%2C%20Div.%201%20%2B%20Div.%202)%2016-jul-26/A.%20Who%20Watches%20the%20Watchpig.cpp) | SpectralCup 2026 R 3 (CF R 1110, Div. 1 + Div. 2) 16-jul-26 | Pendiente | ✔ Resuelto |
+| [B. Delete and Concatenate.cpp](SpectralCup%202026%20R%203%20(CF%20R%201110%2C%20Div.%201%20%2B%20Div.%202)%2016-jul-26/B.%20Delete%20and%20Concatenate.cpp) | SpectralCup 2026 R 3 (CF R 1110, Div. 1 + Div. 2) 16-jul-26 | Pendiente | ✔ Resuelto |
+| [C. MEXOR.cpp](SpectralCup%202026%20R%203%20(CF%20R%201110%2C%20Div.%201%20%2B%20Div.%202)%2016-jul-26/C.%20MEXOR.cpp) | SpectralCup 2026 R 3 (CF R 1110, Div. 1 + Div. 2) 16-jul-26 | Pendiente | ✔ Resuelto |
+| [D. Construct an Array.cpp](SpectralCup%202026%20R%203%20(CF%20R%201110%2C%20Div.%201%20%2B%20Div.%202)%2016-jul-26/D.%20Construct%20an%20Array.cpp) | SpectralCup 2026 R 3 (CF R 1110, Div. 1 + Div. 2) 16-jul-26 | Pendiente | ✔ Resuelto |

@@ -6,8 +6,8 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ## Resumen
 
-- Problemas intentados: **313**
-- Problemas resueltos: **313**
+- Problemas intentados: **318**
+- Problemas resueltos: **318**
 - Problemas sin terminar: **0**
 - Porcentaje de resolución: **100%**
 
@@ -28,6 +28,14 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 ```
 
 ## Problemas por concurso/carpeta
+
+### CF R 1112 (Div. 2) 26-jul-26
+
+- [A. Threshold Movement.cpp](CF%20R%201112%20(Div.%202)%2026-jul-26/A.%20Threshold%20Movement.cpp)
+- [B. String Construction.cpp](CF%20R%201112%20(Div.%202)%2026-jul-26/B.%20String%20Construction.cpp)
+- [C. Rank Subsequence.cpp](CF%20R%201112%20(Div.%202)%2026-jul-26/C.%20Rank%20Subsequence.cpp)
+- [D. Permutation Cuts.cpp](CF%20R%201112%20(Div.%202)%2026-jul-26/D.%20Permutation%20Cuts.cpp)
+- [E. Double-Rift Dial.cpp](CF%20R%201112%20(Div.%202)%2026-jul-26/E.%20Double-Rift%20Dial.cpp)
 
 ### CF R 1111 (Div. 2) 18-jul-26
 
@@ -887,6 +895,11 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [B. Yet Another Constructive.cpp](CF%20R%201111%20(Div.%202)%2018-jul-26/B.%20Yet%20Another%20Constructive.cpp) | CF R 1111 (Div. 2) 18-jul-26 | Pendiente | ✔ Resuelto |
 | [C. Inversion of a Subsequence.cpp](CF%20R%201111%20(Div.%202)%2018-jul-26/C.%20Inversion%20of%20a%20Subsequence.cpp) | CF R 1111 (Div. 2) 18-jul-26 | Pendiente | ✔ Resuelto |
 | [D. XOR Sorting.cpp](CF%20R%201111%20(Div.%202)%2018-jul-26/D.%20XOR%20Sorting.cpp) | CF R 1111 (Div. 2) 18-jul-26 | Pendiente | ✔ Resuelto |
+| [A. Threshold Movement.cpp](CF%20R%201112%20(Div.%202)%2026-jul-26/A.%20Threshold%20Movement.cpp) | CF R 1112 (Div. 2) 26-jul-26 | Pendiente | ✔ Resuelto |
+| [B. String Construction.cpp](CF%20R%201112%20(Div.%202)%2026-jul-26/B.%20String%20Construction.cpp) | CF R 1112 (Div. 2) 26-jul-26 | Pendiente | ✔ Resuelto |
+| [C. Rank Subsequence.cpp](CF%20R%201112%20(Div.%202)%2026-jul-26/C.%20Rank%20Subsequence.cpp) | CF R 1112 (Div. 2) 26-jul-26 | Pendiente | ✔ Resuelto |
+| [D. Permutation Cuts.cpp](CF%20R%201112%20(Div.%202)%2026-jul-26/D.%20Permutation%20Cuts.cpp) | CF R 1112 (Div. 2) 26-jul-26 | Pendiente | ✔ Resuelto |
+| [E. Double-Rift Dial.cpp](CF%20R%201112%20(Div.%202)%2026-jul-26/E.%20Double-Rift%20Dial.cpp) | CF R 1112 (Div. 2) 26-jul-26 | Pendiente | ✔ Resuelto |
 | [C. Ntarsis' Set.cpp](CF%20R%20887%20(Div.%202)%2023-jul-23/C.%20Ntarsis'%20Set.cpp) | CF R 887 (Div. 2) 23-jul-23 | Pendiente | ✔ Resuelto |
 | [D. Imbalanced Arrays.cpp](CF%20R%20887%20(Div.%202)%2023-jul-23/D.%20Imbalanced%20Arrays.cpp) | CF R 887 (Div. 2) 23-jul-23 | Pendiente | ✔ Resuelto |
 | [C1. Dual (Easy Version).cpp](CF%20R%20889%20(Div.%202)%2029-jul-23/C1.%20Dual%20(Easy%20Version).cpp) | CF R 889 (Div. 2) 29-jul-23 | Pendiente | ✔ Resuelto |

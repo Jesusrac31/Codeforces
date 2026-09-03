@@ -263,11 +263,11 @@ void solve() {
     vector<lli> ans = f[k - 1];
 
     DBG_COUT(cout << "Solucion: " << endl);
-    cout << ans.size() << '\n';
+    cout << ans.size() << endl;
     for (auto i : ans) {
-        cout << i << ' ';
+        cout << i << " ";
     }
-    cout << '\n';
+    cout << endl;
     
     return;
 }
@@ -291,3 +291,5 @@ signed main() {
     );
     return 0;
 }
+
+// https://codeforces.com/contest/2258/problem/D

@@ -6,8 +6,8 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ## Resumen
 
-- Problemas intentados: **326**
-- Problemas resueltos: **326**
+- Problemas intentados: **334**
+- Problemas resueltos: **334**
 - Problemas sin terminar: **0**
 - Porcentaje de resolución: **100%**
 
@@ -29,11 +29,22 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 
 ## Problemas por concurso/carpeta
 
+### CF R 1119 (Div. 3) 5-sep-26
+
+- [A. Moo Language School.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/A.%20Moo%20Language%20School.cpp)
+- [B. Minus Two.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/B.%20Minus%20Two.cpp)
+- [C. 101.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/C.%20101.cpp)
+- [D. MEX Multiset.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/D.%20MEX%20Multiset.cpp)
+- [E. Treasure Map Destruction (Constructive Version).cpp](CF%20R%201119%20(Div.%203)%205-sep-26/E.%20Treasure%20Map%20Destruction%20(Constructive%20Version).cpp)
+- [F. Binary Bubble Sort Inversions.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/F.%20Binary%20Bubble%20Sort%20Inversions.cpp)
+- [G. Index Removal.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/G.%20Index%20Removal.cpp)
+
 ### CF R 1118 (Div. 2) 29-ago-26
 
 - [A. Odd Eraser.cpp](CF%20R%201118%20(Div.%202)%2029-ago-26/A.%20Odd%20Eraser.cpp)
 - [B. Carrot Chopdown.cpp](CF%20R%201118%20(Div.%202)%2029-ago-26/B.%20Carrot%20Chopdown.cpp)
 - [C. Far Cities.cpp](CF%20R%201118%20(Div.%202)%2029-ago-26/C.%20Far%20Cities.cpp)
+- [D. Magic Tiles.cpp](CF%20R%201118%20(Div.%202)%2029-ago-26/D.%20Magic%20Tiles.cpp)
 
 ### CF R 1113 (Div. 2) 1-ago-26
 
@@ -926,6 +937,14 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [A. Odd Eraser.cpp](CF%20R%201118%20(Div.%202)%2029-ago-26/A.%20Odd%20Eraser.cpp) | CF R 1118 (Div. 2) 29-ago-26 | Pendiente | ✔ Resuelto |
 | [B. Carrot Chopdown.cpp](CF%20R%201118%20(Div.%202)%2029-ago-26/B.%20Carrot%20Chopdown.cpp) | CF R 1118 (Div. 2) 29-ago-26 | Pendiente | ✔ Resuelto |
 | [C. Far Cities.cpp](CF%20R%201118%20(Div.%202)%2029-ago-26/C.%20Far%20Cities.cpp) | CF R 1118 (Div. 2) 29-ago-26 | Pendiente | ✔ Resuelto |
+| [D. Magic Tiles.cpp](CF%20R%201118%20(Div.%202)%2029-ago-26/D.%20Magic%20Tiles.cpp) | CF R 1118 (Div. 2) 29-ago-26 | Pendiente | ✔ Resuelto |
+| [A. Moo Language School.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/A.%20Moo%20Language%20School.cpp) | CF R 1119 (Div. 3) 5-sep-26 | Pendiente | ✔ Resuelto |
+| [B. Minus Two.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/B.%20Minus%20Two.cpp) | CF R 1119 (Div. 3) 5-sep-26 | Pendiente | ✔ Resuelto |
+| [C. 101.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/C.%20101.cpp) | CF R 1119 (Div. 3) 5-sep-26 | Pendiente | ✔ Resuelto |
+| [D. MEX Multiset.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/D.%20MEX%20Multiset.cpp) | CF R 1119 (Div. 3) 5-sep-26 | Pendiente | ✔ Resuelto |
+| [E. Treasure Map Destruction (Constructive Version).cpp](CF%20R%201119%20(Div.%203)%205-sep-26/E.%20Treasure%20Map%20Destruction%20(Constructive%20Version).cpp) | CF R 1119 (Div. 3) 5-sep-26 | Pendiente | ✔ Resuelto |
+| [F. Binary Bubble Sort Inversions.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/F.%20Binary%20Bubble%20Sort%20Inversions.cpp) | CF R 1119 (Div. 3) 5-sep-26 | Pendiente | ✔ Resuelto |
+| [G. Index Removal.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/G.%20Index%20Removal.cpp) | CF R 1119 (Div. 3) 5-sep-26 | Pendiente | ✔ Resuelto |
 | [C. Ntarsis' Set.cpp](CF%20R%20887%20(Div.%202)%2023-jul-23/C.%20Ntarsis'%20Set.cpp) | CF R 887 (Div. 2) 23-jul-23 | Pendiente | ✔ Resuelto |
 | [D. Imbalanced Arrays.cpp](CF%20R%20887%20(Div.%202)%2023-jul-23/D.%20Imbalanced%20Arrays.cpp) | CF R 887 (Div. 2) 23-jul-23 | Pendiente | ✔ Resuelto |
 | [C1. Dual (Easy Version).cpp](CF%20R%20889%20(Div.%202)%2029-jul-23/C1.%20Dual%20(Easy%20Version).cpp) | CF R 889 (Div. 2) 29-jul-23 | Pendiente | ✔ Resuelto |

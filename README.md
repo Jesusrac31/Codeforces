@@ -6,8 +6,8 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ## Resumen
 
-- Problemas intentados: **334**
-- Problemas resueltos: **334**
+- Problemas intentados: **338**
+- Problemas resueltos: **338**
 - Problemas sin terminar: **0**
 - Porcentaje de resolución: **100%**
 
@@ -28,6 +28,13 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 ```
 
 ## Problemas por concurso/carpeta
+
+### CF R 1120 (Div. 2) 12-sep-26
+
+- [A. Min Max Game.cpp](CF%20R%201120%20(Div.%202)%2012-sep-26/A.%20Min%20Max%20Game.cpp)
+- [B. Min Matrices.cpp](CF%20R%201120%20(Div.%202)%2012-sep-26/B.%20Min%20Matrices.cpp)
+- [C1. Floor of MEX (Easy Version).cpp](CF%20R%201120%20(Div.%202)%2012-sep-26/C1.%20Floor%20of%20MEX%20(Easy%20Version).cpp)
+- [C2. Floor of MEX (Hard Version).cpp](CF%20R%201120%20(Div.%202)%2012-sep-26/C2.%20Floor%20of%20MEX%20(Hard%20Version).cpp)
 
 ### CF R 1119 (Div. 3) 5-sep-26
 
@@ -638,6 +645,9 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [A. Zero Sum.cpp](CF%20R%201111%20(Div.%202)%2018-jul-26/A.%20Zero%20Sum.cpp) | CF R 1111 (Div. 2) 18-jul-26 | 800 | ✔ Resuelto |
 | [A. Threshold Movement.cpp](CF%20R%201112%20(Div.%202)%2026-jul-26/A.%20Threshold%20Movement.cpp) | CF R 1112 (Div. 2) 26-jul-26 | 800 | ✔ Resuelto |
 | [A. You Delete, I Delete.cpp](CF%20R%201113%20(Div.%202)%201-ago-26/A.%20You%20Delete%2C%20I%20Delete.cpp) | CF R 1113 (Div. 2) 1-ago-26 | 800 | ✔ Resuelto |
+| [A. Odd Eraser.cpp](CF%20R%201118%20(Div.%202)%2029-ago-26/A.%20Odd%20Eraser.cpp) | CF R 1118 (Div. 2) 29-ago-26 | 800 | ✔ Resuelto |
+| [A. Moo Language School.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/A.%20Moo%20Language%20School.cpp) | CF R 1119 (Div. 3) 5-sep-26 | 800 | ✔ Resuelto |
+| [B. Minus Two.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/B.%20Minus%20Two.cpp) | CF R 1119 (Div. 3) 5-sep-26 | 800 | ✔ Resuelto |
 | [A. Round Down the Price.cpp](CF%20R%20805%20(Div.%203)%2010-jul-22/A.%20Round%20Down%20the%20Price.cpp) | CF R 805 (Div. 3) 10-jul-22 | 800 | ✔ Resuelto |
 | [A. Another String Minimization Problem.cpp](CF%20R%20809%20(Div.%202)%2018-jul-22/A.%20Another%20String%20Minimization%20Problem.cpp) | CF R 809 (Div. 2) 18-jul-22 | 800 | ✔ Resuelto |
 | [B. Remove Prefix.cpp](CF%20R%20811%20(Div.%203)%201-ago-22/B.%20Remove%20Prefix.cpp) | CF R 811 (Div. 3) 1-ago-22 | 800 | ✔ Resuelto |
@@ -712,6 +722,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [C. Omsk Programmers.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/C.%20Omsk%20Programmers.cpp) | CF R 1103 (Div. 3) 12-jun-26 | 1000 | ✔ Resuelto |
 | [B. String Construction.cpp](CF%20R%201112%20(Div.%202)%2026-jul-26/B.%20String%20Construction.cpp) | CF R 1112 (Div. 2) 26-jul-26 | 1000 | ✔ Resuelto |
 | [B. Merge to Match.cpp](CF%20R%201113%20(Div.%202)%201-ago-26/B.%20Merge%20to%20Match.cpp) | CF R 1113 (Div. 2) 1-ago-26 | 1000 | ✔ Resuelto |
+| [C. 101.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/C.%20101.cpp) | CF R 1119 (Div. 3) 5-sep-26 | 1000 | ✔ Resuelto |
 | [B. Hamon Odyssey.cpp](CF%20R%20882%20(Div.%202)%206-jul-23/B.%20Hamon%20Odyssey.cpp) | CF R 882 (Div. 2) 6-jul-23 | 1000 | ✔ Resuelto |
 | [B. Permutations & Primes.cpp](CF%20R%20884%20(Div.%201%20%2B%20Div.%202)%2011-jul-23/B.%20Permutations%20%26%20Primes.cpp) | CF R 884 (Div. 1 + Div. 2) 11-jul-23 | 1000 | ✔ Resuelto |
 | [C. Tiles Comeback.cpp](CF%20R%20888%20(Div.%203)%2025-jul-23/C.%20Tiles%20Comeback.cpp) | CF R 888 (Div. 3) 25-jul-23 | 1000 | ✔ Resuelto |
@@ -752,6 +763,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [A. Sorting Game.cpp](CF%20R%201073%20(Div.%201)%2017-ene-26/A.%20Sorting%20Game.cpp) | CF R 1073 (Div. 1) 17-ene-26 | 1200 | ✔ Resuelto |
 | [C. Vessels, Heights and Two Versions (Easy Version).cpp](CF%20R%201102%20(Div.%202)%207-jun-26/C.%20Vessels%2C%20Heights%20and%20Two%20Versions%20(Easy%20Version).cpp) | CF R 1102 (Div. 2) 7-jun-26 | 1200 | ✔ Resuelto |
 | [D. Yaroslav and Productivity.cpp](CF%20R%201109%20(Div.%203)%2014-jul-26/D.%20Yaroslav%20and%20Productivity.cpp) | CF R 1109 (Div. 3) 14-jul-26 | 1200 | ✔ Resuelto |
+| [D. MEX Multiset.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/D.%20MEX%20Multiset.cpp) | CF R 1119 (Div. 3) 5-sep-26 | 1200 | ✔ Resuelto |
 | [D. Apple Tree.cpp](CF%20R%20881%20(Div.%203)%2020-jun-23/D.%20Apple%20Tree.cpp) | CF R 881 (Div. 3) 20-jun-23 | 1200 | ✔ Resuelto |
 | [C. Rudolf and the Another Competition.cpp](CF%20R%20883%20(Div.%203)%207-jul-23/C.%20Rudolf%20and%20the%20Another%20Competition.cpp) | CF R 883 (Div. 3) 7-jul-23 | 1200 | ✔ Resuelto |
 | [D. Rudolph and Christmas Tree.cpp](CF%20R%20883%20(Div.%203)%207-jul-23/D.%20Rudolph%20and%20Christmas%20Tree.cpp) | CF R 883 (Div. 3) 7-jul-23 | 1200 | ✔ Resuelto |
@@ -805,6 +817,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [C. Seating Arrangement.cpp](CF%20R%201101%20(Div.%202)%2030-may-26/C.%20Seating%20Arrangement.cpp) | CF R 1101 (Div. 2) 30-may-26 | 1500 | ✔ Resuelto |
 | [D. XOR, Expression and Two Binary Numbers.cpp](CF%20R%201102%20(Div.%202)%207-jun-26/D.%20XOR%2C%20Expression%20and%20Two%20Binary%20Numbers.cpp) | CF R 1102 (Div. 2) 7-jun-26 | 1500 | ✔ Resuelto |
 | [B. Decidophobia.cpp](CF%20R%201105%20(Div.%201)%2027-jun-26/B.%20Decidophobia.cpp) | CF R 1105 (Div. 1) 27-jun-26 | 1500 | ✔ Resuelto |
+| [E. Treasure Map Destruction (Constructive Version).cpp](CF%20R%201119%20(Div.%203)%205-sep-26/E.%20Treasure%20Map%20Destruction%20(Constructive%20Version).cpp) | CF R 1119 (Div. 3) 5-sep-26 | 1500 | ✔ Resuelto |
 | [A. Color the Picture.cpp](CF%20R%20810%20(Div.%201)%2024-jul-22/A.%20Color%20the%20Picture.cpp) | CF R 810 (Div. 1) 24-jul-22 | 1500 | ✔ Resuelto |
 | [E. Nastya and Potions.cpp](CF%20R%20888%20(Div.%203)%2025-jul-23/E.%20Nastya%20and%20Potions.cpp) | CF R 888 (Div. 3) 25-jul-23 | 1500 | ✔ Resuelto |
 | [E. Power of Points.cpp](CF%20R%20891%20(Div.%203)%207-ago-23/E.%20Power%20of%20Points.cpp) | CF R 891 (Div. 3) 7-ago-23 | 1500 | ✔ Resuelto |
@@ -818,6 +831,8 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [D. Billion Players Game.cpp](CF%20R%201066%20(Div.%201%20%2B%20Div.%202)%2030-nov-25/D.%20Billion%20Players%20Game.cpp) | CF R 1066 (Div. 1 + Div. 2) 30-nov-25 | 1600 | ✔ Resuelto |
 | [B. One Night At Freddy's.cpp](CF%20R%201085%20(Div.%201%20%2B%20Div.%202)%208-mar-26/B.%20One%20Night%20At%20Freddy's.cpp) | CF R 1085 (Div. 1 + Div. 2) 8-mar-26 | 1600 | ✔ Resuelto |
 | [C. Where's My Water.cpp](CF%20R%201085%20(Div.%201%20%2B%20Div.%202)%208-mar-26/C.%20Where's%20My%20Water.cpp) | CF R 1085 (Div. 1 + Div. 2) 8-mar-26 | 1600 | ✔ Resuelto |
+| [B. Carrot Chopdown.cpp](CF%20R%201118%20(Div.%202)%2029-ago-26/B.%20Carrot%20Chopdown.cpp) | CF R 1118 (Div. 2) 29-ago-26 | 1600 | ✔ Resuelto |
+| [C. Far Cities.cpp](CF%20R%201118%20(Div.%202)%2029-ago-26/C.%20Far%20Cities.cpp) | CF R 1118 (Div. 2) 29-ago-26 | 1600 | ✔ Resuelto |
 | [D. Fixed Point Guessing.cpp](CF%20R%20803%20(Div.%202)%2028-jun-22/D.%20Fixed%20Point%20Guessing.cpp) | CF R 803 (Div. 2) 28-jun-22 | 1600 | ✔ Resuelto |
 | [A. Doremy's IQ.cpp](CF%20R%20808%20(Div.%201)%2016-jul-22/A.%20Doremy's%20IQ.cpp) | CF R 808 (Div. 1) 16-jul-22 | 1600 | ✔ Resuelto |
 | [D. Color with Occurrences.cpp](CF%20R%20811%20(Div.%203)%201-ago-22/D.%20Color%20with%20Occurrences.cpp) | CF R 811 (Div. 3) 1-ago-22 | 1600 | ✔ Resuelto |
@@ -843,6 +858,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [E. Novice's Mistake.cpp](CF%20R%20957%20(Div.%203)%2011-jul-24/E.%20Novice's%20Mistake.cpp) | CF R 957 (Div. 3) 11-jul-24 | 1700 | ✔ Resuelto |
 | [B2. Bouquet (Hard Version).cpp](CF%20R%20961%20(Div.%202)%2023-jul-24/B2.%20Bouquet%20(Hard%20Version).cpp) | CF R 961 (Div. 2) 23-jul-24 | 1700 | ✔ Resuelto |
 | [D. Ghostfires.cpp](CF%20R%201087%20(Div.%202)%2021-mar-26/D.%20Ghostfires.cpp) | CF R 1087 (Div. 2) 21-mar-26 | 1800 | ✔ Resuelto |
+| [F. Binary Bubble Sort Inversions.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/F.%20Binary%20Bubble%20Sort%20Inversions.cpp) | CF R 1119 (Div. 3) 5-sep-26 | 1800 | ✔ Resuelto |
 | [E2. Rudolf and Snowflakes (hard version).cpp](CF%20R%20883%20(Div.%203)%207-jul-23/E2.%20Rudolf%20and%20Snowflakes%20(hard%20version).cpp) | CF R 883 (Div. 3) 7-jul-23 | 1800 | ✔ Resuelto |
 | [F. Rudolph and Mimic.cpp](CF%20R%20883%20(Div.%203)%207-jul-23/F.%20Rudolph%20and%20Mimic.cpp) | CF R 883 (Div. 3) 7-jul-23 | 1800 | ✔ Resuelto |
 | [C. Vika and Price Tags.cpp](CF%20R%20885%20(Div.%202)%2016-jul-23/C.%20Vika%20and%20Price%20Tags.cpp) | CF R 885 (Div. 2) 16-jul-23 | 1800 | ✔ Resuelto |
@@ -860,6 +876,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [D. diss_quack and Array Game.cpp](CF%20R%201108%20(Div.%202)%2012-jul-26/D.%20diss_quack%20and%20Array%20Game.cpp) | CF R 1108 (Div. 2) 12-jul-26 | 1900 | ✔ Resuelto |
 | [G. Yura and Deadlines.cpp](CF%20R%201109%20(Div.%203)%2014-jul-26/G.%20Yura%20and%20Deadlines.cpp) | CF R 1109 (Div. 3) 14-jul-26 | 1900 | ✔ Resuelto |
 | [E. Excuse for Breaks.cpp](CF%20R%201113%20(Div.%202)%201-ago-26/E.%20Excuse%20for%20Breaks.cpp) | CF R 1113 (Div. 2) 1-ago-26 | 1900 | ✔ Resuelto |
+| [G. Index Removal.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/G.%20Index%20Removal.cpp) | CF R 1119 (Div. 3) 5-sep-26 | 1900 | ✔ Resuelto |
 | [F. Build a Tree and That Is It.cpp](CF%20R%20811%20(Div.%203)%201-ago-22/F.%20Build%20a%20Tree%20and%20That%20Is%20It.cpp) | CF R 811 (Div. 3) 1-ago-22 | 1900 | ✔ Resuelto |
 | [G. Rudolf and CodeVid-23.cpp](CF%20R%20883%20(Div.%203)%207-jul-23/G.%20Rudolf%20and%20CodeVid-23.cpp) | CF R 883 (Div. 3) 7-jul-23 | 1900 | ✔ Resuelto |
 | [F. Valuable Cards.cpp](CF%20R%20957%20(Div.%203)%2011-jul-24/F.%20Valuable%20Cards.cpp) | CF R 957 (Div. 3) 11-jul-24 | 1900 | ✔ Resuelto |
@@ -907,6 +924,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [F. Paint the Array.cpp](Order%20Capital%20R%202%20(CF%20R%201104%2C%20Div.%201%20%2B%20Div.%202)%2018-jun-26/F.%20Paint%20the%20Array.cpp) | Order Capital R 2 (CF R 1104, Div. 1 + Div. 2) 18-jun-26 | 2400 | ✔ Resuelto |
 | [D. Prufer Vertex.cpp](CF%20R%201073%20(Div.%201)%2017-ene-26/D.%20Prufer%20Vertex.cpp) | CF R 1073 (Div. 1) 17-ene-26 | 2500 | ✔ Resuelto |
 | [D. Double Bracket Sequence.cpp](CF%20R%201079%20(Div.%201)%2011-feb-26/D.%20Double%20Bracket%20Sequence.cpp) | CF R 1079 (Div. 1) 11-feb-26 | 2500 | ✔ Resuelto |
+| [D. Magic Tiles.cpp](CF%20R%201118%20(Div.%202)%2029-ago-26/D.%20Magic%20Tiles.cpp) | CF R 1118 (Div. 2) 29-ago-26 | 2500 | ✔ Resuelto |
 | [F. Points.cpp](Educational%20CF%20R%20131%20(Rated%20for%20Div.%202)%208-jul-22/F.%20Points.cpp) | Educational CF R 131 (Rated for Div. 2) 8-jul-22 | 2500 | ✔ Resuelto |
 | [F. Jumping Man.cpp](Hello%202026%207-ene-25/F.%20Jumping%20Man.cpp) | Hello 2026 7-ene-25 | 2500 | ✔ Resuelto |
 | [E. And Constraint.cpp](CF%20R%201035%20(Div.%202)%205-jul-25/E.%20And%20Constraint.cpp) | CF R 1035 (Div. 2) 5-jul-25 | 2600 | ✔ Resuelto |
@@ -934,17 +952,10 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [C. Rank Subsequence.cpp](CF%20R%201112%20(Div.%202)%2026-jul-26/C.%20Rank%20Subsequence.cpp) | CF R 1112 (Div. 2) 26-jul-26 | Pendiente | ✔ Resuelto |
 | [D. Permutation Cuts.cpp](CF%20R%201112%20(Div.%202)%2026-jul-26/D.%20Permutation%20Cuts.cpp) | CF R 1112 (Div. 2) 26-jul-26 | Pendiente | ✔ Resuelto |
 | [E. Double-Rift Dial.cpp](CF%20R%201112%20(Div.%202)%2026-jul-26/E.%20Double-Rift%20Dial.cpp) | CF R 1112 (Div. 2) 26-jul-26 | Pendiente | ✔ Resuelto |
-| [A. Odd Eraser.cpp](CF%20R%201118%20(Div.%202)%2029-ago-26/A.%20Odd%20Eraser.cpp) | CF R 1118 (Div. 2) 29-ago-26 | Pendiente | ✔ Resuelto |
-| [B. Carrot Chopdown.cpp](CF%20R%201118%20(Div.%202)%2029-ago-26/B.%20Carrot%20Chopdown.cpp) | CF R 1118 (Div. 2) 29-ago-26 | Pendiente | ✔ Resuelto |
-| [C. Far Cities.cpp](CF%20R%201118%20(Div.%202)%2029-ago-26/C.%20Far%20Cities.cpp) | CF R 1118 (Div. 2) 29-ago-26 | Pendiente | ✔ Resuelto |
-| [D. Magic Tiles.cpp](CF%20R%201118%20(Div.%202)%2029-ago-26/D.%20Magic%20Tiles.cpp) | CF R 1118 (Div. 2) 29-ago-26 | Pendiente | ✔ Resuelto |
-| [A. Moo Language School.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/A.%20Moo%20Language%20School.cpp) | CF R 1119 (Div. 3) 5-sep-26 | Pendiente | ✔ Resuelto |
-| [B. Minus Two.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/B.%20Minus%20Two.cpp) | CF R 1119 (Div. 3) 5-sep-26 | Pendiente | ✔ Resuelto |
-| [C. 101.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/C.%20101.cpp) | CF R 1119 (Div. 3) 5-sep-26 | Pendiente | ✔ Resuelto |
-| [D. MEX Multiset.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/D.%20MEX%20Multiset.cpp) | CF R 1119 (Div. 3) 5-sep-26 | Pendiente | ✔ Resuelto |
-| [E. Treasure Map Destruction (Constructive Version).cpp](CF%20R%201119%20(Div.%203)%205-sep-26/E.%20Treasure%20Map%20Destruction%20(Constructive%20Version).cpp) | CF R 1119 (Div. 3) 5-sep-26 | Pendiente | ✔ Resuelto |
-| [F. Binary Bubble Sort Inversions.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/F.%20Binary%20Bubble%20Sort%20Inversions.cpp) | CF R 1119 (Div. 3) 5-sep-26 | Pendiente | ✔ Resuelto |
-| [G. Index Removal.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/G.%20Index%20Removal.cpp) | CF R 1119 (Div. 3) 5-sep-26 | Pendiente | ✔ Resuelto |
+| [A. Min Max Game.cpp](CF%20R%201120%20(Div.%202)%2012-sep-26/A.%20Min%20Max%20Game.cpp) | CF R 1120 (Div. 2) 12-sep-26 | Pendiente | ✔ Resuelto |
+| [B. Min Matrices.cpp](CF%20R%201120%20(Div.%202)%2012-sep-26/B.%20Min%20Matrices.cpp) | CF R 1120 (Div. 2) 12-sep-26 | Pendiente | ✔ Resuelto |
+| [C1. Floor of MEX (Easy Version).cpp](CF%20R%201120%20(Div.%202)%2012-sep-26/C1.%20Floor%20of%20MEX%20(Easy%20Version).cpp) | CF R 1120 (Div. 2) 12-sep-26 | Pendiente | ✔ Resuelto |
+| [C2. Floor of MEX (Hard Version).cpp](CF%20R%201120%20(Div.%202)%2012-sep-26/C2.%20Floor%20of%20MEX%20(Hard%20Version).cpp) | CF R 1120 (Div. 2) 12-sep-26 | Pendiente | ✔ Resuelto |
 | [C. Ntarsis' Set.cpp](CF%20R%20887%20(Div.%202)%2023-jul-23/C.%20Ntarsis'%20Set.cpp) | CF R 887 (Div. 2) 23-jul-23 | Pendiente | ✔ Resuelto |
 | [D. Imbalanced Arrays.cpp](CF%20R%20887%20(Div.%202)%2023-jul-23/D.%20Imbalanced%20Arrays.cpp) | CF R 887 (Div. 2) 23-jul-23 | Pendiente | ✔ Resuelto |
 | [C1. Dual (Easy Version).cpp](CF%20R%20889%20(Div.%202)%2029-jul-23/C1.%20Dual%20(Easy%20Version).cpp) | CF R 889 (Div. 2) 29-jul-23 | Pendiente | ✔ Resuelto |

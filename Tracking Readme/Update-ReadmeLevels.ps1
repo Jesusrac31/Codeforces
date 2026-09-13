@@ -74,16 +74,27 @@ function Parse-IndexCandidates([string]$fileName) {
     return @($token)
 }
 
+function Get-ProblemTitleFromFileName([string]$fileName) {
+    if ($fileName -notmatch '^[^.]+\.\s+(.+)\.cpp$') { return $null }
+    return $matches[1].Trim()
+}
+
 # --- CARGA DE DATOS DESDE CODEFORCES ---
 Write-Output "Cargando lista de problemas de Codeforces para mapear niveles..."
 $allProblemsMap = @{}
+$allProblemsByTitleMap = @{}
 try {
     $probResponse = Get-Json "https://codeforces.com/api/problemset.problems"
     if ($probResponse.status -eq 'OK') {
         foreach ($p in $probResponse.result.problems) {
             if ($p.contestId -and $p.index) {
-                $key = "$([int]$p.contestId)|$([string]$p.index).ToLower()"
+                $indexKey = $p.index.ToString().ToLowerInvariant()
+                $key = "$([int]$p.contestId)|$indexKey"
                 if ($p.rating) { $allProblemsMap[$key] = [int]$p.rating }
+                if ($p.name) {
+                    $titleKey = $p.name.ToString().ToLowerInvariant()
+                    if ($p.rating) { $allProblemsByTitleMap[$titleKey] = [int]$p.rating }
+                }
             }
         }
     }
@@ -134,12 +145,20 @@ $items = foreach ($file in $cppFiles) {
         if ($candidates.Count -gt 0) { $index = $candidates[0] }
     }
 
+    $fileTitle = Get-ProblemTitleFromFileName $file.Name
+
     # Buscar el Rating/Nivel
     $rating = $null
     if ($contestId -and $index) {
-        $ratingKey = "$([int]$contestId)|$([string]$index).ToLower()"
+        $ratingKey = "$([int]$contestId)|$($index.ToString().ToLowerInvariant())"
         if ($allProblemsMap.ContainsKey($ratingKey)) {
             $rating = $allProblemsMap[$ratingKey]
+        }
+    }
+    if (-not $rating -and $fileTitle) {
+        $titleKey = $fileTitle.ToString().ToLowerInvariant()
+        if ($allProblemsByTitleMap.ContainsKey($titleKey)) {
+            $rating = $allProblemsByTitleMap[$titleKey]
         }
     }
 

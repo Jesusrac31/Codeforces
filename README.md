@@ -296,14 +296,6 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 - [A. Dora's Set.cpp](CF%20R%20969%20(Div.%202)%2030-ago-24/A.%20Dora's%20Set.cpp)
 - [B. Index and Maximum Value.cpp](CF%20R%20969%20(Div.%202)%2030-ago-24/B.%20Index%20and%20Maximum%20Value.cpp)
 
-### Pinely R 4 (Div. 1 + Div. 2) 28-jul-24
-
-- [A. Maximize the Last Element.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/A.%20Maximize%20the%20Last%20Element.cpp)
-- [B. AND Reconstruction.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/B.%20AND%20Reconstruction.cpp)
-- [C. Absolute Zero.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/C.%20Absolute%20Zero.cpp)
-- [D. Prime XOR Coloring.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/D.%20Prime%20XOR%20Coloring.cpp)
-- [E. Coloring Game.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/E.%20Coloring%20Game.cpp)
-
 ### Educational CF R 168 (Rated for Div. 2) 30-jul-24
 
 - [A. Strong Password.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/A.%20Strong%20Password.cpp)
@@ -311,6 +303,14 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 - [C. Even Positions.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/C.%20Even%20Positions.cpp)
 - [D. Maximize the Root.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/D.%20Maximize%20the%20Root.cpp)
 - [E. Level Up.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/E.%20Level%20Up.cpp)
+
+### Pinely R 4 (Div. 1 + Div. 2) 28-jul-24
+
+- [A. Maximize the Last Element.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/A.%20Maximize%20the%20Last%20Element.cpp)
+- [B. AND Reconstruction.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/B.%20AND%20Reconstruction.cpp)
+- [C. Absolute Zero.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/C.%20Absolute%20Zero.cpp)
+- [D. Prime XOR Coloring.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/D.%20Prime%20XOR%20Coloring.cpp)
+- [E. Coloring Game.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/E.%20Coloring%20Game.cpp)
 
 ### CF R 962 (Div. 3) 26-jul-24
 
@@ -789,6 +789,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [C. Subset Multiplication.cpp](CF%20R%201036%2C%20EPIC%20Institute%20of%20Technology%20R%20Summer%202025%20(Div.%201%20%2B%20Div.%202)%206-jul-25/C.%20Subset%20Multiplication.cpp) | CF R 1036, EPIC Institute of Technology R Summer 2025 (Div. 1 + Div. 2) 6-jul-25 | 1300 | ✔ Resuelto |
 | [D. Brand New Tatar TV Show.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/D.%20Brand%20New%20Tatar%20TV%20Show.cpp) | CF R 1103 (Div. 3) 12-jun-26 | 1300 | ✔ Resuelto |
 | [A. Nim Game Is XOR Game.cpp](CF%20R%201105%20(Div.%201)%2027-jun-26/A.%20Nim%20Game%20Is%20XOR%20Game.cpp) | CF R 1105 (Div. 1) 27-jun-26 | 1300 | ✔ Resuelto |
+| [C. Rank Subsequence.cpp](CF%20R%201112%20(Div.%202)%2026-jul-26/C.%20Rank%20Subsequence.cpp) | CF R 1112 (Div. 2) 26-jul-26 | 1300 | ✔ Resuelto |
 | [C. Maximize the Score.cpp](CF%20R%201113%20(Div.%202)%201-ago-26/C.%20Maximize%20the%20Score.cpp) | CF R 1113 (Div. 2) 1-ago-26 | 1300 | ✔ Resuelto |
 | [C. Parity Shuffle Sorting.cpp](CF%20R%20821%20(Div.%202)%2019-sep-22/C.%20Parity%20Shuffle%20Sorting.cpp) | CF R 821 (Div. 2) 19-sep-22 | 1300 | ✔ Resuelto |
 | [E1. Rudolf and Snowflakes (simple version).cpp](CF%20R%20883%20(Div.%203)%207-jul-23/E1.%20Rudolf%20and%20Snowflakes%20(simple%20version).cpp) | CF R 883 (Div. 3) 7-jul-23 | 1300 | ✔ Resuelto |
@@ -809,6 +810,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [E. Add Modulo 10.cpp](CF%20R%20811%20(Div.%203)%201-ago-22/E.%20Add%20Modulo%2010.cpp) | CF R 811 (Div. 3) 1-ago-22 | 1400 | ✔ Resuelto |
 | [D1. Zero-One (Easy Version).cpp](CF%20R%20821%20(Div.%202)%2019-sep-22/D1.%20Zero-One%20(Easy%20Version).cpp) | CF R 821 (Div. 2) 19-sep-22 | 1400 | ✔ Resuelto |
 | [C. Vampiric Powers, anyone.cpp](CF%20R%20882%20(Div.%202)%206-jul-23/C.%20Vampiric%20Powers%2C%20anyone.cpp) | CF R 882 (Div. 2) 6-jul-23 | 1400 | ✔ Resuelto |
+| [C1. Dual (Easy Version).cpp](CF%20R%20889%20(Div.%202)%2029-jul-23/C1.%20Dual%20(Easy%20Version).cpp) | CF R 889 (Div. 2) 29-jul-23 | 1400 | ✔ Resuelto |
 | [C. XOR-distance.cpp](CF%20R%20922%20(Div.%202)%2030-ene-24/C.%20XOR-distance.cpp) | CF R 922 (Div. 2) 30-ene-24 | 1400 | ✔ Resuelto |
 | [D. Mathematical Problem.cpp](CF%20R%20954%20(Div.%203)%2023-jun-24/D.%20Mathematical%20Problem.cpp) | CF R 954 (Div. 3) 23-jun-24 | 1400 | ✔ Resuelto |
 | [C. Have Your Cake and Eat It Too.cpp](CF%20R%20956%20(Div.%202)%20and%20ByteRace%202024%207-jul-24/C.%20Have%20Your%20Cake%20and%20Eat%20It%20Too.cpp) | CF R 956 (Div. 2) and ByteRace 2024 7-jul-24 | 1400 | ✔ Resuelto |
@@ -851,6 +853,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [C. Manhattan Pairs.cpp](CF%20R%201038%2COrder%20Capital%20R%201%20(Div.%201%20%2B%20Div.%202)%2019-jul-25/C.%20Manhattan%20Pairs.cpp) | CF R 1038,Order Capital R 1 (Div. 1 + Div. 2) 19-jul-25 | 1700 | ✔ Resuelto |
 | [E. Friendly Gifts.cpp](CF%20R%201103%20(Div.%203)%2012-jun-26/E.%20Friendly%20Gifts.cpp) | CF R 1103 (Div. 3) 12-jun-26 | 1700 | ✔ Resuelto |
 | [F. Anya Loves Trees!.cpp](CF%20R%201109%20(Div.%203)%2014-jul-26/F.%20Anya%20Loves%20Trees!.cpp) | CF R 1109 (Div. 3) 14-jul-26 | 1700 | ✔ Resuelto |
+| [D. Permutation Cuts.cpp](CF%20R%201112%20(Div.%202)%2026-jul-26/D.%20Permutation%20Cuts.cpp) | CF R 1112 (Div. 2) 26-jul-26 | 1700 | ✔ Resuelto |
 | [C. The Third Problem.cpp](CF%20R%20804%20(Div.%202)%204-jul-22/C.%20The%20Third%20Problem.cpp) | CF R 804 (Div. 2) 4-jul-22 | 1700 | ✔ Resuelto |
 | [G. Path Prefixes.cpp](CF%20R%20811%20(Div.%203)%201-ago-22/G.%20Path%20Prefixes.cpp) | CF R 811 (Div. 3) 1-ago-22 | 1700 | ✔ Resuelto |
 | [E. Beautiful Array.cpp](CF%20R%20954%20(Div.%203)%2023-jun-24/E.%20Beautiful%20Array.cpp) | CF R 954 (Div. 3) 23-jun-24 | 1700 | ✔ Resuelto |
@@ -863,6 +866,8 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [E2. Rudolf and Snowflakes (hard version).cpp](CF%20R%20883%20(Div.%203)%207-jul-23/E2.%20Rudolf%20and%20Snowflakes%20(hard%20version).cpp) | CF R 883 (Div. 3) 7-jul-23 | 1800 | ✔ Resuelto |
 | [F. Rudolph and Mimic.cpp](CF%20R%20883%20(Div.%203)%207-jul-23/F.%20Rudolph%20and%20Mimic.cpp) | CF R 883 (Div. 3) 7-jul-23 | 1800 | ✔ Resuelto |
 | [C. Vika and Price Tags.cpp](CF%20R%20885%20(Div.%202)%2016-jul-23/C.%20Vika%20and%20Price%20Tags.cpp) | CF R 885 (Div. 2) 16-jul-23 | 1800 | ✔ Resuelto |
+| [C. Ntarsis' Set.cpp](CF%20R%20887%20(Div.%202)%2023-jul-23/C.%20Ntarsis'%20Set.cpp) | CF R 887 (Div. 2) 23-jul-23 | 1800 | ✔ Resuelto |
+| [D. Imbalanced Arrays.cpp](CF%20R%20887%20(Div.%202)%2023-jul-23/D.%20Imbalanced%20Arrays.cpp) | CF R 887 (Div. 2) 23-jul-23 | 1800 | ✔ Resuelto |
 | [F. Lisa and the Martians.cpp](CF%20R%20888%20(Div.%203)%2025-jul-23/F.%20Lisa%20and%20the%20Martians.cpp) | CF R 888 (Div. 3) 25-jul-23 | 1800 | ✔ Resuelto |
 | [D. Andrey and Escape from Capygrad.cpp](CF%20R%20892%20(Div.%202)%2012-ago-23/D.%20Andrey%20and%20Escape%20from%20Capygrad.cpp) | CF R 892 (Div. 2) 12-ago-23 | 1800 | ✔ Resuelto |
 | [C. Messenger in MAC.cpp](CF%20R%20932%20(Div.%202)%205-mar-24/C.%20Messenger%20in%20MAC.cpp) | CF R 932 (Div. 2) 5-mar-24 | 1800 | ✔ Resuelto |
@@ -880,6 +885,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [G. Index Removal.cpp](CF%20R%201119%20(Div.%203)%205-sep-26/G.%20Index%20Removal.cpp) | CF R 1119 (Div. 3) 5-sep-26 | 1900 | ✔ Resuelto |
 | [F. Build a Tree and That Is It.cpp](CF%20R%20811%20(Div.%203)%201-ago-22/F.%20Build%20a%20Tree%20and%20That%20Is%20It.cpp) | CF R 811 (Div. 3) 1-ago-22 | 1900 | ✔ Resuelto |
 | [G. Rudolf and CodeVid-23.cpp](CF%20R%20883%20(Div.%203)%207-jul-23/G.%20Rudolf%20and%20CodeVid-23.cpp) | CF R 883 (Div. 3) 7-jul-23 | 1900 | ✔ Resuelto |
+| [C2. Dual (Hard Version).cpp](CF%20R%20889%20(Div.%202)%2029-jul-23/C2.%20Dual%20(Hard%20Version).cpp) | CF R 889 (Div. 2) 29-jul-23 | 1900 | ✔ Resuelto |
 | [F. Valuable Cards.cpp](CF%20R%20957%20(Div.%203)%2011-jul-24/F.%20Valuable%20Cards.cpp) | CF R 957 (Div. 3) 11-jul-24 | 1900 | ✔ Resuelto |
 | [D. Goods on the Shelf.cpp](Educational%20CF%20R%20191%20(Rated%20for%20Div.%202)%209-jun-26/D.%20Goods%20on%20the%20Shelf.cpp) | Educational CF R 191 (Rated for Div. 2) 9-jun-26 | 1900 | ✔ Resuelto |
 | [D. Prime XOR Coloring.cpp](Pinely%20R%204%20(Div.%201%20%2B%20Div.%202)%2028-jul-24/D.%20Prime%20XOR%20Coloring.cpp) | Pinely R 4 (Div. 1 + Div. 2) 28-jul-24 | 1900 | ✔ Resuelto |
@@ -888,6 +894,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [C. Maple and Tree Beauty.cpp](CF%20R%201048%20(Div.%201)%208-sep-25/C.%20Maple%20and%20Tree%20Beauty.cpp) | CF R 1048 (Div. 1) 8-sep-25 | 2000 | ✔ Resuelto |
 | [D. Magical Tiered Cake.cpp](CF%20R%201101%20(Div.%202)%2030-may-26/D.%20Magical%20Tiered%20Cake.cpp) | CF R 1101 (Div. 2) 30-may-26 | 2000 | ✔ Resuelto |
 | [D. XOR Sorting.cpp](CF%20R%201111%20(Div.%202)%2018-jul-26/D.%20XOR%20Sorting.cpp) | CF R 1111 (Div. 2) 18-jul-26 | 2000 | ✔ Resuelto |
+| [E. Double-Rift Dial.cpp](CF%20R%201112%20(Div.%202)%2026-jul-26/E.%20Double-Rift%20Dial.cpp) | CF R 1112 (Div. 2) 26-jul-26 | 2000 | ✔ Resuelto |
 | [D2. Zero-One (Hard Version).cpp](CF%20R%20821%20(Div.%202)%2019-sep-22/D2.%20Zero-One%20(Hard%20Version).cpp) | CF R 821 (Div. 2) 19-sep-22 | 2000 | ✔ Resuelto |
 | [G. Vlad and the Mountains.cpp](CF%20R%20888%20(Div.%203)%2025-jul-23/G.%20Vlad%20and%20the%20Mountains.cpp) | CF R 888 (Div. 3) 25-jul-23 | 2000 | ✔ Resuelto |
 | [E. Computing Machine.cpp](CF%20R%20953%20(Div.%202)%2016-jun-24/E.%20Computing%20Machine.cpp) | CF R 953 (Div. 2) 16-jun-24 | 2000 | ✔ Resuelto |
@@ -909,6 +916,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [C. Revival.cpp](CF%20R%201105%20(Div.%201)%2027-jun-26/C.%20Revival.cpp) | CF R 1105 (Div. 1) 27-jun-26 | 2200 | ✔ Resuelto |
 | [D. Trees and Segments.cpp](CF%20R%20893%20(Div.%202)%2015-ago-23/D.%20Trees%20and%20Segments.cpp) | CF R 893 (Div. 2) 15-ago-23 | 2200 | ✔ Resuelto |
 | [E. Level Up.cpp](Educational%20CF%20R%20168%20(Rated%20for%20Div.%202)%2030-jul-24/E.%20Level%20Up.cpp) | Educational CF R 168 (Rated for Div. 2) 30-jul-24 | 2200 | ✔ Resuelto |
+| [F. Conquer or of Forest.cpp](Randoms/F.%20Conquer%20or%20of%20Forest.cpp) | Randoms | 2200 | ✔ Resuelto |
 | [C. Comparable Permutations.cpp](CF%20R%201073%20(Div.%201)%2017-ene-26/C.%20Comparable%20Permutations.cpp) | CF R 1073 (Div. 1) 17-ene-26 | 2300 | ✔ Resuelto |
 | [G. Idiot First Search and Queries.cpp](CF%20R%201080%20(Div.%203)%2015-feb-26/G.%20Idiot%20First%20Search%20and%20Queries.cpp) | CF R 1080 (Div. 3) 15-feb-26 | 2300 | ✔ Resuelto |
 | [E. Mark and Professor Koro.cpp](CF%20R%20807%20(Div.%202)%2015-jul-22/E.%20Mark%20and%20Professor%20Koro.cpp) | CF R 807 (Div. 2) 15-jul-22 | 2300 | ✔ Resuelto |
@@ -950,16 +958,8 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [I. Lexicographic Partition.cpp](CF%20R%201036%2C%20EPIC%20Institute%20of%20Technology%20R%20Summer%202025%20(Div.%201%20%2B%20Div.%202)%206-jul-25/I.%20Lexicographic%20Partition.cpp) | CF R 1036, EPIC Institute of Technology R Summer 2025 (Div. 1 + Div. 2) 6-jul-25 | 3500 | ✔ Resuelto |
 | [E. Weird Chessboard.cpp](CF%20R%201093%20(Div.%201)%2013-abr-26/E.%20Weird%20Chessboard.cpp) | CF R 1093 (Div. 1) 13-abr-26 | 3500 | ✔ Resuelto |
 | [E. Replace.cpp](Randoms/E.%20Replace.cpp) | Randoms | 3500 | ✔ Resuelto |
-| [C. Rank Subsequence.cpp](CF%20R%201112%20(Div.%202)%2026-jul-26/C.%20Rank%20Subsequence.cpp) | CF R 1112 (Div. 2) 26-jul-26 | Pendiente | ✔ Resuelto |
-| [D. Permutation Cuts.cpp](CF%20R%201112%20(Div.%202)%2026-jul-26/D.%20Permutation%20Cuts.cpp) | CF R 1112 (Div. 2) 26-jul-26 | Pendiente | ✔ Resuelto |
-| [E. Double-Rift Dial.cpp](CF%20R%201112%20(Div.%202)%2026-jul-26/E.%20Double-Rift%20Dial.cpp) | CF R 1112 (Div. 2) 26-jul-26 | Pendiente | ✔ Resuelto |
 | [A. Min Max Game.cpp](CF%20R%201120%20(Div.%202)%2012-sep-26/A.%20Min%20Max%20Game.cpp) | CF R 1120 (Div. 2) 12-sep-26 | Pendiente | ✔ Resuelto |
 | [B. Min Matrices.cpp](CF%20R%201120%20(Div.%202)%2012-sep-26/B.%20Min%20Matrices.cpp) | CF R 1120 (Div. 2) 12-sep-26 | Pendiente | ✔ Resuelto |
 | [C1. Floor of MEX (Easy Version).cpp](CF%20R%201120%20(Div.%202)%2012-sep-26/C1.%20Floor%20of%20MEX%20(Easy%20Version).cpp) | CF R 1120 (Div. 2) 12-sep-26 | Pendiente | ✔ Resuelto |
 | [C2. Floor of MEX (Hard Version).cpp](CF%20R%201120%20(Div.%202)%2012-sep-26/C2.%20Floor%20of%20MEX%20(Hard%20Version).cpp) | CF R 1120 (Div. 2) 12-sep-26 | Pendiente | ✔ Resuelto |
 | [D. Culling Game.cpp](CF%20R%201120%20(Div.%202)%2012-sep-26/D.%20Culling%20Game.cpp) | CF R 1120 (Div. 2) 12-sep-26 | Pendiente | ✔ Resuelto |
-| [C. Ntarsis' Set.cpp](CF%20R%20887%20(Div.%202)%2023-jul-23/C.%20Ntarsis'%20Set.cpp) | CF R 887 (Div. 2) 23-jul-23 | Pendiente | ✔ Resuelto |
-| [D. Imbalanced Arrays.cpp](CF%20R%20887%20(Div.%202)%2023-jul-23/D.%20Imbalanced%20Arrays.cpp) | CF R 887 (Div. 2) 23-jul-23 | Pendiente | ✔ Resuelto |
-| [C1. Dual (Easy Version).cpp](CF%20R%20889%20(Div.%202)%2029-jul-23/C1.%20Dual%20(Easy%20Version).cpp) | CF R 889 (Div. 2) 29-jul-23 | Pendiente | ✔ Resuelto |
-| [C2. Dual (Hard Version).cpp](CF%20R%20889%20(Div.%202)%2029-jul-23/C2.%20Dual%20(Hard%20Version).cpp) | CF R 889 (Div. 2) 29-jul-23 | Pendiente | ✔ Resuelto |
-| [F. Conquer or of Forest.cpp](Randoms/F.%20Conquer%20or%20of%20Forest.cpp) | Randoms | Pendiente | ✔ Resuelto |

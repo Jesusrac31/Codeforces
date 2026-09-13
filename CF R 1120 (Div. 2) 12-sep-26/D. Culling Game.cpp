@@ -208,18 +208,13 @@ int solve() {
             cout << "Initial pair: " << *indexLeft << " "; 
             if (indexRight != forfeats.end()) cout << *indexRight; 
             else cout << "None"; 
-            cout << endl
+            cout << endl;
         );
 
-        vi valuesToErase;
-        for (; indexRight != forfeats.end(); indexRight++){
+        while (indexRight != forfeats.end()){
             if (st.query(*indexLeft, (*indexRight)-1) < a[*indexRight]) break;
-            else valuesToErase.PB(*indexRight);
-        }
-        DBG_COUT(cout << "Elements not forfeats: " << valuesToErase << endl);
-        while(valuesToErase.size()){
-            forfeats.erase(valuesToErase.back());
-            valuesToErase.pop_back();
+            auto toErase = indexRight++;
+            forfeats.erase(toErase);
         }
         DBG_COUT(cout << forfeats << endl);
         sol[i] = forfeats.size() - 1;
@@ -252,4 +247,4 @@ signed main() {
     return 0;
 }
 
-//Eliminar comentario si el proyecto está terminado (Dinámica empezó el 21/06/2024)
+// https://codeforces.com/contest/2263/problem/D

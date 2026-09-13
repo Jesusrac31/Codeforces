@@ -6,8 +6,8 @@ Además, hay una carpeta de problemas variados (`Randoms`).
 
 ## Resumen
 
-- Problemas intentados: **338**
-- Problemas resueltos: **338**
+- Problemas intentados: **339**
+- Problemas resueltos: **339**
 - Problemas sin terminar: **0**
 - Porcentaje de resolución: **100%**
 
@@ -35,6 +35,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 - [B. Min Matrices.cpp](CF%20R%201120%20(Div.%202)%2012-sep-26/B.%20Min%20Matrices.cpp)
 - [C1. Floor of MEX (Easy Version).cpp](CF%20R%201120%20(Div.%202)%2012-sep-26/C1.%20Floor%20of%20MEX%20(Easy%20Version).cpp)
 - [C2. Floor of MEX (Hard Version).cpp](CF%20R%201120%20(Div.%202)%2012-sep-26/C2.%20Floor%20of%20MEX%20(Hard%20Version).cpp)
+- [D. Culling Game.cpp](CF%20R%201120%20(Div.%202)%2012-sep-26/D.%20Culling%20Game.cpp)
 
 ### CF R 1119 (Div. 3) 5-sep-26
 
@@ -956,6 +957,7 @@ Measure-Command{Get-Content input.in | .\main.exe > output.out}
 | [B. Min Matrices.cpp](CF%20R%201120%20(Div.%202)%2012-sep-26/B.%20Min%20Matrices.cpp) | CF R 1120 (Div. 2) 12-sep-26 | Pendiente | ✔ Resuelto |
 | [C1. Floor of MEX (Easy Version).cpp](CF%20R%201120%20(Div.%202)%2012-sep-26/C1.%20Floor%20of%20MEX%20(Easy%20Version).cpp) | CF R 1120 (Div. 2) 12-sep-26 | Pendiente | ✔ Resuelto |
 | [C2. Floor of MEX (Hard Version).cpp](CF%20R%201120%20(Div.%202)%2012-sep-26/C2.%20Floor%20of%20MEX%20(Hard%20Version).cpp) | CF R 1120 (Div. 2) 12-sep-26 | Pendiente | ✔ Resuelto |
+| [D. Culling Game.cpp](CF%20R%201120%20(Div.%202)%2012-sep-26/D.%20Culling%20Game.cpp) | CF R 1120 (Div. 2) 12-sep-26 | Pendiente | ✔ Resuelto |
 | [C. Ntarsis' Set.cpp](CF%20R%20887%20(Div.%202)%2023-jul-23/C.%20Ntarsis'%20Set.cpp) | CF R 887 (Div. 2) 23-jul-23 | Pendiente | ✔ Resuelto |
 | [D. Imbalanced Arrays.cpp](CF%20R%20887%20(Div.%202)%2023-jul-23/D.%20Imbalanced%20Arrays.cpp) | CF R 887 (Div. 2) 23-jul-23 | Pendiente | ✔ Resuelto |
 | [C1. Dual (Easy Version).cpp](CF%20R%20889%20(Div.%202)%2029-jul-23/C1.%20Dual%20(Easy%20Version).cpp) | CF R 889 (Div. 2) 29-jul-23 | Pendiente | ✔ Resuelto |

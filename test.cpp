@@ -102,11 +102,9 @@ template<typename T> std::ostream& operator<<(std::ostream& os, const std::vecto
     return os;
 }
 
-template<typename T> std::ostream& operator<<(std::ostream& os, const std::set<T>& s) {
-    os << "{ ";
-    copy(s.begin(), s.end(), ostream_iterator<T>(os, " "));
-    os << "}";
-    return os;
+void Imprime_set(set<int> s) {
+    copy(s.begin(), s.end(), ostream_iterator<int>(cout, " "));
+    cout << endl;
 }
 
 int maximo_comun_divisor(int a, int b) {
@@ -139,95 +137,25 @@ void lee(int n, vi& vect) {
 #define INF INT_MAX
 double pi = 2*acos(0.0);
 
-template <typename T>
-class SegmentTree {
-    vector<T> st; int n;
-public:
-    SegmentTree(const vector<T>& data) {
-        n = (int)data.size();
-        st.assign(n * 4, T());
-        build(data, 1, 0, n - 1);
-    }
-    T convert(T x){ return x; }
-    T combine(const T& a, const T& b){ return T(a+b); }
-    void build(const vector<T>& data, int p, int l, int r){
-        if(l==r){ st[p]=convert(data[l]); return; }
-        int m=(l+r)>>1; build(data,p<<1,l,m); build(data,p<<1|1,m+1,r);
-        st[p]=combine(st[p<<1], st[p<<1|1]);
-    }
-    void update(int idx, T val, int p, int l, int r){
-        if(l==r){ st[p]=convert(val); return; }
-        int m=(l+r)>>1; if(idx<=m) update(idx,val,p<<1,l,m); 
-        else update(idx,val,p<<1|1,m+1,r);
-        st[p]=combine(st[p<<1], st[p<<1|1]);
-    }
-    void update(int idx, T val){ update(idx,val,1,0,n-1); }
-    T query(int ql, int qr, int p, int l, int r){
-        if(qr<l||r<ql) return T();
-        if(ql<=l&&r<=qr) return st[p];
-        int m=(l+r)>>1;
-        return combine(query(ql,qr,p<<1,l,m), query(ql,qr,p<<1|1,m+1,r));
-    }
-    T query(int ql, int qr){ return query(ql,qr,1,0,n-1); }
-};
-
 int solve() {
     // Code aquí
-    lli n; cin >> n;
-    vll a(n+1); for (int i = 1; i<=n; i++) cin >> a[i];
-    vi p(n); rep(i, n) cin >> p[i];
-    DBG_COUT(cout << "TEST: " << endl << a << endl << p << endl);
+    int n, k; cin >> n >> k;
+    vi a(n); for (auto &x: a) cin >> x;
 
-    vll sol(n, 0);
-    vll init(n+1, 0); SegmentTree<lli> st(init);
-    set<int> forfeats;
-    for (int i = n-1; i >= 0; i--){
-        DBG_COUT(cout << "Computing i = " << i << "..." << endl);
-        // Añade el elemento p[i]
-        st.update(p[i], a[p[i]]);
-        if (forfeats.empty() || *forfeats.begin() > p[i])
-            forfeats.insert(p[i]);
-        DBG_COUT(cout << "Added element: " << forfeats << endl);
-        DBG_COUT(cout << "Tree actual: { "; for (int i = 1; i<=n; i++) cout << st.query(i, i) << " "; cout << "}" << endl);
-        
-        // Busca el indice en forfeats menor que p[i] pero más grande posible
-        auto startMod = forfeats.lower_bound(p[i]); 
+    ord(a);
 
-        // Comprueba si hay un nuevo forfeat
-        if (startMod != forfeats.begin()){
-            startMod--;
-            if (st.query(*startMod, p[i]-1) < a[p[i]]) forfeats.insert(p[i]);
-        }
-        DBG_COUT(cout << "First element to inspect: " << *startMod << endl);
-        DBG_COUT(cout << "Forfeats updating left: " << forfeats << endl);
-
-        // Actualiza el resto
-        auto indexRight = forfeats.upper_bound(p[i]);  
-        auto indexLeft = indexRight; indexLeft--;
-        DBG_COUT(
-            cout << "Initial pair: " << *indexLeft << " "; 
-            if (indexRight != forfeats.end()) cout << *indexRight; 
-            else cout << "None"; 
-            cout << endl
-        );
-
-        vi valuesToErase;
-        for (; indexRight != forfeats.end(); indexRight++){
-            if (st.query(*indexLeft, (*indexRight)-1) < a[*indexRight]) break;
-            else valuesToErase.PB(*indexRight);
-        }
-        DBG_COUT(cout << "Elements not forfeats: " << valuesToErase << endl);
-        while(valuesToErase.size()){
-            forfeats.erase(valuesToErase.back());
-            valuesToErase.pop_back();
-        }
-        DBG_COUT(cout << forfeats << endl);
-        sol[i] = forfeats.size() - 1;
+    int sol = 0;
+    for (int i = k-1; i<n; i+=k){
+        if (a[i] <= i/k) sol++;
+        else break;
     }
-    DBG_COUT(cout << "Solucion: ");
-    for (auto x: sol) 
-        cout << x << " ";
-    cout << endl;
+
+    int maxSol = 0;
+    for (int i = 0; i<n; i++){
+        if (maxSol == a[i]) maxSol++;
+        if (maxSol < a[i]) break;
+    }
+    cout << min(sol, maxSol) << endl;
 
     return 0;
 }
@@ -241,7 +169,6 @@ signed main() {
     cin >> T; // Número de casos
     while (T--) {
         solve();
-        DBG_COUT(cout << "====================================" << endl);
     }
     auto finish = chrono::high_resolution_clock::now();
     DBG_COUT(
